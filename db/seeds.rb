@@ -5,3 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+fruits = ["apple", "orange", "melon", "banana", "pineapple"] #設備=[バストイレ別,家具付き]
+for num in 1..50 do
+  Character.create(name: fruits.sample, movie: movies.first)
+end
