@@ -1,0 +1,2 @@
+class FacilityProperty < ApplicationRecord
+end

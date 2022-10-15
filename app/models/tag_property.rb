@@ -1,0 +1,2 @@
+class TagProperty < ApplicationRecord
+end
