@@ -1,0 +1,46 @@
+<h2>新規登録</h2>
+
+<%#= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<%= form_with model: @user, url: user_registration_path do |f| %>
+  <%= render "user/shared/error_messages", resource: resource %>
+  <table>
+    <thead>
+      <th></th>
+      <th></th>
+      <th></th>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%=f.label :nickname,"ニックネーム"%></td>
+        <td colspan="2"><%=f.text_field :nickname%></td>
+      </tr>
+      <tr>
+        <td><%=f.label :age,"年齢"%></td>
+        <td colspan="2"><%= f.select :age, [['10代',1], ['20代',2], ['30代',3], ['40代',4], ['50代',5], ['60代',6], ['70代',7], ['80代',8]] %></td>
+      <tr>
+        <td><%=f.label :gender,"性別"%></td>
+        <td colspan="2"><%= f.radio_button :gender, "男" %>男</td>
+        <td colspan="2"><%= f.radio_button :gender, "女" %>女</td>
+      </tr>
+      <tr>
+        <td><%=f.label :email,"メールアドレス" %></td>
+        <td colspan="2"><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
+      </tr>
+      <tr>
+        <td><%= f.label :password, "パスワード(#{@minimum_password_length}文字以上)" %></td>
+        <td colspan="2"><%= f.password_field :password, autocomplete: "new-password" %></td>
+      </tr>
+      <tr>
+        <td><%= f.label :password_confirmation, "パスワード(確認用)" %></td>
+        <td colspan="2"><%= f.password_field :password_confirmation, autocomplete: "new-password" %></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td colspan="2"><%= f.submit "新規登録", class: "btn btn-success" %></td>
+      </tr>
+    </tbody>
+  </table>
+<%end%>
+
+
+  <%= render "user/shared/links" %>

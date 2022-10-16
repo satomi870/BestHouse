@@ -2,7 +2,7 @@ class CreateProperties < ActiveRecord::Migration[6.1]
   def change
     create_table :properties do |t|
 
-      t.integer :customer_id,        null: false
+      t.integer :user_id,            null: false
       t.integer :area_id,            null: false
       t.string :property_name,       null: false
       t.string :address,             null: false
