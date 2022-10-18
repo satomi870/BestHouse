@@ -1,0 +1,2 @@
+class RoomFacilityProperty < ApplicationRecord
+end

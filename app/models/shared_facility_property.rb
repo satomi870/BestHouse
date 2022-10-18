@@ -1,0 +1,2 @@
+class SharedFacilityProperty < ApplicationRecord
+end

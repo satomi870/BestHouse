@@ -1,2 +1,0 @@
-class SharedProperty < ApplicationRecord
-end

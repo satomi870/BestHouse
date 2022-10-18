@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_15_064622) do
+ActiveRecord::Schema.define(version: 2022_10_17_083620) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -44,13 +44,6 @@ ActiveRecord::Schema.define(version: 2022_10_15_064622) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "facility_properties", force: :cascade do |t|
-    t.integer "property_id", null: false
-    t.integer "shared_facility_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "favorites", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "property_name", null: false
@@ -74,7 +67,6 @@ ActiveRecord::Schema.define(version: 2022_10_15_064622) do
   end
 
   create_table "properties", force: :cascade do |t|
-    t.integer "user_id", null: false
     t.integer "area_id", null: false
     t.string "property_name", null: false
     t.string "address", null: false
@@ -84,8 +76,12 @@ ActiveRecord::Schema.define(version: 2022_10_15_064622) do
     t.string "vacancy", null: false
     t.string "introduction", null: false
     t.integer "common_service_fee", null: false
-    t.integer "deposit", null: false
     t.string "room_facility", null: false
+    t.string "living", null: false
+    t.string "kitchen", null: false
+    t.string "bath", null: false
+    t.string "toilet", null: false
+    t.string "others", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -114,10 +110,29 @@ ActiveRecord::Schema.define(version: 2022_10_15_064622) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "room_facilities", force: :cascade do |t|
+    t.string "content", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "room_facility_properties", force: :cascade do |t|
+    t.integer "property_id", null: false
+    t.integer "room_facility_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "shared_facilities", force: :cascade do |t|
     t.string "facility_name", null: false
     t.string "content", null: false
-    t.string "number", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "shared_facility_properties", force: :cascade do |t|
+    t.integer "property_id", null: false
+    t.integer "shared_facility_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -130,10 +145,8 @@ ActiveRecord::Schema.define(version: 2022_10_15_064622) do
   end
 
   create_table "tags", force: :cascade do |t|
-    t.string "basic", null: false
-    t.string "room", null: false
-    t.string "building", null: false
-    t.string "surrounding", null: false
+    t.string "name", null: false
+    t.string "genre", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
