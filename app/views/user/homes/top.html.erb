@@ -1,2 +1,8 @@
-<h1>User::Homes#top</h1>
-<p>Find me in app/views/user/homes/top.html.erb</p>
+<%@areas.each do |area|%>
+  <p><%=area.area_name%></p>
+<%end%>
+
+
+<%@tags.each do |tag|%>
+  <p><%=tag.name%></p>
+<%end%>

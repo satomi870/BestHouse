@@ -1,5 +1,16 @@
-<%=@property.introduction%>
+<h2><%=@property.property_name%></h2>
+<p><%=image_tag @property.image%></p>
+<%#=画像いっぱい載せる%>
+<p><%=@property.introduction%></p>
 
+<h3>物件概要</h3>
+<table>
+    <tr><th>賃料/共益費</th><td><%=@property.rent%>/<%=@property.common_service_fee%></td></tr>
+    <tr><th>住所</th><td><%=@property.address%></td></tr>
+    <tr><th>アクセス</th><td><%=@property.access%></td></tr>
+    <tr><th>入居条件</th><td><%=@property.condition%></td></tr>
+    <tr><th>空室</th></th><td><%=@property.vacancy%></td></tr>
+</table>
 
 
 <h3>共有設備</h3>
@@ -9,4 +20,9 @@
     <tr><th>バス</th><td><%=@property.bath%></td></tr>
     <tr><th>トイレ</th><td><%=@property.toilet%></td></tr>
     <tr><th>その他</th></th><td><%=@property.others%></td></tr>
+</table>
+
+<h3>部屋情報</h3>
+<table>
+    <tr><th>部屋設備</th><td><%=@property.room_facility%></td></tr>
 </table>
