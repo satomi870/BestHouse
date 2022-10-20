@@ -18,6 +18,7 @@ class CreateProperties < ActiveRecord::Migration[6.1]
       t.string :toilet,              null: false
       t.string :others,              null: false
 
+
       t.timestamps
     end
   end

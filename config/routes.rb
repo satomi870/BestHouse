@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+
+  namespace :user do
+    get 'tags/index'
+    get 'tags/show'
+  end
+  scope module: :user do
+    resources :properties,only:[:index, :show]
+  end
   namespace :admin do
     get 'homes/top'
     get 'homes/about'
