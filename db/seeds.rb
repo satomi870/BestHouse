@@ -43,47 +43,55 @@ property.image.attach(io: File.open(Rails.root.join('app/assets/images/house3.jp
                   #filename: 'logo.jpg')
 
 Tag.create!(
+    #category_id: 1,
     name: '女性',
-    genre: 'basic',
+    genre: 'basic'
 
   )
 
 Tag.create!(
+    #category_id: 1,
     name: '男女どちらともOK',
     genre: 'basic'
 
   )
 
 Tag.create!(
+    #category_id: 2,
     name: '防音',
     genre: 'room'
 
   )
 Tag.create!(
+    #category_id: 2,
     name: '六畳以上',
     genre: 'room'
 
   )
 
  Tag.create!(
+    #category_id: 3,
     name: '駐輪場あり',
     genre: 'building'
 
   )
 
   Tag.create!(
+    #category_id: 3,
     name: 'オートロック',
     genre: 'building'
 
   )
 
   Tag.create!(
+    #category_id: 4,
     name: '駅近(徒歩5分以内 )',
     genre: 'surrounding'
 
   )
 
    Tag.create!(
+    #category_id: 4,
     name: 'コンビニ・スーパー近い（徒歩5分以内）',
     genre: 'surrounding'
 

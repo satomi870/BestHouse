@@ -6,6 +6,9 @@ Rails.application.routes.draw do
     get 'tags/show'
   end
   scope module: :user do
+
+    get'properties/seach'=>  'properties#seach', as: 'seach'#違うURLで同じアクションに飛びたい時は二つかかず一つにルーティングをまとめる　idはどうするかというとtophtmlの方で分岐させる
+    #get'properties/seach/:tag_id'=>  'properties#seach', as: 'property_seach'
     resources :properties,only:[:index, :show]
   end
   namespace :admin do
@@ -15,6 +18,7 @@ Rails.application.routes.draw do
   scope module: :user do
     root to:'homes#top'
     get 'about'=>'homes#about'
+    #get'homes/seach/:id'=>  'homes#seach', as: 'home_seach'
   end
 
 
