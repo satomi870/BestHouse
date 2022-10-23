@@ -1,7 +1,28 @@
+<p>エリア</p>
 <%@areas.each do |area|%>
   <%=link_to area.area_name,seach_path(area_id: area.id)%> <%#左が名前(皆が見てわかりやすい名前)右が値%>
 <%end%>
 
-<%@tags.each do |tag|%>
-  <%=link_to tag.name,seach_path(tag_id: tag.id)%>
+<p>入居者の特徴</p>
+<%@basic_tags.each do |basic_tag|%>
+  <%=link_to basic_tag.name,seach_path(tag_id: basic_tag.id)%>
 <%end%>
+
+<p>部屋の特徴</p>
+<%@room_tags.each do |room_tag|%>
+  <%=link_to room_tag.name,seach_path(tag_id: room_tag.id)%>
+<%end%>
+
+<p>建物の特徴</p>
+<%@building_tags.each do |building_tag|%>
+  <%=link_to building_tag.name,seach_path(tag_id: building_tag.id)%>
+<%end%>
+
+<p>周辺環境の特徴</p>
+<%@surrounding_tags.each do |surrounding_tag|%>
+  <%=link_to surrounding_tag.name,seach_path(tag_id: surrounding_tag.id)%>
+<%end%>
+
+
+
+
