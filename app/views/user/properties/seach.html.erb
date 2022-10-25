@@ -10,5 +10,8 @@
     <tr><th>アクセス</th><td><%=property.access%></td></tr>
     <tr><th>入居条件</th><td><%=property.condition%></tds></tr>
     <tr><th>空室</th></th><td><%=property.vacancy%></td></tr>
+    <tr><th>特徴</th></th><td><%property.tags.each do |tag|%><%=tag.name%><%end%></td></tr>
   </table>
 <%end%>
+
+

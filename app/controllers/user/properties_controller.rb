@@ -2,6 +2,24 @@ class User::PropertiesController < ApplicationController
 
   def seach
 
+    tags = params[:tag]
+    areas = params[:area_name]
+
+  #byebug
+    if  tags != ["", "", "", ""] && areas != [""]
+      @properties =  Property.includes(:tag_properties).where(tag_properties: {tag_id: tags }).where(area_id: areas)
+    elsif tags != ["", "", "", ""] && areas == [""]
+      @properties =  Property.includes(:tag_properties).where(tag_properties: {tag_id: tags })
+    elsif tags == ["", "", "", ""] && areas != [""]
+      @properties =  Property.where(area_id: areas)
+    else
+      @properties =  Property.all
+    end
+
+      #Parent.includes(:children).where(children: {name: "taro"})
+      #Child.includes(:parent).where(:parents: {name: "takashi"})
+      #njnnjjjjjnn[;kl[Child.where(name: "taro")
+
     if params[:tag_id]
       @tag=Tag.find(params[:tag_id])
       @properties = @tag.properties
@@ -13,7 +31,7 @@ class User::PropertiesController < ApplicationController
   end
 
   def index
-    #@properties=Property.all
+    @properties=Property.all
   end
 
   def show

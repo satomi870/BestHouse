@@ -1,2 +1,0 @@
-class RoomFacilityProperty < ApplicationRecord
-end

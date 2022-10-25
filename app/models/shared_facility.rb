@@ -1,2 +1,0 @@
-class SharedFacility < ApplicationRecord
-end

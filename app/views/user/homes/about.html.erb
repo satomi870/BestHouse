@@ -1,1 +1,14 @@
-<h2>about</h2>
+<%= form_with  url: seach_path, method: :get do |f|%>
+  <h3>エリア</h3>
+  <%=f.collection_check_boxes :area_name, Area.all, :id, :area_name %>
+  <h3>入居者の特徴</h3>
+  <%=f.collection_check_boxes :tag, @basic_tags, :id, :name %>
+  <h3>部屋の特徴</h3>
+  <%=f.collection_check_boxes :tag, @room_tags, :id, :name %>
+  <h3>建物の特徴</h3>
+  <%=f.collection_check_boxes :tag, @building_tags, :id, :name %>
+  <h3>周辺環境の特徴</h3>
+  <%=f.collection_check_boxes :tag, @surrounding_tags, :id, :name %>
+  <%=f.submit 'この条件で検索'%>
+<%end%>
+
