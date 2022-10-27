@@ -2,6 +2,12 @@ Rails.application.routes.draw do
 
 
   namespace :user do
+    get 'reviews/new'
+    get 'reviews/index'
+    get 'reviews/show'
+    get 'reviews/edit'
+  end
+  namespace :user do
     get 'tags/index'
     get 'tags/show'
   end
@@ -10,6 +16,10 @@ Rails.application.routes.draw do
     get'properties/seach'=>  'properties#seach', as: 'seach'#違うURLで同じアクションに飛びたい時は二つかかず一つにルーティングをまとめる　idはどうするかというとtophtmlの方で分岐させる
     #get'properties/seach/:tag_id'=>  'properties#seach', as: 'property_seach'
     resources :properties,only:[:index, :show]
+    resources :properties do
+    get 'reviews/choose'=>'reviews#choose'
+    resources :reviews
+  end
   end
   namespace :admin do
     get 'homes/top'
