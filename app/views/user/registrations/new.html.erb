@@ -16,11 +16,11 @@
       </tr>
       <tr>
         <td><%=f.label :age,"年齢"%></td>
-        <td colspan="2"><%= f.select :age, [['10代',1], ['20代',2], ['30代',3], ['40代',4], ['50代',5], ['60代',6], ['70代',7], ['80代',8]] %></td>
+         <td colspan="2"><%= f.select :age, [['10代','teens'], ['20代','twenties'], ['30代', 'thirties'], ['40代','forties'], ['50代','fifties'], ['60代','sixties'], ['70代','seventies']]  %></td>
       <tr>
         <td><%=f.label :gender,"性別"%></td>
-        <td colspan="2"><%= f.radio_button :gender, "男" %>男</td>
-        <td colspan="2"><%= f.radio_button :gender, "女" %>女</td>
+        <td colspan="2"><%= f.radio_button :gender, "男性" %>男</td>
+        <td colspan="2"><%= f.radio_button :gender, "女性" %>女</td>
       </tr>
       <tr>
         <td><%=f.label :email,"メールアドレス" %></td>

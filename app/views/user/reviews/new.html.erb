@@ -1,10 +1,91 @@
 <!--review:--> <%#= @review.relation_detail %>
-<%= form_with model: @review,url:  property_reviews_path do |f| %>
+
+<%= form_with model: @review_relation, url: property_reviews_path do |f| %>
+  <h2>住民の雰囲気</h2>
+  <p><%=f.radio_button :atmosphere, Review.atmospheres.key(0)%>
+  <%=f.label :atmosphere, Review.atmospheres_i18n[:excellent] %></p>
+
+  <p><%=f.radio_button :atmosphere, Review.atmospheres.key(1)%>
+  <%=f.label :atmosphere,Review.atmospheres_i18n[:very_good] %></p>
+
+  <p><%=f.radio_button :atmosphere, Review.atmospheres.key(2)%>
+  <%=f.label :atmosphere,Review.atmospheres_i18n[:good] %></p>
+
+  <p><%=f.radio_button :atmosphere, Review.atmospheres.key(3)%>
+  <%=f.label :atmosphere,Review.atmospheres_i18n[:average] %></p>
+
+  <p><%=f.radio_button :atmosphere, Review.atmospheres.key(4)%>
+  <%=f.label :atmosphere,Review.atmospheres_i18n[:poor] %></p>
+
+  <h2>共有部の清潔さ</h2>
+  <p><%=f.radio_button :cleanliness_shared, Review.cleanliness_shareds.key(0)%>
+  <%=f.label :cleanliness_shared, Review.cleanliness_shareds_i18n[:excellent] %></p>
+
+  <p><%=f.radio_button :cleanliness_shared, Review.cleanliness_shareds.key(1)%>
+  <%=f.label :cleanliness_shared,Review.cleanliness_shareds_i18n[:very_good] %></p>
+
+  <p><%=f.radio_button :cleanliness_shared, Review.cleanliness_shareds.key(2)%>
+  <%=f.label :cleanliness_shared,Review.cleanliness_shareds_i18n[:good] %></p>
+
+  <p><%=f.radio_button :cleanliness_shared, Review.cleanliness_shareds.key(3)%>
+  <%=f.label :cleanliness_shared,Review.cleanliness_shareds_i18n[:average] %></p>
+
+  <p><%=f.radio_button :cleanliness_shared, Review.atmospheres.key(4)%>
+  <%=f.label :cleanliness_shared,Review.cleanliness_shareds_i18n[:poor] %></p>
+
+  <h2>共有部の混雑さ</h2>
+  <p><%=f.radio_button :congestion_shared, Review.congestion_shareds.key(0)%>
+  <%=f.label :congestion_shared, Review.congestion_shareds_i18n[:excellent] %></p>
+
+  <p><%=f.radio_button :congestion_shared, Review.congestion_shareds.key(1)%>
+  <%=f.label :congestion_shared,Review.congestion_shareds_i18n[:very_good] %></p>
+
+  <p><%=f.radio_button :congestion_shared, Review.congestion_shareds.key(2)%>
+  <%=f.label :congestion_shared,Review.congestion_shareds_i18n[:good] %></p>
+
+  <p><%=f.radio_button :congestion_shared, Review.congestion_shareds.key(3)%>
+  <%=f.label :congestion_shared,Review.congestion_shareds_i18n[:average] %></p>
+
+  <p><%=f.radio_button :congestion_shared, Review.congestion_shareds.key(4)%>
+  <%=f.label :congestion_shared,Review.congestion_shareds_i18n[:poor] %></p>
+
+  <h2>隣の部屋からの音漏れ</h2>
+  <p><%=f.radio_button :noise_shared, Review.noise_shareds.key(0)%>
+  <%=f.label :noise_shared, Review.noise_shareds_i18n[:excellent] %></p>
+
+  <p><%=f.radio_button :noise_shared, Review.noise_shareds.key(1)%>
+  <%=f.label :noise_shared,Review.noise_shareds_i18n[:very_good] %></p>
+
+  <p><%=f.radio_button :noise_shared, Review.noise_shareds.key(2)%>
+  <%=f.label :noise_shared,Review.noise_shareds_i18n[:good] %></p>
+
+  <p><%=f.radio_button :noise_shared, Review.noise_shareds.key(3)%>
+  <%=f.label :noise_shared,Review.noise_shareds_i18n[:average] %></p>
+
+  <p><%=f.radio_button :noise_shared, Review.noise_shareds.key(4)%>
+  <%=f.label :noise_shared,Review.noise_shareds_i18n[:poor] %></p>
+
+  <h2>共有部から部屋への音漏れ</h2>
+  <p><%=f.radio_button :noise_room, Review.noise_rooms.key(0)%>
+  <%=f.label :noise_room, Review.noise_rooms_i18n[:excellent] %></p>
+
+  <p><%=f.radio_button :noise_room, Review.noise_rooms.key(1)%>
+  <%=f.label :noise_room,Review.noise_rooms_i18n[:very_good] %></p>
+
+  <p><%=f.radio_button :noise_room, Review.noise_rooms.key(2)%>
+  <%=f.label :noise_room,Review.noise_rooms_i18n[:good] %></p>
+
+  <p><%=f.radio_button :noise_room, Review.noise_rooms.key(3)%>
+  <%=f.label :noise_room,Review.noise_rooms_i18n[:average] %></p>
+
+  <p><%=f.radio_button :noise_room, Review.noise_rooms.key(4)%>
+  <%=f.label :noise_room,Review.noise_rooms_i18n[:poor] %></p>
+
   <h3>タイトル</h3>
   <%= f.text_field :title %>
   <h3>本文</h3>
   <%= f.text_area :text %>
-  <%= f.hidden_field :relation,value: @review.relation %>
-  <%= f.hidden_field :relation_detail ,value: @review.relation_detail %>
+  <%= f.hidden_field :relation,value: @review_relation.relation %>
+  <%= f.hidden_field :relation_detail,value: @review_relation.relation_detail %>
   <%= f.submit"投稿する" %>
 <%end%>

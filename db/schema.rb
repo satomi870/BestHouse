@@ -134,10 +134,10 @@ ActiveRecord::Schema.define(version: 2022_10_27_105319) do
     t.integer "user_id", null: false
     t.integer "relation", null: false
     t.integer "atmosphere", null: false
-    t.integer "cleanliness", null: false
-    t.integer "congestion", null: false
-    t.integer "noise_rooms", null: false
+    t.integer "cleanliness_shared", null: false
+    t.integer "congestion_shared", null: false
     t.integer "noise_shared", null: false
+    t.integer "noise_room", null: false
     t.string "title", null: false
     t.string "text", null: false
     t.datetime "created_at", precision: 6, null: false
