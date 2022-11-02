@@ -16,9 +16,10 @@ Rails.application.routes.draw do
     get 'reviews/choose'=>'reviews#choose'
     resources :reviews
     resources :questions
-    resources :answers
-
   end
+
+    resources :questions do
+    resources :answers, only: [:create,:show]
   end
   namespace :admin do
     get 'homes/top'
@@ -41,4 +42,5 @@ Rails.application.routes.draw do
   sessions: "admin/sessions"
   }
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+end
 end

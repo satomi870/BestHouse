@@ -1,4 +1,4 @@
- ja:
+ja:
   enums:
     review:
       relation:
@@ -60,6 +60,27 @@
         oya: "大家さん"
         kankeisya: "不動産関係者"
         sonota: "その他"
-
+    answer:
+      relation:
+        resident: "住人"
+        former_resident: "元住人"
+        kentosya: "入居検討者"
+        yoteisya: "入居予定者"
+        syuhenjunin: "周辺住人"
+        chizin: "住人の知人"
+        oya: "大家さん"
+        kankeisya: "不動産関係者"
+        sonota: "その他"
+    answer_comments:
+      relation:
+        resident: "住人"
+        former_resident: "元住人"
+        kentosya: "入居検討者"
+        yoteisya: "入居予定者"
+        syuhenjunin: "周辺住人"
+        chizin: "住人の知人"
+        oya: "大家さん"
+        kankeisya: "不動産関係者"
+        sonota: "その他"
 
 
