@@ -2,8 +2,8 @@ class User::ReviewsController < ApplicationController
 
 
   def new
-    #byebug
-    @review_relation = Review.new(relation: params[:review][:relation]) 
+    #byebugf
+    @review_relation = Review.new(relation: params[:review][:relation]) #()ないは関係性ページの値を受け取るために設置
 
     # 簡易バリデーション(セレクトボックス用)
     if params[:review][:relation].blank? ||
@@ -50,7 +50,7 @@ class User::ReviewsController < ApplicationController
     #@reviews=@property.reviews
   end
 
-  def edits
+  def edit
   end
 
   private

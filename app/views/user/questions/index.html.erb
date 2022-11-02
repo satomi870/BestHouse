@@ -1,0 +1,10 @@
+<h2>質問一覧</h2>
+<%@questions.each do |question|%>
+  <p><%=question.title%></p>
+  <p><%=question.text%></p>
+  <%=question.user.nickname%>
+  <%=question.user.gender%>
+  <%=question.user.age%>代
+<%end%>
+
+<h3>この質問に回答する</h3>

@@ -1,16 +1,8 @@
  ja:
   enums:
     review:
-      age:
-        teens: "10代"
-        twenties: "20代"
-        thirties: "30代"
-        forties: "40代"
-        fifties: "50代"
-        sixties: "60代"
-        seventies: "70代"
       relation:
-        resident: "住民"
+        resident: "住人"
         former_resident: "元住人"
         others: "その他"
       relation_detail:
@@ -20,13 +12,13 @@
         nineteen: "2019年頃まで住んでいた"
         eighteen: "2018年頃まで住んでいた"
         before_that: "それ以前に住んでた"
-      　kentosya: "入居検討者"
-      　yoteisya: "入居予定者"
-      　syuhenjunin: "周辺住人"
-      　chizin: "住人の知人"
-      　oya: "大家さん"
-      　kankeisya: "不動産関係者"
-      　sonota: "その他"
+        kentosya: "入居検討者"
+        yoteisya: "入居予定者"
+        syuhenjunin: "周辺住人"
+        chizin: "住人の知人"
+        oya: "大家さん"
+        kankeisya: "不動産関係者"
+        sonota: "その他"
       atmosphere:
         excellent: "とてもいい"
         very_good: "いい"
@@ -57,4 +49,17 @@
         good: "少し気になる"
         average: "気になる"
         poor: "とても気になる"
+    question:
+      relation:
+        resident: "住人"
+        former_resident: "元住人"
+        kentosya: "入居検討者"
+        yoteisya: "入居予定者"
+        syuhenjunin: "周辺住人"
+        chizin: "住人の知人"
+        oya: "大家さん"
+        kankeisya: "不動産関係者"
+        sonota: "その他"
+
+
 

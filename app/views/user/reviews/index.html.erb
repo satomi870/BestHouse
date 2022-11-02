@@ -1,5 +1,5 @@
 
-<h2>レビュー</h2>
+<h2>口コミ一覧</h2>
 <%@reviews.each do |review|%>
   <p><%=review.title%></p>
   <p><%=review.text%></p>
@@ -10,7 +10,9 @@
   <h4>共有部から部屋への音漏れ⇨<%=review.noise_room_i18n%></h4>
   <%=review.user.nickname%>
   <%=review.user.gender%>
-  <%=review.user.age_i18n%>
-
-  <%#=review.relation%>
+  <%=review.user.age %>代
+  <%=review.relation_i18n%>
+  <%=review.relation_detail_i18n%>
 <%end%>
+
+

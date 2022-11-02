@@ -8,4 +8,6 @@ class Review < ApplicationRecord
    enum congestion_shared: { excellent: 0, very_good: 1, good: 2, average: 3, poor: 4 }, _prefix: true
    enum noise_shared: { excellent: 0, very_good: 1, good: 2, average: 3, poor: 4 }, _prefix: true
    enum noise_room: { excellent: 0, very_good: 1, good: 2, average: 3, poor: 4 }, _prefix: true
+   
+
 end

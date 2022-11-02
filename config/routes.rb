@@ -1,12 +1,8 @@
 Rails.application.routes.draw do
 
 
-  namespace :user do
-    get 'reviews/new'
-    get 'reviews/index'
-    get 'reviews/show'
-    get 'reviews/edit'
-  end
+
+
   namespace :user do
     get 'tags/index'
     get 'tags/show'
@@ -19,6 +15,9 @@ Rails.application.routes.draw do
     resources :properties do
     get 'reviews/choose'=>'reviews#choose'
     resources :reviews
+    resources :questions
+    resources :answers
+
   end
   end
   namespace :admin do
