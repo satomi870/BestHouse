@@ -1,2 +1,22 @@
-<h1>User::Answers#index</h1>
-<p>Find me in app/views/user/answers/index.html.erb</p>
+<h2>質問一覧</h2>
+
+
+<% @questions.each do |question| %>
+<p>--------------------------------------------------------------------------------------------------------------------------</p>
+  <p><%=question.title%></p>
+  <p><%=question.text%></p>
+  <%=question.user.nickname%>
+  <%=question.user.gender%>
+  <%=question.user.age%>代
+  <h3>回答</h3>
+  <% question.answers.each do |answer| %>
+    <p><%= answer.text %></p>
+    <p><%#= answer.relation_i18n %></p>
+  <%end%>
+  <h3>この質問に回答する</h3>
+  <%= form_with model: [@answer], url: question_answers_path(question.id) do |f|  %> <!--[@question, @answer]にしちゃうとコントローラで@question = Question.find(params[:id])を書かないといけなくなり%=link_to '質問に答える', property_questions_path(@property.id)%>ここでquestion.idを送らないとダメになるからそうやって書かない
+    <%= f.text_field :text %>
+    <%= f.select :relation, [['住人','resident'],['元住人','former_resident'],['入居検討者','kentosya'], ['入居予定者','yoteisya'], ['周辺住人','syuhenjunin'], ['住人の知人','chizin'], ['大家さん','oya'], ['不動産関係者','kankeisya'], ['その他','sonota']],{prompt: '選択してください'} %>
+    <%= f.submit "回答を投稿する" %>
+  <%end%>
+<%end%>

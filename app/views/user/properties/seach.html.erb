@@ -13,6 +13,8 @@
     <tr><th>特徴</th></th><td><%property.tags.each do |tag|%><%=tag.name%><%end%></td></tr>
     <tr><th></th><td><%=link_to "詳細を見る",property_path(property.id)%></td></tr>
   </table>
+  <%#if user_signed_in? %>
+    <%#if current_user.favorite_find(post.id) %>
 <%end%>
 
 

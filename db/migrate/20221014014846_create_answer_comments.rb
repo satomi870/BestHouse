@@ -4,7 +4,7 @@ class CreateAnswerComments < ActiveRecord::Migration[6.1]
 
       t.integer :user_id,    null: false
       t.integer :answer_id,  null: false
-      t.string :comment,     null: false
+      t.string :body,     null: false
 
       t.timestamps
     end

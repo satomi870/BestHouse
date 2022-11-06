@@ -14,7 +14,8 @@ class User::QuestionsController < ApplicationController
   def index
     @property = Property.find(params[:property_id]) #@property=(params[:property_id])だとただidを受け取ってるだけ
     @questions = @property.questions
-    @answer = Answer.new
+    @comment = Comment.new
+    #@comment_comment = CommentComment.new
     #@question = Question.find(params[:id])
 
   end
@@ -28,6 +29,6 @@ class User::QuestionsController < ApplicationController
    private
 
   def question_params
-    params.require(:question).permit(:title, :text, :relation)
+    params.require(:question).permit(:title, :body, :relation)
   end
 end

@@ -6,6 +6,7 @@ class Property < ApplicationRecord
   belongs_to :area
   has_many :reviews, dependent: :destroy
   has_many :questions, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 
 
 

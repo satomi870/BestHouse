@@ -3,12 +3,10 @@ Rails.application.routes.draw do
 
 
 
-  namespace :user do
-    get 'tags/index'
-    get 'tags/show'
-  end
-  scope module: :user do
 
+  scope module: :user do
+    root to:'homes#top'
+    get 'about'=>'homes#about'
     get'properties/seach'=>  'properties#seach', as: 'seach'#違うURLで同じアクションに飛びたい時は二つかかず一つにルーティングをまとめる　idはどうするかというとtophtmlの方で分岐させる
     #get'properties/seach/:tag_id'=>  'properties#seach', as: 'property_seach'
     resources :properties,only:[:index, :show]
@@ -19,15 +17,19 @@ Rails.application.routes.draw do
   end
 
     resources :questions do
-    resources :answers, only: [:create,:show]
+    post '/comments/:comment_id' => 'comments#reply', as: 'reply'
+    resources :comments, only: [:create]
   end
+
+
   namespace :admin do
     get 'homes/top'
     get 'homes/about'
   end
+
   scope module: :user do
-    root to:'homes#top'
-    get 'about'=>'homes#about'
+    #root to:'homes#top'
+     #get 'about'=>'homes#about'
     #get'homes/seach/:id'=>  'homes#seach', as: 'home_seach'
   end
 

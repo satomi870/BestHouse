@@ -5,7 +5,7 @@ class User::AnswersController < ApplicationController
     @answer.user_id = current_user.id
     @answer.question_id = params[:question_id]
     @answer.save
-    question = Question.find(params[:question_id]) 
+    question = Question.find(params[:question_id])
     redirect_to property_questions_path(question.property_id)
   end
 
@@ -21,6 +21,6 @@ class User::AnswersController < ApplicationController
   private
 
   def answer_params
-      params.require(:answer).permit(:text,:relation)
+      params.require(:answer).permit(:body,:relation)
   end
 end

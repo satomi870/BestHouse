@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_02_081220) do
+ActiveRecord::Schema.define(version: 2022_11_04_041529) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 2022_11_02_081220) do
   create_table "answer_comments", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "answer_id", null: false
-    t.string "comment", null: false
+    t.string "body", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "relation"
@@ -64,7 +64,7 @@ ActiveRecord::Schema.define(version: 2022_11_02_081220) do
   create_table "answers", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "question_id", null: false
-    t.string "text", null: false
+    t.string "body", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "relation"
@@ -82,8 +82,28 @@ ActiveRecord::Schema.define(version: 2022_11_02_081220) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "comment_comments", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "comment_id", null: false
+    t.string "body", null: false
+    t.string "relation", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "question_id", null: false
+    t.integer "target_user_id", null: false
+    t.string "body", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "relation"
+  end
+
   create_table "favorites", force: :cascade do |t|
     t.integer "user_id", null: false
+    t.integer "property_id", null: false
     t.integer "property_name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -128,7 +148,7 @@ ActiveRecord::Schema.define(version: 2022_11_02_081220) do
     t.integer "user_id", null: false
     t.integer "property_id", null: false
     t.string "title", null: false
-    t.string "text", null: false
+    t.string "body", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "relation"
