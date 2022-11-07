@@ -1,0 +1,18 @@
+<h2>お気に入り物件</h2>
+<%@favorites.each do |favorite|%>
+    <%= favorite.property.property_name%>
+     <%=favorite.property.access%>
+  <%=image_tag favorite.property.image%>
+  <table>
+    <tr><th>賃料</th><td><%=favorite.property.rent%></td></tr>
+    <tr><th>住所</th><td><%=favorite.property.address%></td></tr>
+    <tr><th>アクセス</th><td><%=favorite.property.access%></td></tr>
+    <tr><th>入居条件</th><td><%=favorite.property.condition%></tds></tr>
+    <tr><th>空室</th></th><td><%=favorite.property.vacancy%></td></tr>
+    <tr><th>特徴</th></th><td><% favorite.property.tags.each do |tag|%><%=tag.name%><%end%></td></tr>
+    <tr><th></th><td><%=link_to "詳細を見る",property_path(favorite.property.id)%></td></tr>
+    <%= link_to property_favorites_path(favorite.property.id), method: :delete do %>
+        お気に入りから消す
+    <% end %>
+  </table>
+<%end%>

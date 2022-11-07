@@ -7,20 +7,23 @@ Rails.application.routes.draw do
   scope module: :user do
     root to:'homes#top'
     get 'about'=>'homes#about'
+    get 'user/favorite' => 'users#favorite', as: 'favorite'
     get'properties/seach'=>  'properties#seach', as: 'seach'#違うURLで同じアクションに飛びたい時は二つかかず一つにルーティングをまとめる　idはどうするかというとtophtmlの方で分岐させる
     #get'properties/seach/:tag_id'=>  'properties#seach', as: 'property_seach'
     resources :properties,only:[:index, :show]
     resources :properties do
-    get 'reviews/choose'=>'reviews#choose'
+      get 'reviews/choose'=>'reviews#choose'
+      resource :favorites, only: [:create, :destroy]
     resources :reviews
     resources :questions
   end
 
     resources :questions do
-    post '/comments/:comment_id' => 'comments#reply', as: 'reply'
     resources :comments, only: [:create]
   end
-
+    resources :comments do
+    resources :comment_comments
+  end
 
   namespace :admin do
     get 'homes/top'
