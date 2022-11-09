@@ -1,4 +1,5 @@
-<%@reviwes.each do |review|%>
+<%@reviews.each do |review|%>
+  <p><%=review.property.property_name%></p>
   <p><%=review.title%></p>
   <p><%=review.text%></p>
   <h4>住民の雰囲気⇨<%=review.atmosphere_i18n%></h4>
@@ -6,6 +7,11 @@
   <h4>共有部の混雑さ⇨<%=review.congestion_shared_i18n%></h4>
   <h4>隣の部屋からの音漏れ⇨<%=review.noise_shared_i18n%></h4>
   <h4>共有部から部屋への音漏れ⇨<%=review.noise_room_i18n%></h4>
-<%end%>
 
+  <%=review.user.nickname%>
+  <%=review.user.gender%>
+  <%=review.user.age %>代
+  <%=review.relation_i18n%>
+  <%=review.relation_detail_i18n%>
+<%end%>
 

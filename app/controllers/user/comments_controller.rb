@@ -34,7 +34,7 @@ class User::CommentsController < ApplicationController
   private
 
   def comment_params
-      params.require(:comment).permit(:body,:relation,:target_user_id,:comment_id)
+      params.require(:comment).permit(:body,:relation,:target_comment_id,:comment_id)
   end
 
 end

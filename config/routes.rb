@@ -7,6 +7,10 @@ Rails.application.routes.draw do
   scope module: :user do
     root to:'homes#top'
     get 'about'=>'homes#about'
+    resource :user
+    get 'user/review' => 'users#review', as: 'review'
+    get 'user/question' => 'users#question', as: 'question'
+    get 'user/comment' => 'users#comment', as: 'comment'
     get 'user/favorite' => 'users#favorite', as: 'favorite'
     get'properties/seach'=>  'properties#seach', as: 'seach'#違うURLで同じアクションに飛びたい時は二つかかず一つにルーティングをまとめる　idはどうするかというとtophtmlの方で分岐させる
     #get'properties/seach/:tag_id'=>  'properties#seach', as: 'property_seach'
@@ -19,6 +23,8 @@ Rails.application.routes.draw do
   end
 
     resources :questions do
+    resources :answers, only: [:create,:show]
+    post '/comments/:comment_id' => 'comments#reply', as: 'reply'
     resources :comments, only: [:create]
   end
     resources :comments do
