@@ -1,24 +1,38 @@
 class User::CommentCommentsController < ApplicationController
-  def new
-    @comment_comment = CommentComment.new
-    @comment_id = params[:comment_id]
-  end
-
   def create
-     @comment_comment = Comment.new(comment_comment_params)
-     @comment_comment.user_id = current_user.id
-     @comment_comment.comment_id = params[:comment_id]
-     
-     @comment_comment.save
-     comment = Comment.find(params[:comment_id])
-    redirect_to property_questions_path(comment.question.property_id)
-  end
-  
+    @comment_comment = CommentComment.new(comment_comment_params)
+    @comment_comment.user_id = current_user .id
+    @comment_comment.comment_id = params[:comment_id]
+    #@comment.id = params[:comment_id]
+    #@comment.target_user_id = params[:target_user_id]
+    @comment_comment.save!
+    comment = Comment.find(params[:comment_id])
+    question = Question.find(comment.question_id)
 
+    @notification = Notification.new
+    @notification.action = "reply_on_comment"#コメントに対してのコメント
+    @notification.original_comment_id = params[:comment_id]
+    #@notification.comment_id = @comment_comment.id
+    @notification.sender_id = @comment_comment.user_id
+    @notification.receiver_id = comment.user_id
+    @notification.save
+
+    @notification_question= Notification.new
+    @notification_question.action = "reply_on_comment"#コメントに対してのコメント
+    @notification_question.original_comment_id = params[:comment_id]
+    #@notification.comment_id = @comment_comment.id
+    @notification_question.sender_id = @comment_comment.user_id
+    @notification_question.receiver_id = question.user_id
+    @notification_question.save
+
+
+    redirect_to property_questions_path(question.property_id)
+
+  end
   private
 
   def comment_comment_params
-      params.require(:comment_comment).permit(:body,:relation)
+      params.require(:comment_comment).permit(:body,:relation,:comment_id)
   end
 end
 

@@ -15,7 +15,7 @@ class User::QuestionsController < ApplicationController
     @property = Property.find(params[:property_id]) #@property=(params[:property_id])だとただidを受け取ってるだけ
     @questions = @property.questions
     @comment = Comment.new
-    #@comment_comment = CommentComment.new
+    @comment_comment = CommentComment.new
     #@question = Question.find(params[:id])
 
   end

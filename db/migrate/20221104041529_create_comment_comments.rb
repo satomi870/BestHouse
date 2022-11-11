@@ -5,7 +5,7 @@ class CreateCommentComments < ActiveRecord::Migration[6.1]
       t.integer :user_id,     null: false
       t.integer :comment_id,  null: false
       t.string :body,         null: false
-      t.string :relation,     null: false
+      t.integer :relation,     null: false
 
 
       t.timestamps

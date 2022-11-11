@@ -1,0 +1,8 @@
+<% if notification.action == 'comment_on_question' %>
+  <p><%= "#{notification.sender.nickname}さん"%>が、あなたの質問に<%= link_to "コメント",property_questions_path(notification.comment.question.property_id) %>しました<%"（#{notification.created_at}）"%></p>
+<%elsif notification.action == 'reply_on_comment'%>
+  <p><%= "#{notification.sender.nickname}さん" %>が、あなたのコメントに<%= link_to "コメント",property_questions_path(notification.original_comment.question.property_id) %>しました<%"（#{notification.created_at}）"%></p>
+<%end%>
+
+<%#= link_to "#{notification.sender.nickname}さん",user_path(notification.sender_id) %><!--が、あなたの質問に>
+
