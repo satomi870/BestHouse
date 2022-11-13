@@ -151,6 +151,8 @@ ActiveRecord::Schema.define(version: 2022_11_09_074510) do
     t.string "bath", null: false
     t.string "toilet", null: false
     t.string "others", null: false
+    t.string "latitude", null: false
+    t.string "altitude", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

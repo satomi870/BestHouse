@@ -18,6 +18,8 @@ class User::HomesController < ApplicationController
     surrounding = Category.find_by(category: "surrounding")
     @surrounding_tags=surrounding.tags
 
+    atmosphere = Category.find_by(category: "atmosphere")
+    @atmosphere_tags=atmosphere.tags
 
 
     #@archive = params[:tag_id].present? ? Tag.find(params[:tag_id]).archives.page(params[:page]).per(15) : Archive.all.page(params[:page]).per(15)
@@ -41,5 +43,8 @@ class User::HomesController < ApplicationController
 
     surrounding = Category.find_by(category: "surrounding")
     @surrounding_tags=surrounding.tags
+
+    atmosphere = Category.find_by(category: "atmosphere")
+    @atmosphere_tags=atmosphere.tags
   end
 end

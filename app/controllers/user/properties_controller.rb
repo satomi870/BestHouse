@@ -64,6 +64,10 @@ class User::PropertiesController < ApplicationController
 
   end
 
+  def map
+    @property=Property.find(params[:property_id])
+  end
+
   def index
     @properties=Property.all
   end

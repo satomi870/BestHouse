@@ -24,6 +24,11 @@
   <%=link_to surrounding_tag.name,seach_path(tag_id: surrounding_tag.id)%>
 <%end%>
 
+<p>周辺環境の特徴</p>
+<%@atmosphere_tags.each do |atmosphere_tag|%>
+  <%=link_to atmosphere_tag.name,seach_path(tag_id: atmosphere_tag.id)%>
+<%end%>
+
 <h3><%=link_to "詳しく探す",about_path%></h3>
 
 

@@ -13,7 +13,9 @@ class User::CommentsController < ApplicationController
     @notification.comment_id = @comment.id
     @notification.sender_id = @comment.user_id
     @notification.receiver_id = question.user_id
-    @notification.save
+     @notification.save                     
+  
+    
 
     redirect_to property_questions_path(question.property_id)
   end

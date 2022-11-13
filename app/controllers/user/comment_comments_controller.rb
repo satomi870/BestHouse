@@ -11,19 +11,11 @@ class User::CommentCommentsController < ApplicationController
 
     @notification = Notification.new
     @notification.action = "reply_on_comment"#コメントに対してのコメント
-    @notification.original_comment_id = params[:comment_id]
+    @notification.comment_id = params[:comment_id]
     #@notification.comment_id = @comment_comment.id
     @notification.sender_id = @comment_comment.user_id
     @notification.receiver_id = comment.user_id
     @notification.save
-
-    @notification_question= Notification.new
-    @notification_question.action = "reply_on_comment"#コメントに対してのコメント
-    @notification_question.original_comment_id = params[:comment_id]
-    #@notification.comment_id = @comment_comment.id
-    @notification_question.sender_id = @comment_comment.user_id
-    @notification_question.receiver_id = question.user_id
-    @notification_question.save
 
 
     redirect_to property_questions_path(question.property_id)

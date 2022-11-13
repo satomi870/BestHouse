@@ -1,10 +1,15 @@
 <h3>通知</h3>
-<%= link_to "通知削除", notification_path(@notifications), method: :delete  %>
-<% if @notifications.present? %>
-   <% @notifications.each do |notification| %>
-     <%= render partial: 'notification', locals: {notification: notification} %>
-<% end %>
-<% else %>
+
+
+<% if current_user.passive_notifications.present? %>
+    <% current_user.passive_notifications.each do |notification| %>
+        <%= link_to "通知削除", notification_path(notification), method: :delete  %>
+            <% if notification.action == 'comment_on_question' %>
+                <p><%= "#{notification.sender.nickname}さん"%>が、あなたの質問に<%= link_to "コメント",property_questions_path(notification.comment.question.property_id) %>しました<%="（#{notification.created_at}）"%></p>
+                <p><%= "#{notification.sender.nickname}さん" %>が、あなたのコメントに<%= link_to "コメント",property_questions_path(notification.comment.question.property_id) %>しました<%="（#{notification.created_at}）"%></p>
+            <%end%>
+        <% end %>
+    <% else %>
     <p>通知はありません</p>
 <% end %>
 

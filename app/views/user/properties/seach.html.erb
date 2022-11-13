@@ -12,6 +12,7 @@
     <tr><th>空室</th></th><td><%=property.vacancy%></td></tr>
     <tr><th>特徴</th></th><td><%property.tags.each do |tag|%><%=tag.name%><%end%></td></tr>
     <tr><th></th><td><%=link_to "詳細を見る",property_path(property.id)%></td></tr>
+    <tr><th></th><td><%=link_to "地図を見る",map_path(property.id)%></td></tr>
   </table>
     <%#binding.pry%>
     <% if property.favorited_by?(current_user) %>

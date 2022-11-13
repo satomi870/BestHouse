@@ -1,0 +1,25 @@
+
+<p>物件A</p>
+
+<div id="map" style="width:1440; height:730px" data-latitude="<%=@property.latitude%>" data-altitude="<%=@property.altitude%>"></div>
+
+ <script type="text/javascript">
+    function initMap() {
+      const mapview = document.getElementById("map");
+      const latitude = mapview.dataset.latitude;
+      const altitude = mapview.dataset.altitude;
+      const latlng = new google.maps.LatLng(latitude, altitude);
+      const opts = {
+        zoom: 15,
+        center: latlng
+      };
+      const map = new google.maps.Map(mapview, opts);
+      const marker = new google.maps.Marker({
+        position: latlng,
+        map: map
+      });
+    }
+    </script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSje2iZhouVVeWgLbiSFoOH_f1SGCo6ec&callback=initMap">
+</script>

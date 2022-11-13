@@ -9,6 +9,8 @@
   <%=f.collection_check_boxes :tag, @building_tags, :id, :name %>
   <h3>周辺環境の特徴</h3>
   <%=f.collection_check_boxes :tag, @surrounding_tags, :id, :name %>
-  <%=f.submit 'この条件で検索'%>
+  <h3>雰囲気の特徴</h3>
+  <%=f.collection_check_boxes :tag, @atmosphere_tags, :id, :name %>
+  <h3><%=f.submit 'この条件で検索'%></h3>
 <%end%>
 
