@@ -1,5 +1,6 @@
 <h2><%=@property.property_name%></h2>
 <p><%=image_tag @property.image%></p>
+<%=link_to "地図を見る",map_path(@property.id)%>
 <%#=画像いっぱい載せる%>
 <p><%=@property.introduction%></p>
 

@@ -11,21 +11,30 @@
     <tr><th>入居条件</th><td><%=property.condition%></tds></tr>
     <tr><th>空室</th></th><td><%=property.vacancy%></td></tr>
     <tr><th>特徴</th></th><td><%property.tags.each do |tag|%><%=tag.name%><%end%></td></tr>
-    <tr><th></th><td><%=link_to "詳細を見る",property_path(property.id)%></td></tr>
-    <tr><th></th><td><%=link_to "地図を見る",map_path(property.id)%></td></tr>
+   <%if user_signed_in? %>
+     <%=link_to "詳細を見る",property_path(property.id)%>
+   <%else%>
+     <%= link_to new_user_registration_path do %>
+     詳細を見る
+     <%end%>
+  <%end%>
+
   </table>
     <%#binding.pry%>
+  <%if user_signed_in? %>
     <% if property.favorited_by?(current_user) %>
-      <%= link_to property_favorites_path(property.id, 1), method: :delete do %>
-
-        ♥<%= property.favorites.count %> お気に入り
-      <% end %>
+        <%= link_to property_favorites_path(property.id, 1), method: :delete do %>
+          ♥<%= property.favorites.count %> お気に入り
+        <% end %>
     <% else %>
-      <%= link_to property_favorites_path(property.id), method: :post do %>
-        ♡<%= property.favorites.count %> お気に入り
-      <% end %>
-  <% end %>
+          <%= link_to property_favorites_path(property.id), method: :post do %>
+          ♡<%= property.favorites.count %> お気に入り
+        <% end %>
+    <% end %>
+  <%else%>
+     <%= link_to new_user_registration_path do %>
+     ♡<%= property.favorites.count %> お気に入り
+     <%end%>
+  <%end%>
 <%end%>
-
-
 

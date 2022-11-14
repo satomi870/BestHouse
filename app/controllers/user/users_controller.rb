@@ -38,7 +38,19 @@ class User::UsersController < ApplicationController
   #   redirect_to favorite_path
 
   # end
+
+  def quit
+
+  end
+
+  def out
+      user=current_user
+      user.update(is_deleted: true)
+      reset_session
+      redirect_to root_path
+  end
+
   def user_params
-    params.require(:user).permit(:nickname,:age,:gender,:image)
+    params.require(:user).permit(:nickname,:age,:gender,:image,:email)
   end
 end

@@ -1,6 +1,7 @@
 class User::PropertiesController < ApplicationController
 
   def seach
+
   #   if params[:format].present?
   #     @formats = params[:format].split("/")
   #   end
@@ -45,6 +46,7 @@ class User::PropertiesController < ApplicationController
      #@property=Property.find(params[:id])
 
     # 配列の中の空要素を取り除く
+
     @areas = params[:area_name].reject(&:empty?)
     @tags = params[:tag].reject(&:empty?)
 
@@ -62,6 +64,7 @@ class User::PropertiesController < ApplicationController
       @properties = Property.all
     end
 
+
   end
 
   def map
@@ -75,5 +78,7 @@ class User::PropertiesController < ApplicationController
   def show
     @property=Property.find(params[:id])
   end
+
+
 end
 #違うURLで同じアクションに飛びたい時は一つにルーティングをまとめ
