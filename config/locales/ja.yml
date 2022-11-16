@@ -19,36 +19,6 @@ ja:
         oya: "大家さん"
         kankeisya: "不動産関係者"
         sonota: "その他"
-      atmosphere:
-        excellent: "とてもいい"
-        very_good: "いい"
-        good: "普通"
-        average: "あまり良くない"
-        poor: "良くない"
-      cleanliness_shared:
-        excellent: "とてもいい"
-        very_good: "いい"
-        good: "普通"
-        average: "あまり良くない"
-        poor: "良くない"
-      congestion_shared:
-        excellent: "気にならない"
-        very_good: "ほとんど気にならない"
-        good: "少し気になる"
-        average: "気になる"
-        poor: "とても気になる"
-      noise_shared:
-        excellent: "気にならない"
-        very_good: "ほとんど気にならない"
-        good: "少し気になる"
-        average: "気になる"
-        poor: "とても気になる"
-      noise_room:
-        excellent: "気にならない"
-        very_good: "ほとんど気にならない"
-        good: "少し気になる"
-        average: "気になる"
-        poor: "とても気になる"
     question:
       relation:
         resident: "住人"

@@ -22,6 +22,7 @@ class User::ReviewsController < ApplicationController
 
   def create
     #byebug
+
      @review = Review.new(review_params)
      @review.user_id = current_user.id
      @review.property_id = params[:property_id]
@@ -56,6 +57,6 @@ class User::ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:title, :text, :relation, :relation_detail, :atmosphere, :cleanliness_shared, :congestion_shared, :noise_shared, :noise_room)
+    params.require(:review).permit(:title, :text, :relation, :relation_detail, :atmosphere, :cleanliness_shared, :congestion_shared, :noise_shared, :noise_room, :net_speed, :shower, :event)
   end
 end

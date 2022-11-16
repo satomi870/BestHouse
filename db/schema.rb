@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_09_074510) do
+ActiveRecord::Schema.define(version: 2022_11_16_092214) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -181,6 +181,9 @@ ActiveRecord::Schema.define(version: 2022_11_09_074510) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "relation_detail"
+    t.integer "net_speed"
+    t.integer "shower"
+    t.integer "event"
   end
 
   create_table "tag_properties", force: :cascade do |t|
@@ -206,7 +209,7 @@ ActiveRecord::Schema.define(version: 2022_11_09_074510) do
     t.string "nickname"
     t.string "gender"
     t.integer "age"
-    t.boolean "is_active", default: false
+    t.boolean "is_deleted", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_users_on_email", unique: true

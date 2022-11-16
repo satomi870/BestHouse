@@ -2,84 +2,76 @@
 
 <%= form_with model: @review_relation, url: property_reviews_path do |f| %>
   <h2>住民の雰囲気</h2>
-  <%=f.radio_button :atmosphere, Review.atmospheres.key(0)%>
-  <%=f.label :atmosphere, Review.atmospheres_i18n[:excellent] %>
-
-  <%=f.radio_button :atmosphere, Review.atmospheres.key(1)%>
-  <%=f.label :atmosphere,Review.atmospheres_i18n[:very_good] %>
-
-  <%=f.radio_button :atmosphere, Review.atmospheres.key(2)%>
-  <%=f.label :atmosphere,Review.atmospheres_i18n[:good] %>
-
-  <%=f.radio_button :atmosphere, Review.atmospheres.key(3)%>
-  <%=f.label :atmosphere,Review.atmospheres_i18n[:average] %>
-
-  <%=f.radio_button :atmosphere, Review.atmospheres.key(4)%>
-  <%=f.label :atmosphere,Review.atmospheres_i18n[:poor] %>
+  良い
+  <%= f.radio_button :atmosphere, '0' %>
+  <%= f.radio_button :atmosphere, '1' %>
+  <%= f.radio_button :atmosphere, '2' %>
+  <%= f.radio_button :atmosphere, '3' %>
+  <%= f.radio_button :atmosphere, '4' %>
+  良くない
 
   <h2>共有部の清潔さ</h2>
-  <%=f.radio_button :cleanliness_shared, Review.cleanliness_shareds.key(0)%>
-  <%=f.label :cleanliness_shared, Review.cleanliness_shareds_i18n[:excellent] %>
+  清潔
+  <%= f.radio_button :cleanliness_shared,'0' %>
+  <%= f.radio_button :cleanliness_shared,'1' %>
+  <%= f.radio_button :cleanliness_shared,'2' %>
+  <%= f.radio_button :cleanliness_shared,'3' %>
+  <%= f.radio_button :cleanliness_shared,'4' %>
+  不衛生
 
-  <%=f.radio_button :cleanliness_shared, Review.cleanliness_shareds.key(1)%>
-  <%=f.label :cleanliness_shared,Review.cleanliness_shareds_i18n[:very_good] %>
-
-  <%=f.radio_button :cleanliness_shared, Review.cleanliness_shareds.key(2)%>
-  <%=f.label :cleanliness_shared,Review.cleanliness_shareds_i18n[:good] %>
-
-  <%=f.radio_button :cleanliness_shared, Review.cleanliness_shareds.key(3)%>
-  <%=f.label :cleanliness_shared,Review.cleanliness_shareds_i18n[:average] %>
-
-  <%=f.radio_button :cleanliness_shared, Review.atmospheres.key(4)%>
-  <%=f.label :cleanliness_shared,Review.cleanliness_shareds_i18n[:poor] %>
-
-  <h2>共有部の混雑さ</h2>
-  <%=f.radio_button :congestion_shared, Review.congestion_shareds.key(0)%>
-  <%=f.label :congestion_shared, Review.congestion_shareds_i18n[:excellent] %>
-
-  <%=f.radio_button :congestion_shared, Review.congestion_shareds.key(1)%>
-  <%=f.label :congestion_shared,Review.congestion_shareds_i18n[:very_good] %>
-
-  <%=f.radio_button :congestion_shared, Review.congestion_shareds.key(2)%>
-  <%=f.label :congestion_shared,Review.congestion_shareds_i18n[:good] %>
-
-  <%=f.radio_button :congestion_shared, Review.congestion_shareds.key(3)%>
-  <%=f.label :congestion_shared,Review.congestion_shareds_i18n[:average] %>
-
-  <%=f.radio_button :congestion_shared, Review.congestion_shareds.key(4)%>
-  <%=f.label :congestion_shared,Review.congestion_shareds_i18n[:poor] %>
-
-  <h2>隣の部屋からの音漏れ</h2>
-  <%=f.radio_button :noise_shared, Review.noise_shareds.key(0)%>
-  <%=f.label :noise_shared, Review.noise_shareds_i18n[:excellent] %>
-
-  <%=f.radio_button :noise_shared, Review.noise_shareds.key(1)%>
-  <%=f.label :noise_shared,Review.noise_shareds_i18n[:very_good] %>
-
-  <%=f.radio_button :noise_shared, Review.noise_shareds.key(2)%>
-  <%=f.label :noise_shared,Review.noise_shareds_i18n[:good] %>
-
-  <%=f.radio_button :noise_shared, Review.noise_shareds.key(3)%>
-  <%=f.label :noise_shared,Review.noise_shareds_i18n[:average] %>
-
-  <%=f.radio_button :noise_shared, Review.noise_shareds.key(4)%>
-  <%=f.label :noise_shared,Review.noise_shareds_i18n[:poor] %>
+  <h2>水回りの混雑具合</h2>
+  いつでも使える
+  <%= f.radio_button :congestion_shared, '0' %>
+  <%= f.radio_button :congestion_shared, '1' %>
+  <%= f.radio_button :congestion_shared, '2' %>
+  <%= f.radio_button :congestion_shared, '3' %>
+  <%= f.radio_button :congestion_shared, '4' %>
+  良く混雑している
 
   <h2>共有部から部屋への音漏れ</h2>
-  <%=f.radio_button :noise_room, Review.noise_rooms.key(0)%>
-  <%=f.label :noise_room, Review.noise_rooms_i18n[:excellent] %>
+  静か
+  <%= f.radio_button :noise_shared,'0' %>
+  <%= f.radio_button :noise_shared,'1' %>
+  <%= f.radio_button :noise_shared,'2' %>
+  <%= f.radio_button :noise_shared,'3' %>
+  <%= f.radio_button :noise_shared,'4' %>
+  騒がしい
 
-  <%=f.radio_button :noise_room, Review.noise_rooms.key(1)%>
-  <%=f.label :noise_room,Review.noise_rooms_i18n[:very_good] %>
+  <h2>隣の部屋からの音漏れ</h2>
+  静か
+  <%= f.radio_button :noise_room,'0' %>
+  <%= f.radio_button :noise_room,'1' %>
+  <%= f.radio_button :noise_room,'2' %>
+  <%= f.radio_button :noise_room,'3' %>
+  <%= f.radio_button :noise_room,'4' %>
+  騒がしい
 
-  <%=f.radio_button :noise_room, Review.noise_rooms.key(2)%>
-  <%=f.label :noise_room,Review.noise_rooms_i18n[:good] %>
+   <h2>ネット速度</h2>
+  速い
+  <%= f.radio_button :net_speed,'0' %>
+  <%= f.radio_button :net_speed,'1' %>
+  <%= f.radio_button :net_speed,'2' %>
+  <%= f.radio_button :net_speed,'3' %>
+  <%= f.radio_button :net_speed,'4' %>
+  遅い
 
-  <%=f.radio_button :noise_room, Review.noise_rooms.key(3)%>
-  <%=f.label :noise_room,Review.noise_rooms_i18n[:average] %>
+   <h2>シャワーの水圧</h2>
+  強い
+  <%= f.radio_button :shower,'0' %>
+  <%= f.radio_button :shower,'1' %>
+  <%= f.radio_button :shower,'2' %>
+  <%= f.radio_button :shower,'3' %>
+  <%= f.radio_button :shower,'4' %>
+  遅い
 
-  <%=f.radio_button :noise_room, Review.noise_rooms.key(4)%>
-  <%=f.label :noise_room,Review.noise_rooms_i18n[:poor] %>
+   <h2>パーティーやイベントの開催</h2>
+  頻繁にある
+  <%= f.radio_button :event,'0' %>
+  <%= f.radio_button :event,'1' %>
+  <%= f.radio_button :event,'2' %>
+  <%= f.radio_button :event,'3' %>
+  <%= f.radio_button :event,'4' %>
+  一切ない
 
   <!--水圧 ネット速度 各設備の込み具合-->
 
