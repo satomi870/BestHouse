@@ -3,7 +3,6 @@
 <%@reviews.each do |review|%>
   <p><%=review.title%></p>
   <p><%=review.text%></p>
-
   <% if review.atmosphere == 0 %>
     住民の雰囲気 良い<%= image_tag "1.jpg" %>良くない<br>
   <% elsif review.atmosphere == 1 %>

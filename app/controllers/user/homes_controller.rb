@@ -21,6 +21,12 @@ class User::HomesController < ApplicationController
     atmosphere = Category.find_by(category: "atmosphere")
     @atmosphere_tags=atmosphere.tags
 
+    individual = Category.find_by(category: "individual")
+    @individual_tags=individual.tags
+
+    shared_facility = Category.find_by(category: "shared_facility")
+    @shared_facility_tags=shared_facility.tags
+
 
     #@archive = params[:tag_id].present? ? Tag.find(params[:tag_id]).archives.page(params[:page]).per(15) : Archive.all.page(params[:page]).per(15)
     #@posts = params[:tag_id].present? ? Tag.find(params[:tag_id]).posts : Post.all
@@ -46,5 +52,11 @@ class User::HomesController < ApplicationController
 
     atmosphere = Category.find_by(category: "atmosphere")
     @atmosphere_tags=atmosphere.tags
+
+    individual = Category.find_by(category: "individual")
+    @individual_tags=individual.tags
+
+    shared_facility = Category.find_by(category: "shared_facility")
+    @shared_facility_tags=shared_facility.tags
   end
 end

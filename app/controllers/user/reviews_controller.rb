@@ -43,7 +43,6 @@ class User::ReviewsController < ApplicationController
     @reviews=@property.reviews
 
 
-
   end
 
   def show

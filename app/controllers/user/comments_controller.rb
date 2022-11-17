@@ -9,16 +9,21 @@ class User::CommentsController < ApplicationController
     question = Question.find(params[:question_id])
     @notification = Notification.new
     @notification.action = "comment_on_question"#質問に対してのコメント
-    @notification.question_id = params[:question_id]
-    @notification.comment_id = @comment.id
+    #@notification.question_id = params[:question_id]
+    #@notification.comment_id = @comment.id
     @notification.sender_id = @comment.user_id
     @notification.receiver_id = question.user_id
-     @notification.save                     
-  
-    
+     @notification.save!
+
+
 
     redirect_to property_questions_path(question.property_id)
   end
+
+
+
+
+
 
   def reply
     @comment = Comment.new(comment_params)

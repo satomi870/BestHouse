@@ -1,16 +1,20 @@
 <%= form_with  url: seach_path, method: :get do |f|%>
-  <h3>エリア</h3>
+  <h3>エリアをこだわりたい!</h3>
   <%=f.collection_check_boxes :area_name, Area.all, :id, :area_name %>
-  <h3>入居者の特徴</h3>
+  <h3>入居者の特性をこだわりたい!</h3>
   <%=f.collection_check_boxes :tag, @basic_tags, :id, :name %>
-  <h3>部屋の特徴</h3>
+  <h3>部屋をこだわりたい!</h3>
   <%=f.collection_check_boxes :tag, @room_tags, :id, :name %>
-  <h3>建物の特徴</h3>
+  <h3>建物をこだわりたい!</h3>
   <%=f.collection_check_boxes :tag, @building_tags, :id, :name %>
-  <h3>周辺環境の特徴</h3>
+  <h3>周辺環境をこだわりたい!</h3>
   <%=f.collection_check_boxes :tag, @surrounding_tags, :id, :name %>
-  <h3>雰囲気の特徴</h3>
+  <h3>入居者の雰囲気をこだわりたい!</h3>
   <%=f.collection_check_boxes :tag, @atmosphere_tags, :id, :name %>
+  <h3>プライベートを重視したい!</h3>
+  <%=f.collection_check_boxes :tag, @individual_tags, :id, :name %>
+  <h3>共有設備をこだわりたい!</h3>
+  <%=f.collection_check_boxes :tag, @shared_facility_tags, :id, :name %>
   <h3><%=f.submit 'この条件で検索'%></h3>
 <%end%>
 

@@ -8,6 +8,16 @@ class User::QuestionsController < ApplicationController
     @question.user_id = current_user.id
     @question.property_id = params[:property_id]
     @question.save
+    review_users = @question.property.reviews.map{|review| review.user}.uniq#↓レビューしてくれた人に通知をする処理
+    review_users.each do |review_user|
+      notification = Notification.new
+      notification.action = "review_on_question"#質問に対してのコメント
+      notification.sender_id = @question.user_id
+      notification.receiver_id = review_user.id
+      notification.save!
+
+  end
+    
     redirect_to property_questions_path(@question.property_id)
   end
 
