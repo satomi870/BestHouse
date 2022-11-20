@@ -1,10 +1,10 @@
-<h3>エリアをこだわりたい!</h3>
+<h3>エリア</h3>
 <%@areas.each do |area|%>
   <%=link_to area.area_name,seach_path(area_id: area.id)%> <%#左が名前(皆が見てわかりやすい名前)右が値%>
 <%end%>
 
 
-<h3>入居者の特性をこだわりたい!<h3>
+<h3>入居者の特性<h3>
 <%@basic_tags.each do |basic_tag|%>
   <%=link_to basic_tag.name,seach_path(tag_id: basic_tag.id)%>
 <%end%>

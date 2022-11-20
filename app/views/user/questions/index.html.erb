@@ -24,14 +24,13 @@
       <%#= f.hidden_field :target_comment_id, value: comment.id %>
       <%= f.select :relation, CommentComment.relations.keys.to_a,{prompt: '選択してください'} %>
       <%#= f.hidden_field :target_comment_id, value: comment.id %>
-    <%= f.submit "コメントする" %>
-  <%end%>
-
-    <p><%= comment.body %></p>
-    <%#= comment.relation_i18n %>
-    <%=comment.user.nickname%>
-    <%=comment.user.gender%>
-    <%=comment.user.age%>代
+      <%= f.submit "コメントする" %>
+    <%end%>
+      <p><%= comment.body %></p>
+      <%#= comment.relation_i18n %>
+      <%=comment.user.nickname%>
+      <%=comment.user.gender%>
+      <%=comment.user.age%>代
 
   <% comment.comment_comments.each do |comment_comment| %>
     <p><%= comment_comment.body %></p>

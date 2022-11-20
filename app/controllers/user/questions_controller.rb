@@ -17,15 +17,15 @@ class User::QuestionsController < ApplicationController
       notification.save!
 
   end
-    
+
     redirect_to property_questions_path(@question.property_id)
   end
 
   def index
     @property = Property.find(params[:property_id]) #@property=(params[:property_id])だとただidを受け取ってるだけ
     @questions = @property.questions
-    @comment = Comment.new
-    @comment_comment = CommentComment.new
+    #@comment = Comment.new
+    #@comment_comment = CommentComment.new
     #@question = Question.find(params[:id])
 
   end

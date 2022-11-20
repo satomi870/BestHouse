@@ -2,10 +2,15 @@ class User::ReviewsController < ApplicationController
 
 
   def new
-    #byebugf
-    @review_relation = Review.new(relation: params[:review][:relation]) #()ないは関係性ページの値を受け取るために設置
+    #byebug
+    #@review_relation = Review.new#()ないは関係性ページの値を受け取るために設置
 
-    # 簡易バリデーション(セレクトボックス用)
+
+  end
+
+  def create
+    #byebug
+     # 簡易バリデーション(セレクトボックス用)
     if params[:review][:relation].blank? ||
       (params[:review][:relation] == 'former_resident' && params[:review][:relation_detail1].blank?) ||
       (params[:review][:relation] == 'others' && params[:review][:relation_detail2].blank?)
@@ -18,10 +23,6 @@ class User::ReviewsController < ApplicationController
     elsif params[:review][:relation] == 'others' && !params[:review][:relation_detail2].blank?
       @review_relation.relation_detail = params[:review][:relation_detail2]
     end
-  end
-
-  def create
-    #byebug
 
      @review = Review.new(review_params)
      @review.user_id = current_user.id
@@ -40,7 +41,7 @@ class User::ReviewsController < ApplicationController
 
   def index
     @property=Property.find(params[:property_id]) #@property=(params[:property_id])だとただidを受け取ってるだけ
-    @reviews=@property.reviews
+    #@reviews=@property.reviews
 
 
   end

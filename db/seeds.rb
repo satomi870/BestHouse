@@ -90,22 +90,25 @@ category_shared_facility = Category.create!(
   category:'shared_facility'
 )
 
+category_shy = Category.create!(
+  category:'shy'
+)
+
 tag_woman = Tag.create!(
     category_id: category_basic.id,
     name: '女性専用'
     #genre: 'basic'
-
   )
 
 tag_manwoman = Tag.create!(
-    category_id: category_basic.id ,
+    category_id: category_basic.id,
     name: '男女どちらともOK'
     #genre: 'basic'
 
   )
 
 tag_sound = Tag.create!(
-    category_id: category_room.id ,
+    category_id: category_room.id,
     name: '防音'
     #genre: 'room'
 
@@ -159,14 +162,14 @@ tag_wide = Tag.create!(
 
   )
 
-  tag_cool= Tag.create!(
+  tag_cool = Tag.create!(
     category_id: category_atmosphere.id,
     name: 'あいさつ程度'
     #genre: 'surrounding'
 
   )
 
-  tag_bath= Tag.create!(
+  tag_bath = Tag.create!(
     category_id: category_individual.id,
     name: '専用バス付き'
     #genre: 'surrounding'
@@ -202,11 +205,17 @@ tag_wide = Tag.create!(
   )
 
 
+   tag_no_event = Tag.create!(
+    category_id: category_shy.id,
+    name: 'イベントやパーティーなし'
+    #genre: 'surrounding'
+
+  )
+
 TagProperty.create!(
   property_id: propertyA.id,
   tag_id: tag_woman.id
-  #ここには足せない
-  )
+)
 
 
 TagProperty.create!(
@@ -226,15 +235,17 @@ TagProperty.create!(
   tag_id: tag_bath.id
 
   )
-
+TagProperty.create!(
+  property_id: propertyA.id,
+  #tag_id: tag_toilet.id
+  tag_id: 13
+  )
 
 TagProperty.create!(
   property_id: propertyA.id,
-#  tag_id: tag_toilet.id
-  tag_id: 13
+  tag_id: tag_no_event.id
 
   )
-
 
 TagProperty.create!(
   property_id: propertyB.id,

@@ -1,6 +1,29 @@
 <!--review:--> <%#= @review.relation_detail %>
 
 <%= form_with model: @review_relation, url: property_reviews_path do |f| %>
+
+<h2>関係性を選ぶ</h2>
+<%#=form_with  model: @review_relation_new,url: new_property_review_path,method: :get do |f| %>
+
+    <p><%=f.radio_button :relation, Review.relations.key(0) %>
+    <%=f.label :relation, Review.relations_i18n[:resident] %></p>
+
+
+    <p><%=f.radio_button :relation, Review.relations.key(1) %>
+    <%=f.label :relation, Review.relations_i18n[:former_resident] %></p>
+    <%= f.select :relation_detail1, [['2022年頃まで住んでいた','twenty_two'], ['2021年頃まで住んでいた','twenty_one'], ['2020年頃まで住んでいた','twenty'], ['2019年頃まで住んでいた','nineteen'], ['2018年頃まで住んでいた','eighteen'], ['それ以前に住んでいた','before_that']],{prompt: '選択してください'} %>
+
+    <!--モデルが関連している選択ボックス (2行目)&データベースから取ってきてないからこの書き方でいいデータベースから取ってきてたらnagano_cakeのやり方-->
+    <p><%=f.radio_button :relation, Review.relations.key(2) %>
+    <%=f.label :relation, Review.relations_i18n[:others] %></p>
+    <%= f.select :relation_detail2, [['入居検討者','kentosya'], ['入居予定者','yoteisya'], ['周辺住人','syuhenjunin'], ['住人の知人','chizin'], ['大家さん','oya'], ['不動産関係者','kankeisya'], ['その他','sonota']],{prompt: '選択してください'} %>
+
+     <%#=f.submit '次へ進む'%>
+<%#end%>
+
+
+
+
   <h2>住民の雰囲気</h2>
   良い
   <%= f.radio_button :atmosphere, '0' %>
@@ -73,13 +96,12 @@
   <%= f.radio_button :event,'4' %>
   一切ない
 
-  <!--水圧 ネット速度 各設備の込み具合-->
 
   <h3>タイトル</h3>
   <%= f.text_field :title %>
   <h3>本文</h3>
   <%= f.text_area :text %>
-  <%= f.hidden_field :relation,value: @review_relation.relation %>
-  <%= f.hidden_field :relation_detail,value: @review_relation.relation_detail %>
+  <%#= f.hidden_field :relation,value: @review_relation.relation %>
+  <%#= f.hidden_field :relation_detail,value: @review_relation.relation_detail %>
   <%= f.submit"投稿する" %>
 <%end%>

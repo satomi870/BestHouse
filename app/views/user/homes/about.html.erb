@@ -1,7 +1,7 @@
 <%= form_with  url: seach_path, method: :get do |f|%>
-  <h3>エリアをこだわりたい!</h3>
+  <h3>エリア</h3>
   <%=f.collection_check_boxes :area_name, Area.all, :id, :area_name %>
-  <h3>入居者の特性をこだわりたい!</h3>
+  <h3>入居者の特性</h3>
   <%=f.collection_check_boxes :tag, @basic_tags, :id, :name %>
   <h3>部屋をこだわりたい!</h3>
   <%=f.collection_check_boxes :tag, @room_tags, :id, :name %>
