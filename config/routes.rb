@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
 
-
-
-
+  devise_for :admin,skip: [:registrations, :passwords],controllers: {
+    sessions: "admin/sessions"
+  }
+  devise_for :users,skip: [:passwords],controllers: {
+    registrations: "user/registrations",
+    sessions: 'user/sessions'
+  }
 
   scope module: :user do
     root to:'homes#top'
@@ -22,40 +26,26 @@ Rails.application.routes.draw do
     resources :properties do
       get 'reviews/choose'=>'reviews#choose'
       resource :favorites, only: [:create, :destroy]
-    resources :reviews
-    resources :questions
-  end
+      resources :reviews
+      resources :questions
+    end
 
     resources :questions do
-    resources :answers, only: [:create,:show]
-    post '/comments/:comment_id' => 'comments#reply', as: 'reply'
-    resources :comments, only: [:create]
-  end
+      resources :answers, only: [:create,:show]
+      post '/comments/:comment_id' => 'comments#reply', as: 'reply'
+      resources :comments, only: [:create]
+    end
     resources :comments do
-    resources :comment_comments
+      resources :comment_comments
+    end
   end
-
   namespace :admin do
     get 'homes/top'
     get 'homes/about'
-  end
-
-  scope module: :user do
-    #root to:'homes#top'
-     #get 'about'=>'homes#about'
-    #get'homes/seach/:id'=>  'homes#seach', as: 'home_seach'
+    resources :users
   end
 
 
-
-  devise_for :users,skip: [:passwords],controllers: {
-  registrations: "user/registrations",
-  sessions: 'user/sessions'
-  }
-
-  devise_for :admin,skip: [:registrations, :passwords],controllers: {
-  sessions: "admin/sessions"
-  }
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-end
+
 end

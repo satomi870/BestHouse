@@ -76,8 +76,8 @@ class User::PropertiesController < ApplicationController
   end
 
   def show
-    @review_relation = Review.new#()ないは関係性ページの値を受け取るために設置
     @property=Property.find(params[:id])
+    @review_relation = Review.new#()ないは関係性ページの値を受け取るために設置
     @reviews=@property.reviews
     @question = Question.new
     @questions = @property.questions

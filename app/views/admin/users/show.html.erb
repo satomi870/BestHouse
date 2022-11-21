@@ -1,0 +1,43 @@
+<%= @user.nickname %> さんのユーザー詳細
+
+<table>
+  <thead>
+		<th></th>
+		<th></th>
+		<th></th>
+	</thead>
+	<tbody>
+		<tr>
+		  <td>ユーザーID</td>
+			<td colspan="2"><%= @user.id %></td>
+		</tr>
+		<tr>
+		  <td>ニックネーム</td>
+		  <td colspan="2"><%= @user.nickname %></td>
+		</tr>
+		<tr>
+			<td>年齢</td>
+			<td colspan="2"><%= @user.age %></td>
+		</tr>
+		<tr>
+			<td>性別</td>
+			<td colspan="2"><%= @user.gender %></td>
+		</tr>
+		<tr>
+		  <td>メールアドレス</td>
+		  <td colspan="2"><%= @user.email %></td>
+		</tr>
+		<tr>
+			<td>会員ステータス</td>
+			<td colspan="2">
+			  <% if @user.is_deleted %>
+				  退会
+				<% else %>
+				  有効
+				<% end %>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<%= link_to "編集する" , edit_admin_user_path %>

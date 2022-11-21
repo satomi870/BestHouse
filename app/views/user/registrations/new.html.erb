@@ -19,8 +19,8 @@
          <td colspan="2"><%= f.select :age, [['10代',10], ['20代', 20], ['30代', 30], ['40代',40], ['50代',50], ['60代',60], ['70代',70]]  %></td> <!--ageをinteger型じゃなくてstring型にして['20代', "20代"]でもいい-->
       <tr>
         <td><%=f.label :gender,"性別"%></td>
-        <td colspan="2"><%= f.radio_button :gender, "男性" %>男</td>
-        <td colspan="2"><%= f.radio_button :gender, "女性" %>女</td>
+        <td><%= f.radio_button :gender, "男性" %>男</td>
+        <td><%= f.radio_button :gender, "女性" %>女</td>
       </tr>
       <tr>
         <td><%=f.label :email,"メールアドレス" %></td>
