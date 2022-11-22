@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   devise_for :admin,skip: [:registrations, :passwords],controllers: {
     sessions: "admin/sessions"
   }
@@ -31,18 +32,23 @@ Rails.application.routes.draw do
     end
 
     resources :questions do
-      resources :answers, only: [:create,:show]
-      post '/comments/:comment_id' => 'comments#reply', as: 'reply'
-      resources :comments, only: [:create]
+    resources :answers, only: [:create,:show]
+    post '/comments/:comment_id' => 'comments#reply', as: 'reply'
+    resources :comments, only: [:create]
     end
     resources :comments do
-      resources :comment_comments
+    resources :comment_comments
     end
   end
   namespace :admin do
     get 'homes/top'
     get 'homes/about'
     resources :users
+    resources :reviews,onry:[:index,:destroy]
+    resources :questions,onry:[:index,:destroy]
+    resources :comments,only: [:destroy]
+    resources :comment_comments,only: [:destroy]
+
   end
 
 

@@ -37,6 +37,16 @@
 				<% end %>
 			</td>
 		</tr>
+		<tr>
+			<td>利用停止</td>
+			<td colspan="2">
+			  <% if @user.is_active %>
+				  無効
+				<% else %>
+				  有効
+				<% end %>
+			</td>
+		</tr>
 	</tbody>
 </table>
 

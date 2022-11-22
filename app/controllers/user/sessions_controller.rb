@@ -2,14 +2,25 @@
 
 class User::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
-  before_action:user_state,only:[:create]
+  before_action:user_deleted,only:[:create]
+  before_action:user_active,only:[:create]
 
-  def user_state
+
+  def user_deleted
     @user=User.find_by(email: params[:user][:email])
     return if !@user
-    if @user.valid_password?(params[:user][:password]) && (@user.is_deleted==true)
+    if @user.valid_password?(params[:user][:password]) && (@user.is_deleted == true)
     redirect_to new_user_registration_path
     end
+  end
+
+  def user_active
+    @user=User.find_by(email: params[:user][:email])
+    return if !@user
+    if @user.valid_password?(params[:user][:password]) && (@user.is_active == true)
+    redirect_to new_user_registration_path
+    end
+
   end
 
   def after_sign_in_path_for(resource)
@@ -18,9 +29,9 @@ class User::SessionsController < Devise::SessionsController
   end
 
 
-  # def after_sign_in_path_for(resource)
-  #   root_path
-  # end
+  def after_sign_in_path_for(resource)
+    root_path
+  end
   # GET /resource/sign_in
   # def new
   #   super

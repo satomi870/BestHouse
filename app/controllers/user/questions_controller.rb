@@ -18,7 +18,8 @@ class User::QuestionsController < ApplicationController
 
   end
 
-    redirect_to property_questions_path(@question.property_id)
+    #redirect_to property_path(@question.property_id)
+    redirect_to request.referer
   end
 
   def index

@@ -1,0 +1,73 @@
+
+
+<table>
+  <thead>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </thead>
+  <tbody>
+  <% @questions.each do |question| %>
+    <tr>
+      <td>物件名</td>
+      <td><%= question.property.property_name %></td>
+    </tr>
+    <tr>
+      <td>質問ユーザー名</td>
+      <td>
+        <%=link_to admin_user_path(question.user.id) do%>
+          <%=question.user.nickname %>
+        <%end%>
+      </td>
+    </tr>
+    <tr>
+      <td>質問タイトル</td>
+      <td><%= question.title %><%= link_to "削除", admin_question_path(question.id), method: :delete %></td>
+    </tr>
+    <tr>
+      <td>質問本文</td>
+      <td><%= question.body %></td>
+    </tr>
+    <% question.comments.each do |comment| %>
+      <tr>
+        <td>コメントユーザー名</td>
+        <td>
+    　     <%=link_to admin_user_path(comment.user.id) do%>
+            <%=comment.user.nickname %>
+          <%end%>
+      　</td>
+  　   </tr>
+      <tr>
+        <td>コメント本文</td>
+        <td><%=comment.body %><%= link_to "削除", admin_comment_path(comment.id), method: :delete %></td>
+      </tr>
+      <% comment.comment_comments.each do |comment_comment| %>
+        <tr>
+          <td>リプライユーザー名</td>
+          <td>
+            <%=link_to admin_user_path(comment_comment.user.id) do%>
+            <%=comment_comment.user.nickname %>
+         <%end%>
+          </td>
+        </tr>
+        <tr>
+          <td>コメントへのリプライ</td>
+          <td><%= comment_comment.body %><%= link_to "削除", admin_comment_comment_path(comment_comment.id), method: :delete %></td>
+        </tr>
+      <%end%>
+    <%end%>
+  <%end%>
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,42 @@
+<table>
+  <thead>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </thead>
+  <tbody>
+  <% @reviews.each do |review| %>
+    <tr>
+      <td>物件名</td>
+      <td><%= review.property.property_name %></td>
+    </tr>
+    <tr>
+      <td>ユーザー名</td>
+      <td>
+        <%= link_to admin_user_path(review.user.id) do %>
+          <%= review.user.nickname %>
+        <%end%>
+      </td>
+    </tr>
+    <tr>
+      <td>レビュータイトル</td>
+      <td><%= review.title %><%= link_to "削除", admin_review_path(review.id), method: :delete %></td>
+    </tr>
+    <tr>
+      <td>レビュー本文</td>
+      <td><%=review.text %></td>
+    </tr>
+  <%end%>
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+

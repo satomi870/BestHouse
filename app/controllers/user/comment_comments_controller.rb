@@ -18,7 +18,8 @@ class User::CommentCommentsController < ApplicationController
     @notification.save
 
 
-    redirect_to property_questions_path(question.property_id)
+    #redirect_to property_path(@comment_comment.property_id)
+    redirect_to request.referer
 
   end
   private

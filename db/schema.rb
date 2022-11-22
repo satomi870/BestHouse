@@ -210,6 +210,7 @@ ActiveRecord::Schema.define(version: 2022_11_09_074510) do
     t.string "gender"
     t.integer "age"
     t.boolean "is_deleted", default: false
+    t.boolean "is_active", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_users_on_email", unique: true

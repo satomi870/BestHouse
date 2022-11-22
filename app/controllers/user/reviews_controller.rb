@@ -29,7 +29,7 @@ class User::ReviewsController < ApplicationController
      @review.property_id = params[:property_id]
 
      @review.save
-     redirect_to root_path
+     redirect_to request.referer
   end
 
   def choose

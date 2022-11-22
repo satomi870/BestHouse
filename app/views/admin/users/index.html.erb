@@ -6,6 +6,7 @@
      <th>ユーザー名</th>
      <th>メールアドレス</th>
      <th>ステータス</th>
+     <th>利用停止</th>
    </thead>
    <% @users.each do |user| %>
    <tbody>
@@ -24,7 +25,17 @@
            有効
          <%end%>
        </td>
+       <td>
+         <% if user.is_active%>
+           無効
+         <%else%>
+           有効
+         <%end%>
+       </td>
      </tr>
    </tbody>
    <%end%>
  </table>
+
+ <%= link_to "Q＆A一覧", admin_questions_path %>
+ <%= link_to "レビュー一覧",admin_reviews_path %>
