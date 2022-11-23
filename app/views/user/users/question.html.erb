@@ -1,28 +1,5 @@
-<% @questions.each do |question| %>
-  <p>●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●</p>
-  <p><%=question.property.property_name%></p>
-  <p><%=question.title%></p>
-  <p><%=question.body%></p>
-  <%=question.user.nickname%>
-  <%=question.user.gender%>
-  <%=question.user.age%>代
-  <% question.comments.where("target_comment_id IS NULL").each do |comment| %>
-    <p>--------------------------------------------------------------------------------------------------------------------------</p>
 
-    <%= comment.body %>
-    <%= comment.user.nickname %>
-    <%= comment.user.gender %>
-    <%= comment.user.age %>
+  <h2><%= @userさんがした質問一覧　%></h2>
+     <%= render 'user/properties/question', questions: @questions, comment: @comment,comment_comment: @comment_comment %>
 
-    <% Comment.where(target_comment_id: comment.id).each do |target_comment| %><br>
-      <%= target_comment.body %>
-      <%= target_comment.user.nickname %>
-      <%= target_comment.user.gender %>
-      <%= target_comment.user.age %>
 
-    <%end%>
-      <p>--------------------------------------------------------------------------------------------------------------------------</p>
-
-  <%end%>
-
-<%end%>

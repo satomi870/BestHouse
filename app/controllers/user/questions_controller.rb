@@ -32,8 +32,9 @@ class User::QuestionsController < ApplicationController
   end
 
   def show
+     #@property = Property.find(params[:id])
+     #@question = Question.find(params[:id])
   end
-
   def edit
   end
 

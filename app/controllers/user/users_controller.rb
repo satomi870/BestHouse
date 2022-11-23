@@ -2,6 +2,13 @@ class User::UsersController < ApplicationController
 
   def show
     @user = current_user
+    @reviews = current_user.reviews
+    @comment = Comment.new
+    @comment_comment = CommentComment.new
+    @questions = current_user.questions
+    @comment_questions = Question.joins(:comments).where(comments: { user: current_user }) #あくまでとってきたいのはquestionのデータ
+    @comment_comment_questions = Question.joins(:comment_comments).where(comment_comments: { user: current_user })#あくまでとってきたいのはquestionのデータ
+
   end
 
   def edit
@@ -15,17 +22,32 @@ class User::UsersController < ApplicationController
   end
 
   def review
-    @reviews = current_user.reviews
+    #@reviews = current_user.reviews
   end
 
   def question
-    @questions = current_user.questions
-    @comment = Comment.new
+    # @user = current_user
+    # @questions = current_user.questions
+    # @comment = Comment.new
+    # @comment_comment = CommentComment.new
+    #@comments = current_user.comments
+    #@question = @comments.question
+
 
   end
 
   def comment
-    @comment = current_user.comments
+    # @user = current_user
+    # @questions = Question.joins(:comments).where(comments: { user: current_user }) #あくまでとってきたいのはquestionのデータ
+    # @comment = Comment.new
+    # @comment_comment = CommentComment.new
+  end
+
+  def comment_comment
+    # @user = current_user
+    # @questions = Question.joins(:comment_comments).where(comment_comments: { user: current_user })#あくまでとってきたいのはquestionのデータ
+    # @comment = Comment.new
+    # @comment_comment = CommentComment.new
   end
 
   def favorite

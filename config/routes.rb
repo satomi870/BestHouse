@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     get 'users/review' => 'users#review', as: 'review'
     get 'users/question' => 'users#question', as: 'question'
     get 'users/comment' => 'users#comment', as: 'comment'
+    get 'users/comment_comment' => 'users#comment_comment', as: 'comment_comment'
     get 'users/favorite' => 'users#favorite', as: 'favorite'
     get'properties/map/:property_id'=>  'properties#map', as: 'map'
     get'properties/seach'=>  'properties#seach', as: 'seach'#違うURLで同じアクションに飛びたい時は二つかかず一つにルーティングをまとめる　idはどうするかというとtophtmlの方で分岐させる
