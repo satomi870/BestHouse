@@ -1,0 +1,59 @@
+<table>
+    <thead>
+      <th></th>
+      <th></th>
+      <th></th>
+    </thead>
+    <tbody>
+      <tr>
+        <td>お問い合わせ物件</td>
+        <td><%= @contact.property.property_name %></td>
+      </tr>
+      <tr>
+        <td>名前</td>
+        <%=link_to admin_user_path(@contact.user.id) do%>
+        <td colspan="2"><%=@contact.name %></td>
+        <%end%>
+      </tr>
+      <tr>
+        <td>フリガナ</td>
+        <td colspan="2"><%=@contact.name_kana%></td>
+      </tr>
+      <tr>
+        <td>性別</td>
+        <td colspan="2"><%=@contact.gender%></td>
+      </tr>
+      <tr>
+        <td>年齢</td>
+         <td colspan="2"><%=@contact.age%></td> <!--ageをinteger型じゃなくてstring型にして['20代', "20代"]でもいい-->
+      <tr>
+      <tr>
+        <td>国籍</td>
+        <td colspan="2"><%=@contact.nationality%></td>
+      </tr>
+      <tr>
+        <td>E_mail</td>
+        <td colspan="2"><%=@contact.email%></td>
+      </tr>
+      <tr>
+        <td>電話番号</td>
+        <td colspan="2"><%=@contact.telephone_number%></td>
+      </tr>
+      <tr>
+        <td>職業</td>
+        <td colspan="2"><%=@contact.occupation%></td>
+      </tr>
+      <tr>
+        <td>入居予定日</td>
+        <td colspan="2"><%=@contact.schedule%></td>
+      </tr>
+      <tr>
+        <td>希望項目</td>
+        <td colspan="2"><%=@contact.hope%></td>
+      </tr>
+      <tr>
+        <td>お問合せ内容</td></td>
+        <td colspan="2"><%=@contact.contact%></td>
+      </tr>
+
+

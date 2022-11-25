@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
 
 
+  namespace :admin do
+    get 'contacts/show'
+    get 'contacts/index'
+  end
+  namespace :user do
+    get 'contacts/new'
+  end
   devise_for :admin,skip: [:registrations, :passwords],controllers: {
     sessions: "admin/sessions"
   }
@@ -26,10 +33,11 @@ Rails.application.routes.draw do
     resources :properties,only:[:index, :show]
     resources :notifications, only: [:index, :destroy]
     resources :properties do
-      get 'reviews/choose'=>'reviews#choose'
-      resource :favorites, only: [:create, :destroy]
-      resources :reviews
-      resources :questions
+    resources :contacts
+    get 'reviews/choose'=>'reviews#choose'
+    resource :favorites, only: [:create, :destroy]
+    resources :reviews
+    resources :questions
     end
 
     resources :questions do
@@ -49,6 +57,8 @@ Rails.application.routes.draw do
     resources :questions,onry:[:index,:destroy]
     resources :comments,only: [:destroy]
     resources :comment_comments,only: [:destroy]
+    resources :contacts
+
 
   end
 

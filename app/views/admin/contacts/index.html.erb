@@ -1,0 +1,7 @@
+<h2>お問合わせ一覧</h2>
+
+<% @contacts.each do |contact| %>
+  <%=link_to admin_contact_path(contact.id) do%>
+    <p><%= contact.name %></p>
+  <%end%>
+<%end%>

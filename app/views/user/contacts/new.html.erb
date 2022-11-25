@@ -1,0 +1,69 @@
+<%= form_with model: @contact, url: property_contacts_path(@property.id) do |f| %>
+   <table>
+    <thead>
+      <th></th>
+      <th></th>
+      <th></th>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%=f.label :property,"お問い合わせ物件"%></td>
+        <td><%= @property.property_name %></td>
+        <td><%=image_tag @property.image%></td>
+        <td><%= f.hidden_field :property_id, :value => @property.id%></td>
+      </tr>
+      <tr>
+        <td>必須 <%=f.label :name,"お名前"%></td>
+        <td colspan="2"><%=f.text_field :name%></td>
+      </tr>
+      <tr>
+        <td>必須 <%=f.label :name_kana,"お名前(フリガナ)"%></td>
+        <td colspan="2"><%=f.text_field :name_kana%></td>
+      </tr>
+       <tr>
+        <td>必須 <%=f.label :gender,"性別"%></td>
+        <td><%= f.radio_button :gender, "男性" %>男</td>
+        <td><%= f.radio_button :gender, "女性" %>女</td>
+      </tr>
+      <tr>
+        <td>必須 <%=f.label :age,"年齢"%></td>
+        <td colspan="2"><%= f.text_field :age%></td> <!--ageをinteger型じゃなくてstring型にして['20代', "20代"]でもいい-->
+      <tr>
+        <td>必須 <%=f.label :nationality,"国籍"%></td>
+        <td><%= f.select :nationality, [['日本','日本'], ['日本以外','日本以外']]  %></td> <!--ageをinteger型じゃなくてstring型にして['20代', "20代"]でもいい-->
+        <td><%= f.text_field :nationality %></td>
+      <tr>
+      <tr>
+        <td>必須 <%=f.label :email,"E_mail" %></td>
+        <td colspan="2"><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
+      </tr>
+      <tr>
+        <td>任意 <%=f.label :telephone_number,"電話番号"%></td>
+        <td colspan="2"><%=f.text_field :telephone_number%></td>
+      </tr>
+      <tr>
+        <td>任意 <%=f.label :address,"現住所"%></td>
+        <td colspan="2"><%=f.text_field :address%></td>
+      </tr>
+      <tr>
+        <td>任意 <%=f.label :occupation,"職業"%></td>
+        <td colspan="2"><%=f.text_field :occupation%></td>
+      </tr>
+      <tr>
+        <td>必須 <%=f.label :schedule,"入居予定日"%></td>
+         <td colspan="2"><%= f.select :schedule, [['今すぐ','今すぐ'], ['今月中','今月中'], ['来月中','来月中'], ['未定','未定']]  %></td> <!--ageをinteger型じゃなくてstring型にして['20代', "20代"]でもいい-->
+      <tr>
+      <tr>
+        <td>必須 <%=f.label :hope,"希望項目"%></td>
+         <td colspan="2"><%= f.select :hope, [['見学希望','見学希望'], ['入居希望', '入居希望'], ['予約希望','予約希望'], ['その他','その他']]  %></td> <!--ageをinteger型じゃなくてstring型にして['20代', "20代"]でもいい-->
+      <tr>
+      <tr>
+        <td>必須 <%=f.label :contact,"お問い合わせ内容"%></td>
+        <td colspan="2"><%=f.text_area :contact%></td>
+      </tr>
+      <tr>
+        <td> <%= f.submit "送信"%></td>
+      </tr>
+
+
+<%end%>

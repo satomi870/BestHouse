@@ -7,6 +7,7 @@ class Property < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_many :questions, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_many :contactss, dependent: :destroy
 
 
  def favorited_by?(user)
