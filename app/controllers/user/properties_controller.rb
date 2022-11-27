@@ -76,13 +76,28 @@ class User::PropertiesController < ApplicationController
   end
 
   def show
+
+
     @property=Property.find(params[:id])
+    history = @property.histories.new
+    history.user_id = current_user.id
+    if current_user.histories.exists?(property_id: "#{params[:id]}")
+      old_history = current_user.histories.find_by(property_id: "#{params[:id]}")
+      old_history.destroy
+    end
+    history.save
+
     @review_relation = Review.new#()ないは関係性ページの値を受け取るために設置
     @reviews=@property.reviews
     @question = Question.new
     @questions = @property.questions
     @comment = Comment.new
     @comment_comment = CommentComment.new
+
+    if Read.create(question_id: @question.id, user_id: current_user.id)
+      @read = Read.update(complete: true)
+    end
+
   end
 
 

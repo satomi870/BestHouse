@@ -6,4 +6,3 @@ $('#tab-menu a').on('click', function(event) {
   $($(this).attr("href")).show();
   event.preventDefault();
 });
-

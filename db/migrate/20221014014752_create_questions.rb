@@ -6,6 +6,7 @@ class CreateQuestions < ActiveRecord::Migration[6.1]
       t.integer :property_id,  null: false
       t.string :title,         null: false
       t.string :body,          null: false
+      t.boolean :checked,      null: false
 
       t.timestamps
     end

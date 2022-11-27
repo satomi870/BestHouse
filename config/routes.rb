@@ -30,6 +30,7 @@ Rails.application.routes.draw do
     get'properties/map/:property_id'=>  'properties#map', as: 'map'
     get'properties/seach'=>  'properties#seach', as: 'seach'#違うURLで同じアクションに飛びたい時は二つかかず一つにルーティングをまとめる　idはどうするかというとtophtmlの方で分岐させる
     #get'properties/seach/:tag_id'=>  'properties#seach', as: 'property_seach'
+    resources :histories
     resources :properties,only:[:index, :show]
     resources :notifications, only: [:index, :destroy]
     resources :properties do
@@ -47,6 +48,7 @@ Rails.application.routes.draw do
     end
     resources :comments do
     resources :comment_comments
+
     end
   end
   namespace :admin do

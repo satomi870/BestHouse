@@ -15,6 +15,7 @@ class User::CommentCommentsController < ApplicationController
     #@notification.comment_id = @comment_comment.id
     @notification.sender_id = @comment_comment.user_id
     @notification.receiver_id = comment.user_id
+    @notification.checked = false
     @notification.save
 
 

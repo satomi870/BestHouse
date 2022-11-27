@@ -7,6 +7,7 @@ class User::QuestionsController < ApplicationController
     @question = Question.new(question_params)
     @question.user_id = current_user.id
     @question.property_id = params[:property_id]
+    @question.checked = false
     @question.save
     review_users = @question.property.reviews.map{|review| review.user}.uniq#↓レビューしてくれた人に通知をする処理
     review_users.each do |review_user|
@@ -14,6 +15,7 @@ class User::QuestionsController < ApplicationController
       notification.action = "review_on_question"#質問に対してのコメント
       notification.sender_id = @question.user_id
       notification.receiver_id = review_user.id
+      notification.checked = false
       notification.save!
 
   end
