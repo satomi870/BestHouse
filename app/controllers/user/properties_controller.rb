@@ -91,6 +91,7 @@ class User::PropertiesController < ApplicationController
     @reviews=@property.reviews
     @question = Question.new
     @questions = @property.questions
+    # @questions = @property.questions.where("answer_flg = false")
     @comment = Comment.new
     @comment_comment = CommentComment.new
 

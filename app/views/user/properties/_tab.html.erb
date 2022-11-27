@@ -3,7 +3,7 @@
       <li><a href="#tab1" class="active">口コミを投稿する</a></li>
       <li><a href="#tab2" class="">口コミを見る</a></li>
       <li><a href="#tab3" class="">質問をする</a></li>
-      <li><a href="#tab4" class="">Q&A</a></li>
+      <li><a href="#tab4" class="Q&A">Q&A</a></li>
     </ul>
   </div>
   <div id="tab-contents">
@@ -232,3 +232,16 @@
 　</div>
 </div>
 
+<script>
+// RailsのデータをJSにセットする #ここでは質問数をセット
+const qLength = "<%== @questions.length %>"
+// クラス名が[Q&A]のDOM要素を取得
+const tab4 = document.getElementsByClassName("Q&A")[0]
+// 質問があった場合あテキストカラーを変更する
+if(qLength !== "0") {
+  tab4.style.color ="red"
+}
+// テキストを追加する
+tab4.textContent += "(" + qLength + ")"
+
+</script>
