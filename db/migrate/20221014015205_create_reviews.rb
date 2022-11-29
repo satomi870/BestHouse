@@ -8,8 +8,8 @@ class CreateReviews < ActiveRecord::Migration[6.1]
       t.integer :atmosphere,            null: false
       t.integer :cleanliness_shared,    null: false
       t.integer :congestion_shared,     null: false
-      t.integer :noise_shared,          null: false
-      t.integer :noise_room,            null: false
+      t.integer :noise,                 null: false
+      t.integer :distance_sense,        null: false
       t.integer :net_speed,             null: false
       t.integer :shower,                null: false
       t.integer :event,                 null: false

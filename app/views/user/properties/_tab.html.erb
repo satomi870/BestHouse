@@ -8,7 +8,7 @@
   </div>
   <div id="tab-contents">
     <div id="tab1" class="tab">
-      <%= form_with model: @review_relation, url: property_reviews_path(property_id: @property.id) do |f| %>
+      <%= form_with model: @review, url: property_reviews_path(property_id: @property.id) do |f| %>
 
         <h2>関係性を選ぶ</h2>
         <%#=form_with  model: @review_relation_new,url: new_property_review_path,method: :get do |f| %>
@@ -29,77 +29,78 @@
            <%#=f.submit '次へ進む'%>
       <%#end%>
 
-        <h2>住民の雰囲気</h2>
+        <h2>住人の雰囲気</h2>
         良い
-        <%= f.radio_button :atmosphere, '0' %>
-        <%= f.radio_button :atmosphere, '1' %>
-        <%= f.radio_button :atmosphere, '2' %>
-        <%= f.radio_button :atmosphere, '3' %>
+        <%= f.radio_button :atmosphere, '5' %>
         <%= f.radio_button :atmosphere, '4' %>
+        <%= f.radio_button :atmosphere, '3' %>
+        <%= f.radio_button :atmosphere, '2' %>
+        <%= f.radio_button :atmosphere, '1' %>
         良くない
+
+         <h2>住人同士の距離感</h2>
+        親しい
+        <%= f.radio_button :distance_sense, '5' %>
+        <%= f.radio_button :distance_sense, '4' %>
+        <%= f.radio_button :distance_sense, '3' %>
+        <%= f.radio_button :distance_sense, '2' %>
+        <%= f.radio_button :distance_sense, '1' %>
+        挨拶程度
 
         <h2>共有部の清潔さ</h2>
         清潔
-        <%= f.radio_button :cleanliness_shared,'0' %>
-        <%= f.radio_button :cleanliness_shared,'1' %>
-        <%= f.radio_button :cleanliness_shared,'2' %>
-        <%= f.radio_button :cleanliness_shared,'3' %>
+        <%= f.radio_button :cleanliness_shared,'5' %>
         <%= f.radio_button :cleanliness_shared,'4' %>
+        <%= f.radio_button :cleanliness_shared,'3' %>
+        <%= f.radio_button :cleanliness_shared,'2' %>
+        <%= f.radio_button :cleanliness_shared,'1' %>
         不衛生
 
         <h2>水回りの混雑具合</h2>
         いつでも使える
-        <%= f.radio_button :congestion_shared, '0' %>
-        <%= f.radio_button :congestion_shared, '1' %>
-        <%= f.radio_button :congestion_shared, '2' %>
-        <%= f.radio_button :congestion_shared, '3' %>
+        <%= f.radio_button :congestion_shared, '5' %>
         <%= f.radio_button :congestion_shared, '4' %>
-        良く混雑している
+        <%= f.radio_button :congestion_shared, '3' %>
+        <%= f.radio_button :congestion_shared, '2' %>
+        <%= f.radio_button :congestion_shared, '1' %>
+      　混雑している
 
-        <h2>共有部から部屋への音漏れ</h2>
+        <h2>騒音(他の住人による生活音)</h2>
         静か
-        <%= f.radio_button :noise_shared,'0' %>
-        <%= f.radio_button :noise_shared,'1' %>
-        <%= f.radio_button :noise_shared,'2' %>
-        <%= f.radio_button :noise_shared,'3' %>
-        <%= f.radio_button :noise_shared,'4' %>
+        <%= f.radio_button :noise,'5' %>
+        <%= f.radio_button :noise,'4' %>
+        <%= f.radio_button :noise,'3' %>
+        <%= f.radio_button :noise,'2' %>
+        <%= f.radio_button :noise,'1' %>
         騒がしい
 
-        <h2>隣の部屋からの音漏れ</h2>
-        静か
-        <%= f.radio_button :noise_room,'0' %>
-        <%= f.radio_button :noise_room,'1' %>
-        <%= f.radio_button :noise_room,'2' %>
-        <%= f.radio_button :noise_room,'3' %>
-        <%= f.radio_button :noise_room,'4' %>
-        騒がしい
 
          <h2>ネット速度</h2>
         速い
-        <%= f.radio_button :net_speed,'0' %>
-        <%= f.radio_button :net_speed,'1' %>
-        <%= f.radio_button :net_speed,'2' %>
-        <%= f.radio_button :net_speed,'3' %>
+        <%= f.radio_button :net_speed,'5' %>
         <%= f.radio_button :net_speed,'4' %>
+        <%= f.radio_button :net_speed,'3' %>
+        <%= f.radio_button :net_speed,'2' %>
+        <%= f.radio_button :net_speed,'1' %>
         遅い
 
          <h2>シャワーの水圧</h2>
         強い
-        <%= f.radio_button :shower,'0' %>
-        <%= f.radio_button :shower,'1' %>
-        <%= f.radio_button :shower,'2' %>
-        <%= f.radio_button :shower,'3' %>
+        <%= f.radio_button :shower,'5' %>
         <%= f.radio_button :shower,'4' %>
+        <%= f.radio_button :shower,'3' %>
+        <%= f.radio_button :shower,'2' %>
+        <%= f.radio_button :shower,'1' %>
         遅い
 
          <h2>パーティーやイベントの開催</h2>
         頻繁にある
-        <%= f.radio_button :event,'0' %>
-        <%= f.radio_button :event,'1' %>
-        <%= f.radio_button :event,'2' %>
-        <%= f.radio_button :event,'3' %>
+        <%= f.radio_button :event,'5' %>
         <%= f.radio_button :event,'4' %>
-        一切ない
+        <%= f.radio_button :event,'3' %>
+        <%= f.radio_button :event,'2' %>
+        <%= f.radio_button :event,'1' %>
+        少ない
 
 
         <h3>タイトル</h3>
@@ -117,93 +118,93 @@
       <%@reviews.each do |review|%>
         <p><%=review.title%></p>
         <p><%=review.text%></p>
-        <% if review.atmosphere == 0 %>
+        <% if review.atmosphere == 5 %>
           住民の雰囲気 良い<%= image_tag "1.jpg" %>良くない<br>
-        <% elsif review.atmosphere == 1 %>
-          住民の雰囲気 良い<%= image_tag "2.jpg" %>良くない<br>
-        <% elsif review.atmosphere == 2 %>
-          住民の雰囲気 良い<%= image_tag "3.jpg" %>良くない<br>
-        <% elsif review.atmosphere == 3 %>
-          住民の雰囲気 良い<%= image_tag "4.jpg" %>良くない<br>
         <% elsif review.atmosphere == 4 %>
+          住民の雰囲気 良い<%= image_tag "2.jpg" %>良くない<br>
+        <% elsif review.atmosphere == 3 %>
+          住民の雰囲気 良い<%= image_tag "3.jpg" %>良くない<br>
+        <% elsif review.atmosphere == 2 %>
+          住民の雰囲気 良い<%= image_tag "4.jpg" %>良くない<br>
+        <% elsif review.atmosphere == 1 %>
           住民の雰囲気 良い<%= image_tag "5.jpg" %>良くない<br>
         <%end%>
-        <% if review.cleanliness_shared == 0 %>
+        <% if review.distance_sense == 5 %>
+          住人同士の距離感 親しい<%= image_tag "1.jpg" %>挨拶程度<br>
+        <% elsif review.distance_sense == 4 %>
+          住人同士の距離感 親しい<%= image_tag "2.jpg" %>挨拶程度<br>
+        <% elsif review.distance_sense == 3 %>
+          住人同士の距離感 親しい<%= image_tag "3.jpg" %>挨拶程度<br>
+        <% elsif review.distance_sense == 2 %>
+          住人同士の距離感 親しい<%= image_tag "4.jpg" %>挨拶程度<br>
+        <% elsif review.distance_sense == 1 %>
+          住人同士の距離感 親しい<%= image_tag "5.jpg" %>挨拶程度<br>
+        <%end%>
+        <% if review.cleanliness_shared == 5 %>
           共有部の清潔さ 清潔<%= image_tag "1.jpg" %>不衛生<br>
-        <% elsif review.cleanliness_shared == 1 %>
-          共有部の清潔さ 清潔<%= image_tag "2.jpg" %>不衛生<br>
-        <% elsif review.cleanliness_shared == 2 %>
-          共有部の清潔さ 清潔<%= image_tag "3.jpg" %>不衛生<br>
-        <% elsif review.cleanliness_shared == 3 %>
-          共有部の清潔さ 清潔<%= image_tag "4.jpg" %>不衛生<br>
         <% elsif review.cleanliness_shared == 4 %>
+          共有部の清潔さ 清潔<%= image_tag "2.jpg" %>不衛生<br>
+        <% elsif review.cleanliness_shared == 3 %>
+          共有部の清潔さ 清潔<%= image_tag "3.jpg" %>不衛生<br>
+        <% elsif review.cleanliness_shared == 2 %>
+          共有部の清潔さ 清潔<%= image_tag "4.jpg" %>不衛生<br>
+        <% elsif review.cleanliness_shared == 1 %>
           共有部の清潔さ 清潔<%= image_tag "5.jpg" %>不衛生<br>
         <%end%>
-        <% if review.congestion_shared == 0 %>
+        <% if review.congestion_shared == 5 %>
           水回りの混雑具合　いつでも使える<%= image_tag "1.jpg" %>良く混雑している<br>
-        <% elsif review.congestion_shared == 1 %>
-          水回りの混雑具合　いつでも使える<%= image_tag "2.jpg" %>良く混雑している<br>
-        <% elsif review.congestion_shared == 2 %>
-          水回りの混雑具合　いつでも使える<%= image_tag "3.jpg" %>良く混雑している<br>
-        <% elsif review.congestion_shared == 3 %>
-          水回りの混雑具合　いつでも使える<%= image_tag "4.jpg" %>良く混雑している<br>
         <% elsif review.congestion_shared == 4 %>
+          水回りの混雑具合　いつでも使える<%= image_tag "2.jpg" %>良く混雑している<br>
+        <% elsif review.congestion_shared == 3 %>
+          水回りの混雑具合　いつでも使える<%= image_tag "3.jpg" %>良く混雑している<br>
+        <% elsif review.congestion_shared == 2 %>
+          水回りの混雑具合　いつでも使える<%= image_tag "4.jpg" %>良く混雑している<br>
+        <% elsif review.congestion_shared == 1 %>
           水回りの混雑具合　いつでも使える<%= image_tag "5.jpg" %>良く混雑している<br>
         <%end%>
-        <% if review.noise_shared == 0 %>
-          共有部から部屋への音漏れ　静か<%= image_tag "1.jpg" %>騒がしい<br>
-        <% elsif review.noise_shared == 1 %>
-          共有部から部屋への音漏れ　静か<%= image_tag "2.jpg" %>騒がしい<br>
-        <% elsif review.noise_shared == 2 %>
-          共有部から部屋への音漏れ　静か<%= image_tag "3.jpg" %>騒がしい<br>
-        <% elsif review.noise_shared == 3 %>
-          共有部から部屋への音漏れ　静か<%= image_tag "4.jpg" %>騒がしい<br>
-        <% elsif review.noise_shared == 4 %>
-          共有部から部屋への音漏れ　静か<%= image_tag "5.jpg" %>騒がしい<br>
+        <% if review.noise == 5 %>
+          騒音(他の住人による生活音) 静か<%= image_tag "1.jpg" %>騒がしい<br>
+        <% elsif review.noise == 4 %>
+          騒音(他の住人による生活音) 静か<%= image_tag "2.jpg" %>騒がしい<br>
+        <% elsif review.noise == 3 %>
+          騒音(他の住人による生活音) 静か<%= image_tag "3.jpg" %>騒がしい<br>
+        <% elsif review.noise == 2 %>
+          騒音(他の住人による生活音) 静か<%= image_tag "4.jpg" %>騒がしい<br>
+        <% elsif review.noise == 1 %>
+          騒音(他の住人による生活音) 静か<%= image_tag "5.jpg" %>騒がしい<br>
         <%end%>
-        <% if review.noise_room == 0 %>
-          隣の部屋からの音漏れ 静か<%= image_tag "1.jpg" %>騒がしい<br>
-        <% elsif review.noise_room == 1 %>
-          隣の部屋からの音漏れ 静か<%= image_tag "2.jpg" %>騒がしい<br>
-        <% elsif review.noise_room == 2 %>
-          隣の部屋からの音漏れ 静か<%= image_tag "3.jpg" %>騒がしい<br>
-        <% elsif review.noise_room == 3 %>
-          隣の部屋からの音漏れ 静か<%= image_tag "4.jpg" %>騒がしい<br>
-        <% elsif review.noise_room == 4 %>
-          隣の部屋からの音漏れ 静か<%= image_tag "5.jpg" %>騒がしい<br>
-        <%end%>
-        <% if review.net_speed == 0 %>
+        <% if review.net_speed == 5 %>
         　ネット速度　速い<%= image_tag "1.jpg" %>遅い<br>
-        <% elsif review.net_speed == 1 %>
-          ネット速度　速い<%= image_tag "2.jpg" %>遅い<br>
-        <% elsif review.net_speed == 2 %>
-          ネット速度　速い<%= image_tag "3.jpg" %>遅い<br>
-        <% elsif review.net_speed == 3 %>
-          ネット速度　速い<%= image_tag "4.jpg" %>遅い<br>
         <% elsif review.net_speed == 4 %>
+          ネット速度　速い<%= image_tag "2.jpg" %>遅い<br>
+        <% elsif review.net_speed == 3 %>
+          ネット速度　速い<%= image_tag "3.jpg" %>遅い<br>
+        <% elsif review.net_speed == 2 %>
+          ネット速度　速い<%= image_tag "4.jpg" %>遅い<br>
+        <% elsif review.net_speed == 1 %>
           ネット速度　速い<%= image_tag "5.jpg" %>遅い<br>
         <%end%>
-        <% if review.shower == 0 %>
+        <% if review.shower == 5 %>
         　シャワーの水圧　強い<%= image_tag "1.jpg" %>弱い<br>
-        <% elsif review.shower == 1 %>
-          シャワーの水圧　強い<%= image_tag "2.jpg" %>弱い<br>
-        <% elsif review.shower == 2 %>
-       　　シャワーの水圧　強い<%= image_tag"3.jpg" %>弱い<br>
-        <% elsif review.shower == 3 %>
-          シャワーの水圧　強い<%= image_tag "4.jpg" %>弱い<br>
         <% elsif review.shower == 4 %>
+          シャワーの水圧　強い<%= image_tag "2.jpg" %>弱い<br>
+        <% elsif review.shower == 3 %>
+       　　シャワーの水圧　強い<%= image_tag"3.jpg" %>弱い<br>
+        <% elsif review.shower == 2 %>
+          シャワーの水圧　強い<%= image_tag "4.jpg" %>弱い<br>
+        <% elsif review.shower == 1 %>
           シャワーの水圧　強い<%= image_tag "5.jpg" %>弱い<br>
         <%end%>
-         <% if review.event == 0 %>
-        　パーティーやイベントの開催　頻繁にある<%= image_tag "1.jpg" %>一切ない<br>
-        <% elsif review.event == 1 %>
-          パーティーやイベントの開催　頻繁にある<%= image_tag "2.jpg" %>一切ない<br>
-        <% elsif review.event == 2 %>
-       　　パーティーやイベントの開催　頻繁にある<%= image_tag "3.jpg" %>一切ない<br>
-        <% elsif review.event == 3 %>
-          パーティーやイベントの開催　頻繁にある<%= image_tag "4.jpg" %>一切ない<br>
+         <% if review.event == 5 %>
+        　パーティーやイベントの開催　頻繁にある<%= image_tag "1.jpg" %>少ない<br>
         <% elsif review.event == 4 %>
-          パーティーやイベントの開催　頻繁にある<%= image_tag "5.jpg" %>一切ない<br>
+          パーティーやイベントの開催　頻繁にある<%= image_tag "2.jpg" %>少ない<br>
+        <% elsif review.event == 3 %>
+       　　パーティーやイベントの開催　頻繁にある<%= image_tag "3.jpg" %>少ない<br>
+        <% elsif review.event == 2 %>
+          パーティーやイベントの開催　頻繁にある<%= image_tag "4.jpg" %>少ない<br>
+        <% elsif review.event == 1 %>
+          パーティーやイベントの開催　頻繁にある<%= image_tag "5.jpg" %>少ない<br>
         <%end%>
 
         <%=review.user.nickname%>

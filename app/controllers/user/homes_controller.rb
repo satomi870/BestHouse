@@ -58,5 +58,13 @@ class User::HomesController < ApplicationController
 
     shared_facility = Category.find_by(category: "shared_facility")
     @shared_facility_tags=shared_facility.tags
+
+    @properties_atmosphere = Property.find(Review.group(:property_id).order("avg(atmosphere) desc").limit(5).pluck(:property_id))
+    @properties_noise = Property.find(Review.group(:property_id).order("avg(noise) desc").limit(5).pluck(:property_id))
+    @properties_congestion_shared = Property.find(Review.group(:property_id).order("avg(congestion_shared) desc").limit(5).pluck(:property_id))
+    @properties_cleanliness_shared= Property.find(Review.group(:property_id).order("avg(cleanliness_shared) desc").limit(5).pluck(:property_id))
+    @properties_event = Property.find(Review.group(:property_id).order("avg(event) desc").limit(5).pluck(:property_id))
+    @properties_eventa = Property.find(Review.group(:property_id).order("avg(event)").limit(5).pluck(:property_id))
+    #@properties = Property.find(Review.group(:property_id).order("avg(distance_sense)").limit(5).pluck(:property_id))
   end
 end

@@ -87,7 +87,8 @@ class User::PropertiesController < ApplicationController
     end
     history.save
 
-    @review_relation = Review.new#()ないは関係性ページの値を受け取るために設置
+    #@review_relation = Review.new#()ないは関係性ページの値を受け取るために設置
+    @review = Review.new
     @reviews=@property.reviews
     @question = Question.new
     @questions = @property.questions
