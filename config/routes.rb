@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+
   namespace :admin do
     get 'contacts/show'
     get 'contacts/index'
@@ -29,6 +30,7 @@ Rails.application.routes.draw do
     get 'users/favorite' => 'users#favorite', as: 'favorite'
     get'properties/map/:property_id'=>  'properties#map', as: 'map'
     get'properties/seach'=>  'properties#seach', as: 'seach'#違うURLで同じアクションに飛びたい時は二つかかず一つにルーティングをまとめる　idはどうするかというとtophtmlの方で分岐させる
+    get'properties/look'=>  'properties#look', as: 'look'
     #get'properties/seach/:tag_id'=>  'properties#seach', as: 'property_seach'
     resources :histories
     resources :properties,only:[:index, :show]
@@ -39,6 +41,7 @@ Rails.application.routes.draw do
     resource :favorites, only: [:create, :destroy]
     resources :reviews
     resources :questions
+    resources :rules
     end
 
     resources :questions do

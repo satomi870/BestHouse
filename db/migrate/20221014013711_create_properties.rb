@@ -3,6 +3,7 @@ class CreateProperties < ActiveRecord::Migration[6.1]
     create_table :properties do |t|
 
       t.integer :area_id,            null: false
+      t.integer :area_group_id,      null: false
       t.string :property_name,       null: false
       t.string :address,             null: false
       t.string :access,              null: false

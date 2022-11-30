@@ -1,0 +1,2 @@
+module User::RulesHelper
+end

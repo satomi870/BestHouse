@@ -1,7 +1,7 @@
 class User::PropertiesController < ApplicationController
 
   def seach
-
+  before_action :set_ransack, only: [:index, :search]
   #   if params[:format].present?
   #     @formats = params[:format].split("/")
   #   end
@@ -46,13 +46,21 @@ class User::PropertiesController < ApplicationController
      #@property=Property.find(params[:id])
 
     # 配列の中の空要素を取り除く
-
-    @areas = params[:area_name].reject(&:empty?)
-    @tags = params[:tag].reject(&:empty?)
+    #@area_groups = params[:area_group_name].reject(&:empty?)
+    if params[:from_top]
+      @area_groups = params[:area_group_id]
+      @areas = params[:area_id]
+      @tags = params[:tag_id]
+    else
+      #@area_groups = params[:area_group_name].reject(&:empty?) aboutの場合
+      @areas = params[:area_name].reject(&:empty?)
+      @tags = params[:tag].reject(&:empty?)
+    end
 
     if @areas.blank? == false && @tags.blank? == true
       # エリア検索
-      @properties = Property.where(area_id: @areas)
+    #if @area_groups.blank? == false && @tags.blank? == true
+        @properties = Property.where(area_id: @areas)
     elsif @areas.blank? == true && @tags.blank? == false
       # タグ検索
       @properties = Property.includes(:tag_properties).where(tag_properties: {tag_id: @tags })
@@ -62,6 +70,16 @@ class User::PropertiesController < ApplicationController
     elsif @areas.blank? == true && @tags.blank? == true
       # すべて表示
       @properties = Property.all
+    end
+
+    if @area_groups.blank? == false && @tags.blank? == true
+      # エリア検索
+    #if @area_groups.blank? == false && @tags.blank? == true
+        @properties = Property.where(area_group_id: @area_groups)
+    elsif @area_groups.blank? == true && @tags.blank? == false
+      # タグ検索
+      @properties = Property.includes(:tag_properties).where(tag_properties: {tag_id: @tags })
+
     end
 
 
@@ -95,11 +113,20 @@ class User::PropertiesController < ApplicationController
     # @questions = @property.questions.where("answer_flg = false")
     @comment = Comment.new
     @comment_comment = CommentComment.new
+    #@rule = Rule.new
+    #@rules = @property.rules
+
 
     if Read.create(question_id: @question.id, user_id: current_user.id)
       @read = Read.update(complete: true)
     end
 
+  end
+  
+  private
+
+  def set_ransack
+    @q = User.ransack(params[:q])
   end
 
 

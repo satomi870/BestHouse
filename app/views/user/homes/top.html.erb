@@ -1,42 +1,97 @@
 <h3>エリア</h3>
-<%@areas.each do |area|%>
-  <%=link_to area.area_name,seach_path(area_id: area.id)%> <%#左が名前(皆が見てわかりやすい名前)右が値%>
+<%#@areas.each do |area|%>
+  <%#=link_to area.area_name,seach_path(area_id: area.id, from_top: true)%> <%#左が名前(皆が見てわかりやすい名前)右が値%>
+<%#end%>
+
+<%@area_groups.each do |area_group|%>
+  <%=link_to area_group.area_group_name,seach_path(area_group_id: area_group.id, from_top: true)%> <%#左が名前(皆が見てわかりやすい名前)右が値%>
 <%end%>
+
 
 
 <h3>入居者の特性<h3>
 <%@basic_tags.each do |basic_tag|%>
-  <%=link_to basic_tag.name,seach_path(tag_id: basic_tag.id)%>
+  <%=link_to basic_tag.name,seach_path(tag_id: basic_tag.id, from_top: true)%>
 <%end%>
 
 <h3>部屋をこだわりたい!</h3>
 <%@room_tags.each do |room_tag|%>
-  <%=link_to room_tag.name,seach_path(tag_id: room_tag.id)%>
+  <%=link_to room_tag.name,seach_path(tag_id: room_tag.id, from_top: true)%>
 <%end%>
 
 <h3>建物をこだわりたい!</h3>
 <%@building_tags.each do |building_tag|%>
-  <%=link_to building_tag.name,seach_path(tag_id: building_tag.id)%>
+  <%=link_to building_tag.name,seach_path(tag_id: building_tag.id, from_top: true)%>
 <%end%>
 
 <h3>周辺環境をこだわりたい!</h3>
 <%@surrounding_tags.each do |surrounding_tag|%>
-  <%=link_to surrounding_tag.name,seach_path(tag_id: surrounding_tag.id)%>
+  <%=link_to surrounding_tag.name,seach_path(tag_id: surrounding_tag.id, from_top: true)%>
 <%end%>
 
 <h3>入居者の雰囲気をこだわりたい!</h3>
 <%@atmosphere_tags.each do |atmosphere_tag|%>
-  <%=link_to atmosphere_tag.name,seach_path(tag_id: atmosphere_tag.id)%>
+  <%=link_to atmosphere_tag.name,seach_path(tag_id: atmosphere_tag.id, from_top: true)%>
 <%end%>
 
 <h3>プライベートを重視したい!</h3>
 <%@individual_tags.each do |individual_tag|%>
-  <%=link_to individual_tag.name,seach_path(tag_id: individual_tag.id)%>
+  <%=link_to individual_tag.name,seach_path(tag_id: individual_tag.id, from_top: true)%>
 <%end%>
 
 <h3>共有設備をこだわりたい!<h3>
 <%@shared_facility_tags.each do |shared_facility_tag|%>
-  <%=link_to shared_facility_tag.name,seach_path(tag_id: shared_facility_tag.id)%>
+  <%=link_to shared_facility_tag.name,seach_path(tag_id: shared_facility_tag.id, from_top: true)%>
+<%end%>
+
+<h2>住人による口コミランキング！！</h2>
+
+<h3>住民の雰囲気がいいシェアハウスランキング</h3>
+<%  @properties_atmosphere.each do |property| %>
+  <%=link_to property_path(property.id) do%>
+  <%= property.property_name %>
+  <%end%>
+  <%= property.reviews.average(:atmosphere).to_f %>点/5.0点中<br>
+<%end%>
+
+<h3>騒音が少ないシェアハウスランキング</h3>
+<% @properties_noise.each do |property| %>
+  <%=link_to property_path(property.id) do%>
+  <%= property.property_name %>
+  <%end%>
+  <%= property.reviews.average(:noise).to_f %>点/5.0点中<br>
+<%end%>
+
+<h3>水回りの混雑が少ないシェアハウスランキング</h3>
+<% @properties_congestion_shared.each do |property| %>
+  <%=link_to property_path(property.id) do%>
+  <%= property.property_name %>
+  <%end%>
+  <%= property.reviews.average(:congestion_shared).to_f %>点/5.0点中<br>
+<%end%>
+
+<h3>共有部が清潔なシェアハウスランキング</h3>
+<% @properties_cleanliness_shared.each do |property| %>
+  <%=link_to property_path(property.id) do%>
+  <%= property.property_name %>
+  <%end%>
+  <%= property.reviews.average(:cleanliness_shared).to_f %>点/5.0点中<br>
+<%end%>
+
+<h3>イベントやパーティーによる交流が盛んなシェアハウスランキング</h3>
+<% @properties_event.each do |property| %>
+  <%=link_to property_path(property.id) do%>
+  <%= property.property_name %>
+  <%end%>
+  <%= property.reviews.average(:event).to_f %>点/5.0点中<br>
+<%end%>
+
+<h3>イベントやパーティーによる交流が少ないシェアハウスランキング</h3>
+<% @properties_eventa.each do |property| %>
+  <%=link_to property_path(property.id) do%>
+  <%= property.property_name %>
+  <%end%>
+  <%= property.reviews.average(:distance_sense).to_f %>点/5.0点中<br>
 <%end%>
 
 <h3><%=link_to "詳しく探す",about_path%></h3>

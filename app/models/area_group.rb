@@ -1,0 +1,2 @@
+class AreaGroup < ApplicationRecord
+end
