@@ -98,9 +98,9 @@
 <h3><%=link_to "詳しく探す",about_path%></h3>
 
 
-<%#= search_form_for @ransack, url: search_path do |f| %>
-  <%#= f.label :name_cont, 'キーワード検索' %>
-  <%#= f.search_field :name_cont %>
+<%= form_with url: search_keyword_path, method: :get do |f| %>
+  <%= f.label :keyword, 'キーワード検索' %>
+  <%= f.text_field :keyword %>
   <br>
-  <%#= f.submit '検索' %>
-<%# end %>
+  <%= f.submit '検索' %>
+<% end %>

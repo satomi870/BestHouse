@@ -30,6 +30,7 @@ Rails.application.routes.draw do
     get 'users/favorite' => 'users#favorite', as: 'favorite'
     get'properties/map/:property_id'=>  'properties#map', as: 'map'
     get'properties/search'=>  'properties#search', as: 'search'#違うURLで同じアクションに飛びたい時は二つかかず一つにルーティングをまとめる　idはどうするかというとtophtmlの方で分岐させる
+    get'properties/search_keyword'=>  'properties#search_keyword', as: 'search_keyword'
 
     #get'properties/seach/:tag_id'=>  'properties#seach', as: 'property_seach'
     resources :histories

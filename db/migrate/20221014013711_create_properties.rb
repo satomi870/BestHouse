@@ -20,7 +20,7 @@ class CreateProperties < ActiveRecord::Migration[6.1]
       t.string :others,              null: false
       t.string :latitude,            null: false
       t.string :altitude,            null: false
-
+      
 
       t.timestamps
     end

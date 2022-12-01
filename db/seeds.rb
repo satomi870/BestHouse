@@ -38,7 +38,7 @@ area_kamata = AreaGroup.create!(
   )
 
 propertyA=Property.create!(
-    area_id: area_nerima.id,area_group_id: area_ikebukuro.id, property_name:'物件A', address:'東京都', access:'中村橋駅 徒歩3分', rent:40000, condition:'女性', vacancy:'個室6',introduction:'主要駅までのアクセス良好です', common_service_fee:15000,
+    area_id: area_nerima.id,area_group_id: area_ikebukuro.id, property_name:'物件A', address:'東京都練馬区南大泉', access:'中村橋駅 徒歩3分', rent:40000, condition:'女性', vacancy:'個室6',introduction:'主要駅までのアクセス良好です', common_service_fee:15000,
     room_facility:'エアコン・ベッド、クローゼット、トイレ、シャワールーム',
     living:'テレビ、ソファ、テーブル', kitchen:'電子レンジ、冷蔵庫、炊飯器', bath:'各部屋にあり',toilet:'各部屋にあり',others:'洗濯機 2台',latitude:'35.737798415787815',altitude:'139.63589408832408')
 propertyA.image.attach(io: File.open(Rails.root.join('app/assets/images/images/house1.jpg')),filename: 'house1.jpg')

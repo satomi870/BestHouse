@@ -2,7 +2,6 @@ class User::HomesController < ApplicationController
 
 
   def top
-    #before_action :set_ransack, only: [:top]
     #@categories=Category.all
     @areas=Area.all
     @area_groups = AreaGroup.all
@@ -42,7 +41,9 @@ class User::HomesController < ApplicationController
 
 
       #@results = @ransack.result
+     @ransack = Property.ransack(params[:ransack])
   end
+
 
   def about
     #@area=Area.new
@@ -71,11 +72,7 @@ class User::HomesController < ApplicationController
     shared_facility = Category.find_by(category: "shared_facility")
     @shared_facility_tags=shared_facility.tags
 
-    #private
 
-  # def set_ransack
-  #   @ransack = Property.ransack(params[:ransack])
-  # end
 
 
   end
