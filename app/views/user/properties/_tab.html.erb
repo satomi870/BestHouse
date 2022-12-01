@@ -4,6 +4,8 @@
       <li><a href="#tab2" class="">口コミを見る</a></li>
       <li><a href="#tab3" class="">質問をする</a></li>
       <li><a href="#tab4" class="Q&A">Q&A</a></li>
+      <li><a href="#tab5" class="">ハウスルールをシェアする</a></li>
+
     </ul>
   </div>
   <div id="tab-contents">
@@ -229,6 +231,22 @@
 
 　　<div id="tab4" class="tab">
 　　  <%= render 'question', questions: @questions, comment: @comment, comment_comment: @comment_comment %>
+　　</div>
+
+　　<div id="tab5" class="tab">
+　　  <h2>ハウスルールをシェアする</h2>
+　　  <p>※なるべく下記のハウスルールリストにまだ書かれていないことをご記入ください</p>
+　　  <%= form_with model: @rule, url:  property_rules_path(property_id: @property.id) do |f| %>
+        <%= f.text_area :body %>
+        <%=f.submit 'シェアする'%>
+      <%end%>
+
+
+　　  <%@rules.each do |rule|%>
+　　    <ul>
+　　      <li><%= rule.body %></li>
+　　    </ul>
+      <%end%>
 　　</div>
 
 　　</div>

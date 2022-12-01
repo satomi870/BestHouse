@@ -2,6 +2,7 @@ class User::HomesController < ApplicationController
 
 
   def top
+    #before_action :set_ransack, only: [:top]
     #@categories=Category.all
     @areas=Area.all
     @area_groups = AreaGroup.all
@@ -38,6 +39,9 @@ class User::HomesController < ApplicationController
     @properties_event = Property.find(Review.group(:property_id).order("avg(event) desc").limit(5).pluck(:property_id))
     @properties_eventa = Property.find(Review.group(:property_id).order("avg(event)").limit(5).pluck(:property_id))
     #@properties = Property.find(Review.group(:property_id).order("avg(distance_sense)").limit(5).pluck(:property_id))
+
+
+      #@results = @ransack.result
   end
 
   def about
@@ -66,6 +70,12 @@ class User::HomesController < ApplicationController
 
     shared_facility = Category.find_by(category: "shared_facility")
     @shared_facility_tags=shared_facility.tags
+
+    #private
+
+  # def set_ransack
+  #   @ransack = Property.ransack(params[:ransack])
+  # end
 
 
   end

@@ -1,9 +1,20 @@
 class User::RulesController < ApplicationController
-  def new
-    @rule = Rule.new
+
+  def create
+    @rule = Rule.new(rule_params)
+    @rule.user_id = current_user.id
+    @rule.property_id = params[:property_id]
+
+    @rule.save
+    redirect_to request.referer
+
+
   end
 
-  def index
-    @rule = Rules.all
+  private
+
+  def rule_params
+    params.require(:rule).permit( :body)
   end
+
 end

@@ -1,7 +1,7 @@
 class User::PropertiesController < ApplicationController
 
-  def seach
-  before_action :set_ransack, only: [:index, :search]
+  def search
+  #before_action :set_ransack, only: [:index, :search]
   #   if params[:format].present?
   #     @formats = params[:format].split("/")
   #   end
@@ -113,21 +113,23 @@ class User::PropertiesController < ApplicationController
     # @questions = @property.questions.where("answer_flg = false")
     @comment = Comment.new
     @comment_comment = CommentComment.new
-    #@rule = Rule.new
-    #@rules = @property.rules
+    @rule = Rule.new
+    @rules = @property.rules
 
 
     if Read.create(question_id: @question.id, user_id: current_user.id)
       @read = Read.update(complete: true)
     end
 
-  end
-  
-  private
+    #@results = @ransack.result
 
-  def set_ransack
-    @q = User.ransack(params[:q])
   end
+
+  #private
+
+  # def set_ransack
+  #   @ransack = Property.ransack(params[:ransack])
+  # end
 
 
 end

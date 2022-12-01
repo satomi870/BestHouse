@@ -29,8 +29,8 @@ Rails.application.routes.draw do
     get 'users/comment_comment' => 'users#comment_comment', as: 'comment_comment'
     get 'users/favorite' => 'users#favorite', as: 'favorite'
     get'properties/map/:property_id'=>  'properties#map', as: 'map'
-    get'properties/seach'=>  'properties#seach', as: 'seach'#違うURLで同じアクションに飛びたい時は二つかかず一つにルーティングをまとめる　idはどうするかというとtophtmlの方で分岐させる
-    get'properties/look'=>  'properties#look', as: 'look'
+    get'properties/search'=>  'properties#search', as: 'search'#違うURLで同じアクションに飛びたい時は二つかかず一つにルーティングをまとめる　idはどうするかというとtophtmlの方で分岐させる
+
     #get'properties/seach/:tag_id'=>  'properties#seach', as: 'property_seach'
     resources :histories
     resources :properties,only:[:index, :show]
@@ -41,7 +41,7 @@ Rails.application.routes.draw do
     resource :favorites, only: [:create, :destroy]
     resources :reviews
     resources :questions
-    resources :rules
+    resources :rules, only: [:create]
     end
 
     resources :questions do
