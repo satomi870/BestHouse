@@ -19,5 +19,22 @@ class Property < ApplicationRecord
 
 
 
+  RENT_TABLE = [
+    { ja_rent: '5万', rent: 50_000 },
+    { ja_rent: '6万', rent: 60_000 },
+    { ja_rent: '7万', rent: 70_000 },
+    # { ja_rent: '上限なし', rent: 0 }
+  ]
 
+  def self.lower_select_rent_table
+    (RENT_TABLE + [{ ja_rent: '下限なし', rent: 0 }]).map { |table| [table[:ja_rent], table[:rent]] }
+  end
+
+  def self.upper_select_rent_table
+    (RENT_TABLE + [{ ja_rent: '上限なし', rent: 0 }]).map { |table| [table[:ja_rent], table[:rent]] }
+  end
+
+  def self.select_rent_table
+    RENT_TABLE.map { |table| [table[:ja_rent], table[:rent]] }
+  end
 end

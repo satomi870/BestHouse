@@ -1,21 +1,23 @@
-<h2><%=@property.property_name%></h2>
+
 <p><%=image_tag @property.image%></p>
-<%=link_to "地図を見る",map_path(@property.id)%>
-<%= link_to "お問い合わせ",new_property_contact_path(@property.id) %>
-<%#=画像いっぱい載せる%>
+<h2><%=@property.property_name%></h2>
+
 <p><%=@property.introduction%></p>
 
-<h3>物件概要</h3>
-<table>
-    <tr><th>賃料/共益費</th><td><%=@property.rent%>/<%=@property.common_service_fee%></td></tr>
-    <tr><th>住所</th><td><%=@property.address%></td></tr>
-    <tr><th>アクセス</th><td><%=@property.access%></td></tr>
-    <tr><th>入居条件</th><td><%=@property.condition%></td></tr>
-    <tr><th>空室</th></th><td><%=@property.vacancy%></td></tr>
-</table>
-
-
 <h3>共有設備</h3>
+<h3>リビング</h3>
+<p><%=image_tag @property.image%></p>
+<p><%=@property.living%></p>
+<h3>キッチン</h3>
+<p><%=image_tag @property.image%></p>
+<p><%=@property.kitchen%></p>
+<h3>浴室</h3>
+<p><%=image_tag @property.image%></p>
+<p><%=@property.bath%></p>
+<h3>洗濯機</h3>
+<p><%=image_tag @property.image%></p>
+
+
 <table>
     <tr><th>リビング</th><td><%=@property.living%></td></tr>
     <tr><th>キッチン</th><td><%=@property.kitchen%></td></tr>
@@ -45,3 +47,14 @@
 <%#=link_to 'Q&A', property_questions_path(@property.id)%>
 
 
+<%=link_to "地図を見る",map_path(@property.id)%>
+<%= link_to "お問い合わせ",new_property_contact_path(@property.id) %>
+
+<h3>物件概要</h3>
+<table>
+    <tr><th>賃料/共益費</th><td><%=@property.rent%>/<%=@property.common_service_fee%></td></tr>
+    <tr><th>住所</th><td><%=@property.address%></td></tr>
+    <tr><th>アクセス</th><td><%=@property.access%></td></tr>
+    <tr><th>入居条件</th><td><%=@property.condition%></td></tr>
+    <tr><th>空室</th></th><td><%=@property.vacancy%></td></tr>
+</table>

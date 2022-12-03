@@ -18,32 +18,30 @@ class User::PropertiesController < ApplicationController
     end
 
     if @areas.blank? == false && @tags.blank? == true
-      # エリア検索
-    #if @area_groups.blank? == false && @tags.blank? == true
         @properties = Property.where(area_id: @areas)
+
+    elsif @area_groups.blank? == false && @tags.blank? == true
+      @properties = Property.where(area_group_id: @area_groups)
+
     elsif @areas.blank? == true && @tags.blank? == false
-      # タグ検索
       @properties = Property.includes(:tag_properties).where(tag_properties: {tag_id: @tags })
+
     elsif @areas.blank? == false && @tags.blank? == false
-      # 複合検索
       @properties = Property.includes(:tag_properties).where(tag_properties: {tag_id: @tags }).where(area_id: @areas)
+
     elsif @areas.blank? == true && @tags.blank? == true
-      # すべて表示
       @properties = Property.all
     end
 
-    if @area_groups.blank? == false && @tags.blank? == true
-      # エリア検索
-    #if @area_groups.blank? == false && @tags.blank? == true
-        @properties = Property.where(area_group_id: @area_groups)
-    elsif @area_groups.blank? == true && @tags.blank? == false
-      # タグ検索
-      @properties = Property.includes(:tag_properties).where(tag_properties: {tag_id: @tags })
-
-      #@results = @ransack.result
-
+    if (params[:lower_rent] && !params[:lower_rent].to_i.zero?) && (params[:upper_rent] && !params[:upper_rent].to_i.zero?)
+      @properties = @properties.where(rent: params[:lower_rent].to_i..params[:upper_rent].to_i)
+    elsif (params[:lower_rent] && params[:lower_rent].to_i.zero?) && (params[:upper_rent] && !params[:upper_rent].to_i.zero?)
+      @properties = @properties.where(rent: ..params[:upper_rent].to_i)
+    elsif (params[:lower_rent] && !params[:lower_rent].to_i.zero?) && (params[:upper_rent] && params[:upper_rent].to_i.zero?)
+      @properties = @properties.where(rent: params[:lower_rent].to_i..)
     end
 
+      #@results = @ransack.result
 
   end
 
@@ -51,7 +49,7 @@ class User::PropertiesController < ApplicationController
     # @results = @ransack.result
     @results = Property.where("access LIKE ?", "%#{params[:keyword]}%")
     .or(Property.where("address LIKE ?", "%#{params[:keyword]}%"))
-    .or(Property.where("condition LIKE ?", "%#{params[:keyword]}%"))
+    #.or(Property.where("condition LIKE ?", "%#{params[:keyword]}%"))
   end
 
   def map

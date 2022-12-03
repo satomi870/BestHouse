@@ -13,3 +13,30 @@ import "script.js"
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+
+var lowerSelect = document.getElementById('lower_rent')
+var upperSelect = document.getElementById('upper_rent')
+
+lowerSelect.addEventListener('change', function() {
+    var lowerRent = lowerSelect.selectedOptions[0].value;
+    var upperRent = upperSelect.selectedOptions[0].value;
+    if (!isValidRentRange(lowerRent, upperRent)) {
+      alert('下限が上限を超えているので入力し直してください')
+      //好きな処理を描く
+    }
+})
+
+
+upperSelect.addEventListener('change', function() {
+    var lowerRent = lowerSelect.selectedOptions[0].value;
+    var upperRent = upperSelect.selectedOptions[0].value;
+    if (!isValidRentRange(lowerRent, upperRent)) {
+  　　 alert('下限が上限を超えているので入力し直してください')
+    }
+})
+
+function isValidRentRange(lowerRent, upperRent) {
+  return lowerRent < upperRent;
+}
+

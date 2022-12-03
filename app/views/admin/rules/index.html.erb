@@ -1,0 +1,34 @@
+<table>
+  <thead>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </thead>
+  <tbody>
+  <% @rules.each do |rule| %>
+    <tr>
+      <td><%= rule.property.property_name %></td>
+    </tr>
+    <tr>
+      <td><%= rule.body %><%= link_to "削除", admin_rule_path(rule.id), method: :delete %>
+        <%= link_to admin_user_path(rule.user.id) do %>
+          <%= rule.user.nickname %>
+        <%end%>
+      </td>
+    </tr>
+  <%end%>
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+

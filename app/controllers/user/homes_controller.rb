@@ -41,7 +41,7 @@ class User::HomesController < ApplicationController
 
 
       #@results = @ransack.result
-     @ransack = Property.ransack(params[:ransack])
+     #@ransack = Property.ransack(params[:ransack])
   end
 
 

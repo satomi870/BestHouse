@@ -183,6 +183,8 @@ ActiveRecord::Schema.define(version: 2022_11_30_092107) do
     t.string "kitchen", null: false
     t.string "bath", null: false
     t.string "toilet", null: false
+    t.string "wash_room", null: false
+    t.string "washing_machine", null: false
     t.string "others", null: false
     t.string "latitude", null: false
     t.string "altitude", null: false

@@ -2,6 +2,7 @@
 
 <% @contacts.each do |contact| %>
   <%=link_to admin_contact_path(contact.id) do%>
-    <p><%= contact.name %></p>
+    <%= contact.name %>
+    <%=contact.property.property_name %>
   <%end%>
 <%end%>

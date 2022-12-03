@@ -3,6 +3,9 @@ Rails.application.routes.draw do
 
 
   namespace :admin do
+    get 'rules/index'
+  end
+  namespace :admin do
     get 'contacts/show'
     get 'contacts/index'
   end
@@ -64,6 +67,7 @@ Rails.application.routes.draw do
     resources :comments,only: [:destroy]
     resources :comment_comments,only: [:destroy]
     resources :contacts
+    resources :rules,only:[:index,:destroy]
 
 
   end
