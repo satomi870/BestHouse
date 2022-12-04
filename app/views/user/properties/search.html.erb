@@ -38,3 +38,26 @@
   <%end%>
 <%end%>
 
+<%= form_with  url: search_path, method: :get do |f|%>
+  <h3>エリア</h3>
+  <%=f.collection_check_boxes :area_id, Area.all, :id, :area_name, checked: @checkd_areas %>
+  <h3>家賃</h3>
+  <%=f.select :lower_rent, Property.lower_select_rent_table %>〜
+  <%=f.select :upper_rent, Property.upper_select_rent_table %>
+  <h3>入居者の特性</h3>
+  <%=f.collection_check_boxes :tag_id, @basic_tags, :id, :name, checked: params[:tag_id] %>
+  <h3>部屋をこだわりたい!</h3>
+  <%=f.collection_check_boxes :tag_id, @room_tags, :id, :name, checked: params[:tag_id] %>
+  <h3>建物をこだわりたい!</h3>
+  <%=f.collection_check_boxes :tag_id, @building_tags,:id, :name, checked: params[:tag_id] %>
+  <h3>周辺環境をこだわりたい!</h3>
+  <%=f.collection_check_boxes :tag_id, @surrounding_tags, :id, :name, checked: params[:tag_id] %>
+  <h3>プライベートを重視したい!</h3>
+  <%=f.collection_check_boxes :tag, @individual_tags, :id, :name, checked: params[:tag_id] %>
+  <h3>共有設備をこだわりたい!</h3>
+  <%=f.collection_check_boxes :tag_id, @shared_facility_tags, :id, :name, checked: params[:tag_id] %>
+  <h3><%=f.submit 'この条件で検索'%></h3>
+<%end%>
+
+
+

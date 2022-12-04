@@ -5,34 +5,58 @@ class User::PropertiesController < ApplicationController
 
 
 
+
     # 配列の中の空要素を取り除く
     #@area_groups = params[:area_group_name].reject(&:empty?)
-    if params[:from_top]
+    if params[:from_top].present?
       @area_groups = params[:area_group_id]
       @areas = params[:area_id]
       @tags = params[:tag_id]
     else
-      #@area_groups = params[:area_group_name].reject(&:empty?) aboutの場合
-      @areas = params[:area_name].reject(&:empty?)
-      @tags = params[:tag].reject(&:empty?)
+      #@area_groups = params[:area_group_name].reject(&:empty?) #aboutの場合
+      # @areas = []
+      # unless params[:area_group_id].nil?
+      #   params[:area_group_id].reject(&:empty?).each do |id|
+      #     if (id != "")
+      #       @areas.push(id.to_i)
+      #     end
+      #   end
+      # end
+
+      @areas = []
+      if params[:area_id].present?
+        @areas = params[:area_id].reject(&:empty?)
+      end
+
+      @tags = []
+      unless params[:tag_id].nil?
+        params[:tag_id].reject(&:empty?).each do |id|
+          if (id != "")
+            @tags.push(id.to_i)
+          end
+        end
+      end
+      # @tags = params[:tag_id].reject(&:empty?)
+      # p @tags
     end
 
-    if @areas.blank? == false && @tags.blank? == true
-        @properties = Property.where(area_id: @areas)
-
+    # 未入力の場合は全件が対象
+    @properties = Property.all
+    # エリア関連の検索処理
+    @checkd_areas = []
+    if @areas.blank? == false
+      @properties = @properties.where(area_id: @areas)
+      @checkd_areas = @areas
     elsif @area_groups.blank? == false && @tags.blank? == true
-      @properties = Property.where(area_group_id: @area_groups)
-
-    elsif @areas.blank? == true && @tags.blank? == false
-      @properties = Property.includes(:tag_properties).where(tag_properties: {tag_id: @tags })
-
-    elsif @areas.blank? == false && @tags.blank? == false
-      @properties = Property.includes(:tag_properties).where(tag_properties: {tag_id: @tags }).where(area_id: @areas)
-
-    elsif @areas.blank? == true && @tags.blank? == true
-      @properties = Property.all
+      @properties = @properties.where(area_group_id: @area_groups)
+      @checkd_areas = Area.where(area_group_id: @area_groups).ids
+    end
+    # タグの検索処理
+    if @tags.blank? == false
+      @properties = @properties.includes(:tag_properties).where(tag_properties: {tag_id: @tags })
     end
 
+    # 金額の条件
     if (params[:lower_rent] && !params[:lower_rent].to_i.zero?) && (params[:upper_rent] && !params[:upper_rent].to_i.zero?)
       @properties = @properties.where(rent: params[:lower_rent].to_i..params[:upper_rent].to_i)
     elsif (params[:lower_rent] && params[:lower_rent].to_i.zero?) && (params[:upper_rent] && !params[:upper_rent].to_i.zero?)
@@ -43,6 +67,25 @@ class User::PropertiesController < ApplicationController
 
       #@results = @ransack.result
 
+    basic = Category.find_by(category: "basic") #カテゴリわけwhereを使うパターンもある　rails 検索　やり方
+    @basic_tags=basic.tags
+
+    room = Category.find_by(category: "room")
+    @room_tags=room.tags
+
+    @tags=Tag.all
+    building = Category.find_by(category: "building")
+    @building_tags=building.tags
+
+    surrounding = Category.find_by(category: "surrounding")
+    @surrounding_tags=surrounding.tags
+
+    individual = Category.find_by(category: "individual")
+    @individual_tags=individual.tags
+
+    shared_facility = Category.find_by(category: "shared_facility")
+    @shared_facility_tags=shared_facility.tags
+
   end
 
   def search_keyword
@@ -50,6 +93,26 @@ class User::PropertiesController < ApplicationController
     @results = Property.where("access LIKE ?", "%#{params[:keyword]}%")
     .or(Property.where("address LIKE ?", "%#{params[:keyword]}%"))
     #.or(Property.where("condition LIKE ?", "%#{params[:keyword]}%"))
+
+    basic = Category.find_by(category: "basic") #カテゴリわけwhereを使うパターンもある　rails 検索　やり方
+    @basic_tags=basic.tags
+
+    room = Category.find_by(category: "room")
+    @room_tags=room.tags
+
+    @tags=Tag.all
+    building = Category.find_by(category: "building")
+    @building_tags=building.tags
+
+    surrounding = Category.find_by(category: "surrounding")
+    @surrounding_tags=surrounding.tags
+
+    individual = Category.find_by(category: "individual")
+    @individual_tags=individual.tags
+
+    shared_facility = Category.find_by(category: "shared_facility")
+    @shared_facility_tags=shared_facility.tags
+
   end
 
   def map

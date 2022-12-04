@@ -30,11 +30,6 @@
   <%=link_to surrounding_tag.name,search_path(tag_id: surrounding_tag.id, from_top: true)%>
 <%end%>
 
-<h3>入居者の雰囲気をこだわりたい!</h3>
-<%@atmosphere_tags.each do |atmosphere_tag|%>
-  <%=link_to atmosphere_tag.name,search_path(tag_id: atmosphere_tag.id, from_top: true)%>
-<%end%>
-
 <h3>プライベートを重視したい!</h3>
 <%@individual_tags.each do |individual_tag|%>
   <%=link_to individual_tag.name,search_path(tag_id: individual_tag.id, from_top: true)%>

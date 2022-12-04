@@ -20,9 +20,20 @@ class Property < ApplicationRecord
 
 
   RENT_TABLE = [
+    { ja_rent: '3万', rent: 30_000 },
+    { ja_rent: '4万', rent: 40_000 },
     { ja_rent: '5万', rent: 50_000 },
     { ja_rent: '6万', rent: 60_000 },
     { ja_rent: '7万', rent: 70_000 },
+    { ja_rent: '8万', rent: 80_000 },
+    { ja_rent: '9万', rent: 90_000 },
+    { ja_rent: '10万', rent: 100_000 },
+    { ja_rent: '11万', rent: 110_000 },
+    { ja_rent: '12万', rent: 120_000 },
+    { ja_rent: '13万', rent: 130_000 },
+    { ja_rent: '14万', rent: 140_000 },
+    { ja_rent: '15万', rent: 150_000 },
+
     # { ja_rent: '上限なし', rent: 0 }
   ]
 

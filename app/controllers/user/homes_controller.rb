@@ -19,9 +19,6 @@ class User::HomesController < ApplicationController
     surrounding = Category.find_by(category: "surrounding")
     @surrounding_tags=surrounding.tags
 
-    atmosphere = Category.find_by(category: "atmosphere")
-    @atmosphere_tags=atmosphere.tags
-
     individual = Category.find_by(category: "individual")
     @individual_tags=individual.tags
 
@@ -62,9 +59,6 @@ class User::HomesController < ApplicationController
 
     surrounding = Category.find_by(category: "surrounding")
     @surrounding_tags=surrounding.tags
-
-    atmosphere = Category.find_by(category: "atmosphere")
-    @atmosphere_tags=atmosphere.tags
 
     individual = Category.find_by(category: "individual")
     @individual_tags=individual.tags
