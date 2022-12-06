@@ -104,4 +104,9 @@
   <%#= f.hidden_field :relation,value: @review_relation.relation %>
   <%#= f.hidden_field :relation_detail,value: @review_relation.relation_detail %>
   <%= f.submit"投稿する" %>
+
+  住み続けたい?<%= f.radio_button :repeat,'0' %>はい
+  <%= f.radio_button :repeat,'1' %>いいえ
+  <%= f.radio_button :repeat,'2' %>わからない
+
 <%end%>

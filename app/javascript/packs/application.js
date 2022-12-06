@@ -39,4 +39,3 @@ upperSelect.addEventListener('change', function() {
 function isValidRentRange(lowerRent, upperRent) {
   return lowerRent < upperRent;
 }
-

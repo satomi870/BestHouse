@@ -93,10 +93,14 @@
   <%end%>
 
   <%=review.user.nickname%>
+
   <%=review.user.gender%>
   <%=review.user.age %>代
   <%=review.relation_i18n%>
   <%=review.relation_detail_i18n%>
+
+  <% if review.repeat == 0 %>
+    住み続けたい
 <%end%>
 
 

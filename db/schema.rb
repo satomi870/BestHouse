@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_12_04_095654) do
+ActiveRecord::Schema.define(version: 2022_12_05_121309) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -225,6 +225,7 @@ ActiveRecord::Schema.define(version: 2022_12_04_095654) do
     t.integer "net_speed", null: false
     t.integer "shower", null: false
     t.integer "event", null: false
+    t.string "repeat", null: false
     t.string "title", null: false
     t.string "text", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -262,7 +263,7 @@ ActiveRecord::Schema.define(version: 2022_12_04_095654) do
     t.datetime "remember_created_at"
     t.string "nickname"
     t.string "gender"
-    t.integer "age"
+    t.string "age"
     t.boolean "is_deleted", default: false
     t.boolean "is_active", default: false
     t.datetime "created_at", precision: 6, null: false

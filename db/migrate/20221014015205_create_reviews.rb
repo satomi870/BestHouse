@@ -13,6 +13,7 @@ class CreateReviews < ActiveRecord::Migration[6.1]
       t.integer :net_speed,             null: false
       t.integer :shower,                null: false
       t.integer :event,                 null: false
+      t.string  :repeat,                null: false
       t.string  :title,                 null: false
       t.string  :text,                  null: false
 

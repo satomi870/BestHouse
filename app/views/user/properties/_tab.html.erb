@@ -111,6 +111,10 @@
         <%= f.text_area :text %>
         <%#= f.hidden_field :relation,value: @review_relation.relation %>
         <%#= f.hidden_field :relation_detail,value: @review_relation.relation_detail %>
+        住み続けたい?<%= f.radio_button :repeat,'3' %>はい
+        <%= f.radio_button :repeat,'2' %>いいえ
+        <%= f.radio_button :repeat,'1'%>わからない
+
         <%= f.submit"投稿する" %>
       <%end%>
     </div>
@@ -120,6 +124,9 @@
       <%@reviews.each do |review|%>
         <p><%=review.title%></p>
         <p><%=review.text%></p>
+        <% if review.repeat == "3" %>
+          <p>住み続けたい</p>
+        <%end%>
         <% if review.atmosphere == 5 %>
           住民の雰囲気 良い<%= image_tag "1.jpg" %>良くない<br>
         <% elsif review.atmosphere == 4 %>
@@ -214,6 +221,7 @@
         <%=review.user.age %>代
         <%=review.relation_i18n%>
         <%=review.relation_detail_i18n%>
+
       <%end%>
 　　</div>
 

@@ -34,6 +34,7 @@ class User::HomesController < ApplicationController
     @properties_cleanliness_shared= Property.find(Review.group(:property_id).order("avg(cleanliness_shared) desc").limit(5).pluck(:property_id))
     @properties_event = Property.find(Review.group(:property_id).order("avg(event) desc").limit(5).pluck(:property_id))
     @properties_eventa = Property.find(Review.group(:property_id).order("avg(event)").limit(5).pluck(:property_id))
+    @properties_eventa = Property.find(Review.group(:property_id).order("avg(event)").limit(5).pluck(:property_id))
     #@properties = Property.find(Review.group(:property_id).order("avg(distance_sense)").limit(5).pluck(:property_id))
 
 

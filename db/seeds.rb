@@ -11,7 +11,7 @@ Admin.create!(
 #   Character.create(name: 'Luke', movie: movies.first)
 area_ikebukuro = AreaGroup.create!(
   area_group_name:'池袋 赤羽 練馬'
-  )
+)
 
 area_ebisu = AreaGroup.create!(
   area_group_name:'渋谷 恵比寿 下北沢'
@@ -22,22 +22,22 @@ area_kamata = AreaGroup.create!(
   )
 
 area_nerima = Area.create!(
-  area_name:'練馬区'
+  area_name:'練馬区',
   area_group_id: area_ikebukuro.id
   )
 
 area_toshima = Area.create!(
-  area_name:'豊島区'
+  area_name:'豊島区',
   area_group_id: area_ikebukuro.id
   )
 
 area_setagaya = Area.create!(
-  area_name:'世田谷区'
+  area_name:'世田谷区',
   area_group_id: area_ebisu.id
-
   )
+
 area_shinagawa = Area.create!(
-  area_name:'品川区'
+  area_name:'品川区',
   area_group_id: area_kamata.id
   )
 
@@ -154,7 +154,7 @@ tag_wide = Tag.create!(
 
   )
 
-   tag_Supermarket = Tag.create!(
+  tag_Supermarket = Tag.create!(
     category_id: category_surrounding.id,
     name: 'コンビニ・スーパー近い（徒歩5分以内）'
     #genre: 'surrounding'
@@ -275,7 +275,6 @@ TagProperty.create!(
 TagProperty.create!(
   property_id: propertyC.id,
   tag_id: tag_cleaning_support.id
-
   )
 
 TagProperty.create!(

@@ -57,6 +57,6 @@ class User::ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:title, :text, :relation, :relation_detail, :atmosphere, :cleanliness_shared, :congestion_shared, :noise, :distance_sense,:net_speed, :shower, :event)
+    params.require(:review).permit(:title, :text, :relation, :relation_detail, :atmosphere, :cleanliness_shared, :congestion_shared, :noise, :distance_sense,:net_speed, :shower, :event, :repeat)
   end
 end
