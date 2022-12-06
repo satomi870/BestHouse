@@ -75,7 +75,7 @@
 <%end%>
 
 <h3>イベントやパーティーによる交流が盛んなシェアハウスランキング</h3>
-<% @properties_event.each do |property| %>
+<% @properties_event_many.each do |property| %>
   <%=link_to property_path(property.id) do%>
   <%= property.property_name %>
   <%end%>
@@ -83,7 +83,15 @@
 <%end%>
 
 <h3>イベントやパーティーによる交流が少ないシェアハウスランキング</h3>
-<% @properties_eventa.each do |property| %>
+<% @properties_event_less.each do |property| %>
+  <%=link_to property_path(property.id) do%>
+  <%= property.property_name %>
+  <%end%>
+  <%= property.reviews.average(:distance_sense).to_f %>点/5.0点中<br>
+<%end%>
+
+<h3>住み続けたいシェアハウスランキング</h3>
+<% @properties_repeat.each do |property| %>
   <%=link_to property_path(property.id) do%>
   <%= property.property_name %>
   <%end%>

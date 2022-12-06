@@ -15,12 +15,13 @@
     <header>
       <% if user_signed_in? %>
         <li>
-          <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+          <%=link_to"シェアハウスを探す",root_path%>
           <%= link_to "お気に入り", favorite_path %>
           <%= link_to "マイページ",user_path %>
           <%= link_to"通知",notifications_path %>
           <%= current_user.passive_notifications.where(checked: false).size %>
           <%= link_to"閲覧履歴",histories_path %>
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
         </li>
       <% elsif admin_signed_in? %>
         <li>
@@ -42,5 +43,6 @@
 
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %> <!--javascriptはbodtyタグの終了直前に読む-->
   </body>
+
 
 </html>

@@ -6,8 +6,13 @@
         <p><%=question.title%></p>
         <p><%=question.body%></p>
         <%=question.user.nickname%>
-        <%=question.user.gender%>
-        <%=question.user.age%>代
+        <% unless question.user.gender == "非公開" %>
+          <%= question.user.gender %>
+        <% end %>
+        <% unless question.user.age == "非公開" %>
+          <%= question.user.age %>
+        <% end %>
+        <%=question.relation_i18n%>
 
         <%= form_with model: comment, url: question_comments_path(question.id) do |f|  %> <!--[@question, @answer]にしちゃうとコントローラで@question = Question.find(params[:id])を書かないといけなくなり%=link_to '質問に答える', property_questions_path(@property.id)%>ここでquestion.idを送らないとダメになるからそうやって書かない-->
           <%= f.text_field :body %>
@@ -31,22 +36,30 @@
           <p><%= comment.body %></p>
           <%#= comment.relation_i18n %>
           <%=comment.user.nickname%>
-          <%=comment.user.gender%>
-          <%=comment.user.age%>代
-
-
-          <p><%= comment.body %></p>
+          <% unless comment.user.gender == "非公開" %>
+            <%= comment.user.gender %>
+          <% end %>
+          <% unless comment.user.age == "非公開" %>
+            <%= comment.user.age %>
+          <% end %>
+          <%=comment.relation_i18n%>
           <%#= comment.relation_i18n %>
-          <%=comment.user.nickname%>
+
           <%=comment.user.gender%>
-          <%=comment.user.age%>代
+          <%=comment.user.age%>
 
           <% comment.comment_comments.each do |comment_comment| %>
             <p><%= comment_comment.body %></p>
             <%#= comment.relation_i18n %>
+
             <%=comment_comment.user.nickname%>
-            <%=comment_comment.user.gender%>
-            <%=comment_comment.user.age%>代
+            <% unless comment_comment.user.gender == "非公開" %>
+              <%= comment_comment.user.gender %>
+            <% end %>
+            <% unless comment_comment.user.age == "非公開" %>
+              <%= comment_comment.user.age %>
+            <% end %>
+            <%=comment_comment.relation_i18n%>
           <%end%>
         <%end%>
       <%end%>

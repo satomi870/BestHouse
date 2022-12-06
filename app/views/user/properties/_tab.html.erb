@@ -112,8 +112,8 @@
         <%#= f.hidden_field :relation,value: @review_relation.relation %>
         <%#= f.hidden_field :relation_detail,value: @review_relation.relation_detail %>
         住み続けたい?<%= f.radio_button :repeat,'3' %>はい
-        <%= f.radio_button :repeat,'2' %>いいえ
-        <%= f.radio_button :repeat,'1'%>わからない
+        <%= f.radio_button :repeat,'1' %>いいえ
+        <%= f.radio_button :repeat,'2'%>わからない
 
         <%= f.submit"投稿する" %>
       <%end%>
@@ -217,10 +217,14 @@
         <%end%>
 
         <%=review.user.nickname%>
-        <%=review.user.gender%>
-        <%=review.user.age %>代
+        <% unless review.user.gender == "非公開" %>
+          <%= review.user.gender %>
+        <% end %>
+        <% unless review.user.age == "非公開" %>
+          <%= review.user.age %>
+        <% end %>
         <%=review.relation_i18n%>
-        <%=review.relation_detail_i18n%>
+        <%#=review.relation_detail_i18n%>
 
       <%end%>
 　　</div>

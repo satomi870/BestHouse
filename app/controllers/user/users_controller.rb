@@ -8,6 +8,7 @@ class User::UsersController < ApplicationController
     @questions = current_user.questions
     @comment_questions = Question.joins(:comments).where(comments: { user: current_user }) #あくまでとってきたいのはquestionのデータ
     @comment_comment_questions = Question.joins(:comment_comments).where(comment_comments: { user: current_user })#あくまでとってきたいのはquestionのデータ
+    @rules = current_user.rules
 
   end
 
@@ -18,7 +19,7 @@ class User::UsersController < ApplicationController
   def update
     user=current_user
     user.update(user_params)
-    redirect_to edit_user_path
+    redirect_to user_path
   end
 
   def review

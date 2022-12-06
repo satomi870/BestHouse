@@ -43,9 +43,9 @@ Rails.application.routes.draw do
     resources :contacts
     get 'reviews/choose'=>'reviews#choose'
     resource :favorites, only: [:create, :destroy]
+    resources :rules
     resources :reviews
     resources :questions
-    resources :rules, only: [:create]
     end
 
     resources :questions do

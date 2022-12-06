@@ -15,12 +15,12 @@ Turbolinks.start()
 ActiveStorage.start()
 
 
-var lowerSelect = document.getElementById('lower_rent')
-var upperSelect = document.getElementById('upper_rent')
+let lowerSelect = document.getElementById('lower_rent')
+let upperSelect = document.getElementById('upper_rent')
 
 lowerSelect.addEventListener('change', function() {
-    var lowerRent = lowerSelect.selectedOptions[0].value;
-    var upperRent = upperSelect.selectedOptions[0].value;
+    let lowerRent = lowerSelect.selectedOptions[0].value;
+    let upperRent = upperSelect.selectedOptions[0].value;
     if (!isValidRentRange(lowerRent, upperRent)) {
       alert('下限が上限を超えているので入力し直してください')
       //好きな処理を描く
@@ -29,13 +29,16 @@ lowerSelect.addEventListener('change', function() {
 
 
 upperSelect.addEventListener('change', function() {
-    var lowerRent = lowerSelect.selectedOptions[0].value;
-    var upperRent = upperSelect.selectedOptions[0].value;
+    let lowerRent = lowerSelect.selectedOptions[0].value;
+    let upperRent = upperSelect.selectedOptions[0].value;
     if (!isValidRentRange(lowerRent, upperRent)) {
-  　　 alert('下限が上限を超えているので入力し直してください')
+      alert('下限が上限を超えているので入力し直してください')
     }
 })
 
 function isValidRentRange(lowerRent, upperRent) {
-  return lowerRent < upperRent;
+  if (Number(upperRent) === 0) {
+    return true
+  }
+  return Number(lowerRent)< Number(upperRent);
 }

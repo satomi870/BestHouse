@@ -85,6 +85,9 @@ class User::PropertiesController < ApplicationController
 
     shared_facility = Category.find_by(category: "shared_facility")
     @shared_facility_tags=shared_facility.tags
+    
+    @lower_rent = params[:lower_rent].to_i
+    @upper_rent = params[:upper_rent].to_i
 
   end
 
@@ -112,7 +115,8 @@ class User::PropertiesController < ApplicationController
 
     shared_facility = Category.find_by(category: "shared_facility")
     @shared_facility_tags=shared_facility.tags
-
+    
+    @checkd_areas = Area.where("area_name LIKE ?", "#{params[:keyword]}%").pluck(:id)
   end
 
   def map
