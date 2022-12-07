@@ -13,6 +13,20 @@ class Review < ApplicationRecord
    # enum net_speed: { excellent: 0, very_good: 1, good: 2, average: 3, poor: 4 }, _prefix: true
    #enum shower: { excellent: 0, very_good: 1, good: 2, average: 3, poor: 4 }, _prefix: true
    #enum event: { excellent: 0, very_good: 1, good: 2, average: 3, poor: 4 }, _prefix: true
+   validates :title, presence: true
+   validates :text, presence: true
+   validates :relation, presence: true
+   validates :atmosphere, presence: true
+   validates :cleanliness_shared, presence: true
+   validates :congestion_shared, presence: true
+   validates :noise, presence: true
+   validates :distance_sense, presence: true
+   validates :net_speed, presence: true
+   validates :shower, presence: true
+   validates :event, presence: true
+   validates :repeat, presence: true
+
+
 
 
 end

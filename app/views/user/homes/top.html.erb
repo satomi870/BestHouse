@@ -41,13 +41,16 @@
 <%end%>
 
 <h2>住人による口コミランキング！！</h2>
-
 <h3>住民の雰囲気がいいシェアハウスランキング</h3>
-<%  @properties_atmosphere.each do |property| %>
-  <%=link_to property_path(property.id) do%>
-  <%= property.property_name %>
+<% if @properties_atmosphere.present? %>
+  <%  @properties_atmosphere.each do |property| %>
+    <%=link_to property_path(property.id) do%>
+      <%= property.property_name %>
+    <%end%>
+    <%= property.reviews.average(:atmosphere).to_f %>点/5.0点中<br>
   <%end%>
-  <%= property.reviews.average(:atmosphere).to_f %>点/5.0点中<br>
+<%else%>
+  <p>まだレビューがありません</p>
 <%end%>
 
 <h3>騒音が少ないシェアハウスランキング</h3>
@@ -59,6 +62,7 @@
 <%end%>
 
 <h3>水回りの混雑が少ないシェアハウスランキング</h3>
+
 <% @properties_congestion_shared.each do |property| %>
   <%=link_to property_path(property.id) do%>
   <%= property.property_name %>
@@ -95,7 +99,7 @@
   <%=link_to property_path(property.id) do%>
   <%= property.property_name %>
   <%end%>
-  <%= property.reviews.average(:distance_sense).to_f %>点/5.0点中<br>
+  <%= property.reviews.average(:repeat).to_f %>点/5.0点中<br>
 <%end%>
 
 <h3><%=link_to "詳しく探す",about_path%></h3>

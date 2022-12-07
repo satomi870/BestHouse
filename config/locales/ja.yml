@@ -1,4 +1,18 @@
 ja:
+  activerecord:
+    attributes:
+      review:
+        title: タイトル
+        text: 本文
+        relation:　関係性
+        atmosphere: 住人の雰囲気
+        distance_sense: 住人同士の距離感
+        cleanliness_shared: 共有部の清潔さ
+        congestion_shared: 水回りの混雑具合
+        noise: 騒音
+        net_speed: ネット速度
+        shower: シャワーの水圧
+        event: パーティーやイベントの開催
   enums:
     review:
       relation:
@@ -52,5 +66,7 @@ ja:
         oya: "大家さん"
         kankeisya: "不動産関係者"
         sonota: "その他"
-
-
+  errors:
+    format: "%{attribute}%{message}"
+    messages:
+      blank: を入力してください

@@ -2,16 +2,12 @@ Rails.application.routes.draw do
 
 
 
-  namespace :admin do
-    get 'rules/index'
-  end
-  namespace :admin do
-    get 'contacts/show'
-    get 'contacts/index'
-  end
-  namespace :user do
-    get 'contacts/new'
-  end
+  get 'horails/g'
+  get 'horails/controller'
+  get 'horails/hogesrails'
+  get 'horails/g'
+  get 'horails/controller'
+  get 'horails/hogesges'
   devise_for :admin,skip: [:registrations, :passwords],controllers: {
     sessions: "admin/sessions"
   }
@@ -19,6 +15,8 @@ Rails.application.routes.draw do
     registrations: "user/registrations",
     sessions: 'user/sessions'
   }
+
+  resources :hoges, only: [:index, :create]
 
   scope module: :user do
     root to:'homes#top'
@@ -34,7 +32,7 @@ Rails.application.routes.draw do
     get'properties/map/:property_id'=>  'properties#map', as: 'map'
     get'properties/search'=>  'properties#search', as: 'search'#違うURLで同じアクションに飛びたい時は二つかかず一つにルーティングをまとめる　idはどうするかというとtophtmlの方で分岐させる
     get'properties/search_keyword'=>  'properties#search_keyword', as: 'search_keyword'
-
+    post 'users/guest_login' => 'guest_sessions#create'
     #get'properties/seach/:tag_id'=>  'properties#seach', as: 'property_seach'
     resources :histories
     resources :properties,only:[:index, :show]

@@ -13,6 +13,7 @@ class User::UsersController < ApplicationController
   end
 
   def edit
+
     @user = current_user
   end
 
