@@ -1,9 +1,13 @@
 
 <%#binding.pry%>
+全<%=@properties. count%>件
 <%@properties.each do |property|%>
+<% property.images.first(1).each do |image| %>
+  <%= image_tag image%>
+<%end%>
   <h2><%=property.property_name%></h2>
   <%=property.access%>
-  <%=image_tag property.image%>
+  <%#=image_tag property.image%>
   <table>
     <tr><th>賃料</th><td><%=property.rent%></td></tr>
     <tr><th>住所</th><td><%=property.address%></td></tr>
@@ -37,6 +41,8 @@
      <%end%>
   <%end%>
 <%end%>
+
+<%= paginate @properties %>
 
 <%= form_with url: search_path, method: :get do |f|%>
   <h3>エリア</h3>

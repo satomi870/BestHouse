@@ -54,53 +54,79 @@
 <%end%>
 
 <h3>騒音が少ないシェアハウスランキング</h3>
-<% @properties_noise.each do |property| %>
-  <%=link_to property_path(property.id) do%>
-  <%= property.property_name %>
+<% if @properties_noise.present? %>
+  <% @properties_noise.each do |property| %>
+    <%=link_to property_path(property.id) do%>
+      <%= property.property_name %>
+    <%end%>
+    <%= property.reviews.average(:noise).to_f %>点/5.0点中<br>
   <%end%>
-  <%= property.reviews.average(:noise).to_f %>点/5.0点中<br>
+<%else%>
+  <p>まだレビューがありません</p>
 <%end%>
 
-<h3>水回りの混雑が少ないシェアハウスランキング</h3>
 
-<% @properties_congestion_shared.each do |property| %>
-  <%=link_to property_path(property.id) do%>
-  <%= property.property_name %>
+<h3>水回りの混雑が少ないシェアハウスランキング</h3>
+<% if @properties_congestion_shared.present? %>
+  <% @properties_congestion_shared.each do |property| %>
+    <%=link_to property_path(property.id) do%>
+      <%= property.property_name %>
+    <%end%>
+    <%= property.reviews.average(:congestion_shared).to_f %>点/5.0点中<br>
   <%end%>
-  <%= property.reviews.average(:congestion_shared).to_f %>点/5.0点中<br>
+<%else%>
+  <p>まだレビューがありません</p>
 <%end%>
 
 <h3>共有部が清潔なシェアハウスランキング</h3>
-<% @properties_cleanliness_shared.each do |property| %>
-  <%=link_to property_path(property.id) do%>
-  <%= property.property_name %>
+<% if @properties_cleanliness_shared.present? %>
+  <% @properties_cleanliness_shared.each do |property| %>
+    <%=link_to property_path(property.id) do%>
+      <%= property.property_name %>
+    <%end%>
+    <%= property.reviews.average(:cleanliness_shared).to_f %>点/5.0点中<br>
   <%end%>
-  <%= property.reviews.average(:cleanliness_shared).to_f %>点/5.0点中<br>
+<%else%>
+  <p>まだレビューがありません</p>
 <%end%>
 
 <h3>イベントやパーティーによる交流が盛んなシェアハウスランキング</h3>
-<% @properties_event_many.each do |property| %>
-  <%=link_to property_path(property.id) do%>
-  <%= property.property_name %>
+<% if @properties_event_many.present? %>
+  <% @properties_event_many.each do |property| %>
+    <%=link_to property_path(property.id) do%>
+      <%= property.property_name %>
+    <%end%>
+    <%= property.reviews.average(:event).to_f %>点/5.0点中<br>
   <%end%>
-  <%= property.reviews.average(:event).to_f %>点/5.0点中<br>
+<%else%>
+  <p>まだレビューがありません</p>
 <%end%>
 
+
 <h3>イベントやパーティーによる交流が少ないシェアハウスランキング</h3>
-<% @properties_event_less.each do |property| %>
-  <%=link_to property_path(property.id) do%>
-  <%= property.property_name %>
+<% if @properties_event_less.present? %>
+  <% @properties_event_less.each do |property| %>
+    <%=link_to property_path(property.id) do%>
+      <%= property.property_name %>
+    <%end%>
+    <%= property.reviews.average(:distance_sense).to_f %>点/5.0点中<br>
   <%end%>
-  <%= property.reviews.average(:distance_sense).to_f %>点/5.0点中<br>
+<%else%>
+  <p>まだレビューがありません</p>
 <%end%>
 
 <h3>住み続けたいシェアハウスランキング</h3>
-<% @properties_repeat.each do |property| %>
-  <%=link_to property_path(property.id) do%>
-  <%= property.property_name %>
+<% if @properties_repeat.present? %>
+  <% @properties_repeat.each do |property| %>
+    <%=link_to property_path(property.id) do%>
+      <%= property.property_name %>
+    <%end%>
+    <%= property.reviews.average(:repeat).to_f %>点/5.0点中<br>
   <%end%>
-  <%= property.reviews.average(:repeat).to_f %>点/5.0点中<br>
+<%else%>
+  <p>まだレビューがありません</p>
 <%end%>
+
 
 <h3><%=link_to "詳しく探す",about_path%></h3>
 

@@ -55,9 +55,9 @@ class User::ReviewsController < ApplicationController
 
 
   def index
-     @property=Property.find(params[:property_id]) #@property=(params[:property_id])だとただidを受け取ってるだけ
+    # @property=Property.find(params[:property_id]) #@property=(params[:property_id])だとただidを受け取ってるだけ
     #@reviews=@property.reviews
-
+    redirect_to property_path(params[:property_id])#リロードするとこの画面に飛んでしまう
 
   end
 

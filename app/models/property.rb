@@ -1,5 +1,5 @@
 class Property < ApplicationRecord
-  has_one_attached :image
+  has_many_attached :images
 
   has_many :tag_properties, dependent: :destroy
   has_many :tags, through: :tag_properties

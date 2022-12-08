@@ -2,17 +2,23 @@ ja:
   activerecord:
     attributes:
       review:
-        title: タイトル
-        text: 本文
-        relation:　関係性
-        atmosphere: 住人の雰囲気
-        distance_sense: 住人同士の距離感
-        cleanliness_shared: 共有部の清潔さ
-        congestion_shared: 水回りの混雑具合
-        noise: 騒音
-        net_speed: ネット速度
-        shower: シャワーの水圧
-        event: パーティーやイベントの開催
+        title: 「タイトル」
+        text: 「本文」
+        relation: 「関係性」
+        atmosphere: 「住人の雰囲気」
+        distance_sense: 「住人同士の距離感」
+        cleanliness_shared: 「共有部の清潔さ」
+        congestion_shared: 「水回りの混雑具合」
+        noise: 「騒音」
+        net_speed: 「ネット速度」
+        shower: 「シャワーの水圧」
+        event: 「パーティーやイベントの開催」
+        repeat: 「住み続けたい?」
+      question:
+        title: 「タイトル」
+        body: 「本文」
+        relation: 「関係性」
+
   enums:
     review:
       relation:

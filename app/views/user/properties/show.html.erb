@@ -1,6 +1,8 @@
 
-<p><%= image_tag @property.image%></p>
-<h2><%= @property.property_name %></h2>
+<% @property.images.first(2).each do |image| %>
+  <%= image_tag image%>
+<%end%>
+<%= @property.property_name %>
 
 <p><%= @property.introduction %></p>
 <% @property.tags.each do |tag| %>
@@ -10,22 +12,22 @@
 <h3>共有設備</h3>
 <p><%= @property.cleaning_support %></p>
 <h3>リビング</h3>
-<p><%= image_tag @property.image %></p>
+<p><%= image_tag @property.images[2] %></p>
 <p><%= @property.living%></p>
 <h3>キッチン</h3>
-<p><%= image_tag @property.image %></p>
+<p><%= image_tag @property.images[3] %></p>
 <p><%= @property.kitchen%></p>
 <h3>浴室</h3>
-<p><%= image_tag @property.image %></p>
+<p><%= image_tag @property.images[4]%></p>
 <p><%= @property.bath%></p>
 <h3>洗面所</h3>
-<p><%= image_tag @property.image %></p>
+<p><%= image_tag @property.images[4] %></p>
 <p><%= @property.wash_room %></p>
 <h3>洗濯機</h3>
-<p><%= image_tag @property.image%></p>
+<p><%= image_tag @property.images[4]%></p>
 <p><%= @property.washing_machine %></p>
 <h3>トイレ</h3>
-<p><%= image_tag @property.image%></p>
+<p><%= image_tag @property.images[4]%></p>
 <p><%= @property.toilet %></p>
 
 <h3>部屋</h3>
@@ -44,7 +46,7 @@
     <td><%= @property.common_service_fee %></td>
   </yody>
 </table>
-<%= image_tag @property.image%>
+<%= image_tag @property.images[4]%>
 <%= @property.room_facility %>
 
 <h2>アクセス</h2>

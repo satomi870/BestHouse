@@ -1,7 +1,11 @@
+全<%=@results. count%>件
+
 <% @results.each do |property| %>
+<% property.images.first(1).each do |image| %>
+  <%= image_tag image%>
+<%end%>
    <h2><%=property.property_name%></h2>
   <%=property.access%>
-  <%=image_tag property.image%>
   <table>
     <tr><th>賃料</th><td><%=property.rent%></td></tr>
     <tr><th>住所</th><td><%=property.address%></td></tr>

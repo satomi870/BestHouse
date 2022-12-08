@@ -8,7 +8,7 @@ class User::QuestionsController < ApplicationController
     @question.user_id = current_user.id
     @question.property_id = params[:property_id]
     @question.checked = false
-    @question.save
+    if @question.save
     review_users = @question.property.reviews.map{|review| review.user}.uniq#↓レビューしてくれた人に通知をする処理
     review_users.each do |review_user|
       notification = Notification.new
@@ -17,11 +17,32 @@ class User::QuestionsController < ApplicationController
       notification.receiver_id = review_user.id
       notification.checked = false
       notification.save!
-
-  end
+      end
 
     #redirect_to property_path(@question.property_id)
-    redirect_to request.referer
+      redirect_to request.referer
+    else
+      @property=Property.find(params[:property_id])
+      # history = @property.histories.new
+      # history.user_id = current_user.id
+      # if current_user.histories.exists?(property_id: "#{params[:id]}")
+      #   old_history = current_user.histories.find_by(property_id: "#{params[:id]}")
+      #   old_history.destroy
+      # end
+      # history.save
+
+      #@review_relation = Review.new#()ないは関係性ページの値を受け取るために設置
+      @review = Review.new
+      @reviews=@property.reviews
+      #@question = Question.new
+      @questions = @property.questions
+      # @questions = @property.questions.where("answer_flg = false")
+      @comment = Comment.new
+      @comment_comment = CommentComment.new
+      @rule = Rule.new
+      @rules = @property.rules
+      render 'user/properties/show'
+    end
   end
 
   def index

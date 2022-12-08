@@ -41,11 +41,11 @@ class User::PropertiesController < ApplicationController
     end
 
     # 未入力の場合は全件が対象
-    @properties = Property.all
+    @properties = Property.page(params[:page])
     # エリア関連の検索処理
     @checkd_areas = []
     if @areas.blank? == false
-      @properties = @properties.where(area_id: @areas)
+      @properties = @properties.where(area_id: @areas).page(params[:page])
       @checkd_areas = @areas
     elsif @area_groups.blank? == false && @tags.blank? == true
       @properties = @properties.where(area_group_id: @area_groups)
@@ -85,7 +85,7 @@ class User::PropertiesController < ApplicationController
 
     shared_facility = Category.find_by(category: "shared_facility")
     @shared_facility_tags=shared_facility.tags
-    
+
     @lower_rent = params[:lower_rent].to_i
     @upper_rent = params[:upper_rent].to_i
 
@@ -115,7 +115,7 @@ class User::PropertiesController < ApplicationController
 
     shared_facility = Category.find_by(category: "shared_facility")
     @shared_facility_tags=shared_facility.tags
-    
+
     @checkd_areas = Area.where("area_name LIKE ?", "#{params[:keyword]}%").pluck(:id)
   end
 
@@ -154,11 +154,18 @@ class User::PropertiesController < ApplicationController
     if Read.create(question_id: @question.id, user_id: current_user.id)
       @read = Read.update(complete: true)
     end
+    @properties_atmosphere = Property.find(Review.group(:property_id).order("avg(atmosphere) desc").limit(5).pluck(:property_id))
+    @properties_noise = Property.find(Review.group(:property_id).where(atmosphere: 3..).order("avg(noise) desc").limit(5).pluck(:property_id))
+    @properties_congestion_shared = Property.find(Review.group(:property_id).where(atmosphere: 3..).order("avg(congestion_shared) desc").limit(5).pluck(:property_id))
+    @properties_cleanliness_shared= Property.find(Review.group(:property_id).where(atmosphere: 3..).order("avg(cleanliness_shared) desc").limit(5).pluck(:property_id))
+    @properties_event_many = Property.find(Review.group(:property_id).where(atmosphere: 3..).order("avg(event) desc").limit(5).pluck(:property_id))
+    @properties_event_less = Property.find(Review.group(:property_id).where(event: ..2).order("avg(event)").limit(5).pluck(:property_id))
+    @properties_repeat = Property.find(Review.group(:property_id).where(atmosphere: 3..).where(repeat: 3).order("avg(repeat) desc").limit(5).pluck(:property_id))
 
+    @avg_atmosphere = Review.where(property_id: params[:id]).average(:atmosphere)
 
 
   end
-
 
 
 end
