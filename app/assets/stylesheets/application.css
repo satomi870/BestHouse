@@ -68,7 +68,7 @@
   line-height: 2.5;
 }
 
-#areamap {
+#areamap, #areamap_detail {
   width: 900px;
   height: 600px;
   background-repeat: no-repeat;
@@ -88,41 +88,77 @@ ul#areamap li a {
 
 ul#areamap li a:hover {
   color: blue;
-  text-decoration: none;  
+  text-decoration: none;
 }
 
-#areamap_1 {
+#areamap #areamap_1 {
   position: absolute;
   top: 240px;
   left: 320px;
 }
 
-#areamap_2 {
+#areamap #areamap_2 {
   position: absolute;
   top:300px;
   left:300px;
 }
 
-#areamap_3 {
+#areamap #areamap_3 {
   position: absolute;
   top:400px;
   left:340px;
 }
 
-#areamap_4 {
+#areamap #areamap_4 {
   position: absolute;
   top:340px;
   left:310px;
 }
 
-#areamap_5 {
+#areamap #areamap_5 {
   position: absolute;
   top:130px;
   left:350px;
 }
 
-#areamap_6 {
+#areamap #areamap_6 {
   position: absolute;
   top:180px;
   left:480px;
+}
+
+#areamap_detail #area_id_1 {
+  position: absolute;
+  top: 140px;
+  left: 170px;
+}
+
+#areamap_detail label[for="area_id_1"] {
+  position: absolute;
+  top: 135px;
+  left: 185px;
+}
+
+#areamap_detail #area_id_2 {
+  position: absolute;
+  top: 170px;
+  left: 385px;
+}
+
+#areamap_detail label[for="area_id_2"] {
+  position: absolute;
+  top: 165px;
+  left: 400px;
+}
+
+#areamap_detail #area_id_3 {
+  position: absolute;
+  top: 350px;
+  left: 200px;
+}
+
+#areamap_detail label[for="area_id_3"] {
+  position: absolute;
+  top: 345px;
+  left: 215px;
 }
