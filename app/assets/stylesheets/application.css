@@ -67,3 +67,62 @@
   color: #000;
   line-height: 2.5;
 }
+
+#areamap {
+  width: 900px;
+  height: 600px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  background-image: url("assets/areamap.jpg");
+  position: relative;
+}
+
+ul {
+  list-style-type: none
+}
+
+ul#areamap li a {
+  color: white;
+}
+
+ul#areamap li a:hover {
+  color: blue;
+  text-decoration: none;  
+}
+
+#areamap_1 {
+  position: absolute;
+  top: 240px;
+  left: 320px;
+}
+
+#areamap_2 {
+  position: absolute;
+  top:300px;
+  left:300px;
+}
+
+#areamap_3 {
+  position: absolute;
+  top:400px;
+  left:340px;
+}
+
+#areamap_4 {
+  position: absolute;
+  top:340px;
+  left:310px;
+}
+
+#areamap_5 {
+  position: absolute;
+  top:130px;
+  left:350px;
+}
+
+#areamap_6 {
+  position: absolute;
+  top:180px;
+  left:480px;
+}

@@ -7,8 +7,6 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-
-
   </head>
 
   <body>
@@ -46,6 +44,30 @@
     <%= yield %>
 
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %> <!--javascriptはbodtyタグの終了直前に読む-->
+
+    <script>
+       let elem = document.getElementById('post_raty');
+         // scriptファイルをどのidの部分に配置するかを指定
+       let opt = {
+         starType: 'img',
+         score: 5,
+         scoreName: 'review[score]',
+         path: '/assets',
+        };
+      raty(elem,opt);
+    </script>
+    <script>
+       let elem2 = document.getElementById('show_raty');
+       let avgScore = elem2.dataset.avgScore
+         // scriptファイルをどのidの部分に配置するかを指定
+       let opt2 = {
+         starType: 'img',
+         readOnly: true,
+         score: avgScore,
+         path: '/assets',
+        };
+      raty(elem2,opt2);
+    </script>
   </body>
 
 

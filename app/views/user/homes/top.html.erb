@@ -4,9 +4,12 @@
   <%#=link_to area.area_name,seach_path(area_id: area.id, from_top: true)%> <%#左が名前(皆が見てわかりやすい名前)右が値%>
 <%#end%>
 
+
+<ul id="areamap">
 <%@area_groups.each do |area_group|%>
-  <%=link_to area_group.area_group_name,search_path(area_group_id: area_group.id, from_top: true)%> <%#左が名前(皆が見てわかりやすい名前)右が値%>
+  <li id="areamap_<%= area_group.id %>"><%=link_to area_group.area_group_name,search_path(area_group_id: area_group.id, from_top: true)%></li> <%#左が名前(皆が見てわかりやすい名前)右が値%>
 <%end%>
+</ul>
 
 
 
@@ -38,6 +41,11 @@
 <h3>共有設備をこだわりたい!<h3>
 <%@shared_facility_tags.each do |shared_facility_tag|%>
   <%=link_to shared_facility_tag.name,search_path(tag_id: shared_facility_tag.id, from_top: true)%>
+<%end%>
+
+<h3>その他<h3>
+<%@other_tags.each do |other_tag|%>
+  <%=link_to other_tag.name,search_path(tag_id: other_tag.id, from_top: true)%>
 <%end%>
 
 <h2>住人による口コミランキング！！</h2>

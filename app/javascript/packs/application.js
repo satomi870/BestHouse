@@ -12,6 +12,13 @@ import "popper.js";
 import "bootstrap";
 import "../stylesheets/application"
 import "script.js"
+import Raty from "raty.js"
+
+window.raty = function(elem,opt) {
+    let raty =  new Raty(elem,opt)
+    raty.init();
+    return raty;
+}
 
 Rails.start()
 Turbolinks.start()
@@ -21,23 +28,26 @@ ActiveStorage.start()
 let lowerSelect = document.getElementById('lower_rent')
 let upperSelect = document.getElementById('upper_rent')
 
-lowerSelect.addEventListener('change', function() {
-    let lowerRent = lowerSelect.selectedOptions[0].value;
-    let upperRent = upperSelect.selectedOptions[0].value;
-    if (!isValidRentRange(lowerRent, upperRent)) {
-      alert('下限が上限を超えているので入力し直してください')
-      //好きな処理を描く
-    }
-})
+if (lowerSelect) {
+  lowerSelect.addEventListener('change', function() {
+      let lowerRent = lowerSelect.selectedOptions[0].value;
+      let upperRent = upperSelect.selectedOptions[0].value;
+      if (!isValidRentRange(lowerRent, upperRent)) {
+        alert('下限が上限を超えているので入力し直してください')
+        //好きな処理を描く
+      }
+  })
+}
 
-
-upperSelect.addEventListener('change', function() {
-    let lowerRent = lowerSelect.selectedOptions[0].value;
-    let upperRent = upperSelect.selectedOptions[0].value;
-    if (!isValidRentRange(lowerRent, upperRent)) {
-      alert('下限が上限を超えているので入力し直してください')
-    }
-})
+if (upperSelect) {
+  upperSelect.addEventListener('change', function() {
+      let lowerRent = lowerSelect.selectedOptions[0].value;
+      let upperRent = upperSelect.selectedOptions[0].value;
+      if (!isValidRentRange(lowerRent, upperRent)) {
+        alert('下限が上限を超えているので入力し直してください')
+      }
+  })
+}
 
 function isValidRentRange(lowerRent, upperRent) {
   if (Number(upperRent) === 0) {

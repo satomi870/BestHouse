@@ -186,6 +186,7 @@ ActiveRecord::Schema.define(version: 2022_12_05_121309) do
     t.string "toilet", null: false
     t.string "wash_room", null: false
     t.string "washing_machine", null: false
+    t.string "event", null: false
     t.string "latitude", null: false
     t.string "altitude", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -217,6 +218,7 @@ ActiveRecord::Schema.define(version: 2022_12_05_121309) do
     t.integer "property_id", null: false
     t.integer "user_id", null: false
     t.integer "relation", null: false
+    t.integer "score", null: false
     t.integer "atmosphere", null: false
     t.integer "cleanliness_shared", null: false
     t.integer "congestion_shared", null: false

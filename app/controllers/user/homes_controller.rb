@@ -25,6 +25,9 @@ class User::HomesController < ApplicationController
     shared_facility = Category.find_by(category: "shared_facility")
     @shared_facility_tags=shared_facility.tags
 
+    other = Category.find_by(category: "other")
+    @other_tags=other.tags
+
 
     #@archive = params[:tag_id].present? ? Tag.find(params[:tag_id]).archives.page(params[:page]).per(15) : Archive.all.page(params[:page]).per(15)
     #@posts = params[:tag_id].present? ? Tag.find(params[:tag_id]).posts : Post.all
@@ -66,6 +69,9 @@ class User::HomesController < ApplicationController
 
     shared_facility = Category.find_by(category: "shared_facility")
     @shared_facility_tags=shared_facility.tags
+
+    other = Category.find_by(category: "other")
+    @other=other.tags
 
 
 

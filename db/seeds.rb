@@ -9,42 +9,58 @@ Admin.create!(
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-area_ikebukuro = AreaGroup.create!(
-  area_group_name:'池袋 赤羽 練馬'
+area_group_nakano = AreaGroup.create!(
+  area_group_name:'新宿 中野 高円寺'
 )
 
-area_ebisu = AreaGroup.create!(
+area_group_ebisu = AreaGroup.create!(
   area_group_name:'渋谷 恵比寿 下北沢'
   )
 
-area_kamata = AreaGroup.create!(
+area_group_kamata = AreaGroup.create!(
   area_group_name:'品川 蒲田 大森'
+  )
+
+area_group_roppongi = AreaGroup.create!(
+  area_group_name:'六本木 麻布十番 神田'
+  )
+
+area_group_ikebukuro = AreaGroup.create!(
+  area_group_name:'池袋 赤羽 練馬'
+)
+
+area_group_ueno = AreaGroup.create!(
+  area_group_name:'上野 浅草 秋葉原'
+  )
+
+area_group_kichijozi = AreaGroup.create!(
+  area_group_name:'23区外'
   )
 
 area_nerima = Area.create!(
   area_name:'練馬区',
-  area_group_id: area_ikebukuro.id
+  area_group_id: area_group_ikebukuro.id
   )
 
 area_toshima = Area.create!(
   area_name:'豊島区',
-  area_group_id: area_ikebukuro.id
+  area_group_id: area_group_ikebukuro.id
   )
 
 area_setagaya = Area.create!(
   area_name:'世田谷区',
-  area_group_id: area_ebisu.id
+  area_group_id: area_group_ebisu.id
   )
 
 area_shinagawa = Area.create!(
   area_name:'品川区',
-  area_group_id: area_kamata.id
+  area_group_id: area_group_kamata.id
   )
 
 propertyA=Property.create!(
-    area_id: area_nerima.id,area_group_id: area_ikebukuro.id, property_name:'物件A', address:'東京都練馬区南大泉', access:'中村橋駅 徒歩3分', rent:40000, condition:'女性', vacancy:6,introduction:'主要駅までのアクセス良好です', common_service_fee:15000,
+    area_id: area_nerima.id,area_group_id: area_group_ikebukuro.id, property_name:'物件A', address:'東京都練馬区南大泉', access:'中村橋駅 徒歩3分', rent:40000, condition:'女性', vacancy:6,introduction:'主要駅までのアクセス良好です', common_service_fee:15000,
     room_facility:'エアコン・ベッド、クローゼット、トイレ、シャワールーム',
-    living:'テレビ、ソファ、テーブル', kitchen:'電子レンジ、冷蔵庫、炊飯器', bath:'各部屋にあり',toilet:'各部屋にあり',wash_room:'各部屋にあり',washing_machine:'洗濯機 2台', cleaning_support:'住人同士の当番制', breadth:'5畳',latitude:'35.737798415787815',altitude:'139.63589408832408')
+    living:'テレビ、ソファ、テーブル', kitchen:'電子レンジ、冷蔵庫、炊飯器', bath:'各部屋にあり',toilet:'各部屋にあり',wash_room:'各部屋にあり',washing_machine:'洗濯機 2台', cleaning_support:'住人同士の当番制',event:'イベントなし', breadth:'5畳',latitude:'35.737798415787815',altitude:'139.63589408832408')
 propertyA.images.attach(io: File.open(Rails.root.join('app/assets/images/images/house1.jpg')),filename: 'house1.jpg')#0
 propertyA.images.attach(io: File.open(Rails.root.join('app/assets/images/images/house2.jpg')),filename: 'house2.jpg')#1
 propertyA.images.attach(io: File.open(Rails.root.join('app/assets/images/images/house3.jpg')),filename: 'house3.jpg')#2
@@ -52,32 +68,32 @@ propertyA.images.attach(io: File.open(Rails.root.join('app/assets/images/images/
 propertyA.images.attach(io: File.open(Rails.root.join('app/assets/images/images/living2.jpg')),filename: 'living2.jpg')#4
 
 propertyB=Property.create!(
-    area_id: area_toshima.id,area_group_id: area_ikebukuro.id,property_name:'物件B', address:'東京都', access:'池袋駅 徒歩7分', rent:60000, condition:'男女どちらともOK', vacancy:4, introduction:'主要駅までのアクセス良好です', common_service_fee:18000,
+    area_id: area_toshima.id,area_group_id: area_group_ikebukuro.id,property_name:'物件B', address:'東京都', access:'池袋駅 徒歩7分', rent:60000, condition:'男女どちらともOK', vacancy:4, introduction:'主要駅までのアクセス良好です', common_service_fee:18000,
     room_facility:'エアコン・ベッド・クローゼット、TV',
-    living:'テレビ、ソファ、テーブル、エアコン', kitchen:'電子レンジ,冷蔵庫,炊飯器、トースター', bath:'シャワールーム 4室',toilet:'洋式3室',wash_room:'4台',washing_machine:'洗濯機 4台', cleaning_support:'クリーンスタッフが掃除',breadth:'5畳',latitude:'35.73777411001525',altitude:'139.7162934895781')
+    living:'テレビ、ソファ、テーブル、エアコン', kitchen:'電子レンジ,冷蔵庫,炊飯器、トースター', bath:'シャワールーム 4室',toilet:'洋式3室',wash_room:'4台',washing_machine:'洗濯機 4台', cleaning_support:'クリーンスタッフが掃除',event:'イベントなし',breadth:'5畳',latitude:'35.73777411001525',altitude:'139.7162934895781')
 propertyB.images.attach(io: File.open(Rails.root.join('app/assets/images/images/house2.jpg')),filename: 'house2.jpg')
      #property.avatar.attach(io: File.open(Rails.root.join('app/assets/images/logo.jpg')),
                   #filename: 'logo.jpg')
 propertyC=Property.create!(
-    area_id: area_setagaya.id,area_group_id: area_ebisu.id,property_name:'物件C', address:'東京都', access:'世田谷駅 徒歩9分', rent:40000, condition:'女性', vacancy:6, introduction:'主要駅までのアクセス良好です', common_service_fee:15000,
+    area_id: area_setagaya.id,area_group_id: area_group_ebisu.id,property_name:'物件C', address:'東京都', access:'世田谷駅 徒歩9分', rent:40000, condition:'女性', vacancy:6, introduction:'主要駅までのアクセス良好です', common_service_fee:15000,
     room_facility:'エアコン・ベッド・クローゼット、ミニ冷蔵庫',
-    living:'テレビ、ソファ、テーブル、DVD', kitchen:'電子レンジ,冷蔵庫,炊飯器', bath:'シャワールーム 2室',toilet:'洋式3室',wash_room:'3台', washing_machine:'洗濯機 3台',cleaning_support:'クリーンスタッフが掃除',breadth:'6.5畳',latitude:'35.645755983577175',altitude: '139.65140049229697')
+    living:'テレビ、ソファ、テーブル、DVD', kitchen:'電子レンジ,冷蔵庫,炊飯器', bath:'シャワールーム 2室',toilet:'洋式3室',wash_room:'3台', washing_machine:'洗濯機 3台',cleaning_support:'クリーンスタッフが掃除',event:'イベントなし',breadth:'6.5畳',latitude:'35.645755983577175',altitude: '139.65140049229697')
 propertyC.images.attach(io: File.open(Rails.root.join('app/assets/images/images/house3.jpg')),filename: 'house3.jpg')
     #property.avatar.attach(io: File.open(Rails.root.join('app/assets/images/logo.jpg')),
                   #filename: 'logo.jpg')
 
 propertyD=Property.create!(
-    area_id: area_nerima.id,area_group_id: area_ikebukuro.id,property_name:'物件D', address:'東京都', access:'練馬駅 徒歩9分', rent:40000, condition:'男女どちらともOK', vacancy:4, introduction:'主要駅までのアクセス良好です', common_service_fee:15000,
+    area_id: area_nerima.id,area_group_id: area_group_ikebukuro.id,property_name:'物件D', address:'東京都', access:'練馬駅 徒歩9分', rent:40000, condition:'男女どちらともOK', vacancy:4, introduction:'主要駅までのアクセス良好です', common_service_fee:15000,
     room_facility:'エアコン・ベッド・クローゼット、ミニ冷蔵庫',
-    living:'テレビ、ソファ、テーブル、DVD', kitchen:'電子レンジ,冷蔵庫,炊飯器', bath:'シャワールーム 2室',toilet:'洋式3室',wash_room:'3台',washing_machine:'洗濯機 2台',cleaning_support:'住人同士の当番制',breadth:'6畳', latitude: '35.7336985129341', altitude: '139.65802233669132')
+    living:'テレビ、ソファ、テーブル、DVD', kitchen:'電子レンジ,冷蔵庫,炊飯器', bath:'シャワールーム 2室',toilet:'洋式3室',wash_room:'3台',washing_machine:'洗濯機 2台',cleaning_support:'住人同士の当番制',event:'イベントなし',breadth:'6畳', latitude: '35.7336985129341', altitude: '139.65802233669132')
 propertyD.images.attach(io: File.open(Rails.root.join('app/assets/images/images/house4.jpg')),filename: 'house4.jpg')
     #property.avatar.attach(io: File.open(Rails.root.join('app/assets/images/logo.jpg')),
                   #filename: 'logo.jpg')
 
 propertyE=Property.create!(
-    area_id: area_shinagawa.id,area_group_id: area_kamata.id,property_name:'物件E', address:'東京都', access:'品川駅 徒歩4分', rent: 30000, condition:'男女どちらともOK', vacancy:6, introduction:'主要駅までのアクセス良好です', common_service_fee:15000,
+    area_id: area_shinagawa.id,area_group_id: area_group_kamata.id,property_name:'物件E', address:'東京都', access:'品川駅 徒歩4分', rent: 30000, condition:'男女どちらともOK', vacancy:6, introduction:'主要駅までのアクセス良好です', common_service_fee:15000,
     room_facility:'エアコン・ベッド・クローゼット、ミニ冷蔵庫',
-    living:'テレビ、ソファ、テーブル、DVD', kitchen:'電子レンジ,冷蔵庫,炊飯器', bath:'シャワールーム 2室',toilet:'洋式3室',wash_room:'3台',washing_machine:'洗濯機 2台',cleaning_support:'クリーンスタッフが掃除',breadth:'4.5畳', latitude: '35.71819680517442', altitude: '139.7018533781967')
+    living:'テレビ、ソファ、テーブル、DVD', kitchen:'電子レンジ,冷蔵庫,炊飯器', bath:'シャワールーム 2室',toilet:'洋式3室',wash_room:'3台',washing_machine:'洗濯機 2台',cleaning_support:'クリーンスタッフが掃除', event:'イベントあり',breadth:'4.5畳', latitude: '35.71819680517442', altitude: '139.7018533781967')
 propertyE.images.attach(io: File.open(Rails.root.join('app/assets/images/images/house5.jpg')),filename: 'house5.jpg')
     #property.avatar.attach(io: File.open(Rails.root.join('app/assets/images/logo.jpg')),
                   #filename: 'logo.jpg')
@@ -107,9 +123,11 @@ category_shared_facility = Category.create!(
   category:'shared_facility'
 )
 
-category_shy = Category.create!(
-  category:'shy'
+category_other = Category.create!(
+  category:'other'
 )
+
+
 
 tag_woman = Tag.create!(
     category_id: category_basic.id,
@@ -200,10 +218,16 @@ tag_wide = Tag.create!(
 
   )
 
+   tag_many_event= Tag.create!(
+    category_id: category_other.id,
+    name: 'イベントあり'
+    #genre: 'surrounding'
 
-   tag_no_event = Tag.create!(
-    category_id: category_shy.id,
-    name: 'イベントやパーティーなし'
+  )
+
+   tag_no_event= Tag.create!(
+    category_id: category_other.id,
+    name: 'イベントなし'
     #genre: 'surrounding'
 
   )
@@ -243,6 +267,7 @@ TagProperty.create!(
 
   )
 
+
 TagProperty.create!(
   property_id: propertyB.id,
   tag_id: tag_manwoman.id
@@ -258,6 +283,12 @@ TagProperty.create!(
 TagProperty.create!(
   property_id: propertyB.id,
   tag_id: tag_cleaning_support.id
+
+  )
+
+TagProperty.create!(
+  property_id: propertyB.id,
+  tag_id: tag_no_event.id
 
   )
 
@@ -282,6 +313,11 @@ TagProperty.create!(
   )
 
 TagProperty.create!(
+  property_id: propertyC.id,
+  tag_id: tag_no_event.id
+  )
+
+TagProperty.create!(
   property_id: propertyD.id,
   tag_id: tag_manwoman.id
   )
@@ -289,6 +325,10 @@ TagProperty.create!(
 TagProperty.create!(
   property_id: propertyD.id,
   tag_id: tag_wide.id
+  )
+TagProperty.create!(
+  property_id: propertyD.id,
+  tag_id: tag_no_event.id
   )
 
 TagProperty.create!(
@@ -304,4 +344,9 @@ TagProperty.create!(
 TagProperty.create!(
   property_id: propertyE.id,
   tag_id: tag_cleaning_support.id
+  )
+
+TagProperty.create!(
+  property_id: propertyE.id,
+  tag_id: tag_many_event.id
   )

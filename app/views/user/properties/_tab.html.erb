@@ -34,6 +34,9 @@
            <%#=f.submit '次へ進む'%>
       <%#end%>
 
+        <div id="post_raty"></div>
+
+
         <h2>住人の雰囲気</h2>
         良い
         <%= f.radio_button :atmosphere, '5' %>
@@ -126,6 +129,8 @@
       <h2>口コミを見る</h2>
 
       <h3>総合評価</h3>
+      <div id="show_raty" data-avg-score=<%= @avg_score %> ></div>
+      <p><%= @avg_atmosphere %></p> <!-- これは消す-->
       <% if @avg_atmosphere == 5 %>
           住民の雰囲気 良い<%= image_tag "1.jpg" %>良くない<br>
         <% elsif @avg_atmosphere == 4 %>
@@ -137,7 +142,77 @@
         <% elsif @avg_atmosphere == 1 %>
           住民の雰囲気 良い<%= image_tag "5.jpg" %>良くない<br>
         <%end%>
-
+      <p><%= @avg_distance_sence %></p>
+       <% if @avg_distance_sence == 5 %>
+          住人同士の距離感 親しい<%= image_tag "1.jpg" %>挨拶程度<br>
+        <% elsif @avg_distance_sence == 4 %>
+          住人同士の距離感 親しい<%= image_tag "2.jpg" %>挨拶程度<br>
+        <% elsif @avg_distance_sence == 3 %>
+          住人同士の距離感 親しい<%= image_tag "3.jpg" %>挨拶程度<br>
+        <% elsif @avg_distance_sence == 2 %>
+          住人同士の距離感 親しい<%= image_tag "4.jpg" %>挨拶程度<br>
+        <% elsif @avg_distance_sence == 1 %>
+          住人同士の距離感 親しい<%= image_tag "5.jpg" %>挨拶程度<br>
+        <%end%>
+        <p><%= @avg_cleanliness_shared %></p>
+        <% if @avg_cleanliness_shared == 5 %>
+          共有部の清潔さ 清潔<%= image_tag "1.jpg" %>不衛生<br>
+        <% elsif @avg_cleanliness_shared == 4 %>
+          共有部の清潔さ 清潔<%= image_tag "2.jpg" %>不衛生<br>
+        <% elsif @avg_cleanliness_shared == 3 %>
+          共有部の清潔さ 清潔<%= image_tag "3.jpg" %>不衛生<br>
+        <% elsif @avg_cleanliness_shared == 2 %>
+          共有部の清潔さ 清潔<%= image_tag "4.jpg" %>不衛生<br>
+        <% elsif @avg_cleanliness_shared == 1 %>
+          共有部の清潔さ 清潔<%= image_tag "5.jpg" %>不衛生<br>
+        <%end%>
+        <% if @avg_noise == 5 %>
+          騒音(他の住人による生活音) 静か<%= image_tag "1.jpg" %>騒がしい<br>
+        <% elsif @avg_noise == 4 %>
+          騒音(他の住人による生活音) 静か<%= image_tag "2.jpg" %>騒がしい<br>
+        <% elsif @avg_noise == 3 %>
+          騒音(他の住人による生活音) 静か<%= image_tag "3.jpg" %>騒がしい<br>
+        <% elsif @avg_noise == 2 %>
+          騒音(他の住人による生活音) 静か<%= image_tag "4.jpg" %>騒がしい<br>
+        <% elsif @avg_noise == 1 %>
+          騒音(他の住人による生活音) 静か<%= image_tag "5.jpg" %>騒がしい<br>
+        <%end%>
+         <p><%= @avg_net_spead %></p>
+         <% if @avg_net_spead == 5 %>
+        　ネット速度 速い<%= image_tag "1.jpg" %>遅い<br>
+        <% elsif @avg_net_spead == 4 %>
+          ネット速度 速い<%= image_tag "2.jpg" %>遅い<br>
+        <% elsif @avg_net_spead == 3 %>
+          ネット速度 速い<%= image_tag "3.jpg" %>遅い<br>
+        <% elsif @avg_net_spead == 2 %>
+          ネット速度 速い<%= image_tag "4.jpg" %>遅い<br>
+        <% elsif @avg_net_spead == 1 %>
+          ネット速度 速い<%= image_tag "5.jpg" %>遅い<br>
+        <%end%>
+        <p><%= @avg_shower %></p>
+        <% if @avg_shower == 5 %>
+          シャワーの水圧 強い<%= image_tag "1.jpg" %>弱い<br>
+        <% elsif @avg_shower == 4 %>
+          シャワーの水圧 強い<%= image_tag "2.jpg" %>弱い<br>
+        <% elsif @avg_shower == 3 %>
+          シャワーの水圧　強い<%= image_tag"3.jpg" %>弱い<br>
+        <% elsif @avg_shower == 2 %>
+          シャワーの水圧 強い<%= image_tag "4.jpg" %>弱い<br>
+        <% elsif @avg_shower== 1 %>
+          シャワーの水圧 強い<%= image_tag "5.jpg" %>弱い<br>
+        <%end%>
+        <p><%= @avg_event %></p>
+         <% if  @avg_event == 5 %>
+          パーティーやイベントの開催　頻繁にある<%= image_tag "1.jpg" %>少ない<br>
+        <% elsif @avg_event == 4 %>
+          パーティーやイベントの開催　頻繁にある<%= image_tag "2.jpg" %>少ない<br>
+        <% elsif @avg_event == 3 %>
+       　　パーティーやイベントの開催　頻繁にある<%= image_tag "3.jpg" %>少ない<br>
+        <% elsif @avg_event == 2 %>
+          パーティーやイベントの開催　頻繁にある<%= image_tag "4.jpg" %>少ない<br>
+        <% elsif @avg_event == 1 %>
+          パーティーやイベントの開催　頻繁にある<%= image_tag "5.jpg" %>少ない<br>
+        <%end%>
 
       <%@reviews.each do |review|%>
         <p><%=review.title%></p>
@@ -266,6 +341,7 @@
 
 　　 <div id="tab5" class="tab">
 　　  <h2>ハウスルールをシェアする</h2>
+　　  <%= render '/user/properties/error', model: @rule %>
 　　  <p>※なるべく下記のハウスルールリストにまだ書かれていないことをご記入ください</p>
 　　  <%= form_with model: @rule, url:  property_rules_path(property_id: @property.id) do |f| %>
         <%= f.text_area :body %>

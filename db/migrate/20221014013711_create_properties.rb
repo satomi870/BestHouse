@@ -19,6 +19,7 @@ class CreateProperties < ActiveRecord::Migration[6.1]
       t.string :toilet,              null: false
       t.string :wash_room,           null: false
       t.string :washing_machine,     null: false
+      t.string :event,               null: false
       t.string :latitude,            null: false
       t.string :altitude,            null: false
 
