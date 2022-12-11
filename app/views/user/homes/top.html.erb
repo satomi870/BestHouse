@@ -1,4 +1,4 @@
-<h3>エリア</h3>
+<h3>エリアで探す</h3>
 
 <%#@areas.each do |area|%>
   <%#=link_to area.area_name,seach_path(area_id: area.id, from_top: true)%> <%#左が名前(皆が見てわかりやすい名前)右が値%>
@@ -12,33 +12,33 @@
 </ul>
 
 
-
+<h3>特徴から探す</h3>
 <h3>入居者の特性<h3>
 <%@basic_tags.each do |basic_tag|%>
   <%=link_to basic_tag.name,search_path(tag_id: basic_tag.id, from_top: true)%>
 <%end%>
 
-<h3>部屋をこだわりたい!</h3>
+<h3>部屋</h3>
 <%@room_tags.each do |room_tag|%>
   <%=link_to room_tag.name,search_path(tag_id: room_tag.id, from_top: true)%>
 <%end%>
 
-<h3>建物をこだわりたい!</h3>
+<h3>建物</h3>
 <%@building_tags.each do |building_tag|%>
   <%=link_to building_tag.name,search_path(tag_id: building_tag.id, from_top: true)%>
 <%end%>
 
-<h3>周辺環境をこだわりたい!</h3>
+<h3>周辺環境</h3>
 <%@surrounding_tags.each do |surrounding_tag|%>
   <%=link_to surrounding_tag.name,search_path(tag_id: surrounding_tag.id, from_top: true)%>
 <%end%>
 
-<h3>プライベートを重視したい!</h3>
+<h3>プライベート</h3>
 <%@individual_tags.each do |individual_tag|%>
   <%=link_to individual_tag.name,search_path(tag_id: individual_tag.id, from_top: true)%>
 <%end%>
 
-<h3>共有設備をこだわりたい!<h3>
+<h3>共有設備<h3>
 <%@shared_facility_tags.each do |shared_facility_tag|%>
   <%=link_to shared_facility_tag.name,search_path(tag_id: shared_facility_tag.id, from_top: true)%>
 <%end%>

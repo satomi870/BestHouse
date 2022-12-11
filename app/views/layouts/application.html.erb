@@ -6,42 +6,59 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <script src="https://kit.fontawesome.com/801a1ac1e5.js" crossorigin="anonymous"></script>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %> <%#ブートストラップ使う場合外す%>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <div class ="wrapper">
     <header>
+      <h1>BestHouse</h1>
+    </header>
+      <ul class="d-flex justify-content-center">
       <% if user_signed_in? %>
-        <li>
+
+        <li class=" flex-fill">
           <%=link_to"シェアハウスを探す",root_path%>
+        </li>
+        <li class=" flex-fill">
           <%= link_to "お気に入り", favorite_path %>
+        </li>
+        <li class=" flex-fill">
           <%= link_to "マイページ",user_path %>
+        </li>
+        <li class=" flex-fill">
           <%= link_to"通知",notifications_path %>
           <%= current_user.passive_notifications.where(checked: false).size %>
+        </li>
+        <li class=" flex-fill">
           <%= link_to"閲覧履歴",histories_path %>
+        </li>
+        <li class=" flex-fill">
           <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
         </li>
       <% elsif admin_signed_in? %>
-        <li>
+        <li class=" flex-fill">
           <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
         </li>
       <% else %>
-        <li>
+        <li class=" flex-fill">
           <%= link_to "新規登録", new_user_registration_path %>
         </li>
-        <li>
+        <li class=" flex-fill">
           <%= link_to "ログイン", new_user_session_path %>
         </li>
-        <li>
+        <li class=" flex-fill">
           <%=link_to 'ゲストログイン', users_guest_login_path, method: :post %>
         </li>
-
-        <li>
+        <li class=" flex-fill">
           <%=link_to"シェアハウスを探す",root_path%>
         </li>
       <% end %>
-    </header>
+    </ul>
     <%= yield %>
+    </div>
 
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %> <!--javascriptはbodtyタグの終了直前に読む-->
 
