@@ -1,56 +1,56 @@
+
+
 <%= form_with  url: search_path, method: :get do |f|%>
-  <h3>エリアを選ぼう</h3>
-  <ul id="areamap_detail">
-    <%= f.collection_check_boxes :area_id, Area.all, :id, :area_name %>
-  </ul>
-  <h3>家賃を選ぼう</h3>
-  <%=f.select :lower_rent, Property.lower_select_rent_table%>〜
-  <%=f.select :upper_rent, Property.upper_select_rent_table %>
 
-  <h3>こだわりを選ぼう</h3>
-  <h3>入居者の特性</h3>
+  <div class="text-center">
+    <h3>エリアを選ぼう</h3>
+    <ul id="areamap_detail">
+      <%= f.collection_check_boxes :area_id, Area.all, :id, :area_name %>
+    </ul>
+  </div>
+　<div class="text-center">
+　  <h3>家賃を選ぼう</h3>
+    <%=f.select :lower_rent, Property.lower_select_rent_table%>〜
+    <%=f.select :upper_rent, Property.upper_select_rent_table %>
+  </div>
 
-  <%=f.collection_check_boxes :tag_id, @basic_tags, :id, :name do |b| %>
-    <% if  b.object.id == 1 %>
-      <i class="fa-solid fa-child-dress"></i>
-    <% end %>
-    <% if  b.object.id == 2 %>
-      <i class="fa-solid fa-children"></i>
-    <% end %>
-    <%= b.label { b.check_box + b.text } %> <!--if文で選ばれたのをこの１行で表示 -->
-  <% end %>
+  <div class="text-center">
+    <h3>こだわりを選ぼう</h3>
 
-  <h3>部屋をこだわりたい!</h3>
+    <%=f.collection_check_boxes :tag_id, @basic_tags, :id, :name do |b| %>
+      <% if  b.object.id == 1 %>
+      <%= image_tag 'woman.jpg' %>
 
-  <%=f.collection_check_boxes :tag_id, @room_tags, :id, :name do |b| %>
-    <% if  b.object.id == 3 %>
-     <i class="fa-solid fa-volume-high"></i>
+      <% end %>
+      <% if  b.object.id == 2 %>
+        <%= image_tag 'man.jpg' %>
+      <% end %>
+      <%= b.label { b.check_box + b.text } %> <!--if文で選ばれたのをこの１行で表示 -->
     <% end %>
-    <% if  b.object.id == 4 %>
-      <i class="fa-solid fa-house"></i>
-    <% end %>
-    <%= b.label { b.check_box + b.text } %> <!--if文で選ばれたのをこの１行で表示 -->
-  <% end %>
 
-  <h3>建物をこだわりたい!</h3>
-  <%=f.collection_check_boxes :tag_id, @building_tags, :id, :name do |b| %>
-    <% if  b.object.id == 1 %>
-     <i class="fa-solid fa-house-user"></i>
-    <% end %>
-    <% if  b.object.id == 2 %>
-      <i class="fa-solid fa-house"></i>
-    <% end %>
-    <%= b.label { b.check_box + b.text } %> <!--if文で選ばれたのをこの１行で表示 -->
-  <% end %>
-  <h3>周辺環境をこだわりたい!</h3>
-  <%=f.collection_check_boxes :tag_id, @surrounding_tags, :id, :name %>
-  <h3>プライベートを重視したい!</h3>
-  <%=f.collection_check_boxes :tag_id, @individual_tags, :id, :name %>
-  <h3>共有設備をこだわりたい!</h3>
-  <%=f.collection_check_boxes :tag_id, @shared_facility_tags, :id, :name %>
-  <h3>その他</h3>
-  <%#=f.collection_check_boxes :tag_id, @other_tags, :id, :name %>
+    <div class="grid-item">
 
-  <h3><%=f.submit 'この条件で検索'%></h3>
+      <%=f.collection_check_boxes :tag_id, @room_tags, :id, :name %>
+
+    </div>
+
+    <div class="grid-item">
+      <%=f.collection_check_boxes :tag_id, @surrounding_tags, :id, :name %>
+
+    </div>
+
+    <div class="grid-item">
+      <%=f.collection_check_boxes :tag_id, @shared_facility_tags, :id, :name %>
+    </diV>
+
+    <div class="grid-item">
+    <%=f.collection_check_boxes :tag_id, @other_tags, :id, :name %>
+    </div>
+
+  </div>
+  <div class="text-center">
+    <h3><%=f.submit 'この条件で検索'%></h3>
+  </div>
+
 <%end%>
 

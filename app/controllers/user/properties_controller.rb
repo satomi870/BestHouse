@@ -74,14 +74,9 @@ class User::PropertiesController < ApplicationController
     @room_tags=room.tags
 
     @tags=Tag.all
-    building = Category.find_by(category: "building")
-    @building_tags=building.tags
 
     surrounding = Category.find_by(category: "surrounding")
     @surrounding_tags=surrounding.tags
-
-    individual = Category.find_by(category: "individual")
-    @individual_tags=individual.tags
 
     shared_facility = Category.find_by(category: "shared_facility")
     @shared_facility_tags=shared_facility.tags
@@ -107,14 +102,10 @@ class User::PropertiesController < ApplicationController
     @room_tags=room.tags
 
     @tags=Tag.all
-    building = Category.find_by(category: "building")
-    @building_tags=building.tags
+
 
     surrounding = Category.find_by(category: "surrounding")
     @surrounding_tags=surrounding.tags
-
-    individual = Category.find_by(category: "individual")
-    @individual_tags=individual.tags
 
     shared_facility = Category.find_by(category: "shared_facility")
     @shared_facility_tags=shared_facility.tags

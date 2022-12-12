@@ -33,7 +33,7 @@ area_group_ueno = AreaGroup.create!(
   area_group_name:'上野 浅草 秋葉原'
   )
 
-area_group_kichijozi = AreaGroup.create!(
+area_group_other = AreaGroup.create!(
   area_group_name:'23区外'
   )
 
@@ -42,20 +42,105 @@ area_nerima = Area.create!(
   area_group_id: area_group_ikebukuro.id
   )
 
+area_itabashi = Area.create!(
+  area_name:'板橋区',
+  area_group_id: area_group_ikebukuro.id
+  )
+
+area_suginami = Area.create!(
+  area_name:'杉並区',
+  area_group_id: area_group_nakano.id
+  )
+area_nakano = Area.create!(
+  area_name:'中野区',
+  area_group_id: area_group_nakano.id
+  )
+area_shibuya = Area.create!(
+  area_name:'渋谷区',
+  area_group_id: area_group_ebisu.id
+  )
+
+area_maguro = Area.create!(
+  area_name:'目黒区',
+  area_group_id: area_group_ebisu.id
+  )
+area_shinjuku = Area.create!(
+  area_name:'新宿区',
+  area_group_id: area_group_nakano.id
+  )
+
+area_oota = Area.create!(
+  area_name:'太田区',
+  area_group_id: area_group_kamata.id
+  )
+ area_shinagawa = Area.create!(
+   area_name:'品川区',
+  area_group_id: area_group_kamata.id
+   )
+area_minato = Area.create!(
+  area_name:'港区',
+  area_group_id: area_group_roppongi.id
+  )
+area_chiyoda = Area.create!(
+  area_name:'千代田区',
+  area_group_id: area_group_roppongi.id
+  )
+
+area_cyuo = Area.create!(
+  area_name:'中央区',
+  area_group_id: area_group_roppongi.id
+  )
+area_bunkyo = Area.create!(
+  area_name:'文京区',
+  area_group_id: area_group_ikebukuro.id
+  )
+area_kita = Area.create!(
+  area_name:'北区',
+  area_group_id: area_group_ikebukuro.id
+  )
+area_daito = Area.create!(
+  area_name:'台東区',
+  area_group_id: area_group_ueno.id
+  )
+area_arakawa = Area.create!(
+  area_name:'荒川区',
+  area_group_id: area_group_ueno.id
+  )
+area_adachi = Area.create!(
+  area_name:'足立区',
+  area_group_id: area_group_ueno.id
+  )
+area_katushika = Area.create!(
+  area_name:'葛飾区',
+  area_group_id: area_group_ueno.id
+  )
+area_sumida = Area.create!(
+  area_name:'墨田区',
+  area_group_id: area_group_ueno.id
+  )
+area_kouto = Area.create!(
+  area_name:'江東区',
+  area_group_id: area_group_ueno.id
+  )
+ area_edogawa = Area.create!(
+  area_name:'江戸川区',
+  area_group_id: area_group_ueno.id
+  )
 area_toshima = Area.create!(
   area_name:'豊島区',
   area_group_id: area_group_ikebukuro.id
   )
 
-area_setagaya = Area.create!(
-  area_name:'世田谷区',
+ area_setagaya = Area.create!(
+   area_name:'世田谷区',
   area_group_id: area_group_ebisu.id
+   )
+
+area_other = Area.create!(
+  area_name:'23区外',
+  area_group_id: area_group_other.id
   )
 
-area_shinagawa = Area.create!(
-  area_name:'品川区',
-  area_group_id: area_group_kamata.id
-  )
 
 propertyA=Property.create!(
     area_id: area_nerima.id,area_group_id: area_group_ikebukuro.id, property_name:'物件A', address:'東京都練馬区南大泉', access:'中村橋駅 徒歩3分', rent:40000, condition:'女性', vacancy:6,introduction:'主要駅までのアクセス良好です', common_service_fee:15000,
@@ -107,17 +192,10 @@ category_room = Category.create!(
   category:'room'
 )
 
-category_building = Category.create!(
-  category:'building'
-)
-
 category_surrounding = Category.create!(
   category:'surrounding'
 )
 
-category_individual = Category.create!(
-  category:'individual'
-)
 
 category_shared_facility = Category.create!(
   category:'shared_facility'
@@ -135,9 +213,23 @@ tag_woman = Tag.create!(
     #genre: 'basic'
   )
 
+
 tag_manwoman = Tag.create!(
     category_id: category_basic.id,
     name: '男女どちらともOK'
+    #genre: 'basic'
+
+  )
+
+tag_foreigner = Tag.create!(
+    category_id: category_basic.id,
+    name: '外国人大歓迎'
+    #genre: 'basic'
+
+  )
+tag_pair = Tag.create!(
+    category_id: category_basic.id,
+    name: '二人入居可'
     #genre: 'basic'
 
   )
@@ -155,54 +247,58 @@ tag_wide = Tag.create!(
 
   )
 
- tag_parking = Tag.create!(
-    category_id: category_building.id,
-    name: '駐輪場あり'
-    #genre: 'building'
-
-  )
-
-  tag_autoloc = Tag.create!(
-    category_id: category_building.id,
-    name: 'オートロック'
-    #genre: 'building'
-
-  )
-
-  tag_station = Tag.create!(
-    category_id: category_surrounding.id,
-    name: '駅近(徒歩5分以内 )'
-    #genre: 'surrounding'
-
-  )
-
-  tag_Supermarket = Tag.create!(
-    category_id: category_surrounding.id,
-    name: 'コンビニ・スーパー近い（徒歩5分以内）'
-    #genre: 'surrounding'
-
-  )
-
-  tag_bath = Tag.create!(
-    category_id: category_individual.id,
+ tag_bath = Tag.create!(
+    category_id: category_room.id,
     name: '専用バス付き'
     #genre: 'surrounding'
 
   )
 
 　tag_toilet = Tag.create!(
-    category_id: category_individual.id,
+    category_id: category_room.id,
     name: '専用トイレ付き'
     #genre: 'surrounding'
 
   )
 
   tag_kitchen= Tag.create!(
-    category_id: category_individual.id,
+    category_id: category_room.id,
     name: '専用キッチン付き'
     #genre: 'surrounding'
 
   )
+
+  tag_station = Tag.create!(
+    category_id: category_surrounding.id,
+    name: '駅から5分以内'
+    #genre: 'surrounding'
+
+  )
+
+  tag_Supermarket = Tag.create!(
+    category_id: category_surrounding.id,
+    name: 'コンビニ・スーパー近い'
+    #genre: 'surrounding'
+
+  )
+
+  tag_residential  = Tag.create!(
+    category_id: category_surrounding.id,
+    name: '住宅街'
+    #genre: 'surrounding'
+
+  )
+
+  tag_office  = Tag.create!(
+    category_id: category_surrounding.id,
+    name: 'オフィス街'
+    #genre: 'surrounding'
+
+  )
+
+
+
+
 
    tag_plumbing= Tag.create!(
     category_id: category_shared_facility.id,
@@ -211,12 +307,44 @@ tag_wide = Tag.create!(
 
   )
 
+  tag_cook= Tag.create!(
+    category_id: category_shared_facility.id,
+    name: '料理器具充実'
+    #genre: 'surrounding'
+
+  )
+
+
+
    tag_cleaning_support= Tag.create!(
     category_id: category_shared_facility.id,
     name: '清掃サポート付き'
     #genre: 'surrounding'
 
   )
+
+  tag_entertainment= Tag.create!(
+    category_id: category_shared_facility.id,
+    name: '娯楽設備付き'
+    #genre: 'surrounding'
+
+  )
+
+
+   tag_parking = Tag.create!(
+    category_id: category_other.id,
+    name: '駐輪場あり'
+    #genre: 'building'
+
+  )
+
+  tag_autoloc = Tag.create!(
+    category_id: category_other.id,
+    name: 'オートロック'
+    #genre: 'building'
+
+  )
+
 
    tag_many_event= Tag.create!(
     category_id: category_other.id,
@@ -231,6 +359,8 @@ tag_wide = Tag.create!(
     #genre: 'surrounding'
 
   )
+
+
 
 TagProperty.create!(
   property_id: propertyA.id,
