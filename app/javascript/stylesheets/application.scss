@@ -1,9 +1,14 @@
 @import '~bootstrap/scss/bootstrap';
 
+body{
+   background-color: #BDE7BD;
+}
+
 .wrapper{
   margin: 0 auto;
   max-width: 1000px;
   width: 100%;
+
 }
 
 ul {
@@ -16,7 +21,11 @@ list-style: none;
 }
 
 
-
+.top_picture{
+  width: 100%; /* 横幅いっぱい */
+  height: 300px; /* 高さ300px */
+  background-size: cover; /* 縦横比を維持したまま背景領域を埋め尽くす */
+}
 
 
 
@@ -165,4 +174,66 @@ ul#areamap li a:hover {
   position: absolute;
   top: 345px;
   left: 215px;
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+section {
+  margin-top: 30px;
+}
+
+.accordion {
+  width: 400px;
+  margin: 0 auto;
+}
+
+.menu {
+  background-color: #d2691e;
+  color: #3F3F15;
+  font-size: 18px;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+  border-width: 2px;
+border-style: outset;
+}
+p {
+  margin-bottom: 0;
+}
+
+.title:hover,
+.title:active,
+.title.is-active {
+  background-color: black;
+}
+/* .contents {
+  display: none;
+  border: 1px solid black;
+  padding: 10px;
+  line-height: normal;
+  height: auto;
+  opacity: 1;
+  text-align: center;
+} */
+
+.contents {
+  text-align: center;
+  line-height: 0;
+  height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition-duration: 0.4s;
+}
+
+.contents.is-open {
+  border: 1px solid black;
+  padding: 10px;
+  line-height: normal;
+  height: auto;
+  opacity: 1;
 }

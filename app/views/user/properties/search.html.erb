@@ -3,7 +3,9 @@
 全<%=@properties. count%>件
 <%@properties.each do |property|%>
 <% property.images.first(1).each do |image| %>
+
   <%= image_tag image%>
+
 <%end%>
   <h2><%=property.property_name%></h2>
   <%=property.access%>

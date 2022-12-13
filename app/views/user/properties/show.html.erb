@@ -1,7 +1,12 @@
 
-<% @property.images.first(2).each do |image| %>
-  <%= image_tag image%>
-<%end%>
+
+<div class="slicker">
+  <% @property.images.first(3).each do |image| %>
+    <div class ="a">
+      <%=image_tag image, class:'picture' %>
+    </div>
+  <%end%>
+</div>
 <%= @property.property_name %>
 
 <p><%= @property.introduction %></p>
@@ -62,7 +67,21 @@
 <%= render "/user/properties/tab" %>
 
 
+<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<!----サイトからダウンロードしたできているjavascriptを読み込む-->
 
+<script>
+  var $jq = jQuery.noConflict();
+  $jq(document).on('DOMContentLoaded', function(){
+  $jq('.slicker').slick({
+    autoplay:true,
+    autoplaySpeed: 3000
+  });
+
+});
+</script>
 
 
 

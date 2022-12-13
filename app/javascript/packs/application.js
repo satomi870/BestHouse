@@ -4,7 +4,6 @@
 // that code so it'll be compiled.
 
 import Rails from "@rails/ujs"
-import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import 'jquery'
@@ -21,7 +20,6 @@ window.raty = function(elem,opt) {
 }
 
 Rails.start()
-Turbolinks.start()
 ActiveStorage.start()
 
 
@@ -55,3 +53,9 @@ function isValidRentRange(lowerRent, upperRent) {
   }
   return Number(lowerRent)< Number(upperRent);
 }
+
+
+
+
+
+

@@ -1,4 +1,5 @@
 
+<%= image_tag 'top.jpg',class: 'top_picture' %>
 
 <h3>エリアで探す</h3>
 
@@ -18,34 +19,60 @@
     </div>
 
     <div class="col-5">
+    <div class="mb-5">
+    <%= form_with url: search_keyword_path, method: :get do |f| %>
+      <%= f.label :keyword, 'キーワード検索' %>
+      <%= f.text_field :keyword %>
+      <br>
+      <%= f.submit '検索' %>
+    <% end %>
+    </div>
+
       <h3>特徴から探す</h3>
-      <h3>入居者の特性<h3>
-      <%@basic_tags.each do |basic_tag|%>
-        <%=link_to basic_tag.name,search_path(tag_id: basic_tag.id, from_top: true)%>
-      <%end%>
+      <section>
+        <div class="accordion">
+          <p class="menu">入居者の特性</p>
+          <div class="contents">
+            <%@basic_tags.each do |basic_tag|%>
+              <%=link_to basic_tag.name,search_path(tag_id: basic_tag.id, from_top: true)%>
+            <%end%>
+          </div>
 
-      <h3>部屋</h3>
-      <%@room_tags.each do |room_tag|%>
-        <%=link_to room_tag.name,search_path(tag_id: room_tag.id, from_top: true)%>
-      <%end%>
+          <p class="menu">部屋</p>
+          <div class="contents">
+            <%@room_tags.each do |room_tag|%>
+              <%=link_to room_tag.name,search_path(tag_id: room_tag.id, from_top: true)%>
+            <%end%>
+          </div>
 
 
-      <h3>周辺環境</h3>
-      <%@surrounding_tags.each do |surrounding_tag|%>
-        <%=link_to surrounding_tag.name,search_path(tag_id: surrounding_tag.id, from_top: true)%>
-      <%end%>
+          <p class="menu">周辺環境</p>
+          <div class="contents">
+            <%@surrounding_tags.each do |surrounding_tag|%>
+              <%=link_to surrounding_tag.name,search_path(tag_id: surrounding_tag.id, from_top: true)%>
+            <%end%>
+          </div>
+
+
+          <p class="menu">共有設備</p>
+          <div class="contents">
+            <%@shared_facility_tags.each do |shared_facility_tag|%>
+              <%=link_to shared_facility_tag.name,search_path(tag_id: shared_facility_tag.id, from_top: true)%>
+            <%end%>
+          </div>
+
+          <p class="menu">その他</p>
+          <div class="contents">
+            <%@other_tags.each do |other_tag|%>
+              <%=link_to other_tag.name,search_path(tag_id: other_tag.id, from_top: true)%>
+            <%end%>
+          </div>
 
 
 
-      <h3>共有設備<h3>
-      <%@shared_facility_tags.each do |shared_facility_tag|%>
-        <%=link_to shared_facility_tag.name,search_path(tag_id: shared_facility_tag.id, from_top: true)%>
-      <%end%>
-
-      <h3>その他<h3>
-      <%@other_tags.each do |other_tag|%>
-        <%=link_to other_tag.name,search_path(tag_id: other_tag.id, from_top: true)%>
-      <%end%>
+        </div>
+        </section>
+      </div>
     </div>
   </div>
 </div>
@@ -141,9 +168,18 @@
 <h3><%=link_to "詳しく探す",about_path%></h3>
 
 
-<%= form_with url: search_keyword_path, method: :get do |f| %>
-  <%= f.label :keyword, 'キーワード検索' %>
-  <%= f.text_field :keyword %>
-  <br>
-  <%= f.submit '検索' %>
-<% end %>
+
+<script>
+  const menu = document.querySelectorAll(".menu");
+
+      function toggle() {
+        const content = this.nextElementSibling;
+        this.classList.toggle("is-active");
+        content.classList.toggle("is-open");
+      }
+
+      for (let i = 0; i < menu.length; i++) {
+        menu[i].addEventListener("click", toggle);
+      }
+
+</script>
