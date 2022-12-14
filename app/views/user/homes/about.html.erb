@@ -4,6 +4,7 @@
 
   <div class="text-center">
     <h3>エリアを選ぼう</h3>
+
     <ul id="areamap_detail">
       <%= f.collection_check_boxes :area_id, Area.all, :id, :area_name %>
     </ul>
@@ -19,18 +20,55 @@
 
     <%=f.collection_check_boxes :tag_id, @basic_tags, :id, :name do |b| %>
       <% if  b.object.id == 1 %>
-      <%= image_tag 'woman.jpg' %>
-
+        <%= image_tag 'woman.jpg' %>
       <% end %>
       <% if  b.object.id == 2 %>
-        <%= image_tag 'man.jpg' %>
+        <%= image_tag 'gender.jpg' %>
       <% end %>
+
+      <% if  b.object.id == 3 %>
+        <%= image_tag 'earth.jpg' %>
+      <% end %>
+
+      <% if  b.object.id == 4 %>
+        <%= image_tag 'friend.jpg' %>
+      <% end %>
+
       <%= b.label { b.check_box + b.text } %> <!--if文で選ばれたのをこの１行で表示 -->
     <% end %>
 
     <div class="grid-item">
 
-      <%=f.collection_check_boxes :tag_id, @room_tags, :id, :name %>
+      <%=f.collection_check_boxes :tag_id, @room_tags, :id, :name do |b| %>
+        <% if  b.object.id == 5 %>
+          <%= image_tag 'noise.jpg' %>
+        <% end %>
+
+        <% if  b.object.id == 6 %>
+          <%= image_tag 'wide.jpg' %>
+        <% end %>
+
+        <% if  b.object.id == 7 %>
+          <%= image_tag 'bath.jpg' %>
+        <%end %>
+
+        <% if  b.object.id == 8 %>
+          <%= image_tag 'toilet.jpg' %>
+        <% end %>
+
+        <% if  b.object.id == 9 %>
+          <%= image_tag 'kitchen.jpg' %>
+        <% end %>
+
+        <%= b.label { b.check_box + b.text } %> <!--if文で選ばれたのをこの１行で表示 -->
+      <% end %>
+
+</div>
+
+     <div class="grid-item">
+      <%=f.collection_check_boxes :tag_id, @shared_facility_tags, :id, :name  %>
+    </div>
+
 
     </div>
 
@@ -39,15 +77,13 @@
 
     </div>
 
-    <div class="grid-item">
-      <%=f.collection_check_boxes :tag_id, @shared_facility_tags, :id, :name %>
-    </diV>
-
-    <div class="grid-item">
-    <%=f.collection_check_boxes :tag_id, @other_tags, :id, :name %>
+    <!--<div class="mb-5">-->
+      <div class="grid-item">
+      <%=f.collection_check_boxes :tag_id, @other_tags, :id, :name %>
+      </div>
     </div>
+  <!--</div>-->
 
-  </div>
   <div class="text-center">
     <h3><%=f.submit 'この条件で検索'%></h3>
   </div>

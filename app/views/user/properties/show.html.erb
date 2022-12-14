@@ -1,10 +1,10 @@
 
 
-<div class="slicker">
+<div class="slicker w-8s5 d-flex mx-auto align-items-center">
   <% @property.images.first(3).each do |image| %>
-    <div class ="a">
-      <%=image_tag image, class:'picture' %>
-    </div>
+
+      <%=image_tag image, class:'slide_picture'%>
+
   <%end%>
 </div>
 <%= @property.property_name %>
@@ -59,9 +59,11 @@
 <p><%= @property.access %></p>
 <p><%=link_to "地図を見る",map_path(@property.id)%></p>
 
-
-<%= link_to "お問い合わせ",new_property_contact_path(@property.id) %>
-
+<div class="text-center">
+  <div class="fixed-bottom">
+    <%= link_to "お問い合わせ",new_property_contact_path(@property.id) %>
+  </div>
+</div>
 
 
 <%= render "/user/properties/tab" %>
@@ -77,7 +79,10 @@
   $jq(document).on('DOMContentLoaded', function(){
   $jq('.slicker').slick({
     autoplay:true,
-    autoplaySpeed: 3000
+    autoplaySpeed: 3000,
+    dots:true,
+    prevArrow:'<i class="fas fa-arrow-alt-circle-left mr-2"></i>',
+    nextArrow:'<i class="fas fa-arrow-alt-circle-right ml-2"></i>'
   });
 
 });

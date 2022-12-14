@@ -1,8 +1,6 @@
 @import '~bootstrap/scss/bootstrap';
 
-body{
-   background-color: #BDE7BD;
-}
+
 
 .wrapper{
   margin: 0 auto;
@@ -16,18 +14,30 @@ list-style: none;
 
 }
 
-.top{
-  display: flex;
-}
+
 
 
 .top_picture{
-  width: 100%; /* 横幅いっぱい */
-  height: 300px; /* 高さ300px */
-  background-size: cover; /* 縦横比を維持したまま背景領域を埋め尽くす */
+  width: 100vw !important;
+  height: 300px;
+  background-size: cover;
+  background-position: 50px 100px;
 }
 
 
+.top {
+  position: relative;
+}
+
+
+.explanation {
+  color: #fff;
+  font-size: 24px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
 
 
 
@@ -81,14 +91,18 @@ list-style: none;
   line-height: 2.5;
 }
 
+
+
 #areamap, #areamap_detail {
-  width: 500px;
+  width: 550px;
   height: 600px;
   background-repeat: no-repeat;
   background-size: contain;
-  background-position: center center;
-  background-image: url("../images/areamap.jpg");
+  //background-position: center;
+  margin: auto;
+  background-image: url("../images/area.jpg");
   position: relative;
+
 }
 
 ul {
@@ -192,8 +206,8 @@ section {
 }
 
 .menu {
-  background-color: #d2691e;
-  color: #3F3F15;
+  background-color: #1E90FF;
+  color: white;
   font-size: 18px;
   padding: 10px;
   text-align: center;
@@ -202,24 +216,12 @@ section {
   border-width: 2px;
 border-style: outset;
 }
+
 p {
   margin-bottom: 0;
 }
 
-.title:hover,
-.title:active,
-.title.is-active {
-  background-color: black;
-}
-/* .contents {
-  display: none;
-  border: 1px solid black;
-  padding: 10px;
-  line-height: normal;
-  height: auto;
-  opacity: 1;
-  text-align: center;
-} */
+
 
 .contents {
   text-align: center;
@@ -236,4 +238,21 @@ p {
   line-height: normal;
   height: auto;
   opacity: 1;
+}
+
+.accordion_rank {
+  width: 600px;
+  margin: 0 auto;
+}
+
+
+
+
+//property show
+
+
+
+.slide_picture{
+  width: 900px;
+  height: 500px;
 }
