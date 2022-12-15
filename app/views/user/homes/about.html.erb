@@ -63,23 +63,83 @@
         <%= b.label { b.check_box + b.text } %> <!--if文で選ばれたのをこの１行で表示 -->
       <% end %>
 
-</div>
+    </div>
 
      <div class="grid-item">
-      <%=f.collection_check_boxes :tag_id, @shared_facility_tags, :id, :name  %>
-    </div>
+      <%=f.collection_check_boxes :tag_id, @shared_facility_tags, :id, :name do |b| %>
+        <% if  b.object.id == 14 %>
+          <%= image_tag 'water.jpg' %>
+        <% end %>
+
+        <% if  b.object.id == 15 %>
+          <%= image_tag 'wide.jpg' %>
+        <% end %>
+
+        <% if  b.object.id == 16 %>
+          <%= image_tag 'bath.jpg' %>
+        <%end %>
+
+        <% if  b.object.id == 17 %>
+          <%= image_tag 'toilet.jpg' %>
+        <% end %>
+
+        <%= b.label { b.check_box + b.text } %> <!--if文で選ばれたのをこの１行で表示 -->
+      <% end %>
 
 
     </div>
+
+
+
 
     <div class="grid-item">
-      <%=f.collection_check_boxes :tag_id, @surrounding_tags, :id, :name %>
+      <%=f.collection_check_boxes :tag_id, @surrounding_tags, :id, :name do |b|%>
+      <% if  b.object.id == 10 %>
+          <%= image_tag 'train.jpg' %>
+        <% end %>
+
+        <% if  b.object.id == 11 %>
+          <%= image_tag 'wide.jpg' %>
+        <% end %>
+
+        <% if  b.object.id == 12 %>
+          <%= image_tag 'bath.jpg' %>
+        <%end %>
+
+        <% if  b.object.id == 13 %>
+          <%= image_tag 'toilet.jpg' %>
+        <% end %>
+
+        <%= b.label { b.check_box + b.text } %> <!--if文で選ばれたのをこの１行で表示 -->
+      <% end %>
+
+
 
     </div>
 
     <!--<div class="mb-5">-->
       <div class="grid-item">
-      <%=f.collection_check_boxes :tag_id, @other_tags, :id, :name %>
+      <%=f.collection_check_boxes :tag_id, @other_tags, :id, :name do |b| %>
+      <% if  b.object.id == 18 %>
+          <%= image_tag 'bike.jpg' %>
+        <% end %>
+
+        <% if  b.object.id == 11 %>
+          <%= image_tag 'wide.jpg' %>
+        <% end %>
+
+        <% if  b.object.id == 12 %>
+          <%= image_tag 'bath.jpg' %>
+        <%end %>
+
+        <% if  b.object.id == 13 %>
+          <%= image_tag 'toilet.jpg' %>
+        <% end %>
+
+        <%= b.label { b.check_box + b.text } %> <!--if文で選ばれたのをこの１行で表示 -->
+      <% end %>
+
+
       </div>
     </div>
   <!--</div>-->

@@ -1,39 +1,55 @@
 
 
 <div class="slicker w-8s5 d-flex mx-auto align-items-center">
-  <% @property.images.first(3).each do |image| %>
+  <% @property.images.first(2).each do |image| %>
 
       <%=image_tag image, class:'slide_picture'%>
 
   <%end%>
 </div>
-<%= @property.property_name %>
+<div class="text-center mb-5">
+  <%= @property.property_name %>
+  <p><%= @property.introduction %></p>
 
-<p><%= @property.introduction %></p>
 <% @property.tags.each do |tag| %>
   <%= tag.name %>
 <%end%>
+</div>
 
-<h3>共有設備</h3>
-<p><%= @property.cleaning_support %></p>
-<h3>リビング</h3>
-<p><%= image_tag @property.images[2] %></p>
-<p><%= @property.living%></p>
-<h3>キッチン</h3>
-<p><%= image_tag @property.images[3] %></p>
-<p><%= @property.kitchen%></p>
-<h3>浴室</h3>
-<p><%= image_tag @property.images[4]%></p>
-<p><%= @property.bath%></p>
-<h3>洗面所</h3>
-<p><%= image_tag @property.images[4] %></p>
-<p><%= @property.wash_room %></p>
-<h3>洗濯機</h3>
-<p><%= image_tag @property.images[4]%></p>
-<p><%= @property.washing_machine %></p>
-<h3>トイレ</h3>
-<p><%= image_tag @property.images[4]%></p>
-<p><%= @property.toilet %></p>
+<div class="container">
+  <div class="row">
+    <div class="col-12 mt-5">
+      <h3>共有設備</h3>
+    </div>
+   <div class="col-6">
+    <h3>リビング</h3>
+    <p><%= image_tag @property.images[0],size: '400x230' %></p>
+    <p><%= @property.living%></p>
+  </div>
+  <div class="col-6">
+    <h3>キッチン</h3>
+    <p><%= image_tag @property.images[2],size: '400x230'  %></p>
+    <p><%= @property.kitchen%></p>
+  </div>
+  </div>
+  <div class ="row mt-5">
+  <div class="col-4">
+    <h3>浴室</h3>
+    <p><%= image_tag @property.images[3],size: '250x230' %></p>
+    <p><%= @property.bath%></p>
+  </div>
+  <div class="col-4">
+  <h3>洗濯機</h3>
+    <p><%= image_tag @property.images[4],size: '250x230' %></p>
+    <p><%= @property.washing_machine %></p>
+  </div>
+  <div class="col-4">
+  <h3>トイレ</h3>
+    <p><%= image_tag @property.images[5],size: '250x230' %></p>
+    <p><%= @property.toilet %></p>
+    </div>
+  </div>
+</div>
 
 <h3>部屋</h3>
 <p>空室<%= @property.vacancy %></p>
@@ -51,8 +67,8 @@
     <td><%= @property.common_service_fee %></td>
   </yody>
 </table>
-<%= image_tag @property.images[4]%>
-<%= @property.room_facility %>
+<%= image_tag @property.images[6],size: '350x230'%>
+<p><%= @property.room_facility %></p>
 
 <h2>アクセス</h2>
 <p><%= @property.address %></p>
@@ -99,3 +115,4 @@
 
 
 
+<p><%= @property.cleaning_support %></p>

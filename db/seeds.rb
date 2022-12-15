@@ -143,14 +143,16 @@ area_other = Area.create!(
 
 
 propertyA=Property.create!(
-    area_id: area_nerima.id,area_group_id: area_group_ikebukuro.id, property_name:'物件A', address:'東京都練馬区南大泉', access:'中村橋駅 徒歩3分', rent:40000, condition:'女性', vacancy:6,introduction:'主要駅までのアクセス良好です', common_service_fee:15000,
+    area_id: area_nerima.id,area_group_id: area_group_ikebukuro.id, property_name:'物件A', address:'東京都練馬区南大泉', access:'中村橋駅 徒歩3分', rent:40000, condition:'女性', vacancy:6, common_service_fee:15000, introduction:'2021年6月新規OPEN！ワークスペース付、全35室のコンセプトシェアハウス！ 大崎駅・大井町駅が徒歩圏内！JFハウス大崎ワークシティはコンセプトシェアハウスとして交流と独立性を兼ね備えております。リモートワークの際に1階3階4階にあるワークスペースや自室など場所を変えて作業をすることが可能です。また、一人暮らしと比較して孤独感がなく、他の入居者との交流にて同業・異業種間での情報交換なんてことも出来ますね。使い方は多岐にわたり、入居者様がそれぞれ感じるメリットは多様です。',
     room_facility:'エアコン・ベッド、クローゼット、トイレ、シャワールーム',
-    living:'テレビ、ソファ、テーブル', kitchen:'電子レンジ、冷蔵庫、炊飯器', bath:'各部屋にあり',toilet:'各部屋にあり',wash_room:'各部屋にあり',washing_machine:'洗濯機 2台', cleaning_support:'住人同士の当番制',event:'イベントなし', breadth:'5畳',latitude:'35.737798415787815',altitude:'139.63589408832408')
-propertyA.images.attach(io: File.open(Rails.root.join('app/assets/images/images/house1.jpg')),filename: 'house1.jpg')#0
-propertyA.images.attach(io: File.open(Rails.root.join('app/assets/images/images/house2.jpg')),filename: 'house2.jpg')#1
-propertyA.images.attach(io: File.open(Rails.root.join('app/assets/images/images/house3.jpg')),filename: 'house3.jpg')#2
-propertyA.images.attach(io: File.open(Rails.root.join('app/assets/images/images/house4.jpg')),filename: 'house4.jpg')#3
-propertyA.images.attach(io: File.open(Rails.root.join('app/assets/images/images/living2.jpg')),filename: 'living2.jpg')#4
+    living:'テレビ、ソファ、テーブル', kitchen:'電子レンジ、冷蔵庫、炊飯器', bath:'シャワールーム 4室',toilet:'洋式3室',wash_room:'4台',washing_machine:'洗濯機 2台', cleaning_support:'住人同士の当番制',event:'イベントなし', breadth:'5畳',latitude:'35.737798415787815',altitude:'139.63589408832408')
+propertyA.images.attach(io: File.open(Rails.root.join('app/assets/images/houseA/A-living1.jpg')),filename: 'A-living1.jpg')#0
+propertyA.images.attach(io: File.open(Rails.root.join('app/assets/images/houseA/A-living2.jpg')),filename: 'A-living2.jpg')#1
+propertyA.images.attach(io: File.open(Rails.root.join('app/assets/images/houseA/A-kichen.jpg')),filename: 'A-kichen.jpg')#2
+propertyA.images.attach(io: File.open(Rails.root.join('app/assets/images/houseA/A-bath.jpg')),filename: 'A-bath.jpg')#s3
+propertyA.images.attach(io: File.open(Rails.root.join('app/assets/images/houseA/A-wash.jpg')),filename: 'A-wash.jpg')#4
+propertyA.images.attach(io: File.open(Rails.root.join('app/assets/images/houseA/A-toilet.jpg')),filename: 'A-toilet.jpg')#4
+propertyA.images.attach(io: File.open(Rails.root.join('app/assets/images/houseA/A-room.jpg')),filename: 'A-room.jpg')#4
 
 propertyB=Property.create!(
     area_id: area_toshima.id,area_group_id: area_group_ikebukuro.id,property_name:'物件B', address:'東京都', access:'池袋駅 徒歩7分', rent:60000, condition:'男女どちらともOK', vacancy:4, introduction:'主要駅までのアクセス良好です', common_service_fee:18000,
@@ -380,16 +382,7 @@ TagProperty.create!(
 
   )
 
-TagProperty.create!(
-  property_id: propertyA.id,
-  tag_id: tag_bath.id
 
-  )
-TagProperty.create!(
-  property_id: propertyA.id,
-  #tag_id: tag_toilet.id
-  tag_id: 13
-  )
 
 TagProperty.create!(
   property_id: propertyA.id,

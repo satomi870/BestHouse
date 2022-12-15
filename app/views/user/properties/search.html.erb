@@ -1,9 +1,10 @@
 
 <%#binding.pry%>
+
 <div class="container">
   <div class="row">
 
-    <div class="col-4">
+    <div class="col-3">
       <%= form_with url: search_path, method: :get do |f|%>
         <h3>エリア</h3>
         <%=f.collection_check_boxes :area_id, Area.all, :id, :area_name, checked: @checkd_areas %>
@@ -22,32 +23,43 @@
       <%end%>
     </div>
 
-    <div class="col-8">
-      全<%=@properties. count%>件
+    <div class="col-9">
+      <div class="text-center">
+        <p>全<%=@properties. count%>件</p>
+        <p><%#=@properties.tags.name %>の物件</p>
+      </div>
       <%@properties.each do |property|%>
-      <% property.images.first(1).each do |image| %>
-        <%= image_tag image%>
-      <%end%>
-      <h2><%=property.property_name%></h2>
-      <%=property.access%>
-  <%#=image_tag property.image%>
-      <table>
-        <tr><th>賃料</th><td><%=property.rent%></td></tr>
-        <tr><th>住所</th><td><%=property.address%></td></tr>
-        <tr><th>アクセス</th><td><%=property.access%></td></tr>
-        <tr><th>入居条件</th><td><%=property.condition%></tds></tr>
-        <tr><th>空室</th></th><td><%=property.vacancy%></td></tr>
-        <tr><th>特徴</th></th><td><%property.tags.each do |tag|%><%=tag.name%><%end%></td></tr>
-       <%if user_signed_in? %>
+        <div class="row">
+        <div class="col-5">
+          <h2><%=property.property_name%></h2>
+            <% property.images.first(1).each do |image| %>
+            <p><%= image_tag image,size: '300x230'%></p>
+          <%end%>
+        </div>
+
+        <div class="col-7 mt-5">
+          <table>
+            <tr><th>賃料</th><td><%=property.rent%></td></tr>
+            <tr><th>住所</th><td><%=property.address%></td></tr>
+            <tr><th>アクセス</th><td><%=property.access%></td></tr>
+            <tr><th>入居条件</th><td><%=property.condition%></td></tr>
+            <tr><th>空室</th></th><td><%=property.vacancy%></td></tr>
+            <tr><th>特徴</th></th><td><%property.tags.each do |tag|%><%=tag.name%><%end%></td></tr>
+         </table>
+        </div>
+        </div>
+
+      <div class="row">
+      <div class="col-6">
+      <%if user_signed_in? %>
          <%=link_to "詳細を見る",property_path(property.id)%>
        <%else%>
          <%= link_to new_user_registration_path do %>
          詳細を見る
          <%end%>
       <%end%>
-
-      </table>
-        <%#binding.pry%>
+     </div>
+      <div class="col-6">
       <%if user_signed_in? %>
         <% if property.favorited_by?(current_user) %>
             <%= link_to property_favorites_path(property.id, 1), method: :delete do %>
@@ -63,8 +75,11 @@
          ♡<%= property.favorites.count %> お気に入り
          <%end%>
       <%end%>
+      </div>
+     </div>
     <%end%>
   </div>
-<%#= paginate @properties %>
+  </div>
+ <%#= paginate @properties %>
 
 
