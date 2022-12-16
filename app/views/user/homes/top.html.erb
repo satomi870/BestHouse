@@ -7,8 +7,8 @@
     実際に住んでいる住人のレビューが見れたり、住人に質問できる</p>
   </div>
 </div>
-<div class ="wrapper">
-<h3>エリアで探す</h3>
+<div class ="wrapper mt-5">
+<h3 class ="mt-5">エリアで探す</h3>
 
 <%#@areas.each do |area|%>
   <%#=link_to area.area_name,seach_path(area_id: area.id, from_top: true)%> <%#左が名前(皆が見てわかりやすい名前)右が値%>
@@ -27,8 +27,9 @@
 
     <div class="col-5">
     <div class="mb-5">
+    <h3>フリーワードで探す</h3>
     <%= form_with url: search_keyword_path, method: :get do |f| %>
-      <%= f.label :keyword, 'キーワード検索' %>
+      <%= f.label :keyword, 'キーワード検索'%>
       <%= f.text_field :keyword %>
       <br>
       <%= f.submit '検索' %>
@@ -84,17 +85,17 @@
   </div>
 </div>
 
-<h2 class ="text-center">住人による口コミランキング！！</h2>
+<h3 class ="text-center">住人による口コミランキング！！</h3>
 <section>
-  <div class="accordion_rank">
+  <div class="accordion_rank ">
     <p class="menu">住民の雰囲気がいいシェアハウスランキング</p>
       <div class="contents">
         <% if @properties_atmosphere.present? %>
           <%  @properties_atmosphere.each do |property| %>
             <%=link_to property_path(property.id) do%>
-              <%= property.property_name %>
+             <p>1位<%= property.property_name %></p>
             <%end%>
-            <%= property.reviews.average(:atmosphere).to_f %>点/5.0点中<br>
+            <%= property.reviews.average(:atmosphere).to_f %>点/5.0点中
           <%end%>
         <%else%>
           <p>まだレビューがありません</p>
@@ -106,7 +107,7 @@
         <% if @properties_noise.present? %>
           <% @properties_noise.each do |property| %>
             <%=link_to property_path(property.id) do%>
-              <%= property.property_name %>
+              <p>1位<%= property.property_name %></p>
             <%end%>
             <%= property.reviews.average(:noise).to_f %>点/5.0点中<br>
           <%end%>
@@ -120,7 +121,7 @@
         <% if @properties_congestion_shared.present? %>
           <% @properties_congestion_shared.each do |property| %>
             <%=link_to property_path(property.id) do%>
-              <%= property.property_name %>
+              <p>1位<%= property.property_name %></p>
           <%end%>
           <%= property.reviews.average(:congestion_shared).to_f %>点/5.0点中<br>
           <%end%>
@@ -134,7 +135,7 @@
         <% if @properties_cleanliness_shared.present? %>
           <% @properties_cleanliness_shared.each do |property| %>
             <%=link_to property_path(property.id) do%>
-              <%= property.property_name %>
+              <p>1位<%= property.property_name %></p>
             <%end%>
           <%= property.reviews.average(:cleanliness_shared).to_f %>点/5.0点中<br>
           <%end%>
@@ -146,7 +147,7 @@
 </section>
 
 
-<h3 class ="text-center"><%=link_to "詳しく探す",about_path%></h3>
+<h3 class ="text-right mt-5 mb-5 mr-5"><%=link_to "詳しく探す",about_path%></h3>
 </div>
 
 

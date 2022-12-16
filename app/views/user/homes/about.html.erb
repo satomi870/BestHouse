@@ -2,21 +2,21 @@
 
 <%= form_with  url: search_path, method: :get do |f|%>
 
-  <div class="text-center">
+  <div class="text-center mt-5">
     <h3>エリアを選ぼう</h3>
 
     <ul id="areamap_detail">
       <%= f.collection_check_boxes :area_id, Area.all, :id, :area_name %>
     </ul>
   </div>
-　<div class="text-center">
-　  <h3>家賃を選ぼう</h3>
+　<div class="text-center mb-5">
+　  <h3 class="mb-4">家賃を選ぼう</h3>
     <%=f.select :lower_rent, Property.lower_select_rent_table%>〜
     <%=f.select :upper_rent, Property.upper_select_rent_table %>
   </div>
 
-  <div class="text-center">
-    <h3>こだわりを選ぼう</h3>
+  <div class="text-center mt-5">
+    <h3 class="mb-4">こだわりを選ぼう</h3>
 
     <%=f.collection_check_boxes :tag_id, @basic_tags, :id, :name do |b| %>
       <% if  b.object.id == 1 %>
@@ -37,7 +37,7 @@
       <%= b.label { b.check_box + b.text } %> <!--if文で選ばれたのをこの１行で表示 -->
     <% end %>
 
-    <div class="grid-item">
+    <div class="grid-item mt-2">
 
       <%=f.collection_check_boxes :tag_id, @room_tags, :id, :name do |b| %>
         <% if  b.object.id == 5 %>
@@ -65,22 +65,22 @@
 
     </div>
 
-     <div class="grid-item">
+     <div class="grid-item mt-2">
       <%=f.collection_check_boxes :tag_id, @shared_facility_tags, :id, :name do |b| %>
         <% if  b.object.id == 14 %>
           <%= image_tag 'water.jpg' %>
         <% end %>
 
         <% if  b.object.id == 15 %>
-          <%= image_tag 'wide.jpg' %>
+          <%= image_tag 'cook.jpg' %>
         <% end %>
 
         <% if  b.object.id == 16 %>
-          <%= image_tag 'bath.jpg' %>
+          <%= image_tag 'clean.jpg' %>
         <%end %>
 
         <% if  b.object.id == 17 %>
-          <%= image_tag 'toilet.jpg' %>
+          <%= image_tag 'rest.jpg' %>
         <% end %>
 
         <%= b.label { b.check_box + b.text } %> <!--if文で選ばれたのをこの１行で表示 -->
@@ -92,22 +92,22 @@
 
 
 
-    <div class="grid-item">
+    <div class="grid-item mt-2">
       <%=f.collection_check_boxes :tag_id, @surrounding_tags, :id, :name do |b|%>
       <% if  b.object.id == 10 %>
           <%= image_tag 'train.jpg' %>
         <% end %>
 
         <% if  b.object.id == 11 %>
-          <%= image_tag 'wide.jpg' %>
+          <%= image_tag 'shop.jpg' %>
         <% end %>
 
         <% if  b.object.id == 12 %>
-          <%= image_tag 'bath.jpg' %>
+          <%= image_tag 'residential.jpg' %>
         <%end %>
 
         <% if  b.object.id == 13 %>
-          <%= image_tag 'toilet.jpg' %>
+          <%= image_tag 'bill.jpg' %>
         <% end %>
 
         <%= b.label { b.check_box + b.text } %> <!--if文で選ばれたのをこの１行で表示 -->
@@ -118,22 +118,22 @@
     </div>
 
     <!--<div class="mb-5">-->
-      <div class="grid-item">
+      <div class="grid-item mt-2">
       <%=f.collection_check_boxes :tag_id, @other_tags, :id, :name do |b| %>
       <% if  b.object.id == 18 %>
           <%= image_tag 'bike.jpg' %>
         <% end %>
 
-        <% if  b.object.id == 11 %>
-          <%= image_tag 'wide.jpg' %>
+        <% if  b.object.id == 19 %>
+          <%= image_tag 'key.jpg' %>
         <% end %>
 
-        <% if  b.object.id == 12 %>
-          <%= image_tag 'bath.jpg' %>
+        <% if  b.object.id == 20 %>
+          <%= image_tag 'event.jpg' %>
         <%end %>
 
-        <% if  b.object.id == 13 %>
-          <%= image_tag 'toilet.jpg' %>
+        <% if  b.object.id == 21%>
+          <%= image_tag 'event.jpg' %>
         <% end %>
 
         <%= b.label { b.check_box + b.text } %> <!--if文で選ばれたのをこの１行で表示 -->
@@ -144,8 +144,8 @@
     </div>
   <!--</div>-->
 
-  <div class="text-center">
-    <h3><%=f.submit 'この条件で検索'%></h3>
+  <div class="text-center mt-4">
+    <h3><%=f.submit 'この条件で検索', class: "btn"%></h3>
   </div>
 
 <%end%>

@@ -1,6 +1,21 @@
 @import '~bootstrap/scss/bootstrap';
 
+h3,p{
+  color: #1E90FF;
 
+}
+
+p{
+  font-weight: bold;
+}
+
+th, td {
+  font-size:  15px;
+}
+
+th{
+  color: white;
+}
 
 .wrapper{
   margin: 0 auto;
@@ -14,6 +29,7 @@ list-style: none;
 
 }
 
+//topページ
 
 
 
@@ -38,6 +54,33 @@ list-style: none;
   top: 50%;
   transform: translate(-50%,-50%);
 }
+
+.btn {
+
+    color: #1E90FF;
+    transition: 0.3s ease-in-out;
+    font-weight: 600;
+    background: #fcfcfc;
+    border: 1px solid transparent;
+    box-shadow: 0 2px 4px -2px rgb(33 37 56 / 25%);
+    border-radius: 0.45rem;
+    border-color: rgb(80,80,80,0.5);
+}
+.btn {
+    opacity: 0.8;
+}
+.btn {
+    content: "\f005";
+    position: relative;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    margin-right: 8px;
+    color:  #1E90FF;
+    opacity: 0.8;
+    font-size: 1.3rem;
+    transform: translateY(-1px);
+}
+
 
 
 
@@ -102,6 +145,7 @@ list-style: none;
   margin: auto;
   background-image: url("../images/area.jpg");
   position: relative;
+
 
 }
 
@@ -245,8 +289,51 @@ p {
   margin: 0 auto;
 }
 
+//property search
+.sideber{
 
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    font-weight: bold;
+    color: #1E90FF;
+    background: #FFF;
+    border: solid 3px #6091d3;
+    border-radius: 10px;
 
+}
+
+.under{
+  background: linear-gradient(transparent 70%, #FFFF33 80%);
+}
+
+.tag{
+  padding: 0.5em 1em;
+  margin: 2em 0;
+  font-weight: lighter;
+  border: solid 1px #1E90FF;
+}
+
+.a{
+  width: 70%;
+}
+
+.index {
+  //border-color: #1E90FF;
+  border: solid 2px #1E90FF;
+  border-spacing: 0;
+  border-collapse: separate;
+  border-radius: 10px;
+
+}
+
+.tags{
+
+    font-weight: thin;
+    color: white;
+    background: #1E90FF;
+    border: solid 3px;
+
+}
 
 //property show
 
