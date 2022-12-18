@@ -14,6 +14,7 @@ import "script.js"
 import Raty from "raty.js"
 
 window.raty = function(elem,opt) {
+    if (elem == null) return;
     let raty =  new Raty(elem,opt)
     raty.init();
     return raty;

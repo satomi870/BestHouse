@@ -1,12 +1,27 @@
 
 </div>
-<div class="top">
-  <div class="mt-5">
-    <%= image_tag 'top.jpg',class: 'top_picture' %>
-    <p class ="explanation">BestHouseとは、様々な特徴から検索できる東京都内のシェアハウス検索サイトです
-    実際に住んでいる住人のレビューが見れたり、住人に質問できる</p>
+
+  <div class="mt-5 mb-5">
+    <div class="slicker w-8s5 d-flex mx-auto align-items-center justify-content-center">
+      <div>
+        <%=image_tag'A-living1.jpg', class:'slide_picture'%>
+        <p class="caption">非日常的な空間でシェア暮らし。トレーニングジムで汗を流したりワーキングスペースで集中したり</p>
+      </div>
+
+      <div>
+        <%=image_tag'top2.jpg', class:'slide_picture'%>
+        <p class="caption">ラウンジ、シアタールーム、コワーキングルーム、フィットネスルーム、ルーフトップテラス付きとQOLアップ間違いなし</p>
+      </div>
+    </div>
   </div>
-</div>
+
+
+  <h3 class="text-center mt-5 mb-4">BestHouseとは</h3>
+  <p class ="text-center mb-3">BestHouseとは、様々な特徴から検索できる東京都内のシェアハウス検索サイトです
+    実際に住んでいる住人のレビューが見れたり、住人に質問できる<br>
+    シェアシェアはシェアハウスに特化したシェアハウス情報検索サイトです。
+    シェアハウスなどを、ご希望の条件に合わせて、<br>エリア（地域）や沿線（路線）、地図、家賃、こだわり条件などいろいろな方法で検索することができます。<br>
+    デザイナーズ、家具家電付き、ペット可、事務所可といったこだわりの人気の条件のシェアハウスも掲載中!!</p>
 <div class ="wrapper mt-5">
 <h3 class ="mt-5">エリアで探す</h3>
 
@@ -144,6 +159,7 @@
         <%end%>
       </div>
   </div>
+
 </section>
 
 
@@ -163,5 +179,23 @@
       for (let i = 0; i < menu.length; i++) {
         menu[i].addEventListener("click", toggle);
       }
+
+</script>
+<script>
+  var $jq = jQuery.noConflict();
+  $jq(document).on('DOMContentLoaded', function(){
+  $jq('.slicker').slick({
+    autoplay:true,
+    autoplaySpeed: 3000,
+    dots:true,
+    centerMode: true,
+    centerPadding: '250px',
+    prevArrow:'<i class="fas fa-arrow-alt-circle-left mr-2"></i>',
+    nextArrow:'<i class="fas fa-arrow-alt-circle-right ml-2"></i>'
+  });
+
+});
+
+
 
 </script>
