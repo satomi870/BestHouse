@@ -20,7 +20,7 @@ class User::CommentsController < ApplicationController
 
 
     #redirect_to property_path(@comment.question.property_id)
-      redirect_to request.referer
+      redirect_to property_path(@comment.question.property_id, :flag => "qa")
     else
       @property=Property.find(question.property_id)
       # history = @property.histories.new

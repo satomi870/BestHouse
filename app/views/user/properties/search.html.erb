@@ -8,21 +8,35 @@
       <div class ="sideber ">
       <%= form_with url: search_path, method: :get do |f|%>
         <h3 class="under">エリア</h3>
-        <div class ="a">
-        <%=f.collection_check_boxes :area_id, Area.all, :id, :area_name, checked: @checkd_areas %>
+        <div class="area_check_box">
+          <ul>
+            <%=f.collection_check_boxes :area_id, Area.all, :id, :area_name, checked: @checkd_areas do |b| %>
+              <li class="area_sideber"><%= b.label { b.check_box + b.text } %></li>
+            <% end %>
+          </ul>
         </div>
         <h3 class="under mt-3">家賃</h3>
-        <%=f.select :lower_rent, Property.lower_select_rent_table,{selected: @lower_rent} %>〜
-        <%=f.select :upper_rent, Property.upper_select_rent_table,{selected: @upper_rent}%>
+        <div class="rent">
+          <%=f.select :lower_rent, Property.lower_select_rent_table,{selected: @lower_rent} %><span style="font-size:0.8em;">&#12316;</span>
+          <%=f.select :upper_rent, Property.upper_select_rent_table,{selected: @upper_rent} %>
+        </div>
         <h3 class="under mt-3">特徴</h3>
         <h5 class="tag">入居者の特性</h5>
-        <p><%=f.collection_check_boxes :tag_id, @basic_tags, :id, :name, checked: params[:tag_id] %></p>
+        <%=f.collection_check_boxes :tag_id, @basic_tags, :id, :name, checked: params[:tag_id] do |b| %>
+          <%= b.label { b.check_box + b.text } %>
+        <% end %>
         <h5 class="tag">部屋</h3>
-        <%=f.collection_check_boxes :tag_id, @room_tags, :id, :name, checked: params[:tag_id] %>
+        <%=f.collection_check_boxes :tag_id, @room_tags, :id, :name, checked: params[:tag_id] do |b| %>
+          <%= b.label { b.check_box + b.text } %>
+        <%end%>
         <h5 class="tag">共有設備</h3>
-        <%=f.collection_check_boxes :tag_id, @shared_facility_tags, :id, :name, checked: params[:tag_id] %>
+        <%=f.collection_check_boxes :tag_id, @shared_facility_tags, :id, :name, checked: params[:tag_id] do |b| %>
+          <%= b.label { b.check_box + b.text } %>
+        <%end%>
         <h5 class="tag">周辺環境</h3>
-        <%=f.collection_check_boxes :tag_id, @surrounding_tags, :id, :name, checked: params[:tag_id] %>
+        <%=f.collection_check_boxes :tag_id, @surrounding_tags, :id, :name, checked: params[:tag_id] do |b| %>
+          <%= b.label { b.check_box + b.text } %>
+        <%end%>
         <h5 class="tag">その他</h3>
         <%#=f.collection_check_boxes :tag_id, @other_tags, :id, :name, checked: params[:tag_id] %>
 
@@ -47,7 +61,7 @@
         </div>
 
         <div class="col-7 mt-5">
-          <table class="index" width="400" height="200"border="1">
+          <table class="content" width="400" height="200"border="1">
             <tr><th bgcolor="#1E90FF">賃料</th><td><%=property.rent%></td></tr>
             <tr><th bgcolor="#1E90FF">住所</th><td><%=property.address%></td></tr>
             <tr><th bgcolor="#1E90FF">アクセス</th><td><%=property.access%></td></tr>
@@ -57,13 +71,16 @@
          </table>
         </div>
         </div>
+
+        <div class="row">
         <%property.tags.each do |tag|%>
-        <div class="col-3 text-center">
-        <div class="tags">
-          <%=tag.name%>
-        </div>
+        <div class="col-3">
+          <div class="tags">
+            <%=tag.name%>
+          </div>
         </div>
         <%end%>
+        </div>
       <div class="row">
       <div class="col-6 mb-5">
       <%if user_signed_in? %>
@@ -76,16 +93,16 @@
       <div class="col-6">
       <%if user_signed_in? %>
         <% if property.favorited_by?(current_user) %>
-            <%= link_to property_favorites_path(property.id, 1), method: :delete do %>
+            <%= link_to property_favorites_path(property.id, 1), method: :delete, class: "btn" do %>
               ♥<%= property.favorites.count %> お気に入り
             <% end %>
         <% else %>
-              <%= link_to property_favorites_path(property.id), method: :post do %>
+              <%= link_to property_favorites_path(property.id), method: :post, class: "btn" do %>
               ♡<%= property.favorites.count %> お気に入り
             <% end %>
         <% end %>
       <%else%>
-         <%= link_to new_user_registration_path do %>
+         <%= link_to new_user_registration_path, class: "btn" do %>
          ♡<%= property.favorites.count %> お気に入り
          <%end%>
       <%end%>

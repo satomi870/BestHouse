@@ -1,9 +1,9 @@
-  <div class="wrap">
+  <div class="wrap mt-5">
     <ul id="tab-menu">
-      <li><a href="#tab1" class="active">口コミを投稿する</a></li>
+      <li><a href="#tab1" class="review active">口コミを投稿する</a></li>
       <li><a href="#tab2" class="">口コミを見る</a></li>
       <li><a href="#tab3" class="">質問をする</a></li>
-      <li><a href="#tab4" class="Q&A">Q&A</a></li>
+      <li><a href="#tab4" class="qa">Q&A</a></li>
       <li><a href="#tab5" class="">ハウスルールをシェアする</a></li>
 
     </ul>
@@ -15,56 +15,70 @@
       <%= form_with model: @review, url: property_reviews_path(property_id: @property.id) do |f| %>
 
 
-        <h2>関係性を選ぶ</h2>
+        <h2 class="text-center">関係性を選ぶ</h2>
         <%#=form_with  model: @review_relation_new,url: new_property_review_path,method: :get do |f| %>
+        <div class= "row">
+          <div class="col-4">
+            <p><%=f.radio_button :relation, Review.relations.key(0) %>
+            <%=f.label :relation, Review.relations_i18n[:resident] %></p>
+          </div>
 
-        <p><%=f.radio_button :relation, Review.relations.key(0) %>
-        <%=f.label :relation, Review.relations_i18n[:resident] %></p>
-
-
-        <p><%=f.radio_button :relation, Review.relations.key(1) %>
-        <%=f.label :relation, Review.relations_i18n[:former_resident] %></p>
-        <%= f.select :relation_detail1, [['2022年頃まで住んでいた','twenty_two'], ['2021年頃まで住んでいた','twenty_one'], ['2020年頃まで住んでいた','twenty'], ['2019年頃まで住んでいた','nineteen'], ['2018年頃まで住んでいた','eighteen'], ['それ以前に住んでいた','before_that']],{prompt: '選択してください'} %>
-
+          <div class="col-4">
+            <p><%=f.radio_button :relation, Review.relations.key(1) %>
+            <%=f.label :relation, Review.relations_i18n[:former_resident] %></p>
+            <%= f.select :relation_detail1, [['2022年頃まで住んでいた','twenty_two'], ['2021年頃まで住んでいた','twenty_one'], ['2020年頃まで住んでいた','twenty'], ['2019年頃まで住んでいた','nineteen'], ['2018年頃まで住んでいた','eighteen'], ['それ以前に住んでいた','before_that']],{prompt: '選択してください'} %>
+          </div>
           <!--モデルが関連している選択ボックス (2行目)&データベースから取ってきてないからこの書き方でいいデータベースから取ってきてたらnagano_cakeのやり方-->
-        <p><%=f.radio_button :relation, Review.relations.key(2) %>
-        <%=f.label :relation, Review.relations_i18n[:others] %></p>
-        <%= f.select :relation_detail2, [['入居検討者','kentosya'], ['入居予定者','yoteisya'], ['周辺住人','syuhenjunin'], ['住人の知人','chizin'], ['大家さん','oya'], ['不動産関係者','kankeisya'], ['その他','sonota']],{prompt: '選択してください'} %>
 
+          <div class="col-4">
+            <p><%=f.radio_button :relation, Review.relations.key(2) %>
+            <%=f.label :relation, Review.relations_i18n[:others] %></p>
+            <%= f.select :relation_detail2, [['入居検討者','kentosya'], ['入居予定者','yoteisya'], ['周辺住人','syuhenjunin'], ['住人の知人','chizin'], ['大家さん','oya'], ['不動産関係者','kankeisya'], ['その他','sonota']],{prompt: '選択してください'} %>
+          </div>
+        </div>
            <%#=f.submit '次へ進む'%>
       <%#end%>
 
-        <div id="post_raty"></div>
+        <h2 class=" text-center mt-5">総合評価</h2>
+        <div class="text-center">
+          <div id="post_raty"></div>
+　　　　</div>
 
-
-        <h2>住人の雰囲気</h2>
-        良い
-        <%= f.radio_button :atmosphere, '5' %>
-        <%= f.radio_button :atmosphere, '4' %>
-        <%= f.radio_button :atmosphere, '3' %>
-        <%= f.radio_button :atmosphere, '2' %>
-        <%= f.radio_button :atmosphere, '1' %>
-        良くない
-
-         <h2>住人同士の距離感</h2>
-        親しい
-        <%= f.radio_button :distance_sense, '5' %>
-        <%= f.radio_button :distance_sense, '4' %>
-        <%= f.radio_button :distance_sense, '3' %>
-        <%= f.radio_button :distance_sense, '2' %>
-        <%= f.radio_button :distance_sense, '1' %>
-        挨拶程度
-
-        <h2>共有部の清潔さ</h2>
-        清潔
-        <%= f.radio_button :cleanliness_shared,'5' %>
-        <%= f.radio_button :cleanliness_shared,'4' %>
-        <%= f.radio_button :cleanliness_shared,'3' %>
-        <%= f.radio_button :cleanliness_shared,'2' %>
-        <%= f.radio_button :cleanliness_shared,'1' %>
-        不衛生
-
-        <h2>水回りの混雑具合</h2>
+        <div class= "row">
+          <div class="col-4">
+            <h2 class="mt-5">住人の雰囲気</h2>
+            良い
+            <%= f.radio_button :atmosphere, '5' %>
+            <%= f.radio_button :atmosphere, '4' %>
+            <%= f.radio_button :atmosphere, '3' %>
+            <%= f.radio_button :atmosphere, '2' %>
+            <%= f.radio_button :atmosphere, '1' %>
+            良くない
+          </div>
+          <div class="col-4">
+            <h2 class="mt-5">住人同士の距離感</h2>
+            親しい
+            <%= f.radio_button :distance_sense, '5' %>
+            <%= f.radio_button :distance_sense, '4' %>
+            <%= f.radio_button :distance_sense, '3' %>
+            <%= f.radio_button :distance_sense, '2' %>
+            <%= f.radio_button :distance_sense, '1' %>
+            挨拶程度
+            </div>
+            <div class="col-4">
+              <h2 class="mt-5">共有部の清潔さ</h2>
+              清潔
+              <%= f.radio_button :cleanliness_shared,'5' %>
+              <%= f.radio_button :cleanliness_shared,'4' %>
+              <%= f.radio_button :cleanliness_shared,'3' %>
+              <%= f.radio_button :cleanliness_shared,'2' %>
+              <%= f.radio_button :cleanliness_shared,'1' %>
+              不衛生
+            </div>
+            </div>
+  <div class= "row">
+    <div class="col-4">
+        <h2 class="mt-5">水回りの混雑具合</h2>
         いつでも使える
         <%= f.radio_button :congestion_shared, '5' %>
         <%= f.radio_button :congestion_shared, '4' %>
@@ -72,8 +86,9 @@
         <%= f.radio_button :congestion_shared, '2' %>
         <%= f.radio_button :congestion_shared, '1' %>
       　混雑している
-
-        <h2>騒音(他の住人による生活音)</h2>
+      　</div>
+    <div class="col-4">
+        <h2 class="mt-5">騒音(他の住人による生活音)</h2>
         静か
         <%= f.radio_button :noise,'5' %>
         <%= f.radio_button :noise,'4' %>
@@ -81,9 +96,10 @@
         <%= f.radio_button :noise,'2' %>
         <%= f.radio_button :noise,'1' %>
         騒がしい
+        </div>
 
-
-         <h2>ネット速度</h2>
+      <div class="col-4">
+         <h2 class="mt-5">ネット速度</h2>
         速い
         <%= f.radio_button :net_speed,'5' %>
         <%= f.radio_button :net_speed,'4' %>
@@ -91,8 +107,11 @@
         <%= f.radio_button :net_speed,'2' %>
         <%= f.radio_button :net_speed,'1' %>
         遅い
-
-         <h2>シャワーの水圧</h2>
+        </div>
+</div>
+    <div class= "row">
+      <div class="col-6">
+         <h2 class="mt-5">シャワーの水圧</h2>
         強い
         <%= f.radio_button :shower,'5' %>
         <%= f.radio_button :shower,'4' %>
@@ -100,8 +119,9 @@
         <%= f.radio_button :shower,'2' %>
         <%= f.radio_button :shower,'1' %>
         遅い
-
-         <h2>パーティーやイベントの開催</h2>
+</div>
+    <div class="col-6">
+         <h2 class="mt-5">パーティーやイベントの開催</h2>
         頻繁にある
         <%= f.radio_button :event,'5' %>
         <%= f.radio_button :event,'4' %>
@@ -109,12 +129,15 @@
         <%= f.radio_button :event,'2' %>
         <%= f.radio_button :event,'1' %>
         少ない
+        </div>
+        </div>
 
-
+        <div class="text-center">
         <h3>タイトル</h3>
-        <%= f.text_field :title %>
+        <%= f.text_field :title, html: { class: "foo" } %>
         <h3>本文</h3>
-        <%= f.text_area :text %>
+        <%= f.text_area :text, html: { class: "foo" } %>
+        </div>
         <%#= f.hidden_field :relation,value: @review_relation.relation %>
         <%#= f.hidden_field :relation_detail,value: @review_relation.relation_detail %>
         住み続けたい?<%= f.radio_button :repeat,'3' %>はい
@@ -220,6 +243,7 @@
         <% if review.repeat == "3" %>
           <p>住み続けたい</p>
         <%end%>
+
         <% if review.atmosphere == 5 %>
           住民の雰囲気 良い<%= image_tag "1.jpg" %>良くない<br>
         <% elsif review.atmosphere == 4 %>

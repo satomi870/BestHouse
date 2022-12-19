@@ -1,6 +1,8 @@
-
+      <div class="container-fluid">
+        <div class ="row">
+      <div class="col-6">
       <% questions.each do |question| %>
-        <p>--------------------------------------------------------------------------------------------------------------------------</p>
+        <hr>
         <%#=link_to  property_question_path(question_id: question.id) do%>
         <p><%=question.property.property_name%></p>
         <p><%=question.title%></p>
@@ -16,6 +18,7 @@
 
         <%= render '/user/properties/error', model: comment %>
 
+
         <%= form_with model: comment, url: question_comments_path(question.id) do |f|  %> <!--[@question, @answer]にしちゃうとコントローラで@question = Question.find(params[:id])を書かないといけなくなり%=link_to '質問に答える', property_questions_path(@property.id)%>ここでquestion.idを送らないとダメになるからそうやって書かない-->
           <%= f.text_field :body %>
           <%= f.select :relation, [['住人','resident'],['元住人','former_resident'],['入居検討者','kentosya'], ['入居予定者','yoteisya'], ['周辺住人','syuhenjunin'], ['住人の知人','chizin'], ['大家さん','oya'], ['不動産関係者','kankeisya'], ['その他','sonota']],{prompt: '選択してください'} %>
@@ -23,6 +26,12 @@
           <%= f.submit "コメントする" %>
         <%end%>
 
+        </div>
+
+
+
+
+        <div class="col-6">
           <h3>コメント一覧</h3>
         <% question.comments.each do |comment| %>
 
@@ -67,3 +76,6 @@
           <%end%>
         <%end%>
       <%end%>
+      </div>
+      </div>
+    </div>

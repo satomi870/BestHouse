@@ -1,6 +1,6 @@
 @import '~bootstrap/scss/bootstrap';
 
-h3,p{
+h3,h2,p{
   color: #1E90FF;
 
 }
@@ -15,6 +15,7 @@ th, td {
 
 th{
   color: white;
+  width: 100px;
 }
 
 .wrapper{
@@ -45,6 +46,7 @@ list-style: none;
   position: relative;
 }
 
+// topページ　スライド
 .slick-slide {
   position: relative;
 }
@@ -121,13 +123,13 @@ list-style: none;
     transform: translateY(-1px);
 }
 
-
+//タブ
 
 
 
 .wrap {
-  width: 90%;
-  max-width: 800px;
+  width: 100%;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
@@ -141,19 +143,20 @@ list-style: none;
 }
 
 #tab-menu li a {
-  color: #fff;
+  color: white;
   text-decoration: none;
   display: block;
   padding: 20px;
   text-align: center;
-  background: #000;
-  border: 1px solid #000;
+  background: #00BFFF;
+  border: 1px solid white;
   border-bottom: none;
+  border-radius: 20px;
 }
 
 #tab-menu .active {
-  background: #fff;
-  color: #000;
+  background: #1E90FF;
+  color: white;
 }
 
 #tab-contents {
@@ -164,8 +167,8 @@ list-style: none;
 #tab-contents .tab {
   width: 100%;
   padding: 30px;
-  background: #fff;
-  border: 1px solid #000;
+  background: white;
+  border: 1px solid white;
   border-top: none;
 }
 
@@ -346,6 +349,20 @@ p {
   background: linear-gradient(transparent 70%, #FFFF33 80%);
 }
 
+.area_sideber{
+  width: 45%;
+  max-width: 45%;
+  display: inline-block;
+
+}
+
+.rent{
+  font-size: 13px;
+
+  }
+
+
+
 .tag{
   padding: 0.5em 1em;
   margin: 2em 0;
@@ -353,11 +370,9 @@ p {
   border: solid 1px #1E90FF;
 }
 
-.a{
-  width: 70%;
-}
 
-.index {
+
+.content {
   //border-color: #1E90FF;
   border: solid 2px #1E90FF;
   border-spacing: 0;
@@ -382,4 +397,8 @@ p {
 .slide_picture{
   width: 900px;
   height: 500px;
+}
+
+.foo{
+  width: 300px;
 }

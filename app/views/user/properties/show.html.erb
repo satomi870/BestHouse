@@ -55,29 +55,30 @@
   </div>
 </div>
 
-<h3 class="under">部屋</h3>
+<h3 class="under mt-5 mb-4">部屋</h3>
 <p>空室<%= @property.vacancy %></p>
 <p>入居条件<%= @property.condition %></p>
 
-<table>
-  <thead>
-    <th>広さ</th>
-    <th>賃料</th>
-    <th>共益費</th>
-  </thead>
-  <yody>
-    <td><%= @property.breadth %></td>
-    <td><%= @property.rent %></td>
-    <td><%= @property.common_service_fee %></td>
-  </yody>
-</table>
-<%= image_tag @property.images[6],size: '350x230'%>
-<p><%= @property.room_facility %></p>
+<div class="row">
 
-<h3>アクセス</h3>
-<p><%= @property.address %></p>
+    <div class="col-6 mt-4">
+  <%= image_tag @property.images[6],size: '350x230'%>
+</div>
+<div class="col-6 mt-4">
+<table class="content" width="400" height="200"border="1">
+  <tr><th bgcolor="#1E90FF">家賃</th><td><%= @property.rent %></td></tr>
+  <tr><th bgcolor="#1E90FF">共益費</th><td><%= @property.common_service_fee %></td></tr>
+  <tr><th bgcolor="#1E90FF">広さ</th><td><%= @property.breadth %></td></tr>
+  <tr><th bgcolor="#1E90FF">設備</th><td><%= @property.room_facility %></td></tr>
+</table>
+</div>
+
+</div>
+
+<h3 class="under mt-5">アクセス</h3>
+<p class="mt-5"><%= @property.address %></p>
 <p><%= @property.access %></p>
-<p><%=link_to "地図を見る",map_path(@property.id)%></p>
+<p class="mt-3"><%=link_to "地図を見る",map_path(@property.id),class: "btn"%></p>
 
 <div class="text-center">
   <div class="fixed-bottom">
@@ -102,6 +103,28 @@
   });
 
 });
+
+
+//qaだったらtab1のshowを消してtab4の方を表示させる　デフォルトがshow
+<% if params[:flag].present? and params[:flag] == "qa" %>
+  //$(document).on("turbolinks:load", function() {
+  $(document).ready(function(){
+      $(".review").removeClass("active")
+      $(".qa").addClass("active")
+       $("#tab1").css("display","none");
+
+      $("#tab4").css("display","block");
+      $("#tab4").show();
+
+
+     //tab4のところまで一気にスクロール
+      $('html, body').animate({
+        scrollTop: $("#tab4").offset().top
+    }, 500);
+  })
+
+  //});
+<% end %>
 </script>
 
 
