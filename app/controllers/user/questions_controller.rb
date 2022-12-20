@@ -20,7 +20,7 @@ class User::QuestionsController < ApplicationController
       end
 
     #redirect_to property_path(@question.property_id)
-      redirect_to request.referer
+      redirect_to property_path(params[:property_id])
     else
       @property=Property.find(params[:property_id])
       # history = @property.histories.new

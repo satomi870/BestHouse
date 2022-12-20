@@ -35,9 +35,9 @@ Rails.application.routes.draw do
     post 'users/guest_login' => 'guest_sessions#create'
     #get'properties/seach/:tag_id'=>  'properties#seach', as: 'property_seach'
     resources :histories
-    resources :properties,only:[:index, :show]
+    # resources :properties,only:[:index, :show]
     resources :notifications, only: [:index, :destroy]
-    resources :properties do
+    resources :properties,only:[:index, :show] do
     resources :contacts
     get 'reviews/choose'=>'reviews#choose'
     resource :favorites, only: [:create, :destroy]

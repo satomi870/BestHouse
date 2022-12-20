@@ -6,6 +6,7 @@ h3,h2{
 }
 
 p{
+  font-size: 16px;
   font-weight: bold;
 }
 
@@ -25,10 +26,10 @@ th{
 
 }
 
-ul {
-list-style: none;
+// ul {
+// list-style: none;
 
-}
+// }
 
 //topページ
 
@@ -56,7 +57,7 @@ list-style: none;
   left: 0;
   bottom: 0;
   z-index: 2;
-  background: rgba(0, 0, 255, .4);
+  background-color: rgba(0, 0, 255, 0.3);
   color: #fff;
   font-size: 14px;
   opacity: 0;
@@ -123,6 +124,7 @@ list-style: none;
     transform: translateY(-1px);
 }
 
+
 //タブ
 
 
@@ -177,7 +179,15 @@ list-style: none;
   line-height: 2.5;
 }
 
+//top
 
+.areamap-position{
+  margin-top: 80px;
+}
+
+.area-search{
+  margin-top: 80px;
+}
 
 #areamap, #areamap_detail {
   width: 550px;
@@ -188,7 +198,6 @@ list-style: none;
   margin: auto;
   background-image: url("../images/area.jpg");
   position: relative;
-
 
 }
 
@@ -293,7 +302,7 @@ section {
 }
 
 .menu {
-  background-color: #1E90FF;
+  background-color: #75A9FF;
   color: white;
   font-size: 18px;
   padding: 10px;
@@ -317,6 +326,22 @@ p {
   overflow: hidden;
   opacity: 0;
   transition-duration: 0.4s;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.contents_rank{
+  text-align: center;
+  line-height: 0;
+  height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition-duration: 0.4s;
+
+}
+
+.k{
+  margin-top: 50px;
 }
 
 .contents.is-open {
@@ -347,6 +372,9 @@ p {
 
 .under{
   background: linear-gradient(transparent 70%, #FFFF33 80%);
+  font-size: 23px;
+  color: #1E90FF;
+  font-weight: bold;
 }
 
 .area_sideber{
@@ -387,6 +415,8 @@ p {
     color: white;
     background: #1E90FF;
     border: solid 3px;
+    text-align: center;
+
 
 }
 
@@ -395,12 +425,23 @@ p {
 
 
 .slide_picture{
-  width: 900px;
+  width: 890px;
   height: 500px;
+}
+// タブ レビュー投稿
+.repeat{
+  margin-bottom: 30px;
+}
+
+//タブreviw一覧
+.coordination{
+  border: 3px solid #D9E5FF;
+  padding: 10px;
 }
 
 
-//Q&A
+
+//タブ&A
 
 .comment_color{
 
@@ -422,13 +463,31 @@ p {
 //_tab rule
 
 
-.rule_border{
-  border: 2px solid #1E90FF;
-  width: 900px;
-}
+// .rule_border{
+//   border: 2px solid #1E90FF;
+//   width: 900px;
+//   opacity: 0.5;
+//   padding: 10px;
+// }
 
 .rule{
-  border-bottom: solid 2px #1E90FF;
-  width: 800px;
-  margin: 10px;
+
+  background-color: #fff; /* 背景色 */
+  background-image: linear-gradient(180deg, #ccc 1px, transparent 1px); /* 罫線の色と太さ  */
+  // background-size: 600px 2.5em; /* 行の高さ */
+  height: 20px;
+  // line-height: 2.5em; /* 文字の高さ */
+  // padding-bottom: 1px; /* 最終行の下にも罫線を引く */
+
+}
+
+//user編集
+
+.edit{
+  padding: 40px;
+}
+
+//閲覧履歴
+.history{
+  display: inline-block;
 }

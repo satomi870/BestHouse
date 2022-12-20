@@ -22,15 +22,17 @@
     シェアシェアはシェアハウスに特化したシェアハウス情報検索サイトです。
     シェアハウスなどを、ご希望の条件に合わせて、<br>エリア（地域）や沿線（路線）、地図、家賃、こだわり条件などいろいろな方法で検索することができます。<br>
     デザイナーズ、家具家電付き、ペット可、事務所可といったこだわりの人気の条件のシェアハウスも掲載中!!</p>
-<div class ="wrapper mt-5">
-<h3 class ="mt-5">エリアで探す</h3>
+<div class ="wrapper">
+
+
 
 <%#@areas.each do |area|%>
   <%#=link_to area.area_name,seach_path(area_id: area.id, from_top: true)%> <%#左が名前(皆が見てわかりやすい名前)右が値%>
 <%#end%>
 <div class="container">
-  <div class="row">
+  <div class="row k">
     <div class="col-7">
+      <h3>エリアで探す</h3>
 
       <ul id="areamap">
       <%@area_groups.each do |area_group|%>
@@ -46,8 +48,7 @@
     <%= form_with url: search_keyword_path, method: :get do |f| %>
       <%= f.label :keyword, 'キーワード検索'%>
       <%= f.text_field :keyword %>
-      <br>
-      <%= f.submit '検索' %>
+      <%= f.submit '検索' ,class: "btn"%>
     <% end %>
     </div>
 
@@ -57,14 +58,14 @@
           <p class="menu">入居者の特性</p>
           <div class="contents">
             <%@basic_tags.each do |basic_tag|%>
-              <%=link_to basic_tag.name,search_path(tag_id: basic_tag.id, from_top: true)%>
+              <div><%=link_to basic_tag.name,search_path(tag_id: basic_tag.id, from_top: true)%>&nbsp;&nbsp;&nbsp;</div>
             <%end%>
           </div>
 
           <p class="menu">部屋</p>
           <div class="contents">
             <%@room_tags.each do |room_tag|%>
-              <%=link_to room_tag.name,search_path(tag_id: room_tag.id, from_top: true)%>
+              <div><%=link_to room_tag.name,search_path(tag_id: room_tag.id, from_top: true)%>&nbsp;&nbsp;&nbsp;</div>
             <%end%>
           </div>
 
@@ -104,11 +105,11 @@
 <section>
   <div class="accordion_rank ">
     <p class="menu">住民の雰囲気がいいシェアハウスランキング</p>
-      <div class="contents">
+      <div class="contents_rank">
         <% if @properties_atmosphere.present? %>
           <%  @properties_atmosphere.each do |property| %>
             <%=link_to property_path(property.id) do%>
-             <p>1位<%= property.property_name %></p>
+             <p>1位&nbsp;&nbsp;&nbsp;<%= property.property_name %></p>
             <%end%>
             <%= property.reviews.average(:atmosphere).to_f %>点/5.0点中
           <%end%>
@@ -122,7 +123,7 @@
         <% if @properties_noise.present? %>
           <% @properties_noise.each do |property| %>
             <%=link_to property_path(property.id) do%>
-              <p>1位<%= property.property_name %></p>
+              <p>1位&nbsp;&nbsp;&nbsp;<%= property.property_name %></p>
             <%end%>
             <%= property.reviews.average(:noise).to_f %>点/5.0点中<br>
           <%end%>
@@ -136,7 +137,7 @@
         <% if @properties_congestion_shared.present? %>
           <% @properties_congestion_shared.each do |property| %>
             <%=link_to property_path(property.id) do%>
-              <p>1位<%= property.property_name %></p>
+              <p>1位&nbsp;&nbsp;&nbsp;<%= property.property_name %></p>
           <%end%>
           <%= property.reviews.average(:congestion_shared).to_f %>点/5.0点中<br>
           <%end%>
@@ -150,7 +151,7 @@
         <% if @properties_cleanliness_shared.present? %>
           <% @properties_cleanliness_shared.each do |property| %>
             <%=link_to property_path(property.id) do%>
-              <p>1位<%= property.property_name %></p>
+              <p>1位&nbsp;&nbsp;&nbsp;<%= property.property_name %></p>
             <%end%>
           <%= property.reviews.average(:cleanliness_shared).to_f %>点/5.0点中<br>
           <%end%>

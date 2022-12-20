@@ -15,7 +15,7 @@ class User::ReviewsController < ApplicationController
 
     # byebug
     if @review.save
-      redirect_to request.referer
+      redirect_to property_path(params[:property_id])
     else
       # redirect_to  controller: :properties, action: :show, id: 1
       @property=Property.find(params[:property_id])

@@ -3,13 +3,15 @@
 
 <% if current_user.passive_notifications.present? %>
     <% current_user.passive_notifications.each do |notification| %>
+        <div class="mt-3">
         <%= link_to "通知削除", notification_path(notification), method: :delete  %>
+        </div>
             <% if notification.action == 'comment_on_question' %>
-                <p><%= "#{notification.sender.nickname}さん"%>が、あなたの質問にコメントしました<%="（#{notification.created_at}）"%></p>
+                <p><%= "#{notification.sender.nickname}さん"%>が、あなたの質問にコメントしました<%="（#{notification.created_at.to_s(:datetime_jp)}）"%></p>
             <%elsif notification.action == 'reply_on_comment'%>
-                <p><%= "#{notification.sender.nickname}さん" %>が、あなたのコメントにコメントしました<%="（#{notification.created_at}）"%></p>
+                <p><%= "#{notification.sender.nickname}さん" %>が、あなたのコメントにコメントしました<%="（#{notification.created_at.to_s(:datetime_jp)}）"%></p>
             <%elsif notification.action == 'review_on_question'%>
-                <p><%= "#{notification.sender.nickname}さん" %>が、あなたの口コミした物件に質問しました<%="（#{notification.created_at}）"%></p>
+                <p><%= "#{notification.sender.nickname}さん" %>が、あなたの口コミした物件に質問しました<%="（#{notification.created_at.to_s(:datetime_jp)}）"%></p>
             <%end%>
         <% end %>
     <% else %>

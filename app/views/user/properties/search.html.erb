@@ -7,7 +7,9 @@
     <div class="col-3 mt-5">
       <div class ="sideber ">
       <%= form_with url: search_path, method: :get do |f|%>
-        <h3 class="under">エリア</h3>
+        <div class="mb-3">
+        <span class="under">エリア</span>
+        </div>
         <div class="area_check_box">
           <ul>
             <%=f.collection_check_boxes :area_id, Area.all, :id, :area_name, checked: @checkd_areas do |b| %>
@@ -15,29 +17,33 @@
             <% end %>
           </ul>
         </div>
-        <h3 class="under mt-3">家賃</h3>
+        <div class="mb-3">
+          <span class="under mt-3">家賃</span>
+        </div>
         <div class="rent">
           <%=f.select :lower_rent, Property.lower_select_rent_table,{selected: @lower_rent} %><span style="font-size:0.8em;">&#12316;</span>
           <%=f.select :upper_rent, Property.upper_select_rent_table,{selected: @upper_rent} %>
         </div>
-        <h3 class="under mt-3">特徴</h3>
+        <div class="mt-4">
+          <span class="under">特徴</span>
+        </div>
         <h5 class="tag">入居者の特性</h5>
         <%=f.collection_check_boxes :tag_id, @basic_tags, :id, :name, checked: params[:tag_id] do |b| %>
           <%= b.label { b.check_box + b.text } %>
         <% end %>
-        <h5 class="tag">部屋</h3>
+        <h5 class="tag text-center">部屋</h5>
         <%=f.collection_check_boxes :tag_id, @room_tags, :id, :name, checked: params[:tag_id] do |b| %>
           <%= b.label { b.check_box + b.text } %>
         <%end%>
-        <h5 class="tag">共有設備</h3>
+        <h5 class="tag text-center">共有設備</h5>
         <%=f.collection_check_boxes :tag_id, @shared_facility_tags, :id, :name, checked: params[:tag_id] do |b| %>
           <%= b.label { b.check_box + b.text } %>
         <%end%>
-        <h5 class="tag">周辺環境</h3>
+        <h5 class="tag text-center">周辺環境</h5>
         <%=f.collection_check_boxes :tag_id, @surrounding_tags, :id, :name, checked: params[:tag_id] do |b| %>
           <%= b.label { b.check_box + b.text } %>
         <%end%>
-        <h5 class="tag">その他</h3>
+        <h5 class="tag text-center">その他</h5>
         <%#=f.collection_check_boxes :tag_id, @other_tags, :id, :name, checked: params[:tag_id] %>
 
 
@@ -49,15 +55,13 @@
     <div class="col-9">
       <div class="text-center">
         <p>全<%=@properties. count%>件</p>
-        <p><%#=@properties.tags.name %>の物件</p>
+
       </div>
       <%@properties.each do |property|%>
         <div class="row">
         <div class="col-5">
           <h2><%=property.property_name%></h2>
-            <% property.images.first(1).each do |image| %>
-            <p class="mb-3"><%= image_tag image,size: '300x230'%></p>
-          <%end%>
+         <%=image_tag property.images[0],size: '300x200' %>
         </div>
 
         <div class="col-7 mt-5">
@@ -74,15 +78,15 @@
 
         <div class="row">
         <%property.tags.each do |tag|%>
-        <div class="col-3">
-          <div class="tags">
+        <div class="col-3 mt-1">
+          <span class="tags rounded">
             <%=tag.name%>
-          </div>
+          </span>
         </div>
         <%end%>
         </div>
       <div class="row">
-      <div class="col-6 mb-5">
+      <div class="col-6 mb-5 mt-3">
       <%if user_signed_in? %>
          <%=link_to "詳細を見る",property_path(property.id), class: "btn"%>
        <%else%>
@@ -90,7 +94,7 @@
 
       <%end%>
      </div>
-      <div class="col-6">
+      <div class="col-6 mt-3">
       <%if user_signed_in? %>
         <% if property.favorited_by?(current_user) %>
             <%= link_to property_favorites_path(property.id, 1), method: :delete, class: "btn" do %>

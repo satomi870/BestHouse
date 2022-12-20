@@ -1,18 +1,25 @@
 <h2>お気に入り物件</h2>
 <%@favorites.each do |favorite|%>
-    <%= favorite.property.property_name%>
-     <%=favorite.property.access%>
-  <%=image_tag favorite.property.image%>
-  <table>
-    <tr><th>賃料</th><td><%=favorite.property.rent%></td></tr>
-    <tr><th>住所</th><td><%=favorite.property.address%></td></tr>
-    <tr><th>アクセス</th><td><%=favorite.property.access%></td></tr>
-    <tr><th>入居条件</th><td><%=favorite.property.condition%></tds></tr>
-    <tr><th>空室</th></th><td><%=favorite.property.vacancy%></td></tr>
-    <tr><th>特徴</th></th><td><% favorite.property.tags.each do |tag|%><%=tag.name%><%end%></td></tr>
-    <tr><th></th><td><%=link_to "詳細を見る",property_path(favorite.property.id)%></td></tr>
-    <%= link_to property_favorites_path(favorite.property.id), method: :delete do %>
+  <div class="row">
+    <div class="col-5 mt-4">
+      <h2><%= favorite.property.property_name%></h2>
+      <%=image_tag favorite.property.images[0],size: '300x200' %>
+    </div>
+    <div class="col-7 mt-4">
+      <%=link_to "詳細を見る",property_path(favorite.property.id), class: "btn" %>
+      <%= link_to property_favorites_path(favorite.property.id), method: :delete, class: "btn" do %>
         お気に入りから消す
-    <% end %>
-  </table>
+      <% end %>
+      <table class="content mt-2" width="400" height="200"border="1">
+        <tr><th bgcolor="#1E90FF">賃料</th><td><%=favorite.property.rent%></td></tr>
+        <tr><th bgcolor="#1E90FF">住所</th><td><%=favorite.property.address%></td></tr>
+        <tr><th bgcolor="#1E90FF">アクセス</th><td><%=favorite.property.access%></td></tr>
+        <tr><th bgcolor="#1E90FF">入居条件</th><td><%=favorite.property.condition%></tds></tr>
+        <tr><th bgcolor="#1E90FF">空室</th></th><td><%=favorite.property.vacancy%></td></tr>
+      </table>
+    </div>
+  </div>
+
+
+
 <%end%>

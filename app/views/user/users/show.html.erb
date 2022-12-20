@@ -1,144 +1,65 @@
 <h2>マイページ</h2>
-<table>
-  <tr><th></th><td><%= link_to "編集する",edit_user_path%></td></tr>
-  <tr><th></th><td><%= image_tag @user.get_image(100,100)%></td></tr>
-  <tr><th></th><td><%=@user.nickname%></td></tr>
-  <tr><th></th><td><%=@user.age%></td></tr>
-  <tr><th></th><td><%=@user.gender%></td></tr>
- </table>
+
+  <div class="row">
+    <div class="col-1">
+      <%= image_tag @user.get_image(100,100)%>
+    </div>
+    <div class="col-1 mt-2">
+      <%=@user.nickname%>
+      <%=@user.age%>
+      <%=@user.gender%>
+    </div>
+    <div class="col-3 edit">
+      <%= link_to "編集する",edit_user_path,class: "btn"%>
+    </div>
+  </div>
+
+
 
 
 
  <div class="wrap">
    <ul id="tab-menu">
-      <li><a href="#tab1" class="active">投稿した口コミ</a></li>
+      <li><a href="#tab1" class="active ">投稿した口コミ</a></li>
       <li><a href="#tab2" class="">投稿した質問</a></li>
       <li><a href="#tab3" class="">投稿したコメント</a></li>
       <li><a href="#tab4" class="">投稿したリプライ</a></li>
       <li><a href="#tab5" class="">シェアしたハウスルール</a></li>
    </ul>
  </div>
+
  <div id="tab-contents">
    <div id="tab1" class="tab">
-     <%@reviews.each do |review|%>
-       <p><%=review.property.property_name%></p>
-       <p><%=review.title%></p>
-       <p><%=review.text%></p>
-
-        <% if review.atmosphere == 5 %>
-          住民の雰囲気 良い<%= image_tag "1.jpg" %>良くない<br>
-        <% elsif review.atmosphere == 4 %>
-          住民の雰囲気 良い<%= image_tag "2.jpg" %>良くない<br>
-        <% elsif review.atmosphere == 3 %>
-          住民の雰囲気 良い<%= image_tag "3.jpg" %>良くない<br>
-        <% elsif review.atmosphere == 2 %>
-          住民の雰囲気 良い<%= image_tag "4.jpg" %>良くない<br>
-        <% elsif review.atmosphere == 1 %>
-          住民の雰囲気 良い<%= image_tag "5.jpg" %>良くない<br>
-        <%end%>
-        <% if review.distance_sense == 5 %>
-          住人同士の距離感 親しい<%= image_tag "1.jpg" %>挨拶程度<br>
-        <% elsif review.distance_sense == 4 %>
-          住人同士の距離感 親しい<%= image_tag "2.jpg" %>挨拶程度<br>
-        <% elsif review.distance_sense == 3 %>
-          住人同士の距離感 親しい<%= image_tag "3.jpg" %>挨拶程度<br>
-        <% elsif review.distance_sense == 2 %>
-          住人同士の距離感 親しい<%= image_tag "4.jpg" %>挨拶程度<br>
-        <% elsif review.distance_sense == 1 %>
-          住人同士の距離感 親しい<%= image_tag "5.jpg" %>挨拶程度<br>
-        <%end%>
-        <% if review.cleanliness_shared == 5 %>
-          共有部の清潔さ 清潔<%= image_tag "1.jpg" %>不衛生<br>
-        <% elsif review.cleanliness_shared == 4 %>
-          共有部の清潔さ 清潔<%= image_tag "2.jpg" %>不衛生<br>
-        <% elsif review.cleanliness_shared == 3 %>
-          共有部の清潔さ 清潔<%= image_tag "3.jpg" %>不衛生<br>
-        <% elsif review.cleanliness_shared == 2 %>
-          共有部の清潔さ 清潔<%= image_tag "4.jpg" %>不衛生<br>
-        <% elsif review.cleanliness_shared == 1 %>
-          共有部の清潔さ 清潔<%= image_tag "5.jpg" %>不衛生<br>
-        <%end%>
-        <% if review.congestion_shared == 5 %>
-          水回りの混雑具合　いつでも使える<%= image_tag "1.jpg" %>良く混雑している<br>
-        <% elsif review.congestion_shared == 4 %>
-          水回りの混雑具合　いつでも使える<%= image_tag "2.jpg" %>良く混雑している<br>
-        <% elsif review.congestion_shared == 3 %>
-          水回りの混雑具合　いつでも使える<%= image_tag "3.jpg" %>良く混雑している<br>
-        <% elsif review.congestion_shared == 2 %>
-          水回りの混雑具合　いつでも使える<%= image_tag "4.jpg" %>良く混雑している<br>
-        <% elsif review.congestion_shared == 1 %>
-          水回りの混雑具合　いつでも使える<%= image_tag "5.jpg" %>良く混雑している<br>
-        <%end%>
-        <% if review.noise == 5 %>
-          騒音(他の住人による生活音) 静か<%= image_tag "1.jpg" %>騒がしい<br>
-        <% elsif review.noise == 4 %>
-          騒音(他の住人による生活音) 静か<%= image_tag "2.jpg" %>騒がしい<br>
-        <% elsif review.noise == 3 %>
-          騒音(他の住人による生活音) 静か<%= image_tag "3.jpg" %>騒がしい<br>
-        <% elsif review.noise == 2 %>
-          騒音(他の住人による生活音) 静か<%= image_tag "4.jpg" %>騒がしい<br>
-        <% elsif review.noise == 1 %>
-          騒音(他の住人による生活音) 静か<%= image_tag "5.jpg" %>騒がしい<br>
-        <%end%>
-        <% if review.net_speed == 5 %>
-        　ネット速度　速い<%= image_tag "1.jpg" %>遅い<br>
-        <% elsif review.net_speed == 4 %>
-          ネット速度　速い<%= image_tag "2.jpg" %>遅い<br>
-        <% elsif review.net_speed == 3 %>
-          ネット速度　速い<%= image_tag "3.jpg" %>遅い<br>
-        <% elsif review.net_speed == 2 %>
-          ネット速度　速い<%= image_tag "4.jpg" %>遅い<br>
-        <% elsif review.net_speed == 1 %>
-          ネット速度　速い<%= image_tag "5.jpg" %>遅い<br>
-        <%end%>
-        <% if review.shower == 5 %>
-        　シャワーの水圧　強い<%= image_tag "1.jpg" %>弱い<br>
-        <% elsif review.shower == 4 %>
-          シャワーの水圧　強い<%= image_tag "2.jpg" %>弱い<br>
-        <% elsif review.shower == 3 %>
-       　　シャワーの水圧　強い<%= image_tag"3.jpg" %>弱い<br>
-        <% elsif review.shower == 2 %>
-          シャワーの水圧　強い<%= image_tag "4.jpg" %>弱い<br>
-        <% elsif review.shower == 1 %>
-          シャワーの水圧　強い<%= image_tag "5.jpg" %>弱い<br>
-        <%end%>
-         <% if review.event == 5 %>
-        　パーティーやイベントの開催　頻繁にある<%= image_tag "1.jpg" %>少ない<br>
-        <% elsif review.event == 4 %>
-          パーティーやイベントの開催　頻繁にある<%= image_tag "2.jpg" %>少ない<br>
-        <% elsif review.event == 3 %>
-       　　パーティーやイベントの開催　頻繁にある<%= image_tag "3.jpg" %>少ない<br>
-        <% elsif review.event == 2 %>
-          パーティーやイベントの開催　頻繁にある<%= image_tag "4.jpg" %>少ない<br>
-        <% elsif review.event == 1 %>
-          パーティーやイベントの開催　頻繁にある<%= image_tag "5.jpg" %>少ない<br>
-        <%end%>
-
-       <%=review.user.nickname%>
-        <% unless review.user.gender == "非公開" %>
-          <%= review.user.gender %>
-        <% end %>
-        <% unless review.user.age == "非公開" %>
-          <%= review.user.age %>
-        <% end %>
-        <%=review.relation_i18n%>
-       <%#=review.relation_detail_i18n%>
-    <%end%>
+    <% @reviews.each do |review| %>
+    <h5><%= review.property.property_name %></h5>
+    <div class="mb-3">
+      <%= render '/user/properties/review', review: review %>
+    </div>
+    <% end %>
   </div>
 
   <div id="tab2" class="tab">
     <h2><%= @userさんがした質問一覧　%></h2>
-    <%= render 'user/properties/question', questions: @questions, comment: @comment,comment_comment: @comment_comment %>
+    <% @questions.each do |question| %>
+    <h5><%= question.property.property_name %></h5>
+    <%= render 'user/properties/question', question: question, comment: @comment,comment_comment: @comment_comment %>
+    <%end%>
   </div>
 
   <div id="tab3" class="tab">
     <h2><%= @userさんがしたコメント一覧　%></h2>
-    <%= render 'user/properties/question', questions: @comment_questions, comment: @comment, comment_comment: @comment_comment %>
+    <% @comment_questions.each do |comment_question| %>
+      <h5><%= comment_question.property.property_name %></h5>
+      <%= render 'user/properties/question', question: comment_question, comment: @comment, comment_comment: @comment_comment %>
+    <% end %>
   </div>
 
   <div id="tab4" class="tab">
     <h2><%= @userさんがしたリプライ一覧　%></h2>
-    <%= render 'user/properties/question', questions: @comment_comment_questions, comment: @comment, comment_comment: @comment_comment %>
+    <% @comment_comment_questions.each do |comment_comment_question| %>
+      <h5><%= comment_comment_question.property.property_name %></h5>
+      <%= render 'user/properties/question', question: comment_comment_question, comment: @comment, comment_comment: @comment_comment %>
+    <% end %>
   </div>
 
   　<div id="tab5" class="tab">

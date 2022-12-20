@@ -19,7 +19,7 @@ class User::CommentCommentsController < ApplicationController
       @notification.checked = false
       @notification.save
     #redirect_to property_path(@comment_comment.property_id)
-    redirect_to request.referer(flag: "qa")
+    redirect_to property_path(question.property_id, flag: "qa")
     else
       @property=Property.find(question.property_id)
       # history = @property.histories.new

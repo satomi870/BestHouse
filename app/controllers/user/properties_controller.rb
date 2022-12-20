@@ -41,7 +41,7 @@ class User::PropertiesController < ApplicationController
     end
 
     # 未入力の場合は全件が対象
-    @properties = Property.all
+    @properties = Property.page(params[:page])
     # エリア関連の検索処理
     @checkd_areas = []
     if @areas.blank? == false

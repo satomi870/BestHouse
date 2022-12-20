@@ -11,19 +11,22 @@
   <h3><%= @property.property_name %></h3>
   <p><%= @property.introduction %></p>
 
+<div class="row">
 <% @property.tags.each do |tag| %>
  <div class="col-3 text-center">
-  <div class="tags">
-  <%=tag.name%>
-  </div>
-  </div>
+  <span class="tags rounded">
+    <%=tag.name%>
+  </span>
+</div>
 <%end%>
+</div>
 </div>
 
 <div class="container">
   <div class="row">
     <div class="col-12 mt-5">
-      <h3 class="under">共有設備</h3>
+      <span class="under">共有設備</span>
+      <p class="mt-3 mb-3">清掃&nbsp;&nbsp;&nbsp;<%= @property.cleaning_support %></p>
     </div>
    <div class="col-6">
     <h3>リビング</h3>
@@ -55,16 +58,18 @@
   </div>
 </div>
 
-<h3 class="under mt-5 mb-4">部屋</h3>
+<div class="mt-5 mb-4">
+<span class="under h3">部屋</span>
+</div>
 <p>空室<%= @property.vacancy %></p>
 <p>入居条件<%= @property.condition %></p>
 
 <div class="row">
 
-    <div class="col-6 mt-4">
-  <%= image_tag @property.images[6],size: '350x230'%>
+    <div class="col-5 mt-4">
+  <%= image_tag @property.images[6],size: '350x200'%>
 </div>
-<div class="col-6 mt-4">
+<div class="col-5 mt-4">
 <table class="content" width="400" height="200"border="1">
   <tr><th bgcolor="#1E90FF">家賃</th><td><%= @property.rent %></td></tr>
   <tr><th bgcolor="#1E90FF">共益費</th><td><%= @property.common_service_fee %></td></tr>
@@ -74,15 +79,16 @@
 </div>
 
 </div>
-
-<h3 class="under mt-5">アクセス</h3>
-<p class="mt-5"><%= @property.address %></p>
+<div class="mt-5">
+<span class="under mt-5">アクセス</span>
+</div>
+<p class="mt-4"><%= @property.address %></p>
 <p><%= @property.access %></p>
 <p class="mt-3"><%=link_to "地図を見る",map_path(@property.id),class: "btn"%></p>
 
 <div class="text-center">
   <div class="fixed-bottom">
-    <%= link_to "お問い合わせ",new_property_contact_path(@property.id) %>
+    <%= link_to "お問い合わせ",new_property_contact_path(@property.id),class: "btn-inquiry" %>
   </div>
 </div>
 
@@ -138,4 +144,3 @@
 
 
 
-<p><%= @property.cleaning_support %></p>

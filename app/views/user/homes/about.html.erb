@@ -15,7 +15,7 @@
     <%=f.select :upper_rent, Property.upper_select_rent_table %>
   </div>
 
-  <div class="text-center mt-5">
+  <div class="text-center mt-3">
     <h3 class="mb-4">こだわりを選ぼう</h3>
 
     <%=f.collection_check_boxes :tag_id, @basic_tags, :id, :name do |b| %>
