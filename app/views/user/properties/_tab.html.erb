@@ -75,85 +75,101 @@
               <%= f.radio_button :cleanliness_shared,'1' %>
               不衛生
             </div>
+          </div>
+        <div class= "row">
+          <div class="col-4">
+            <h2 class="mt-5">水回りの混雑具合</h2>
+            いつでも使える
+            <%= f.radio_button :congestion_shared, '5' %>
+            <%= f.radio_button :congestion_shared, '4' %>
+            <%= f.radio_button :congestion_shared, '3' %>
+            <%= f.radio_button :congestion_shared, '2' %>
+            <%= f.radio_button :congestion_shared, '1' %>
+          　混雑している
+        　</div>
+          <div class="col-4">
+            <h2 class="mt-5">騒音(他の住人による生活音)</h2>
+            静か
+            <%= f.radio_button :noise,'5' %>
+            <%= f.radio_button :noise,'4' %>
+            <%= f.radio_button :noise,'3' %>
+            <%= f.radio_button :noise,'2' %>
+            <%= f.radio_button :noise,'1' %>
+            騒がしい
+          </div>
+
+          <div class="col-4">
+            <h2 class="mt-5">ネット速度</h2>
+            速い
+            <%= f.radio_button :net_speed,'5' %>
+            <%= f.radio_button :net_speed,'4' %>
+            <%= f.radio_button :net_speed,'3' %>
+            <%= f.radio_button :net_speed,'2' %>
+            <%= f.radio_button :net_speed,'1' %>
+            遅い
+          </div>
+        </div>
+        <div class= "row">
+          <div class="col-6">
+            <h2 class="mt-5">シャワーの水圧</h2>
+            強い
+            <%= f.radio_button :shower,'5' %>
+            <%= f.radio_button :shower,'4' %>
+            <%= f.radio_button :shower,'3' %>
+            <%= f.radio_button :shower,'2' %>
+            <%= f.radio_button :shower,'1' %>
+            遅い
+          </div>
+          <div class="col-6">
+            <h2 class="mt-5">パーティーやイベントの開催</h2>
+            頻繁にある
+            <%= f.radio_button :event,'5' %>
+            <%= f.radio_button :event,'4' %>
+            <%= f.radio_button :event,'3' %>
+            <%= f.radio_button :event,'2' %>
+            <%= f.radio_button :event,'1' %>
+            少ない
+          </div>
+        </div>
+
+        <div class= "row">
+          <div class="col-9">
+            <div class="text-center">
+              <h3>タイトル</h3>
+              <%= f.text_field :title,:size=>"60x10" %>
+              <h3>本文</h3>
+              <%= f.text_area :text,:size=>"60x10"%>
             </div>
-  <div class= "row">
-    <div class="col-4">
-        <h2 class="mt-5">水回りの混雑具合</h2>
-        いつでも使える
-        <%= f.radio_button :congestion_shared, '5' %>
-        <%= f.radio_button :congestion_shared, '4' %>
-        <%= f.radio_button :congestion_shared, '3' %>
-        <%= f.radio_button :congestion_shared, '2' %>
-        <%= f.radio_button :congestion_shared, '1' %>
-      　混雑している
-      　</div>
-    <div class="col-4">
-        <h2 class="mt-5">騒音(他の住人による生活音)</h2>
-        静か
-        <%= f.radio_button :noise,'5' %>
-        <%= f.radio_button :noise,'4' %>
-        <%= f.radio_button :noise,'3' %>
-        <%= f.radio_button :noise,'2' %>
-        <%= f.radio_button :noise,'1' %>
-        騒がしい
-        </div>
-
-      <div class="col-4">
-         <h2 class="mt-5">ネット速度</h2>
-        速い
-        <%= f.radio_button :net_speed,'5' %>
-        <%= f.radio_button :net_speed,'4' %>
-        <%= f.radio_button :net_speed,'3' %>
-        <%= f.radio_button :net_speed,'2' %>
-        <%= f.radio_button :net_speed,'1' %>
-        遅い
-        </div>
-</div>
-    <div class= "row">
-      <div class="col-6">
-         <h2 class="mt-5">シャワーの水圧</h2>
-        強い
-        <%= f.radio_button :shower,'5' %>
-        <%= f.radio_button :shower,'4' %>
-        <%= f.radio_button :shower,'3' %>
-        <%= f.radio_button :shower,'2' %>
-        <%= f.radio_button :shower,'1' %>
-        遅い
-</div>
-    <div class="col-6">
-         <h2 class="mt-5">パーティーやイベントの開催</h2>
-        頻繁にある
-        <%= f.radio_button :event,'5' %>
-        <%= f.radio_button :event,'4' %>
-        <%= f.radio_button :event,'3' %>
-        <%= f.radio_button :event,'2' %>
-        <%= f.radio_button :event,'1' %>
-        少ない
-        </div>
-        </div>
-
-        <div class="text-center">
-        <h3>タイトル</h3>
-        <%= f.text_field :title, html: { class: "foo" } %>
-        <h3>本文</h3>
-        <%= f.text_area :text, html: { class: "foo" } %>
-        </div>
+          </div>
         <%#= f.hidden_field :relation,value: @review_relation.relation %>
         <%#= f.hidden_field :relation_detail,value: @review_relation.relation_detail %>
-        住み続けたい?<%= f.radio_button :repeat,'3' %>はい
-        <%= f.radio_button :repeat,'1' %>いいえ
-        <%= f.radio_button :repeat,'2'%>わからない
-
-        <%= f.submit"投稿する" %>
+          <div class="col-3">
+            <p>住み続けたい?</p>
+            <%= f.radio_button :repeat,'3' %>はい
+            <%= f.radio_button :repeat,'1' %>いいえ
+            <%= f.radio_button :repeat,'2'%>わからない
+          </div>
+        </div>
+        <div class="text-center mt-3">
+          <%= f.submit"投稿する",class: "btn" %>
+        </div>
       <%end%>
     </div>
 
-    <div id="tab2" class="tab">
-      <h2>口コミを見る</h2>
 
-      <h3>総合評価</h3>
-      <div id="show_raty" data-avg-score=<%= @avg_score %> ></div>
-      <p><%= @avg_atmosphere %></p> <!-- これは消す-->
+    <div id="tab2" class="tab">
+      <h2 class="mb-4">口コミを見る</h2>
+
+      <div class="border mb-5">
+        <h3>総合評価</h3>
+        <div class="mb-5">
+          <div id="show_raty" data-avg-score=<%= @avg_score %> ></div>
+        </div>
+
+
+
+
+
       <% if @avg_atmosphere == 5 %>
           住民の雰囲気 良い<%= image_tag "1.jpg" %>良くない<br>
         <% elsif @avg_atmosphere == 4 %>
@@ -165,7 +181,7 @@
         <% elsif @avg_atmosphere == 1 %>
           住民の雰囲気 良い<%= image_tag "5.jpg" %>良くない<br>
         <%end%>
-      <p><%= @avg_distance_sence %></p>
+
        <% if @avg_distance_sence == 5 %>
           住人同士の距離感 親しい<%= image_tag "1.jpg" %>挨拶程度<br>
         <% elsif @avg_distance_sence == 4 %>
@@ -177,7 +193,7 @@
         <% elsif @avg_distance_sence == 1 %>
           住人同士の距離感 親しい<%= image_tag "5.jpg" %>挨拶程度<br>
         <%end%>
-        <p><%= @avg_cleanliness_shared %></p>
+
         <% if @avg_cleanliness_shared == 5 %>
           共有部の清潔さ 清潔<%= image_tag "1.jpg" %>不衛生<br>
         <% elsif @avg_cleanliness_shared == 4 %>
@@ -200,7 +216,7 @@
         <% elsif @avg_noise == 1 %>
           騒音(他の住人による生活音) 静か<%= image_tag "5.jpg" %>騒がしい<br>
         <%end%>
-         <p><%= @avg_net_spead %></p>
+
          <% if @avg_net_spead == 5 %>
         　ネット速度 速い<%= image_tag "1.jpg" %>遅い<br>
         <% elsif @avg_net_spead == 4 %>
@@ -212,7 +228,7 @@
         <% elsif @avg_net_spead == 1 %>
           ネット速度 速い<%= image_tag "5.jpg" %>遅い<br>
         <%end%>
-        <p><%= @avg_shower %></p>
+
         <% if @avg_shower == 5 %>
           シャワーの水圧 強い<%= image_tag "1.jpg" %>弱い<br>
         <% elsif @avg_shower == 4 %>
@@ -224,7 +240,7 @@
         <% elsif @avg_shower== 1 %>
           シャワーの水圧 強い<%= image_tag "5.jpg" %>弱い<br>
         <%end%>
-        <p><%= @avg_event %></p>
+
          <% if  @avg_event == 5 %>
           パーティーやイベントの開催　頻繁にある<%= image_tag "1.jpg" %>少ない<br>
         <% elsif @avg_event == 4 %>
@@ -236,13 +252,23 @@
         <% elsif @avg_event == 1 %>
           パーティーやイベントの開催　頻繁にある<%= image_tag "5.jpg" %>少ない<br>
         <%end%>
+      </div>
 
       <%@reviews.each do |review|%>
-        <p><%=review.title%></p>
+
+        <div class="row">
+          <div class="col-8">
+            <p><%=review.title%></p>
+          </div>
+          <div class="col-4">
+            <% if review.repeat == "3" %>
+              <p>住み続けたい</p>
+            <%end%>
+          </div>
+        </div>
         <p><%=review.text%></p>
-        <% if review.repeat == "3" %>
-          <p>住み続けたい</p>
-        <%end%>
+
+
 
         <% if review.atmosphere == 5 %>
           住民の雰囲気 良い<%= image_tag "1.jpg" %>良くない<br>
@@ -333,7 +359,8 @@
           パーティーやイベントの開催　頻繁にある<%= image_tag "5.jpg" %>少ない<br>
         <%end%>
 
-        <%=review.user.nickname%>
+       <div class="mb-5 mt-3">
+       <%=review.user.nickname%>
         <% unless review.user.gender == "非公開" %>
           <%= review.user.gender %>
         <% end %>
@@ -342,21 +369,25 @@
         <% end %>
         <%=review.relation_i18n%>
         <%#=review.relation_detail_i18n%>
-
+        </div>
       <%end%>
 　　</div>
 
 　　<div id="tab3" class="tab">
-　　  <h2>質問をする</h2>
-　　  <%= render '/user/properties/error', model: @question %>
-　　  <%= form_with model: @question, url:  property_questions_path(property_id: @property.id) do |f| %>
-        <h3>タイトル</h3>
-        <%= f.text_field :title %>
-        <h3>本文</h3>
-        <%= f.text_area :body %></br>
-        <%= f.select :relation, [['住人','resident'],['元住人','former_resident'],['入居検討者','kentosya'], ['入居予定者','yoteisya'], ['周辺住人','syuhenjunin'], ['住人の知人','chizin'], ['大家さん','oya'], ['不動産関係者','kankeisya'], ['その他','sonota']],{prompt: '選択してください'} %>
-        <%= f.submit "投稿する" %>
-      <%end%>
+　　  <div class="text-center">
+　　    <h2>質問をする</h2>
+  　　    <%= render '/user/properties/error', model: @question %>
+  　　    <%= form_with model: @question, url:  property_questions_path(property_id: @property.id) do |f| %>
+          <h3>タイトル</h3>
+          <%= f.text_field :title,:size=>"60x10" %>
+          <h3>本文</h3>
+          <%= f.text_area :body,:size=>"60x10"%></br>
+          <div class="mb-3">
+            <%= f.select :relation, [['住人','resident'],['元住人','former_resident'],['入居検討者','kentosya'], ['入居予定者','yoteisya'], ['周辺住人','syuhenjunin'], ['住人の知人','chizin'], ['大家さん','oya'], ['不動産関係者','kankeisya'], ['その他','sonota']],{prompt: '選択してください'}%><br>
+          </div>
+          <%= f.submit "投稿する",class: "btn" %>
+        <%end%>
+      </div>
 　　</div>
 
 　　<div id="tab4" class="tab">
@@ -364,20 +395,22 @@
 　　</div>
 
 　　 <div id="tab5" class="tab">
+
 　　  <h2>ハウスルールをシェアする</h2>
 　　  <%= render '/user/properties/error', model: @rule %>
 　　  <p>※なるべく下記のハウスルールリストにまだ書かれていないことをご記入ください</p>
 　　  <%= form_with model: @rule, url:  property_rules_path(property_id: @property.id) do |f| %>
-        <%= f.text_area :body %>
-        <%=f.submit 'シェアする'%>
+        <%= f.text_area :body ,:size=>"60x5"%>
+        <%=f.submit 'シェアする',class: "btn"%>
       <%end%>
 
-
+      <div class="rule_border mt-5">
 　　  <%@rules.each do |rule|%>
 　　    <ul>
-　　      <li><%= rule.body %></li>
+　　      <li class="rule"><%= rule.body %></li>
 　　    </ul>
       <%end%>
+     </div>
 　　</div>
 
 　　</div>

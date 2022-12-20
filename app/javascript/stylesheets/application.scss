@@ -1,6 +1,6 @@
 @import '~bootstrap/scss/bootstrap';
 
-h3,h2,p{
+h3,h2{
   color: #1E90FF;
 
 }
@@ -399,6 +399,36 @@ p {
   height: 500px;
 }
 
-.foo{
-  width: 300px;
+
+//Q&A
+
+.comment_color{
+
+  border-top: 3px solid #D9E5FF;
+}
+.sub_comment {
+   font-size: 8px;
+}
+.comment_comment_color{
+
+  width: 800px;
+
+}
+
+.line{
+  border-top: 3px solid #1E90FF;
+  width:   800px;
+}
+//_tab rule
+
+
+.rule_border{
+  border: 2px solid #1E90FF;
+  width: 900px;
+}
+
+.rule{
+  border-bottom: solid 2px #1E90FF;
+  width: 800px;
+  margin: 10px;
 }
