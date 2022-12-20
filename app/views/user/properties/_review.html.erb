@@ -22,40 +22,40 @@
   住人同士の距離感 親しい<%= image_tag "5.jpg" %>挨拶程度<br>
 <% end %>
 
-        <% if review.cleanliness_shared == 5 %>
-          共有部の清潔さ 清潔<%= image_tag "1.jpg" %>不衛生<br>
-        <% elsif review.cleanliness_shared == 4 %>
-          共有部の清潔さ 清潔<%= image_tag "2.jpg" %>不衛生<br>
-        <% elsif review.cleanliness_shared == 3 %>
-          共有部の清潔さ 清潔<%= image_tag "3.jpg" %>不衛生<br>
-        <% elsif review.cleanliness_shared == 2 %>
-          共有部の清潔さ 清潔<%= image_tag "4.jpg" %>不衛生<br>
-        <% elsif review.cleanliness_shared == 1 %>
-          共有部の清潔さ 清潔<%= image_tag "5.jpg" %>不衛生<br>
-        <%end%>
-        <% if review.congestion_shared == 5 %>
-          水回りの混雑具合 いつでも使える<%= image_tag "1.jpg" %>良く混雑している<br>
-        <% elsif review.congestion_shared == 4 %>
-          水回りの混雑具合 いつでも使える<%= image_tag "2.jpg" %>良く混雑している<br>
-        <% elsif review.congestion_shared == 3 %>
-          水回りの混雑具合 いつでも使える<%= image_tag "3.jpg" %>良く混雑している<br>
-        <% elsif review.congestion_shared == 2 %>
-          水回りの混雑具合 いつでも使える<%= image_tag "4.jpg" %>良く混雑している<br>
-        <% elsif review.congestion_shared == 1 %>
-          水回りの混雑具合 いつでも使える<%= image_tag "5.jpg" %>良く混雑している<br>
-        <%end%>
-        <% if review.noise == 5 %>
-          騒音(他の住人による生活音) 静か<%= image_tag "1.jpg" %>騒がしい<br>
-        <% elsif review.noise == 4 %>
-          騒音(他の住人による生活音) 静か<%= image_tag "2.jpg" %>騒がしい<br>
-        <% elsif review.noise == 3 %>
-          騒音(他の住人による生活音) 静か<%= image_tag "3.jpg" %>騒がしい<br>
-        <% elsif review.noise == 2 %>
-          騒音(他の住人による生活音) 静か<%= image_tag "4.jpg" %>騒がしい<br>
-        <% elsif review.noise == 1 %>
-          騒音(他の住人による生活音) 静か<%= image_tag "5.jpg" %>騒がしい<br>
-        <%end%>
-        <% if review.net_speed == 5 %>
+<% if review.cleanliness_shared == 5 %>
+  共有部の清潔さ 清潔<%= image_tag "1.jpg" %>不衛生<br>
+<% elsif review.cleanliness_shared == 4 %>
+  共有部の清潔さ 清潔<%= image_tag "2.jpg" %>不衛生<br>
+<% elsif review.cleanliness_shared == 3 %>
+  共有部の清潔さ 清潔<%= image_tag "3.jpg" %>不衛生<br>
+<% elsif review.cleanliness_shared == 2 %>
+  共有部の清潔さ 清潔<%= image_tag "4.jpg" %>不衛生<br>
+<% elsif review.cleanliness_shared == 1 %>
+  共有部の清潔さ 清潔<%= image_tag "5.jpg" %>不衛生<br>
+<%end%>
+<% if review.congestion_shared == 5 %>
+  水回りの混雑具合 いつでも使える<%= image_tag "1.jpg" %>良く混雑している<br>
+<% elsif review.congestion_shared == 4 %>
+  水回りの混雑具合 いつでも使える<%= image_tag "2.jpg" %>良く混雑している<br>
+<% elsif review.congestion_shared == 3 %>
+  水回りの混雑具合 いつでも使える<%= image_tag "3.jpg" %>良く混雑している<br>
+<% elsif review.congestion_shared == 2 %>
+  水回りの混雑具合 いつでも使える<%= image_tag "4.jpg" %>良く混雑している<br>
+<% elsif review.congestion_shared == 1 %>
+  水回りの混雑具合 いつでも使える<%= image_tag "5.jpg" %>良く混雑している<br>
+<%end%>
+<% if review.noise == 5 %>
+  騒音(他の住人による生活音) 静か<%= image_tag "1.jpg" %>騒がしい<br>
+<% elsif review.noise == 4 %>
+  騒音(他の住人による生活音) 静か<%= image_tag "2.jpg" %>騒がしい<br>
+<% elsif review.noise == 3 %>
+  騒音(他の住人による生活音) 静か<%= image_tag "3.jpg" %>騒がしい<br>
+<% elsif review.noise == 2 %>
+  騒音(他の住人による生活音) 静か<%= image_tag "4.jpg" %>騒がしい<br>
+<% elsif review.noise == 1 %>
+  騒音(他の住人による生活音) 静か<%= image_tag "5.jpg" %>騒がしい<br>
+<%end%>
+<% if review.net_speed == 5 %>
         　ネット速度 速い<%= image_tag "1.jpg" %>遅い<br>
         <% elsif review.net_speed == 4 %>
           ネット速度 速い<%= image_tag "2.jpg" %>遅い<br>

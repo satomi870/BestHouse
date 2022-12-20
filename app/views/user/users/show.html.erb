@@ -32,7 +32,7 @@
    <div id="tab1" class="tab">
     <% @reviews.each do |review| %>
     <h5><%= review.property.property_name %></h5>
-    <div class="mb-3">
+    <div class="mb-5">
       <%= render '/user/properties/review', review: review %>
     </div>
     <% end %>
@@ -64,11 +64,11 @@
 
   　<div id="tab5" class="tab">
 
-　　 <%@rules.each do |rule|%>
-　　 <%=rule.property.property_name %>
-　　   <ul>
-　　     <li><%= rule.body %></li>
-　　   </ul>
+　    <hr size="200">
+      <%@rules.each do |rule|%>
+        <p><%=rule.property.property_name %></p>
+        <span>•<%= rule.body %></span>
+      <hr size="200">
       <%end%>
 　　</div>
 </div>

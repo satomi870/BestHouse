@@ -13,8 +13,8 @@
 
 <div class="row">
 <% @property.tags.each do |tag| %>
- <div class="col-3 text-center">
-  <span class="tags rounded">
+  <div class="mt-1 mr-2 ml-3">
+  <span class="tags rounded taxt-center">
     <%=tag.name%>
   </span>
 </div>
@@ -126,6 +126,21 @@
      //tab4のところまで一気にスクロール
       $('html, body').animate({
         scrollTop: $("#tab4").offset().top
+    }, 500);
+  })
+<%else params[:flag].present? and params[:flag] == "rl"%>
+  (document).ready(function(){
+      $(".review").removeClass("active")
+      $(".rl").addClass("active")
+       $("#tab1").css("display","none");
+
+      $("#tab5").css("display","block");
+      $("#tab5").show();
+
+
+     //tab4のところまで一気にスクロール
+      $('html, body').animate({
+        scrollTop: $("#tab5").offset().top
     }, 500);
   })
 

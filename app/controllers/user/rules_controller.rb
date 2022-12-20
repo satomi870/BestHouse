@@ -6,7 +6,8 @@ class User::RulesController < ApplicationController
     @rule.property_id = params[:property_id]
 
     if @rule.save
-      redirect_to request.referer
+      #redirect_to property_path(params[:property_id])
+      redirect_to property_path(@rule.property_id, :flag => "rl")
     else
       @property=Property.find(params[:property_id])
       # history = @property.histories.new

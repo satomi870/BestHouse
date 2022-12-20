@@ -30,7 +30,7 @@
   <%#=link_to area.area_name,seach_path(area_id: area.id, from_top: true)%> <%#左が名前(皆が見てわかりやすい名前)右が値%>
 <%#end%>
 <div class="container">
-  <div class="row k">
+  <div class="row area-search">
     <div class="col-7">
       <h3>エリアで探す</h3>
 
@@ -73,7 +73,7 @@
           <p class="menu">周辺環境</p>
           <div class="contents">
             <%@surrounding_tags.each do |surrounding_tag|%>
-              <%=link_to surrounding_tag.name,search_path(tag_id: surrounding_tag.id, from_top: true)%>
+            <div><%=link_to surrounding_tag.name,search_path(tag_id: surrounding_tag.id, from_top: true)%>&nbsp;&nbsp;&nbsp;</div>
             <%end%>
           </div>
 
@@ -81,14 +81,14 @@
           <p class="menu">共有設備</p>
           <div class="contents">
             <%@shared_facility_tags.each do |shared_facility_tag|%>
-              <%=link_to shared_facility_tag.name,search_path(tag_id: shared_facility_tag.id, from_top: true)%>
+              <div><%=link_to shared_facility_tag.name,search_path(tag_id: shared_facility_tag.id, from_top: true)%>&nbsp;&nbsp;&nbsp;</div>
             <%end%>
           </div>
 
           <p class="menu">その他</p>
           <div class="contents">
             <%@other_tags.each do |other_tag|%>
-              <%=link_to other_tag.name,search_path(tag_id: other_tag.id, from_top: true)%>
+            <div><%=link_to other_tag.name,search_path(tag_id: other_tag.id, from_top: true)%>&nbsp;&nbsp;&nbsp;</div>
             <%end%>
           </div>
 
@@ -105,7 +105,7 @@
 <section>
   <div class="accordion_rank ">
     <p class="menu">住民の雰囲気がいいシェアハウスランキング</p>
-      <div class="contents_rank">
+      <div class="contents">
         <% if @properties_atmosphere.present? %>
           <%  @properties_atmosphere.each do |property| %>
             <%=link_to property_path(property.id) do%>

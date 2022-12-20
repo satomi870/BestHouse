@@ -27,23 +27,23 @@
         <div class="mt-4">
           <span class="under">特徴</span>
         </div>
-        <h5 class="tag">入居者の特性</h5>
+        <h5 class="tag text-center m-1 mb-2 mt-4">入居者の特性</h5>
         <%=f.collection_check_boxes :tag_id, @basic_tags, :id, :name, checked: params[:tag_id] do |b| %>
           <%= b.label { b.check_box + b.text } %>
         <% end %>
-        <h5 class="tag text-center">部屋</h5>
+        <h5 class="tag text-center m-1 mb-2 mt-4">部屋</h5>
         <%=f.collection_check_boxes :tag_id, @room_tags, :id, :name, checked: params[:tag_id] do |b| %>
           <%= b.label { b.check_box + b.text } %>
         <%end%>
-        <h5 class="tag text-center">共有設備</h5>
+        <h5 class="tag text-center m-1 mb-2 mt-4">共有設備</h5>
         <%=f.collection_check_boxes :tag_id, @shared_facility_tags, :id, :name, checked: params[:tag_id] do |b| %>
           <%= b.label { b.check_box + b.text } %>
         <%end%>
-        <h5 class="tag text-center">周辺環境</h5>
+        <h5 class="tag text-center m-1 mb-2 mt-4">周辺環境</h5>
         <%=f.collection_check_boxes :tag_id, @surrounding_tags, :id, :name, checked: params[:tag_id] do |b| %>
           <%= b.label { b.check_box + b.text } %>
         <%end%>
-        <h5 class="tag text-center">その他</h5>
+        <h5 class="tag text-center m-1 mb-2 mt-4">その他</h5>
         <%#=f.collection_check_boxes :tag_id, @other_tags, :id, :name, checked: params[:tag_id] %>
 
 
@@ -77,14 +77,14 @@
         </div>
 
         <div class="row">
-        <%property.tags.each do |tag|%>
-        <div class="col-3 mt-1">
-          <span class="tags rounded">
-            <%=tag.name%>
-          </span>
-        </div>
-        <%end%>
-        </div>
+          <%property.tags.each do |tag|%>
+            <div class="mt-1 mr-2 ml-3">
+              <span class="tags rounded text-center">
+                <%=tag.name%>
+              </span>
+            </div>
+          <%end%>
+      </div>
       <div class="row">
       <div class="col-6 mb-5 mt-3">
       <%if user_signed_in? %>

@@ -186,8 +186,10 @@ th{
 }
 
 .area-search{
-  margin-top: 80px;
+  margin-top: 120px;
 }
+
+
 
 #areamap, #areamap_detail {
   width: 550px;
@@ -330,19 +332,7 @@ p {
   flex-wrap: wrap;
 }
 
-.contents_rank{
-  text-align: center;
-  line-height: 0;
-  height: 0;
-  overflow: hidden;
-  opacity: 0;
-  transition-duration: 0.4s;
 
-}
-
-.k{
-  margin-top: 50px;
-}
 
 .contents.is-open {
   border: 1px solid black;
@@ -412,10 +402,10 @@ p {
 .tags{
 
     font-weight: thin;
-    color: white;
-    background: #1E90FF;
-    border: solid 3px;
-    text-align: center;
+    color: #1E90FF;
+    background: white;
+    border: solid 1px;
+
 
 
 }
@@ -470,16 +460,7 @@ p {
 //   padding: 10px;
 // }
 
-.rule{
 
-  background-color: #fff; /* 背景色 */
-  background-image: linear-gradient(180deg, #ccc 1px, transparent 1px); /* 罫線の色と太さ  */
-  // background-size: 600px 2.5em; /* 行の高さ */
-  height: 20px;
-  // line-height: 2.5em; /* 文字の高さ */
-  // padding-bottom: 1px; /* 最終行の下にも罫線を引く */
-
-}
 
 //user編集
 
