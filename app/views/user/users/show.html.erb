@@ -64,9 +64,10 @@
 
   　<div id="tab5" class="tab">
 
-　    <hr size="200">
+
       <%@rules.each do |rule|%>
         <p><%=rule.property.property_name %></p>
+        <hr size="200">
         <span>•<%= rule.body %></span>
       <hr size="200">
       <%end%>

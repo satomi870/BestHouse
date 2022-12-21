@@ -17,8 +17,8 @@
 
         <h2 class="text-center">関係性を選ぶ</h2>
         <%#=form_with  model: @review_relation_new,url: new_property_review_path,method: :get do |f| %>
-        <div class= "row">
-          <div class="col-4">
+        <div class= "row text-center">
+          <div class="col-4 mt-1q">
             <p><%=f.radio_button :relation, Review.relations.key(0) %>
             <%=f.label :relation, Review.relations_i18n[:resident] %></p>
           </div>
@@ -44,9 +44,9 @@
           <div id="post_raty"></div>
 　　　　</div>
 
-        <div class= "row">
+        <div class= "row text-center">
           <div class="col-4">
-            <h2 class="mt-5">住人の雰囲気</h2>
+            <h4 class="mt-5">住人の雰囲気</h4>
             良い
             <%= f.radio_button :atmosphere, '5' %>
             <%= f.radio_button :atmosphere, '4' %>
@@ -56,7 +56,7 @@
             良くない
           </div>
           <div class="col-4">
-            <h2 class="mt-5">住人同士の距離感</h2>
+            <h4 class="mt-5">住人同士の距離感</h4>
             親しい
             <%= f.radio_button :distance_sense, '5' %>
             <%= f.radio_button :distance_sense, '4' %>
@@ -64,9 +64,9 @@
             <%= f.radio_button :distance_sense, '2' %>
             <%= f.radio_button :distance_sense, '1' %>
             挨拶程度
-            </div>
-            <div class="col-4">
-              <h2 class="mt-5">共有部の清潔さ</h2>
+          </div>
+          <div class="col-4">
+            <h4 class="mt-5">共有部の清潔さ</h4>
               清潔
               <%= f.radio_button :cleanliness_shared,'5' %>
               <%= f.radio_button :cleanliness_shared,'4' %>
@@ -74,12 +74,12 @@
               <%= f.radio_button :cleanliness_shared,'2' %>
               <%= f.radio_button :cleanliness_shared,'1' %>
               不衛生
-            </div>
           </div>
-        <div class= "row">
+          </div>
+        <div class= "row text-center">
           <div class="col-4">
-            <h2 class="mt-5">水回りの混雑具合</h2>
-            いつでも使える
+            <h4 class="mt-5">水回りの混雑具合</h4>
+            常に使える
             <%= f.radio_button :congestion_shared, '5' %>
             <%= f.radio_button :congestion_shared, '4' %>
             <%= f.radio_button :congestion_shared, '3' %>
@@ -88,7 +88,7 @@
           　混雑している
         　</div>
           <div class="col-4">
-            <h2 class="mt-5">騒音(他の住人による生活音)</h2>
+            <h4 class="mt-5">騒音</h4>
             静か
             <%= f.radio_button :noise,'5' %>
             <%= f.radio_button :noise,'4' %>
@@ -99,7 +99,7 @@
           </div>
 
           <div class="col-4">
-            <h2 class="mt-5">ネット速度</h2>
+            <h4 class="mt-5">ネット速度</h4>
             速い
             <%= f.radio_button :net_speed,'5' %>
             <%= f.radio_button :net_speed,'4' %>
@@ -109,9 +109,9 @@
             遅い
           </div>
         </div>
-        <div class= "row">
+        <div class= "row text-center">
           <div class="col-6">
-            <h2 class="mt-5">シャワーの水圧</h2>
+            <h4 class="mt-5">シャワーの水圧</h4>
             強い
             <%= f.radio_button :shower,'5' %>
             <%= f.radio_button :shower,'4' %>
@@ -121,7 +121,7 @@
             遅い
           </div>
           <div class="col-6">
-            <h2 class="mt-5">パーティーやイベントの開催</h2>
+            <h4 class="mt-5">パーティーやイベントの開催</h4>
             頻繁にある
             <%= f.radio_button :event,'5' %>
             <%= f.radio_button :event,'4' %>
@@ -205,16 +205,17 @@
         <% elsif @avg_cleanliness_shared == 1 %>
           共有部の清潔さ 清潔<%= image_tag "5.jpg" %>不衛生<br>
         <%end%>
+
         <% if @avg_noise == 5 %>
-          騒音(他の住人による生活音) 静か<%= image_tag "1.jpg" %>騒がしい<br>
+          騒音 静か<%= image_tag "1.jpg" %>騒がしい<br>
         <% elsif @avg_noise == 4 %>
-          騒音(他の住人による生活音) 静か<%= image_tag "2.jpg" %>騒がしい<br>
+          騒音 静か<%= image_tag "2.jpg" %>騒がしい<br>
         <% elsif @avg_noise == 3 %>
-          騒音(他の住人による生活音) 静か<%= image_tag "3.jpg" %>騒がしい<br>
+          騒音 静か<%= image_tag "3.jpg" %>騒がしい<br>
         <% elsif @avg_noise == 2 %>
-          騒音(他の住人による生活音) 静か<%= image_tag "4.jpg" %>騒がしい<br>
+          騒音 静か<%= image_tag "4.jpg" %>騒がしい<br>
         <% elsif @avg_noise == 1 %>
-          騒音(他の住人による生活音) 静か<%= image_tag "5.jpg" %>騒がしい<br>
+          騒音 静か<%= image_tag "5.jpg" %>騒がしい<br>
         <%end%>
 
          <% if @avg_net_spead == 5 %>
@@ -261,7 +262,7 @@
           </div>
           <div class="col-2">
             <% if review.repeat == "3" %>
-              <p class="bg-danger text-white text-center rounded-pill">住み続けたい</p>
+              <p class="bg-danger text-white text-center rounded-pill small">住み続けたい</p>
             <%end%>
           </div>
         </div>

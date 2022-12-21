@@ -73,6 +73,24 @@ class User::PropertiesController < ApplicationController
     room = Category.find_by(category: "room")
     @room_tags=room.tags
 
+    #
+    @tag_list = Tag.where(id: @tags)
+    @area_list = Area.where(id: @areas)
+    @area_group_list = AreaGroup.where(id: @area_groups)
+
+    lower_rent = params[:lower_rent]
+    upper_rent = params[:upper_rent]
+
+    digits_lower_rent = lower_rent&.length
+    digits_upper_rent = upper_rent&.length
+
+
+    @display_lower_amount = lower_rent&.slice(0, digits_lower_rent - 4) || "0"
+    @display_upper_amount = upper_rent&.slice(0, digits_upper_rent - 4) || "0"
+
+
+
+
     @tags=Tag.all
 
     surrounding = Category.find_by(category: "surrounding")
@@ -82,7 +100,7 @@ class User::PropertiesController < ApplicationController
     @shared_facility_tags=shared_facility.tags
 
     other = Category.find_by(category: "other")
-    @other=other.tags
+    @other_tags=other.tags
 
     @lower_rent = params[:lower_rent].to_i
     @upper_rent = params[:upper_rent].to_i
@@ -91,7 +109,7 @@ class User::PropertiesController < ApplicationController
 
   def search_keyword
     # @results = @ransack.result
-    @results = Property.where("access LIKE ?", "%#{params[:keyword]}%")
+    @properties = Property.where("access LIKE ?", "%#{params[:keyword]}%")
     .or(Property.where("address LIKE ?", "%#{params[:keyword]}%"))
     #.or(Property.where("condition LIKE ?", "%#{params[:keyword]}%"))
 
@@ -122,6 +140,7 @@ class User::PropertiesController < ApplicationController
   end
 
   def index
+    
     @properties=Property.all
   end
 

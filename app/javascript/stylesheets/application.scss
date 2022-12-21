@@ -1,6 +1,16 @@
 @import '~bootstrap/scss/bootstrap';
 
-h3,h2{
+.name{
+  position: relative;
+  color: #6eb0f9;
+  line-height: 1.4;
+  -webkit-box-reflect: below -10px -webkit-linear-gradient(top,rgba(0,0,0,0),rgba(0,0,0,0) 10%,rgba(0, 0, 0, 0.6));
+}
+
+
+
+
+h3,h2,h4,h5{
   color: #1E90FF;
 
 }
@@ -427,6 +437,12 @@ p {
 .coordination{
   border: 3px solid #D9E5FF;
   padding: 10px;
+}
+
+h6{
+  color: #1E90FF;
+  display: inline-block;
+
 }
 
 

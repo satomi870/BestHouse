@@ -24,9 +24,9 @@
 
     <div class ="wrapper">
     <header>
-      <h1>BestHouse</h1>
+      <h1 class="name">BestHouse</h1>
     </header>
-      <ul class="d-flex justify-content-center">
+      <ul class="d-flex justify-content-center mt-5">
       <% if user_signed_in? %>
 
         <li class=" flex-fill">
@@ -40,7 +40,11 @@
         </li>
         <li class=" flex-fill">
           <%= link_to"通知",notifications_path %>
-          <%= current_user.passive_notifications.where(checked: false).size %>
+          <%if current_user.passive_notifications.where(checked: false).size > 0%>
+            <%= current_user.passive_notifications.where(checked: false).size%>
+          <%end%>
+
+
         </li>
         <li class=" flex-fill">
           <%= link_to"閲覧履歴",histories_path %>

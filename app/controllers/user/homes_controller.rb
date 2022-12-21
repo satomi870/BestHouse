@@ -32,8 +32,9 @@ class User::HomesController < ApplicationController
     @properties_congestion_shared = Property.find(Review.group(:property_id).where(atmosphere: 3..).order("avg(congestion_shared) desc").limit(5).pluck(:property_id))
     @properties_cleanliness_shared= Property.find(Review.group(:property_id).where(atmosphere: 3..).order("avg(cleanliness_shared) desc").limit(5).pluck(:property_id))
     @properties_event_many = Property.find(Review.group(:property_id).where(atmosphere: 3..).order("avg(event) desc").limit(5).pluck(:property_id))
-    @properties_event_less = Property.find(Review.group(:property_id).where(event: ..2).order("avg(event)").limit(5).pluck(:property_id))
-    @properties_repeat = Property.find(Review.group(:property_id).where(atmosphere: 3..).where(repeat: 3).order("avg(repeat) desc").limit(5).pluck(:property_id))
+    @properties_favorites = Property.all.sort { |x, y| y.favorites.count <=> x.favorites.count }.reject { _1.favorites.count == 0 }
+    #@properties_event_less = Property.find(Review.group(:property_id).where(event: ..2).order("avg(event)").limit(5).pluck(:property_id))
+    #@properties_repeat = Property.find(Review.group(:property_id).where(atmosphere: 3..).where(repeat: 3).order("avg(repeat) desc").limit(5).pluck(:property_id))
     #@properties = Property.find(Review.group(:property_id).order("avg(distance_sense)").limit(5).pluck(:property_id))
 
 
