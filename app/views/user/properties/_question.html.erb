@@ -2,6 +2,7 @@
 
         <p class="line mt-1 mb-3"></p>
 
+
         <p><%=question.title%></p>
         <p><%=question.body%></p>
         <%=question.user.nickname%>
@@ -13,7 +14,7 @@
         <% end %>
         <%=question.relation_i18n%>
 
-        <%= render '/user/properties/error', model: comment %>
+
 
 
         <%= form_with model: comment, url: question_comments_path(question.id) do |f|  %> <!--[@question, @answer]にしちゃうとコントローラで@question = Question.find(params[:id])を書かないといけなくなり%=link_to '質問に答える', property_questions_path(@property.id)%>ここでquestion.idを送らないとダメになるからそうやって書かない-->
@@ -51,7 +52,7 @@
 
 
 
-            <%= render '/user/properties/error', model: comment_comment %>
+
             <div class="mt-2">
               <%= form_with model: comment_comment, url: comment_comment_comments_path(comment_id: comment.id), method: :post do |f|  %> <!--[@question, @answer]にしちゃうとコントローラで@question = Question.find(params[:id])を書かないといけなくなり%=link_to '質問に答える', property_questions_path(@property.id)%>ここでquestion.idを送らないとダメになるからそうやって書かない-->
                 <%= f.text_field :body %>

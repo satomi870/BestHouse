@@ -134,6 +134,13 @@ th{
     transform: translateY(-1px);
 }
 
+.h{
+  display: inline-block;
+}
+
+.k{
+  display: flex;
+}
 
 //タブ
 
@@ -487,4 +494,18 @@ h6{
 //閲覧履歴
 .history{
   display: inline-block;
+}
+
+//通知
+.count{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 22px;
+    background-color: red;
+    color: #fff;
+    text-align: center;
+    line-height: 22px;
+    margin-bottom: 8px;
+    font-size: 15px;
 }

@@ -9,6 +9,7 @@ class User::UsersController < ApplicationController
     @comment_questions = Question.joins(:comments).where(comments: { user: current_user }) #あくまでとってきたいのはquestionのデータ
     @comment_comment_questions = Question.joins(:comment_comments).where(comment_comments: { user: current_user })#あくまでとってきたいのはquestionのデータ
     @rules = current_user.rules
+    @property_rules = Property.joins(:rules).where(rules: {user: current_user}).distinct
 
   end
 

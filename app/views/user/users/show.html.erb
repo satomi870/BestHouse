@@ -64,13 +64,15 @@
 
   　<div id="tab5" class="tab">
 
-
-      <%@rules.each do |rule|%>
-        <p><%=rule.property.property_name %></p>
+      <% @property_rules.each do |property|%>
+        <p><%=property.property_name %></p>
+        <% property.rules.where(user: current_user).each do |rule|%>
+          <hr size="200">
+          <span>•<%= rule.body %></span>
+        <% end %>
         <hr size="200">
-        <span>•<%= rule.body %></span>
-      <hr size="200">
-      <%end%>
+      <% end %>
+
 　　</div>
 </div>
 </div>

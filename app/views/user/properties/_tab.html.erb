@@ -15,6 +15,7 @@
       <%= form_with model: @review, url: property_reviews_path(property_id: @property.id) do |f| %>
 
 
+
         <h2 class="text-center">関係性を選ぶ</h2>
         <%#=form_with  model: @review_relation_new,url: new_property_review_path,method: :get do |f| %>
         <div class= "row text-center">
@@ -279,6 +280,7 @@
             <%= review.user.age %>
           <% end %>
           <%=review.relation_i18n%>
+          <%=review.relation_detail_i18n%>
           <%= review.created_at.to_s(:datetime_jp) %>
         </div>
       <% end %>
@@ -302,7 +304,10 @@
 　　</div>
 
 　　<div id="tab4" class="tab">
+      <%= render '/user/properties/error', model: @comment %>
+      <%= render '/user/properties/error', model: @comment_comment %>
 　　  <% @questions.each do |question| %>
+
 　　    <%= render '/user/properties/question', question: question, comment: @comment, comment_comment: @comment_comment %>
 　　  <% end %>
 　　</div>

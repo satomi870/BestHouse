@@ -9,12 +9,25 @@ class User::ReviewsController < ApplicationController
   end
 
   def create
-    @review = Review.new(review_params)
+    relation_detail=""
+    if review_params[:relation] == "former_resident"
+      relation_detail = review_params[:relation_detail1]
+    else
+      relation_detail = review_params[:relation_detail2]
+    end
+    review_params_copy = review_params.clone
+    review_params_copy.delete(:relation_detail1)
+    review_params_copy.delete(:relation_detail2)
+    review_params_copy[:relation_detail] = relation_detail
+
+    @review = Review.new(review_params_copy)
+
     @review.user_id = current_user.id
     @review.property_id = params[:property_id]
 
     # byebug
     if @review.save
+      flash[:notice] = "レビューの投稿が完了しました!"
       redirect_to property_path(params[:property_id])
     else
       # redirect_to  controller: :properties, action: :show, id: 1
@@ -72,7 +85,7 @@ class User::ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:title, :text, :relation, :relation_detail,:score, :atmosphere, :cleanliness_shared, :congestion_shared, :noise, :distance_sense,:net_speed, :shower, :event, :repeat)
+    params.require(:review).permit(:title, :text, :relation, :relation_detail1,:relation_detail2,:score, :atmosphere, :cleanliness_shared, :congestion_shared, :noise, :distance_sense,:net_speed, :shower, :event, :repeat)
   end
 end
  #byebug

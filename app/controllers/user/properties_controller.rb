@@ -2,10 +2,6 @@ class User::PropertiesController < ApplicationController
   #before_action :set_ransack, only: [:search_keyword]
 
   def search
-
-
-
-
     # 配列の中の空要素を取り除く
     #@area_groups = params[:area_group_name].reject(&:empty?)
     if params[:from_top].present?
@@ -81,15 +77,13 @@ class User::PropertiesController < ApplicationController
     lower_rent = params[:lower_rent]
     upper_rent = params[:upper_rent]
 
+    #
     digits_lower_rent = lower_rent&.length
     digits_upper_rent = upper_rent&.length
 
-
+    #~~~~~~~
     @display_lower_amount = lower_rent&.slice(0, digits_lower_rent - 4) || "0"
     @display_upper_amount = upper_rent&.slice(0, digits_upper_rent - 4) || "0"
-
-
-
 
     @tags=Tag.all
 
@@ -104,7 +98,6 @@ class User::PropertiesController < ApplicationController
 
     @lower_rent = params[:lower_rent].to_i
     @upper_rent = params[:upper_rent].to_i
-
   end
 
   def search_keyword
@@ -121,7 +114,6 @@ class User::PropertiesController < ApplicationController
 
     @tags=Tag.all
 
-
     surrounding = Category.find_by(category: "surrounding")
     @surrounding_tags=surrounding.tags
 
@@ -131,7 +123,6 @@ class User::PropertiesController < ApplicationController
     other = Category.find_by(category: "other")
     @other_tags=other.tags
 
-
     @checkd_areas = Area.where("area_name LIKE ?", "#{params[:keyword]}%").pluck(:id)
   end
 
@@ -140,13 +131,10 @@ class User::PropertiesController < ApplicationController
   end
 
   def index
-    
     @properties=Property.all
   end
 
   def show
-
-
     @property=Property.find(params[:id])
     history = @property.histories.new
     history.user_id = current_user.id
@@ -166,12 +154,9 @@ class User::PropertiesController < ApplicationController
     @comment_comment = CommentComment.new
     @rule = Rule.new
     @rules = @property.rules
-
-
     if Read.create(question_id: @question.id, user_id: current_user.id)
       @read = Read.update(complete: true)
     end
-
     @avg_atmosphere = Review.where(property_id: params[:id]).average(:atmosphere) ? Review.where(property_id: params[:id]).average(:atmosphere).round(0) : 0
     @avg_distance_sence = Review.where(property_id: params[:id]).average(:distance_sense) ? Review.where(property_id: params[:id]).average(:atmosphere).round(0) : 0
     @avg_cleanliness_shared  = Review.where(property_id: params[:id]).average(:cleanliness_shared) ? Review.where(property_id: params[:id]).average(:cleanliness_shared).round(0) : 0
@@ -180,11 +165,7 @@ class User::PropertiesController < ApplicationController
     @avg_shower = Review.where(property_id: params[:id]).average(:shower) ? Review.where(property_id: params[:id]).average(:shower).round(0) : 0
     @avg_event = Review.where(property_id: params[:id]).average(:event) ? Review.where(property_id: params[:id]).average(:event).round(0) : 0
     @avg_score = Review.where(property_id: params[:id]).average(:score)
-
-
   end
-
-
 end
 #違うURLで同じアクションに飛びたい時は一つにルーティングをまとめ
 

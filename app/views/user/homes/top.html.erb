@@ -101,6 +101,18 @@
   </div>
 </div>
 
+<h2 class="text-center">人気物件</h2>
+<div class="d-flex">
+  <% @properties_favorites.each do |property| %>
+    <div class="mr-2 ">
+      <%= image_tag property.images[0],size: '282x200' %>
+      <p><%= property.property_name %><%= property.rent %></p>
+    </div>
+  <% end %>
+</div>
+
+
+
 <h3 class ="text-center">住人による口コミランキング！！</h3>
 <section>
   <div class="accordion_rank ">
