@@ -10,13 +10,16 @@ class User::QuestionsController < ApplicationController
     @question.checked = false
     if @question.save
       flash[:notice] = "質問の投稿が完了しました!"
-    review_users = @question.property.reviews.map{|review| review.user}.uniq#↓レビューしてくれた人に通知をする処理
+    #A物件をレビューしたuser一覧が入っているA物件をレビューした人みんなに通知したいから
+    review_users = @question.property.reviews.map{|review| review.user}.uniq
+    #レビューしてくれた人一人ひとりにに通知をする処理
     review_users.each do |review_user|
       notification = Notification.new
       notification.action = "review_on_question"
       notification.sender_id = @question.user_id
       notification.receiver_id = review_user.id
       notification.checked = false
+      notification.property_id = @question.property_id
       notification.save!
       end
 
@@ -25,7 +28,6 @@ class User::QuestionsController < ApplicationController
 
     else
       @property=Property.find(params[:property_id])
-      flash[:notice] = "質問の投稿が完了l"
       # history = @property.histories.new
       # history.user_id = current_user.id
       # if current_user.histories.exists?(property_id: "#{params[:id]}")

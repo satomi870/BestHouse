@@ -13,6 +13,7 @@ import "../stylesheets/application"
 import "script.js"
 import Raty from "raty.js"
 
+// raty.jsの初期化
 window.raty = function(elem,opt) {
     if (elem == null) return;
     let raty =  new Raty(elem,opt)

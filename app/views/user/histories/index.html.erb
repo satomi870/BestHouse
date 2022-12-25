@@ -1,7 +1,11 @@
 <h2 class="mb-3">閲覧履歴</h2>
+
 <% @histories.each do |history| %>
   <%=link_to property_path(history.property.id) do%>
-  <%= history.property.property_name %>&nbsp;&nbsp;&nbsp;
-  <%= link_to "履歴から削除", history_path(history.id), method: :delete %></p>
+  <div class="mb-3">
+    <%= history.property.property_name %>&nbsp;&nbsp;&nbsp;
+    <%= link_to "履歴から削除", history_path(history.id), method: :delete %></p>
+  </div>
   <%end%>
 <%end%>
+

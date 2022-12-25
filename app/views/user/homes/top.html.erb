@@ -99,83 +99,106 @@
       </div>
     </div>
   </div>
+  <div class="row">
+  <div class="col-12">
+<div class="text-center mt-5 mb-3">
+  <span class="under">人気物件</span>
 </div>
-
-<h2 class="text-center">人気物件</h2>
 <div class="d-flex">
   <% @properties_favorites.each do |property| %>
-    <div class="mr-2 ">
-      <%= image_tag property.images[0],size: '282x200' %>
-      <p><%= property.property_name %><%= property.rent %></p>
+    <div class="mr-2 popular mb-5">
+      <%=link_to property_path(property.id) do%>
+      <%= image_tag property.images[0],size: '188x130' %>
+      <p class="top_property"><%= property.property_name %></p>
+      <p class="top_property"><%= property.rent %>円 <%=property.access%></p>
+      <%end%>
     </div>
   <% end %>
 </div>
 
+<div class="text-center mt-3 mb-1">
+  <span class="under">実際に住んでいる住人による口コミ物件</span>
+</div>
 
-
-<h3 class ="text-center">住人による口コミランキング！！</h3>
-<section>
-  <div class="accordion_rank ">
-    <p class="menu">住民の雰囲気がいいシェアハウスランキング</p>
-      <div class="contents">
-        <% if @properties_atmosphere.present? %>
-          <%  @properties_atmosphere.each do |property| %>
-            <%=link_to property_path(property.id) do%>
-             <p>1位&nbsp;&nbsp;&nbsp;<%= property.property_name %></p>
-            <%end%>
-            <%= property.reviews.average(:atmosphere).to_f %>点/5.0点中
-          <%end%>
-        <%else%>
-          <p>まだレビューがありません</p>
+<h4 class="text-center mt-5">住民の雰囲気がいい物件</h4>
+<div class="d-flex">
+  <% if @properties_atmosphere.present? %>
+    <% @properties_atmosphere.each do |property| %>
+      <div class="mr-2 popular ">
+        <%=link_to property_path(property.id) do%>
+          <%= image_tag property.images[0],size: '188x130' %>
+          <p class="top_property"><%= property.property_name %></p>
+          <p class="top_property"><%= property.rent %>円 <%=property.access%></p>
         <%end%>
       </div>
-
-    <p class="menu">騒音が少ないシェアハウスランキング</p>
-      <div class="contents">
-        <% if @properties_noise.present? %>
-          <% @properties_noise.each do |property| %>
-            <%=link_to property_path(property.id) do%>
-              <p>1位&nbsp;&nbsp;&nbsp;<%= property.property_name %></p>
-            <%end%>
-            <%= property.reviews.average(:noise).to_f %>点/5.0点中<br>
-          <%end%>
-        <%else%>
-          <p>まだレビューがありません</p>
-        <%end%>
-      </div>
-
-    <p class="menu">水回りの混雑が少ないシェアハウスランキング</p>
-      <div class="contents">
-        <% if @properties_congestion_shared.present? %>
-          <% @properties_congestion_shared.each do |property| %>
-            <%=link_to property_path(property.id) do%>
-              <p>1位&nbsp;&nbsp;&nbsp;<%= property.property_name %></p>
-          <%end%>
-          <%= property.reviews.average(:congestion_shared).to_f %>点/5.0点中<br>
-          <%end%>
-        <%else%>
-          <p>まだレビューがありません</p>
-        <%end%>
-      </div>
-
-    <p class="menu">共有部が清潔なシェアハウスランキング</p>
-      <div class="contents">
-        <% if @properties_cleanliness_shared.present? %>
-          <% @properties_cleanliness_shared.each do |property| %>
-            <%=link_to property_path(property.id) do%>
-              <p>1位&nbsp;&nbsp;&nbsp;<%= property.property_name %></p>
-            <%end%>
-          <%= property.reviews.average(:cleanliness_shared).to_f %>点/5.0点中<br>
-          <%end%>
-        <%else%>
-          <p>まだレビューがありません</p>
-        <%end%>
-      </div>
+    <%end%>
+  <%else%>
+  <div class="text-center">
+    <p>まだレビューがありません</p>
   </div>
-
-  <% @properties_favorites.each do |property| %>
-    <%= property.property_name %>
   <%end%>
+</div>
+
+<h4 class="text-center mt-5">騒音が少ない物件</h4>
+<div class="d-flex">
+  <% if @properties_noise.present? %>
+    <%  @properties_noise.each do |property| %>
+      <div class="mr-2 popular ">
+        <%=link_to property_path(property.id) do%>
+          <%= image_tag property.images[0],size: '188x130' %>
+          <p class="top_property"><%= property.property_name %></p>
+          <p class="top_property"><%= property.rent %>円 <%=property.access%></p>
+        <%end%>
+      </div>
+    <%end%>
+  <%else%>
+    <p>まだレビューがありません</p>
+  <%end%>
+</div>
+
+
+<h4 class="text-center mt-5">水回りの混雑が少ない物件</h4>
+<div class="d-flex">
+  <% if @properties_congestion_shared.present? %>
+    <% @properties_congestion_shared.each do |property| %>
+      <div class="mr-2 popular ">
+        <%=link_to property_path(property.id) do%>
+          <%= image_tag property.images[0],size: '188x130' %>
+          <p class="top_property"><%= property.property_name %></p>
+          <p class="top_property"><%= property.rent %>円 <%=property.access%></p>
+        <%end%>
+      </div>
+    <%end%>
+  <%else%>
+    <p>まだレビューがありません</p>
+  <%end%>
+</div>
+
+<h4 class="text-center mt-5">共有部が清潔な物件</h4>
+<div class="d-flex">
+  <% if @properties_cleanliness_shared.present? %>
+    <% @properties_cleanliness_shared.each do |property| %>
+      <div class="mr-2 popular ">
+        <%=link_to property_path(property.id) do%>
+          <%= image_tag property.images[0],size: '188x130' %>
+          <p class="top_property"><%= property.property_name %></p>
+          <p class="top_property"><%= property.rent %>円 <%=property.access%></p>
+        <%end%>
+      </div>
+    <%end%>
+  <%else%>
+  <div class="text-center">
+    <p>まだレビューがありません</p>
+  </div>
+  <%end%>
+</div>
+</div>
+</div>
+
+</div>
+
+
+
 
 </section>
 

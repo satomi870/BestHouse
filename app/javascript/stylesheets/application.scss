@@ -10,14 +10,20 @@
 
 
 
+
+
 h3,h2,h4,h5{
   color: #1E90FF;
 
 }
 
+h6{
+  color: #1E90FF;
+  font-weight: bold;
+}
+
 p{
   font-size: 16px;
-  font-weight: bold;
 }
 
 th, td {
@@ -43,7 +49,9 @@ th{
 
 //topページ
 
-
+img {
+    border-radius: 10px;
+}
 
 .top_picture{
   width: 100vw !important;
@@ -134,12 +142,29 @@ th{
     transform: translateY(-1px);
 }
 
+
+
 .h{
   display: inline-block;
 }
 
 .k{
   display: flex;
+}
+
+.popular {
+    //padding: 0.5em 1em;
+    //margin: 2em 0;
+    font-weight: bold;
+    color: #6091d3;/*文字色*/
+    background: #FFF;
+    border: solid 3px #6091d3;/*線*/
+    border-radius: 10px;/*角の丸み*/
+
+}
+
+.top_property{
+  font-size: 14px;
 }
 
 //タブ
@@ -407,14 +432,31 @@ p {
 
 
 
-.content {
-  //border-color: #1E90FF;
-  border: solid 2px #1E90FF;
-  border-spacing: 0;
-  border-collapse: separate;
-  border-radius: 10px;
+// .content {
+//   //border-color: #1E90FF;
+//   border: bold 1px #1E90FF;
+//   //border-spacing: 0;
+//   //border-collapse: separate;
+//   border-radius: 10px;
+
+
+// }
+
+.content{
+    border-collapse: collapse;
+    border-radius: 15px;
+
 
 }
+.content td{
+    border: 2px solid #1E90FF;
+}
+
+.content th{
+    border: 2px solid #1E90FF;
+
+}
+
 
 .tags{
 
@@ -442,8 +484,9 @@ p {
 
 //タブreviw一覧
 .coordination{
-  border: 3px solid #D9E5FF;
+  border: 5px double #D9E5FF;
   padding: 10px;
+  border-radius: 25px
 }
 
 h6{
@@ -454,41 +497,81 @@ h6{
 
 
 
-//タブ&A
+//タブQ&A
 
 .comment_color{
 
   border-top: 3px solid #D9E5FF;
 }
+.question{
+  border: 6px solid #D9E5FF;
+  padding: 10px;
+  border-radius: 15px
+}
+
+
 .sub_comment {
    font-size: 8px;
 }
-.comment_comment_color{
 
-  width: 800px;
-
-}
 
 .line{
   border-top: 3px solid #1E90FF;
   width:   800px;
 }
-//_tab rule
 
+//タブ　rule
 
-// .rule_border{
-//   border: 2px solid #1E90FF;
-//   width: 900px;
-//   opacity: 0.5;
-//   padding: 10px;
-// }
+.rule-form{
+  margin-left: 63px;
+}
 
+.rule{
+  width: 800px;
+  position: relative;
+  margin: 0 0 0 30px;
+  padding: 35px 30px;
+}
+.rule01{
+  background: #ffffff;
+  box-shadow: inset 0 0 30px rgba(230,220,228,0.8);
+}
+.rule:before {
+  content: " ";
+  display: block;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  border-width: 0 30px 30px 0;
+  border-style: solid;
+  width: 0;
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
 
+.rule:before {
+  background: #e3e3e3;
+  border-color: #fff #fff #e3e3e3 #e3e3e3;
+}
+.rule p{
+  font-size: 15px;
+  margin: 0 0 15px;
+    color: #87b5de;
+}
+
+//お気に入り
+.favorite-btn{
+  font-size: 15px;
+}
 
 //user編集
 
 .edit{
   padding: 40px;
+}
+
+.user-q{
+  margin-top: 70px;
 }
 
 //閲覧履歴
@@ -509,3 +592,8 @@ h6{
     margin-bottom: 8px;
     font-size: 15px;
 }
+
+
+// td{
+//     padding: 10px 20px;
+// }

@@ -37,7 +37,7 @@
     </div>
    <div class="col-6">
     <h3>リビング</h3>
-    <p><%= image_tag @property.images[0],size: '400x230' %></p>
+    <p><%#= image_tag @property.images[0],size: '400x230' %></p>
     <p><%= @property.living%></p>
   </div>
   <div class="col-6">
@@ -78,10 +78,10 @@
 </div>
 <div class="col-5 mt-4">
 <table class="content" width="400" height="200"border="1">
-  <tr><th bgcolor="#1E90FF">家賃</th><td><%= @property.rent %></td></tr>
-  <tr><th bgcolor="#1E90FF">共益費</th><td><%= @property.common_service_fee %></td></tr>
-  <tr><th bgcolor="#1E90FF">広さ</th><td><%= @property.breadth %></td></tr>
-  <tr><th bgcolor="#1E90FF">設備</th><td><%= @property.room_facility %></td></tr>
+  <tr><th bgcolor="#75A9FF">家賃</th><td><%= @property.rent %></td></tr>
+  <tr><th bgcolor="#75A9FF">共益費</th><td><%= @property.common_service_fee %></td></tr>
+  <tr><th bgcolor="#75A9FF">広さ</th><td><%= @property.breadth %></td></tr>
+  <tr><th bgcolor="#75A9FF">設備</th><td><%= @property.room_facility %></td></tr>
 </table>
 </div>
 
@@ -95,7 +95,7 @@
 
 <div class="text-center">
   <div class="fixed-bottom">
-    <%= link_to "お問い合わせ",new_property_contact_path(@property.id),class: "btn-inquiry" %>
+    <h5 class="font-weight-bold"><%= link_to "お問い合わせ",new_property_contact_path(@property.id)%></h5>
   </div>
 </div>
 
@@ -135,6 +135,7 @@
         scrollTop: $("#tab4").offset().top
     }, 500);
   })
+
 <%else params[:flag].present? and params[:flag] == "rl"%>
   (document).ready(function(){
       $(".review").removeClass("active")

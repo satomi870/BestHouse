@@ -1,44 +1,35 @@
-  <div class="wrap mt-5">
-    <ul id="tab-menu">
-      <li><a href="#tab1" class="review active">口コミを投稿する</a></li>
-      <li><a href="#tab2" class="">口コミを見る</a></li>
-      <li><a href="#tab3" class="">質問をする</a></li>
-      <li><a href="#tab4" class="qa">Q&A</a></li>
-      <li><a href="#tab5" class="">ハウスルールをシェアする</a></li>
-
-    </ul>
-  </div>
+<div class="wrap mt-5">
+  <ul id="tab-menu">
+    <li><a href="#tab1" class="review active">口コミを投稿する</a></li>
+    <li><a href="#tab2" class="">口コミを見る</a></li>
+    <li><a href="#tab3" class="">質問をする</a></li>
+    <li><a href="#tab4" class="qa">Q&A</a></li>
+    <li><a href="#tab5" class="">ハウスルールをシェアする</a></li>
+ </ul>
+</div>
   <div id="tab-contents">
     <div id="tab1" class="tab">
       <%= render '/user/properties/error', model: @review %>
-
       <%= form_with model: @review, url: property_reviews_path(property_id: @property.id) do |f| %>
 
-
-
         <h2 class="text-center">関係性を選ぶ</h2>
-        <%#=form_with  model: @review_relation_new,url: new_property_review_path,method: :get do |f| %>
         <div class= "row text-center">
-          <div class="col-4 mt-1q">
-            <p><%=f.radio_button :relation, Review.relations.key(0) %>
-            <%=f.label :relation, Review.relations_i18n[:resident] %></p>
+          <div class="col-4 mt-1">
+            <%=f.radio_button :relation, Review.relations.key(0) %>
+            <%=f.label :relation, Review.relations_i18n[:resident] %><br>
           </div>
-
-          <div class="col-4">
-            <p><%=f.radio_button :relation, Review.relations.key(1) %>
-            <%=f.label :relation, Review.relations_i18n[:former_resident] %></p>
+           <div class="col-4">
+            <%=f.radio_button :relation, Review.relations.key(1) %>
+            <%=f.label :relation, Review.relations_i18n[:former_resident] %><br>
             <%= f.select :relation_detail1, [['2022年頃まで住んでいた','twenty_two'], ['2021年頃まで住んでいた','twenty_one'], ['2020年頃まで住んでいた','twenty'], ['2019年頃まで住んでいた','nineteen'], ['2018年頃まで住んでいた','eighteen'], ['それ以前に住んでいた','before_that']],{prompt: '選択してください'} %>
           </div>
           <!--モデルが関連している選択ボックス (2行目)&データベースから取ってきてないからこの書き方でいいデータベースから取ってきてたらnagano_cakeのやり方-->
-
           <div class="col-4">
-            <p><%=f.radio_button :relation, Review.relations.key(2) %>
-            <%=f.label :relation, Review.relations_i18n[:others] %></p>
+            <%=f.radio_button :relation, Review.relations.key(2) %>
+            <%=f.label :relation, Review.relations_i18n[:others] %><br>
             <%= f.select :relation_detail2, [['入居検討者','kentosya'], ['入居予定者','yoteisya'], ['周辺住人','syuhenjunin'], ['住人の知人','chizin'], ['大家さん','oya'], ['不動産関係者','kankeisya'], ['その他','sonota']],{prompt: '選択してください'} %>
           </div>
         </div>
-           <%#=f.submit '次へ進む'%>
-      <%#end%>
 
         <h2 class=" text-center mt-5">総合評価</h2>
         <div class="text-center">
@@ -68,15 +59,15 @@
           </div>
           <div class="col-4">
             <h4 class="mt-5">共有部の清潔さ</h4>
-              清潔
-              <%= f.radio_button :cleanliness_shared,'5' %>
-              <%= f.radio_button :cleanliness_shared,'4' %>
-              <%= f.radio_button :cleanliness_shared,'3' %>
-              <%= f.radio_button :cleanliness_shared,'2' %>
-              <%= f.radio_button :cleanliness_shared,'1' %>
-              不衛生
+            清潔
+            <%= f.radio_button :cleanliness_shared,'5' %>
+            <%= f.radio_button :cleanliness_shared,'4' %>
+            <%= f.radio_button :cleanliness_shared,'3' %>
+            <%= f.radio_button :cleanliness_shared,'2' %>
+            <%= f.radio_button :cleanliness_shared,'1' %>
+            不衛生
           </div>
-          </div>
+        </div>
         <div class= "row text-center">
           <div class="col-4">
             <h4 class="mt-5">水回りの混雑具合</h4>
@@ -98,7 +89,6 @@
             <%= f.radio_button :noise,'1' %>
             騒がしい
           </div>
-
           <div class="col-4">
             <h4 class="mt-5">ネット速度</h4>
             速い
@@ -133,23 +123,22 @@
           </div>
         </div>
 
-
-            <div class="text-center mt-5">
-              <h3>タイトル</h3>
-              <%= f.text_field :title,:size=>"60x10" %>
-              <h3 class="mt-3">本文</h3>
-              <%= f.text_area :text,:size=>"60x10"%>
-            </div>
+        <div class="text-center mt-5">
+          <h3>タイトル<span class="h6">(1~100文字)</span></h3>
+          <%= f.text_field :title,:size=>"60x10" %>
+          <h3 class="mt-3">本文<span class="h6">(10文字~1000文字)</span></h3>
+          <%= f.text_area :text,:size=>"60x10"%>
+        </div>
 
         <%#= f.hidden_field :relation,value: @review_relation.relation %>
         <%#= f.hidden_field :relation_detail,value: @review_relation.relation_detail %>
 
-            <div class="text-center mt-3">
-            住み続けたい?
-            <%= f.radio_button :repeat,'3' %>はい
-            <%= f.radio_button :repeat,'1' %>いいえ
-            <%= f.radio_button :repeat,'2'%>わからない
-            </div>
+         <div class="text-center mt-3">
+          住み続けたい?
+          <%= f.radio_button :repeat,'3' %>はい
+          <%= f.radio_button :repeat,'1' %>いいえ
+          <%= f.radio_button :repeat,'2'%>わからない
+         </div>
 
         <div class="text-center mt-3">
           <%= f.submit"投稿する",class: "btn" %>
@@ -161,105 +150,101 @@
     <div id="tab2" class="tab">
 
 
-      <div class="coordination mb-5 rounded-lg">
+      <div class="coordination mb-5">
         <h3>総合評価</h3>
         <div class="mb-5">
           <div id="show_raty" data-avg-score=<%= @avg_score %> ></div>
         </div>
 
-
-
-
-
-      <% if @avg_atmosphere == 5 %>
-          住民の雰囲気 良い<%= image_tag "1.jpg" %>良くない<br>
+        <% if @avg_atmosphere == 5 %>
+          <h6>住民の雰囲気</h6> 良い<%= image_tag "1.jpg" %>良くない<br>
         <% elsif @avg_atmosphere == 4 %>
-          住民の雰囲気 良い<%= image_tag "2.jpg" %>良くない<br>
+          <h6>住民の雰囲気</h6> 良い<%= image_tag "2.jpg" %>良くない<br>
         <% elsif @avg_atmosphere == 3 %>
-          住民の雰囲気 良い<%= image_tag "3.jpg" %>良くない<br>
+          <h6>住民の雰囲気</h6> 良い<%= image_tag "3.jpg" %>良くない<br>
         <% elsif @avg_atmosphere == 2 %>
-          住民の雰囲気 良い<%= image_tag "4.jpg" %>良くない<br>
+          <h6>住民の雰囲気</h6> 良い<%= image_tag "4.jpg" %>良くない<br>
         <% elsif @avg_atmosphere == 1 %>
-          住民の雰囲気 良い<%= image_tag "5.jpg" %>良くない<br>
+          <h6>住民の雰囲気</h6>良い<%= image_tag "5.jpg" %>良くない<br>
         <%end%>
 
        <% if @avg_distance_sence == 5 %>
-          住人同士の距離感 親しい<%= image_tag "1.jpg" %>挨拶程度<br>
+          <h6>住人同士の距離感</h6> 親しい<%= image_tag "1.jpg" %>挨拶程度<br>
         <% elsif @avg_distance_sence == 4 %>
-          住人同士の距離感 親しい<%= image_tag "2.jpg" %>挨拶程度<br>
+          <h6>住人同士の距離感</h6> 親しい<%= image_tag "2.jpg" %>挨拶程度<br>
         <% elsif @avg_distance_sence == 3 %>
-          住人同士の距離感 親しい<%= image_tag "3.jpg" %>挨拶程度<br>
+          <h6>住人同士の距離感</h6> 親しい<%= image_tag "3.jpg" %>挨拶程度<br>
         <% elsif @avg_distance_sence == 2 %>
-          住人同士の距離感 親しい<%= image_tag "4.jpg" %>挨拶程度<br>
+          <h6>住人同士の距離感</h6> 親しい<%= image_tag "4.jpg" %>挨拶程度<br>
         <% elsif @avg_distance_sence == 1 %>
-          住人同士の距離感 親しい<%= image_tag "5.jpg" %>挨拶程度<br>
+          <h6>住人同士の距離感</h6> 親しい<%= image_tag "5.jpg" %>挨拶程度<br>
         <%end%>
 
         <% if @avg_cleanliness_shared == 5 %>
-          共有部の清潔さ 清潔<%= image_tag "1.jpg" %>不衛生<br>
+          <h6>共有部の清潔さ</h6> 清潔<%= image_tag "1.jpg" %>不衛生<br>
         <% elsif @avg_cleanliness_shared == 4 %>
-          共有部の清潔さ 清潔<%= image_tag "2.jpg" %>不衛生<br>
+          <h6>共有部の清潔さ</h6> 清潔<%= image_tag "2.jpg" %>不衛生<br>
         <% elsif @avg_cleanliness_shared == 3 %>
-          共有部の清潔さ 清潔<%= image_tag "3.jpg" %>不衛生<br>
+          <h6>共有部の清潔さ</h6> 清潔<%= image_tag "3.jpg" %>不衛生<br>
         <% elsif @avg_cleanliness_shared == 2 %>
-          共有部の清潔さ 清潔<%= image_tag "4.jpg" %>不衛生<br>
+          <h6>共有部の清潔さ</h6> 清潔<%= image_tag "4.jpg" %>不衛生<br>
         <% elsif @avg_cleanliness_shared == 1 %>
-          共有部の清潔さ 清潔<%= image_tag "5.jpg" %>不衛生<br>
+          <h6>共有部の清潔さ</h6>清潔<%= image_tag "5.jpg" %>不衛生<br>
         <%end%>
 
         <% if @avg_noise == 5 %>
-          騒音 静か<%= image_tag "1.jpg" %>騒がしい<br>
+          <h6>騒音</h6> 静か<%= image_tag "1.jpg" %>騒がしい<br>
         <% elsif @avg_noise == 4 %>
-          騒音 静か<%= image_tag "2.jpg" %>騒がしい<br>
+          <h6>騒音</h6> 静か<%= image_tag "2.jpg" %>騒がしい<br>
         <% elsif @avg_noise == 3 %>
-          騒音 静か<%= image_tag "3.jpg" %>騒がしい<br>
+          <h6>騒音</h6> 静か<%= image_tag "3.jpg" %>騒がしい<br>
         <% elsif @avg_noise == 2 %>
-          騒音 静か<%= image_tag "4.jpg" %>騒がしい<br>
+          <h6>騒音</h6> 静か<%= image_tag "4.jpg" %>騒がしい<br>
         <% elsif @avg_noise == 1 %>
-          騒音 静か<%= image_tag "5.jpg" %>騒がしい<br>
+          <h6>騒音</h6> 静か<%= image_tag "5.jpg" %>騒がしい<br>
         <%end%>
 
-         <% if @avg_net_spead == 5 %>
-        　ネット速度 速い<%= image_tag "1.jpg" %>遅い<br>
+        <% if @avg_net_spead == 5 %>
+        　<h6>ネット速度</h6> 速い<%= image_tag "1.jpg" %>遅い<br>
         <% elsif @avg_net_spead == 4 %>
-          ネット速度 速い<%= image_tag "2.jpg" %>遅い<br>
+          <h6>ネット速度</h6> 速い<%= image_tag "2.jpg" %>遅い<br>
         <% elsif @avg_net_spead == 3 %>
-          ネット速度 速い<%= image_tag "3.jpg" %>遅い<br>
+          <h6>ネット速度</h6> 速い<%= image_tag "3.jpg" %>遅い<br>
         <% elsif @avg_net_spead == 2 %>
-          ネット速度 速い<%= image_tag "4.jpg" %>遅い<br>
+          <h6>ネット速度</h6> 速い<%= image_tag "4.jpg" %>遅い<br>
         <% elsif @avg_net_spead == 1 %>
-          ネット速度 速い<%= image_tag "5.jpg" %>遅い<br>
+          <h6>ネット速度</h6> 速い<%= image_tag "5.jpg" %>遅い<br>
         <%end%>
 
         <% if @avg_shower == 5 %>
-          シャワーの水圧 強い<%= image_tag "1.jpg" %>弱い<br>
+          <h6>シャワーの水圧</h6> 強い<%= image_tag "1.jpg" %>弱い<br>
         <% elsif @avg_shower == 4 %>
-          シャワーの水圧 強い<%= image_tag "2.jpg" %>弱い<br>
+          <h6>シャワーの水圧</h6> 強い<%= image_tag "2.jpg" %>弱い<br>
         <% elsif @avg_shower == 3 %>
-          シャワーの水圧　強い<%= image_tag"3.jpg" %>弱い<br>
+          <h6>シャワーの水圧</h6>　強い<%= image_tag"3.jpg" %>弱い<br>
         <% elsif @avg_shower == 2 %>
-          シャワーの水圧 強い<%= image_tag "4.jpg" %>弱い<br>
+          <h6>シャワーの水圧</h6> 強い<%= image_tag "4.jpg" %>弱い<br>
         <% elsif @avg_shower== 1 %>
-          シャワーの水圧 強い<%= image_tag "5.jpg" %>弱い<br>
+          <h6>シャワーの水圧</h6> 強い<%= image_tag "5.jpg" %>弱い<br>
         <%end%>
 
-         <% if  @avg_event == 5 %>
-          パーティーやイベントの開催　頻繁にある<%= image_tag "1.jpg" %>少ない<br>
+        <% if  @avg_event == 5 %>
+          <h6>パーティーやイベントの開催</h6>　頻繁にある<%= image_tag "1.jpg" %>少ない<br>
         <% elsif @avg_event == 4 %>
-          パーティーやイベントの開催　頻繁にある<%= image_tag "2.jpg" %>少ない<br>
+          <h6>パーティーやイベントの開催</h6>　頻繁にある<%= image_tag "2.jpg" %>少ない<br>
         <% elsif @avg_event == 3 %>
-       　　パーティーやイベントの開催　頻繁にある<%= image_tag "3.jpg" %>少ない<br>
+       　　<h6>パーティーやイベントの開催</h6>　頻繁にある<%= image_tag "3.jpg" %>少ない<br>
         <% elsif @avg_event == 2 %>
-          パーティーやイベントの開催　頻繁にある<%= image_tag "4.jpg" %>少ない<br>
+          <h6>パーティーやイベントの開催</h6>　頻繁にある<%= image_tag "4.jpg" %>少ない<br>
         <% elsif @avg_event == 1 %>
-          パーティーやイベントの開催　頻繁にある<%= image_tag "5.jpg" %>少ない<br>
+          <h6>パーティーやイベントの開催</h6>　頻繁にある<%= image_tag "5.jpg" %>少ない<br>
         <%end%>
 
       </div>
       <% @reviews.each do |review| %>
         <div class="row">
           <div class="col-3">
-            <p><%=review.title%></p>
+            <p class="mb-3"><%=review.title%></p>
           </div>
           <div class="col-2">
             <% if review.repeat == "3" %>
@@ -267,7 +252,7 @@
             <%end%>
           </div>
         </div>
-        <p><%=review.text%></p>
+        <p class="mb-4"><%=review.text%></p>
 
         <%= render '/user/properties/review', review: review %>
 
@@ -291,9 +276,9 @@
 　　  <div class="text-center">
   　　    <%= render '/user/properties/error', model: @question %>
   　　    <%= form_with model: @question, url:  property_questions_path(property_id: @property.id) do |f| %>
-          <h3>タイトル</h3>
+          <h3>タイトル<span class="h6">(1~100文字)</span></h3>
           <%= f.text_field :title,:size=>"60x10" %>
-          <h3 class="mt-3">本文</h3>
+          <h3 class="mt-3">本文<span class="h6">(10~1000文字)</span></h3>
           <%= f.text_area :body,:size=>"60x10"%></br>
           <div class="mb-3">
             <%= f.select :relation, [['住人','resident'],['元住人','former_resident'],['入居検討者','kentosya'], ['入居予定者','yoteisya'], ['周辺住人','syuhenjunin'], ['住人の知人','chizin'], ['大家さん','oya'], ['不動産関係者','kankeisya'], ['その他','sonota']],{prompt: '選択してください'}%><br>
@@ -316,21 +301,25 @@
 　　<div id="tab5" class="tab">
 
 　　  <%= render '/user/properties/error', model: @rule %>
-　　  <p>※なるべく下記のハウスルールリストにまだ書かれていないことをご記入ください</p>
-　　  <%= form_with model: @rule, url:  property_rules_path(property_id: @property.id) do |f| %>
-        <%= f.text_area :body ,:size=>"60x5"%>
-        <%=f.submit 'シェアする',class: "btn"%>
-      <%end%>
-
-        <hr size="200">
+      <div class="rule-form">
+    　　  <p>※なるべく下記のハウスルールリストにまだ書かれていないことをご記入ください</p>
+    　　  <%= form_with model: @rule, url:  property_rules_path(property_id: @property.id) do |f| %>
+            <%= f.text_area :body ,:size=>"60x5"%>
+            <%=f.submit 'シェアする',class: "btn"%>
+          <%end%>
+      </div>
+    </div>
+　　　　<div class="rule rule01">
+　　　　  <h3 class="text-center font-weight-bold">ハウスルール</h3>
         <%@rules.each do |rule|%>
-          <span>•<%= rule.body %></span>
-          <hr size="200">
-        <%end%>
-　　</div>
+          <p>•<%= rule.body %></p>
 
+        <%end%>
+        </div>
 　　</div>
-　　</div>
+　</div>
+</div>
+
 
 
 <script>

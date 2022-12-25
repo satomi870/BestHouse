@@ -7,7 +7,7 @@ class Question < ApplicationRecord
    has_many :reads, dependent: :destroy
    enum relation:  {resident: 0, former_resident: 1, kentosya: 3, yoteisya: 4, syuhenjunin: 5, chizin: 6, oya: 7, kankeisya: 8, sonota: 9 }
 
-   validates :title, presence: true
-   validates :body, presence: true
+   validates :title, presence: true, length: { in: 1..100 }
+   validates :body, presence: true,length: { in: 10..1000 }
    validates :relation, presence: true
 end

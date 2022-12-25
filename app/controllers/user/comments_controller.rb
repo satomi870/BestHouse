@@ -7,7 +7,7 @@ class User::CommentsController < ApplicationController
     #@comment.target_user_id = params[:target_user_id]
     question = Question.find(params[:question_id])
     if @comment.save
-
+    #質問に対してのコメントしてくれた人に通知する処理
     @notification = Notification.new
     @notification.action = "comment_on_question"#質問に対してのコメント
     #@notification.question_id = params[:question_id]
@@ -15,6 +15,7 @@ class User::CommentsController < ApplicationController
     @notification.sender_id = @comment.user_id
     @notification.receiver_id = question.user_id
     @notification.checked = false
+    @notification.property_id = @comment.question.property_id
     @notification.save!
 
 

@@ -8,8 +8,7 @@ class User::CommentCommentsController < ApplicationController
     comment = Comment.find(params[:comment_id])
       question = Question.find(comment.question_id)
     if @comment_comment.save
-
-
+#コメントに対してのコメントしてくれた人に通知する処理
       @notification = Notification.new
       @notification.action = "reply_on_comment"#コメントに対してのコメント
       @notification.comment_id = params[:comment_id]
@@ -17,6 +16,7 @@ class User::CommentCommentsController < ApplicationController
       @notification.sender_id = @comment_comment.user_id
       @notification.receiver_id = comment.user_id
       @notification.checked = false
+      @notification.property_id = question.property_id
       @notification.save
     #redirect_to property_path(@comment_comment.property_id)
     redirect_to property_path(question.property_id, flag: "qa")

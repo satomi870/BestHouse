@@ -55,30 +55,30 @@
 
     <div class="col-9">
       <div class="text-center">
-        <h5>全<%=properties. count%>件</h5>
+        <h5 class="text-left mt-4">全<%=properties. count%>件</h5>
 
         <% @tag_list.each do |tag_name| %>
-          <%= tag_name.name %> /
+          <span style="color:#1E90FF"><%= tag_name.name %></span>
         <% end %>
          <% @area_list.each do |area_name| %>
-          <%= area_name.area_name %> /
+          <span style="color:#1E90FF"><%= area_name.area_name %></span>
         <% end %>
         <% @area_group_list.each do |area_group_name| %>
-          <%= area_group_name.area_group_name %> /
+          <span style="color:#1E90FF"><%= area_group_name.area_group_name %></span>
         <% end %>
         <%unless @display_lower_amount.to_i.zero? && @display_upper_amount.to_i.zero? %>
         <div>
           <p>
           <%if @display_lower_amount.to_i.zero?%>
-          下限なし
+          <span style="color:#1E90FF">下限なし</span>
           <%else%>
-          <%= @display_lower_amount + "万円"%>
+          <span style="color:#1E90FF"><%= @display_lower_amount + "万円"%></span>
           <%end%>
-          ~
+          <span style="color:#1E90FF">~</span>
           <%if @display_upper_amount.to_i.zero?%>
-          上限なし
+          <span style="color:#1E90FF">上限なし</span>
           <%else%>
-          <%= @display_upper_amount  + "万円"%>
+          <span style="color:#1E90FF"><%= @display_upper_amount  + "万円"%></span>
           <%end%>
           </p>
 
@@ -103,11 +103,11 @@
 
         <div class="col-7 mt-5">
           <table class="content" width="400" height="200"border="1">
-            <tr><th bgcolor="#1E90FF">賃料</th><td><%=property.rent%></td></tr>
-            <tr><th bgcolor="#1E90FF">住所</th><td><%=property.address%></td></tr>
-            <tr><th bgcolor="#1E90FF">アクセス</th><td><%=property.access%></td></tr>
-            <tr><th bgcolor="#1E90FF">入居条件</th><td><%=property.condition%></td></tr>
-            <tr><th bgcolor="#1E90FF">空室</th></th><td><%=property.vacancy%></td></tr>
+            <tr><th bgcolor="#75A9FF">賃料</th><td><%=property.rent%></td></tr>
+            <tr><th bgcolor="#75A9FF">住所</th><td><%=property.address%></td></tr>
+            <tr><th bgcolor="#75A9FF">アクセス</th><td><%=property.access%></td></tr>
+            <tr><th bgcolor="#75A9FF">入居条件</th><td><%=property.condition%></td></tr>
+            <tr><th bgcolor="#75A9FF">空室</th></th><td><%=property.vacancy%></td></tr>
 
          </table>
         </div>
@@ -156,6 +156,8 @@
   </div>
 
 <%else%>
+<div class="text-center mt-5">
   <p>ご指定の検索条件では、物件がありませんでした。</p>
   <p>条件を見直して再度検索してください。</p>
+</div>
 <% end %>

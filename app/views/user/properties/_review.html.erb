@@ -23,68 +23,68 @@
 <% end %>
 
 <% if review.cleanliness_shared == 5 %>
-  共有部の清潔さ 清潔<%= image_tag "1.jpg" %>不衛生<br>
+  <h6>共有部の清潔さ</h6> 清潔<%= image_tag "1.jpg" %>不衛生<br>
 <% elsif review.cleanliness_shared == 4 %>
-  共有部の清潔さ 清潔<%= image_tag "2.jpg" %>不衛生<br>
+  <h6>共有部の清潔さ</h6> 清潔<%= image_tag "2.jpg" %>不衛生<br>
 <% elsif review.cleanliness_shared == 3 %>
-  共有部の清潔さ 清潔<%= image_tag "3.jpg" %>不衛生<br>
+  <h6>共有部の清潔さ</h6> 清潔<%= image_tag "3.jpg" %>不衛生<br>
 <% elsif review.cleanliness_shared == 2 %>
-  共有部の清潔さ 清潔<%= image_tag "4.jpg" %>不衛生<br>
+  <h6>共有部の清潔さ</h6> 清潔<%= image_tag "4.jpg" %>不衛生<br>
 <% elsif review.cleanliness_shared == 1 %>
-  共有部の清潔さ 清潔<%= image_tag "5.jpg" %>不衛生<br>
+  <h6>共有部の清潔さ</h6> 清潔<%= image_tag "5.jpg" %>不衛生<br>
 <%end%>
 <% if review.congestion_shared == 5 %>
-  水回りの混雑具合 いつでも使える<%= image_tag "1.jpg" %>良く混雑している<br>
+  <h6>水回りの混雑具合</h6> いつでも使える<%= image_tag "1.jpg" %>良く混雑している<br>
 <% elsif review.congestion_shared == 4 %>
-  水回りの混雑具合 いつでも使える<%= image_tag "2.jpg" %>良く混雑している<br>
+  <h6>水回りの混雑具合</h6> いつでも使える<%= image_tag "2.jpg" %>良く混雑している<br>
 <% elsif review.congestion_shared == 3 %>
-  水回りの混雑具合 いつでも使える<%= image_tag "3.jpg" %>良く混雑している<br>
+  <h6>水回りの混雑具合</h6> いつでも使える<%= image_tag "3.jpg" %>良く混雑している<br>
 <% elsif review.congestion_shared == 2 %>
-  水回りの混雑具合 いつでも使える<%= image_tag "4.jpg" %>良く混雑している<br>
+  <h6>水回りの混雑具合</h6> いつでも使える<%= image_tag "4.jpg" %>良く混雑している<br>
 <% elsif review.congestion_shared == 1 %>
-  水回りの混雑具合 いつでも使える<%= image_tag "5.jpg" %>良く混雑している<br>
+  <h6>水回りの混雑具合</h6> いつでも使える<%= image_tag "5.jpg" %>良く混雑している<br>
 <%end%>
 <% if review.noise == 5 %>
-  騒音(他の住人による生活音) 静か<%= image_tag "1.jpg" %>騒がしい<br>
+  <h6>騒音</h6> 静か<%= image_tag "1.jpg" %>騒がしい<br>
 <% elsif review.noise == 4 %>
-  騒音(他の住人による生活音) 静か<%= image_tag "2.jpg" %>騒がしい<br>
+  <h6>騒音</h6> 静か<%= image_tag "2.jpg" %>騒がしい<br>
 <% elsif review.noise == 3 %>
-  騒音(他の住人による生活音) 静か<%= image_tag "3.jpg" %>騒がしい<br>
+  <h6>騒音</h6> 静か<%= image_tag "3.jpg" %>騒がしい<br>
 <% elsif review.noise == 2 %>
-  騒音(他の住人による生活音) 静か<%= image_tag "4.jpg" %>騒がしい<br>
+  <h6>騒音</h6> 静か<%= image_tag "4.jpg" %>騒がしい<br>
 <% elsif review.noise == 1 %>
-  騒音(他の住人による生活音) 静か<%= image_tag "5.jpg" %>騒がしい<br>
+  <h6>騒音</h6> 静か<%= image_tag "5.jpg" %>騒がしい<br>
 <%end%>
 <% if review.net_speed == 5 %>
-        　ネット速度 速い<%= image_tag "1.jpg" %>遅い<br>
-        <% elsif review.net_speed == 4 %>
-          ネット速度 速い<%= image_tag "2.jpg" %>遅い<br>
-        <% elsif review.net_speed == 3 %>
-          ネット速度 速い<%= image_tag "3.jpg" %>遅い<br>
-        <% elsif review.net_speed == 2 %>
-          ネット速度 速い<%= image_tag "4.jpg" %>遅い<br>
-        <% elsif review.net_speed == 1 %>
-          ネット速度 速い<%= image_tag "5.jpg" %>遅い<br>
-        <%end%>
-        <% if review.shower == 5 %>
-          シャワーの水圧 強い<%= image_tag "1.jpg" %>弱い<br>
-        <% elsif review.shower == 4 %>
-          シャワーの水圧 強い<%= image_tag "2.jpg" %>弱い<br>
-        <% elsif review.shower == 3 %>
-          シャワーの水圧　強い<%= image_tag"3.jpg" %>弱い<br>
-        <% elsif review.shower == 2 %>
-          シャワーの水圧 強い<%= image_tag "4.jpg" %>弱い<br>
-        <% elsif review.shower == 1 %>
-          シャワーの水圧 強い<%= image_tag "5.jpg" %>弱い<br>
-        <%end%>
-         <% if review.event == 5 %>
-          パーティーやイベントの開催　頻繁にある<%= image_tag "1.jpg" %>少ない<br>
-        <% elsif review.event == 4 %>
-          パーティーやイベントの開催　頻繁にある<%= image_tag "2.jpg" %>少ない<br>
-        <% elsif review.event == 3 %>
-       　　パーティーやイベントの開催　頻繁にある<%= image_tag "3.jpg" %>少ない<br>
-        <% elsif review.event == 2 %>
-          パーティーやイベントの開催　頻繁にある<%= image_tag "4.jpg" %>少ない<br>
-        <% elsif review.event == 1 %>
-          パーティーやイベントの開催　頻繁にある<%= image_tag "5.jpg" %>少ない<br>
-        <%end%>
+  <h6>ネット速度</h6> 速い<%= image_tag "1.jpg" %>遅い<br>
+<% elsif review.net_speed == 4 %>
+  <h6>ネット速度</h6> 速い<%= image_tag "2.jpg" %>遅い<br>
+<% elsif review.net_speed == 3 %>
+  <h6>ネット速度</h6> 速い<%= image_tag "3.jpg" %>遅い<br>
+<% elsif review.net_speed == 2 %>
+  <h6>ネット速度</h6>速い<%= image_tag "4.jpg" %>遅い<br>
+<% elsif review.net_speed == 1 %>
+  <h6>ネット速度</h6速い<%= image_tag "5.jpg" %>遅い<br>
+<%end%>
+<% if review.shower == 5 %>
+  <h6>シャワーの水圧</h6> 強い<%= image_tag "1.jpg" %>弱い<br>
+<% elsif review.shower == 4 %>
+  <h6>シャワーの水圧</h6> 強い<%= image_tag "2.jpg" %>弱い<br>
+<% elsif review.shower == 3 %>
+  <h6>シャワーの水圧</h6>　強い<%= image_tag"3.jpg" %>弱い<br>
+<% elsif review.shower == 2 %>
+  <h6>シャワーの水圧</h6> 強い<%= image_tag "4.jpg" %>弱い<br>
+<% elsif review.shower == 1 %>
+  <h6>シャワーの水圧</h6> 強い<%= image_tag "5.jpg" %>弱い<br>
+<%end%>
+<% if review.event == 5 %>
+  <h6>パーティーやイベントの開催</h6>　頻繁にある<%= image_tag "1.jpg" %>少ない<br>
+<% elsif review.event == 4 %>
+  <h6>パーティーやイベントの開催</h6>　頻繁にある<%= image_tag "2.jpg" %>少ない<br>
+<% elsif review.event == 3 %>
+　<h6>パーティーやイベントの開催</h6>　頻繁にある<%= image_tag "3.jpg" %>少ない<br>
+<% elsif review.event == 2 %>
+  <h6>パーティーやイベントの開催</h6>　頻繁にある<%= image_tag "4.jpg" %>少ない<br>
+<% elsif review.event == 1 %>
+  <h6>パーティーやイベントの開催</h6>　頻繁にある<%= image_tag "5.jpg" %>少ない<br>
+<%end%>

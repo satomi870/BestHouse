@@ -1,19 +1,25 @@
 
 <p>物件A</p>
 
+<!-- 緯度経度のデータをdata属性として保持させる-->
 <div id="map" style="width:1440; height:730px" data-latitude="<%=@property.latitude%>" data-altitude="<%=@property.altitude%>"></div>
 
  <script type="text/javascript">
+    // https://www.javadrive.jp/google-maps-javascript/charset/index6.html
+    // 上記のサイトを参考に実装しました
     function initMap() {
       const mapview = document.getElementById("map");
+      // data属性の値から緯度経度の情報を取得する
       const latitude = mapview.dataset.latitude;
       const altitude = mapview.dataset.altitude;
+      // 緯度経度の情報を渡して地理座標のポイントを設定する
       const latlng = new google.maps.LatLng(latitude, altitude);
       const opts = {
         zoom: 15,
         center: latlng
       };
       const map = new google.maps.Map(mapview, opts);
+      // マーカーを追加する
       const marker = new google.maps.Marker({
         position: latlng,
         map: map

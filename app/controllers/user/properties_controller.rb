@@ -69,7 +69,7 @@ class User::PropertiesController < ApplicationController
     room = Category.find_by(category: "room")
     @room_tags=room.tags
 
-    #
+    #検索条件を検索希望一覧画面で表示
     @tag_list = Tag.where(id: @tags)
     @area_list = Area.where(id: @areas)
     @area_group_list = AreaGroup.where(id: @area_groups)
@@ -77,11 +77,11 @@ class User::PropertiesController < ApplicationController
     lower_rent = params[:lower_rent]
     upper_rent = params[:upper_rent]
 
-    #
+    #下限と上限の金額の桁数を変数に入れている
     digits_lower_rent = lower_rent&.length
     digits_upper_rent = upper_rent&.length
 
-    #~~~~~~~
+    #表示する金額の0を4つとる
     @display_lower_amount = lower_rent&.slice(0, digits_lower_rent - 4) || "0"
     @display_upper_amount = upper_rent&.slice(0, digits_upper_rent - 4) || "0"
 
@@ -102,9 +102,10 @@ class User::PropertiesController < ApplicationController
 
   def search_keyword
     # @results = @ransack.result
+    #曖昧検索
     @properties = Property.where("access LIKE ?", "%#{params[:keyword]}%")
     .or(Property.where("address LIKE ?", "%#{params[:keyword]}%"))
-    #.or(Property.where("condition LIKE ?", "%#{params[:keyword]}%"))
+    #.or(Property.where("property_name LIKE ?", "%#{params[:keyword]}%"))
 
     basic = Category.find_by(category: "basic") #カテゴリわけwhereを使うパターンもある　rails 検索　やり方
     @basic_tags=basic.tags
@@ -122,7 +123,7 @@ class User::PropertiesController < ApplicationController
 
     other = Category.find_by(category: "other")
     @other_tags=other.tags
-
+　　
     @checkd_areas = Area.where("area_name LIKE ?", "#{params[:keyword]}%").pluck(:id)
   end
 
@@ -138,6 +139,7 @@ class User::PropertiesController < ApplicationController
     @property=Property.find(params[:id])
     history = @property.histories.new
     history.user_id = current_user.id
+    #閲覧履歴
     if current_user.histories.exists?(property_id: "#{params[:id]}")
       old_history = current_user.histories.find_by(property_id: "#{params[:id]}")
       old_history.destroy
@@ -154,9 +156,10 @@ class User::PropertiesController < ApplicationController
     @comment_comment = CommentComment.new
     @rule = Rule.new
     @rules = @property.rules
-    if Read.create(question_id: @question.id, user_id: current_user.id)
-      @read = Read.update(complete: true)
-    end
+   
+    #星評価の平均点を算出
+    @avg_score = Review.where(property_id: params[:id]).average(:score)
+    #ラジオボタンレビュー項目の平均点を算出
     @avg_atmosphere = Review.where(property_id: params[:id]).average(:atmosphere) ? Review.where(property_id: params[:id]).average(:atmosphere).round(0) : 0
     @avg_distance_sence = Review.where(property_id: params[:id]).average(:distance_sense) ? Review.where(property_id: params[:id]).average(:atmosphere).round(0) : 0
     @avg_cleanliness_shared  = Review.where(property_id: params[:id]).average(:cleanliness_shared) ? Review.where(property_id: params[:id]).average(:cleanliness_shared).round(0) : 0
@@ -164,7 +167,7 @@ class User::PropertiesController < ApplicationController
     @avg_net_spead = Review.where(property_id: params[:id]).average(:net_speed) ? Review.where(property_id: params[:id]).average(:net_speed).round(0) : 0
     @avg_shower = Review.where(property_id: params[:id]).average(:shower) ? Review.where(property_id: params[:id]).average(:shower).round(0) : 0
     @avg_event = Review.where(property_id: params[:id]).average(:event) ? Review.where(property_id: params[:id]).average(:event).round(0) : 0
-    @avg_score = Review.where(property_id: params[:id]).average(:score)
+   
   end
 end
 #違うURLで同じアクションに飛びたい時は一つにルーティングをまとめ

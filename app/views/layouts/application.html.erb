@@ -26,6 +26,7 @@
     <header>
       <h1 class="name">BestHouse</h1>
 
+
     </header>
       <ul class="d-flex justify-content-center mt-5 text-center">
       <% if user_signed_in? %>
@@ -78,8 +79,9 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %> <!--javascriptはbodtyタグの終了直前に読む-->
 
     <script>
+       // ID属性がpost_ratyのHTMLタグを取得する
        let elem = document.getElementById('post_raty');
-         // scriptファイルをどのidの部分に配置するかを指定
+       // scriptファイルをどのidの部分に配置するかを指定
        let opt = {
          starType: 'img',
          score: 5,
@@ -89,9 +91,10 @@
        raty(elem,opt);
     </script>
     <script>
+       // ID属性がshow_ratyのHTMLタグを取得する
        let elem2 = document.getElementById('show_raty');
        let avgScore = elem2 !== null ? elem2.dataset.avgScore : "0";
-         // scriptファイルをどのidの部分に配置するかを指定
+       // scriptファイルをどのidの部分に配置するかを指定
        let opt2 = {
          starType: 'img',
          readOnly: true,

@@ -1,6 +1,14 @@
 ja:
   activerecord:
     attributes:
+      user:
+        nickname: "ニックネーム"
+        gender: "性別"
+        age: "年齢"
+        email: "メールアドレス"
+        password: "パスワード"
+        password_confirmation: "パスワード(確認用)"
+        current_password: "現在のパスワード"
       review:
         title: 「タイトル」
         text: 「本文」
@@ -18,7 +26,14 @@ ja:
         title: 「タイトル」
         body: 「本文」
         relation: 「関係性」
-
+      comment:
+        body: 「コメント」
+        relation: 「関係性」
+      comment_comment:
+        body: 「コメント」
+        relation: 「関係性」
+      rule:
+        body: 「ハウスルール」
   enums:
     review:
       relation:
@@ -50,7 +65,7 @@ ja:
         oya: "大家さん"
         kankeisya: "不動産関係者"
         sonota: "その他"
-    answer:
+    comment:
       relation:
         resident: "住人"
         former_resident: "元住人"
@@ -61,7 +76,7 @@ ja:
         oya: "大家さん"
         kankeisya: "不動産関係者"
         sonota: "その他"
-    answer_comments:
+    comment_comment:
       relation:
         resident: "住人"
         former_resident: "元住人"
@@ -76,3 +91,5 @@ ja:
     format: "%{attribute}%{message}"
     messages:
       blank: を入力してください
+
+

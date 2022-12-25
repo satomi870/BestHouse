@@ -1,13 +1,13 @@
-<h2>マイページ</h2>
+<h3>マイページ</h3>
 
   <div class="row">
-    <div class="col-1">
+    <div class="col-1 mr-4">
       <%= image_tag @user.get_image(100,100)%>
     </div>
-    <div class="col-1 mt-2">
-      <%=@user.nickname%>
-      <%=@user.age%>
-      <%=@user.gender%>
+    <div class="col-2 mt-2">
+      <p><%=@user.nickname%></p>
+      <p><%=@user.age%></p>
+      <p><%=@user.gender%></p>
     </div>
     <div class="col-3 edit">
       <%= link_to "編集する",edit_user_path,class: "btn"%>
@@ -33,46 +33,44 @@
     <% @reviews.each do |review| %>
     <h5><%= review.property.property_name %></h5>
     <div class="mb-5">
+      <p class="mb-3"><%=review.title%></p>
+      <p class="mb-4"><%=review.text%></p>
       <%= render '/user/properties/review', review: review %>
+
     </div>
     <% end %>
   </div>
 
   <div id="tab2" class="tab">
-    <h2><%= @userさんがした質問一覧　%></h2>
     <% @questions.each do |question| %>
-    <h5><%= question.property.property_name %></h5>
+    <h5 class="user-q"><%= question.property.property_name %></h5>
     <%= render 'user/properties/question', question: question, comment: @comment,comment_comment: @comment_comment %>
     <%end%>
   </div>
 
   <div id="tab3" class="tab">
-    <h2><%= @userさんがしたコメント一覧　%></h2>
     <% @comment_questions.each do |comment_question| %>
-      <h5><%= comment_question.property.property_name %></h5>
+      <h5 class="user-q"><%= comment_question.property.property_name %></h5>
       <%= render 'user/properties/question', question: comment_question, comment: @comment, comment_comment: @comment_comment %>
     <% end %>
   </div>
 
   <div id="tab4" class="tab">
-    <h2><%= @userさんがしたリプライ一覧　%></h2>
     <% @comment_comment_questions.each do |comment_comment_question| %>
-      <h5><%= comment_comment_question.property.property_name %></h5>
+      <h5 class="user-q"><%= comment_comment_question.property.property_name %></h5>
       <%= render 'user/properties/question', question: comment_comment_question, comment: @comment, comment_comment: @comment_comment %>
     <% end %>
   </div>
 
   　<div id="tab5" class="tab">
-
-      <% @property_rules.each do |property|%>
-        <p><%=property.property_name %></p>
-        <% property.rules.where(user: current_user).each do |rule|%>
-          <hr size="200">
-          <span>•<%= rule.body %></span>
+      <div class="rule rule01">
+        <% @property_rules.each do |property|%>
+          <p><%=property.property_name %></p>
+          <% property.rules.where(user: current_user).each do |rule|%>
+            <span>•<%= rule.body %></span>
+          <% end %>
         <% end %>
-        <hr size="200">
-      <% end %>
-
+      </div>
 　　</div>
 </div>
 </div>

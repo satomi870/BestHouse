@@ -9,7 +9,7 @@
       <tr>
         <td><%=f.label :property,"お問い合わせ物件"%></td>
         <td><%= @property.property_name %></td>
-        <td><%=image_tag @property.image%></td>
+        <td><%=image_tag @property.images[0],size: '188x130'%></td>
         <td><%= f.hidden_field :property_id, :value => @property.id%></td>
       </tr>
       <tr>
