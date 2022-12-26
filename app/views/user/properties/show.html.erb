@@ -118,7 +118,7 @@
 });
 
 
-//qaだったらtab1のshowを消してtab4の方を表示させる　デフォルトがshow
+//qaだったらtab1のshowを消してtab4の方を表示させる デフォルトがshow
 <% if params[:flag].present? and params[:flag] == "qa" %>
   //$(document).on("turbolinks:load", function() {
   $(document).ready(function(){
@@ -136,8 +136,8 @@
     }, 500);
   })
 
-<%else params[:flag].present? and params[:flag] == "rl"%>
-  (document).ready(function(){
+<%elsif params[:flag].present? and params[:flag] == "rl"%>
+ $(document).ready(function(){
       $(".review").removeClass("active")
       $(".rl").addClass("active")
        $("#tab1").css("display","none");

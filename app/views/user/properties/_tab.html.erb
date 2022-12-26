@@ -4,7 +4,7 @@
     <li><a href="#tab2" class="">口コミを見る</a></li>
     <li><a href="#tab3" class="">質問をする</a></li>
     <li><a href="#tab4" class="qa">Q&A</a></li>
-    <li><a href="#tab5" class="">ハウスルールをシェアする</a></li>
+    <li><a href="#tab5" class="">ルールをシェア</a></li>
  </ul>
 </div>
   <div id="tab-contents">
@@ -37,16 +37,8 @@
 　　　　</div>
 
         <div class= "row text-center">
-          <div class="col-4">
-            <h4 class="mt-5">住人の雰囲気</h4>
-            良い
-            <%= f.radio_button :atmosphere, '5' %>
-            <%= f.radio_button :atmosphere, '4' %>
-            <%= f.radio_button :atmosphere, '3' %>
-            <%= f.radio_button :atmosphere, '2' %>
-            <%= f.radio_button :atmosphere, '1' %>
-            良くない
-          </div>
+          <%=render 'review_meter_input',label: "住民の雰囲気", better: "良い", f: f, worth: "良くない",target: :atmosphere %>
+
           <div class="col-4">
             <h4 class="mt-5">住人同士の距離感</h4>
             親しい

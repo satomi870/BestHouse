@@ -5,6 +5,8 @@ class User::GuestSessionsController < ApplicationController
     user = User.find_or_create_by(email: "guest@example.com") do |user|
       user.password = SecureRandom.urlsafe_base64
       user.nickname = "ゲストユーザー"
+      user.age ="20"
+      user.gender ="女性"
     end
     sign_in user
     session[:user_id] = user.id

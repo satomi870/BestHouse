@@ -57,34 +57,49 @@
       <div class="text-center">
         <h5 class="text-left mt-4">全<%=properties. count%>件</h5>
 
-        <% @tag_list.each do |tag_name| %>
-          <span style="color:#1E90FF"><%= tag_name.name %></span>
-        <% end %>
-         <% @area_list.each do |area_name| %>
-          <span style="color:#1E90FF"><%= area_name.area_name %></span>
-        <% end %>
-        <% @area_group_list.each do |area_group_name| %>
-          <span style="color:#1E90FF"><%= area_group_name.area_group_name %></span>
-        <% end %>
-        <%unless @display_lower_amount.to_i.zero? && @display_upper_amount.to_i.zero? %>
-        <div>
-          <p>
-          <%if @display_lower_amount.to_i.zero?%>
-          <span style="color:#1E90FF">下限なし</span>
-          <%else%>
-          <span style="color:#1E90FF"><%= @display_lower_amount + "万円"%></span>
-          <%end%>
-          <span style="color:#1E90FF">~</span>
-          <%if @display_upper_amount.to_i.zero?%>
-          <span style="color:#1E90FF">上限なし</span>
-          <%else%>
-          <span style="color:#1E90FF"><%= @display_upper_amount  + "万円"%></span>
-          <%end%>
-          </p>
+        <%# if @tag_list %>
+          <%# @tag_list.each do |tag_name| %>
+            <span style="color:#1E90FF"><%#= tag_name.name %>
+            <!--のシェアハウス</span>-->
+          <%# end %>
+        <%#end%>
 
+        <% if @area_group_list.blank? && @tag_list && @area_list && @display_lower_amount && @display_upper_amount %>
+          <% array = @tag_list.pluck(:name) + @area_list.pluck(:area_name) + [rent_range_text(@display_lower_amount.to_i, @display_upper_amount.to_i)] %>
+          <span style="color:#1E90FF"><%= search_condition_text(array) %></span>
+        <%elsif @area_group_list.blank? && @tag_list && @area_list %>
+          <% array = @tag_list.pluck(:name) + @area_list.pluck(:area_name) %>
+          <span style="color:#1E90FF"><%= search_condition_text(array) %></span>
+        <% end %>
 
-        </div>
+        <%# if  @area_list %>
+          <%# @area_list.each do |area_name| %>
+            <span style="color:#1E90FF"><%#= area_name.area_name %></span>
+          <%# end %>
+        <%#end%>
+        <% if @area_group_list %>
+          <% @area_group_list.each do |area_group_name| %>
+            <span style="color:#1E90FF"><%= area_group_name.area_group_name %>のシェアハウス</span>
+          <% end %>
         <%end%>
+        <% if  @keyword %>
+          <span style="color:#1E90FF"><%= @keyword %>のシェアハウス</span>
+        <%end%>
+        <%#unless @display_lower_amount.to_i.zero? && @display_upper_amount.to_i.zero? %>
+
+            <!--<span style="color:#1E90FF"><%#= lower_rent_text(@display_lower_amount.to_i) %></span>
+          <%#if @display_lower_amount.to_i.zero?%>
+          <!--<span style="color:#1E90FF">下限なしのシェアハウス</span>-->
+          <%#else%>
+          <!--<span style="color:#1E90FF"><%#= @display_lower_amount + "万円"%></span> -->
+          <%#end%>
+          <!--  <span style="color:#1E90FF">~</span>
+            <span style="color:#1E90FF"><%#= upper_rent_text(@display_upper_amount.to_i) %></span> -->
+          <%#if @display_upper_amount.to_i.zero?%>
+          <!--<span style="color:#1E90FF">上限なし</span> -->
+          <%#else%>
+          <!--<span style="color:#1E90FF"><%#= @display_upper_amount  + "万円"%></span>-->
+          <%#end%>
 
 
       </div>

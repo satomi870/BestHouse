@@ -3,44 +3,58 @@
 <%#= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 <%= form_with model: @user, url: user_registration_path do |f| %>
   <%= render "user/shared/error_messages", resource: resource %>
-  <table>
-    <thead>
-      <th></th>
-      <th></th>
-      <th></th>
-    </thead>
-    <tbody>
-      <tr>
-        <td><%=f.label :nickname,"ニックネーム"%></td>
-        <td colspan="2"><%=f.text_field :nickname%></td>
-      </tr>
-      <tr>
-        <td><%=f.label :age,"年齢"%></td>
-         <td colspan="2"><%= f.select :age, [['10代','10代'], ['20代', '20代'], ['30代', '30代'], ['40代','40代'], ['50代','50代'], ['60代','60代'], ['70代','70代'],['非公開','非公開']]%></td> <!--ageをinteger型じゃなくてstring型にして['20代', "20代"]でもいい-->
-      <tr>
-        <td><%=f.label :gender,"性別"%></td>
-        <td><%= f.radio_button :gender, "男性" %>男</td>
-        <td><%= f.radio_button :gender, "女性" %>女</td>
-        <td><%= f.radio_button :gender, "非公開" %>非公開</td>
-      </tr>
-      <tr>
-        <td><%=f.label :email,"メールアドレス" %></td>
-        <td colspan="2"><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
-      </tr>
-      <tr>
-        <td><%= f.label :password, "パスワード(#{@minimum_password_length}文字以上)" %></td>
-        <td colspan="2"><%= f.password_field :password, autocomplete: "new-password" %></td>
-      </tr>
-      <tr>
-        <td><%= f.label :password_confirmation, "パスワード(確認用)" %></td>
-        <td colspan="2"><%= f.password_field :password_confirmation, autocomplete: "new-password" %></td>
-      </tr>
-      <tr>
-        <td></td>
-        <td colspan="2"><%= f.submit "新規登録"%></td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="container">
+    <div class="row mb-3">
+      <div class="col-3">
+        <%=f.label :nickname,"ニックネーム"%>
+      </div>
+      <div class="col-9">
+        <%=f.text_field :nickname%>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-3">
+        <%=f.label :age,"年齢"%>
+      </div>
+      <div class="col-9">
+        <%= f.select :age, [['10代','10代'], ['20代', '20代'], ['30代', '30代'], ['40代','40代'], ['50代','50代'], ['60代','60代'], ['70代','70代'],['非公開','非公開']]%> <!--ageをinteger型じゃなくてstring型にして['20代', "20代"]でもいい-->
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-3">
+        <%=f.label :gender,"性別"%>
+      </div>
+      <div class="col-9">
+        <%= f.radio_button :gender, "男性" %>男
+        <%= f.radio_button :gender, "女性", class: "ml-3" %>女
+        <%= f.radio_button :gender, "非公開" %>非公開
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-3">
+        <%=f.label :email,"メールアドレス" %>
+      </div>
+      <div class="col-9">
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-3">
+        <%= f.label :password, "パスワード(#{@minimum_password_length}文字以上)" %>
+      </div>
+      <div class="col-9">
+        <%= f.password_field :password, autocomplete: "new-password" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-3">
+        <%= f.label :password_confirmation, "パスワード(確認用)" %>
+      </div>
+      <div class="col-9">
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      </div>
+    </div>
+  <%= f.submit "新規登録"%>
 <%end%>
 
 

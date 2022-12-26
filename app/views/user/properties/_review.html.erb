@@ -1,90 +1,11 @@
-<% if review.atmosphere == 5 %>
-  <h6>住民の雰囲気</h6> 良い<%= image_tag "1.jpg" %>良くない<br>
-<% elsif review.atmosphere == 4 %>
-  <h6>住民の雰囲気</h6> 良い<%= image_tag "2.jpg" %>良くない<br>
-<% elsif review.atmosphere == 3 %>
-  <h6>住民の雰囲気</h6> 良い<%= image_tag "3.jpg" %>良くない<br>
-<% elsif review.atmosphere == 2 %>
-  <h6>住民の雰囲気</h6> 良い<%= image_tag "4.jpg" %>良くない<br>
-<% elsif review.atmosphere == 1 %>
-  <h6>住民の雰囲気</h6> 良い<%= image_tag "5.jpg" %>良くない<br>
-<% end %>
+<div class="container">
 
-<% if review.distance_sense == 5 %>
-  <h6>住人同士の距離感</h6> 親しい<%= image_tag "1.jpg" %>挨拶程度<br>
-<% elsif review.distance_sense == 4 %>
-  <h6>住人同士の距離感</h6> 親しい<%= image_tag "2.jpg" %>挨拶程度<br>
-<% elsif review.distance_sense == 3 %>
-  <h6>住人同士の距離感</h6> 親しい<%= image_tag "3.jpg" %>挨拶程度<br>
-<% elsif review.distance_sense == 2 %>
-  <h6>住人同士の距離感</h6> 親しい<%= image_tag "4.jpg" %>挨拶程度<br>
-<% elsif review.distance_sense == 1 %>
-  <h6>住人同士の距離感</h6> 親しい<%= image_tag "5.jpg" %>挨拶程度<br>
-<% end %>
+<%=render 'review_meter', label: "住民の雰囲気", better: "良い",  point: review.atmosphere, worth: "良くない" %>
+<%=render 'review_meter', label: "住人同士の距離感", better: "親しい",  point: review.distance_sense, worth: "あいさつ程度" %>
+<%=render 'review_meter', label: "共有部の清潔さ", better: "清潔",  point: review.cleanliness_shared, worth: "不衛生" %>
+<%=render 'review_meter', label: "騒音", better: "静か",  point: review.noise, worth: "騒がしい" %>
+<%=render 'review_meter', label: "ネット速度", better: "早い",  point: review.net_speed, worth: "遅い" %>
+<%=render 'review_meter', label: "シャワーの水圧", better: "強い",  point: review.shower, worth: "弱い" %>
+<%=render 'review_meter', label: "パーティーやイベントの開催", better: "頻繁にある",  point: review.event, worth: "少ない" %>
 
-<% if review.cleanliness_shared == 5 %>
-  <h6>共有部の清潔さ</h6> 清潔<%= image_tag "1.jpg" %>不衛生<br>
-<% elsif review.cleanliness_shared == 4 %>
-  <h6>共有部の清潔さ</h6> 清潔<%= image_tag "2.jpg" %>不衛生<br>
-<% elsif review.cleanliness_shared == 3 %>
-  <h6>共有部の清潔さ</h6> 清潔<%= image_tag "3.jpg" %>不衛生<br>
-<% elsif review.cleanliness_shared == 2 %>
-  <h6>共有部の清潔さ</h6> 清潔<%= image_tag "4.jpg" %>不衛生<br>
-<% elsif review.cleanliness_shared == 1 %>
-  <h6>共有部の清潔さ</h6> 清潔<%= image_tag "5.jpg" %>不衛生<br>
-<%end%>
-<% if review.congestion_shared == 5 %>
-  <h6>水回りの混雑具合</h6> いつでも使える<%= image_tag "1.jpg" %>良く混雑している<br>
-<% elsif review.congestion_shared == 4 %>
-  <h6>水回りの混雑具合</h6> いつでも使える<%= image_tag "2.jpg" %>良く混雑している<br>
-<% elsif review.congestion_shared == 3 %>
-  <h6>水回りの混雑具合</h6> いつでも使える<%= image_tag "3.jpg" %>良く混雑している<br>
-<% elsif review.congestion_shared == 2 %>
-  <h6>水回りの混雑具合</h6> いつでも使える<%= image_tag "4.jpg" %>良く混雑している<br>
-<% elsif review.congestion_shared == 1 %>
-  <h6>水回りの混雑具合</h6> いつでも使える<%= image_tag "5.jpg" %>良く混雑している<br>
-<%end%>
-<% if review.noise == 5 %>
-  <h6>騒音</h6> 静か<%= image_tag "1.jpg" %>騒がしい<br>
-<% elsif review.noise == 4 %>
-  <h6>騒音</h6> 静か<%= image_tag "2.jpg" %>騒がしい<br>
-<% elsif review.noise == 3 %>
-  <h6>騒音</h6> 静か<%= image_tag "3.jpg" %>騒がしい<br>
-<% elsif review.noise == 2 %>
-  <h6>騒音</h6> 静か<%= image_tag "4.jpg" %>騒がしい<br>
-<% elsif review.noise == 1 %>
-  <h6>騒音</h6> 静か<%= image_tag "5.jpg" %>騒がしい<br>
-<%end%>
-<% if review.net_speed == 5 %>
-  <h6>ネット速度</h6> 速い<%= image_tag "1.jpg" %>遅い<br>
-<% elsif review.net_speed == 4 %>
-  <h6>ネット速度</h6> 速い<%= image_tag "2.jpg" %>遅い<br>
-<% elsif review.net_speed == 3 %>
-  <h6>ネット速度</h6> 速い<%= image_tag "3.jpg" %>遅い<br>
-<% elsif review.net_speed == 2 %>
-  <h6>ネット速度</h6>速い<%= image_tag "4.jpg" %>遅い<br>
-<% elsif review.net_speed == 1 %>
-  <h6>ネット速度</h6速い<%= image_tag "5.jpg" %>遅い<br>
-<%end%>
-<% if review.shower == 5 %>
-  <h6>シャワーの水圧</h6> 強い<%= image_tag "1.jpg" %>弱い<br>
-<% elsif review.shower == 4 %>
-  <h6>シャワーの水圧</h6> 強い<%= image_tag "2.jpg" %>弱い<br>
-<% elsif review.shower == 3 %>
-  <h6>シャワーの水圧</h6>　強い<%= image_tag"3.jpg" %>弱い<br>
-<% elsif review.shower == 2 %>
-  <h6>シャワーの水圧</h6> 強い<%= image_tag "4.jpg" %>弱い<br>
-<% elsif review.shower == 1 %>
-  <h6>シャワーの水圧</h6> 強い<%= image_tag "5.jpg" %>弱い<br>
-<%end%>
-<% if review.event == 5 %>
-  <h6>パーティーやイベントの開催</h6>　頻繁にある<%= image_tag "1.jpg" %>少ない<br>
-<% elsif review.event == 4 %>
-  <h6>パーティーやイベントの開催</h6>　頻繁にある<%= image_tag "2.jpg" %>少ない<br>
-<% elsif review.event == 3 %>
-　<h6>パーティーやイベントの開催</h6>　頻繁にある<%= image_tag "3.jpg" %>少ない<br>
-<% elsif review.event == 2 %>
-  <h6>パーティーやイベントの開催</h6>　頻繁にある<%= image_tag "4.jpg" %>少ない<br>
-<% elsif review.event == 1 %>
-  <h6>パーティーやイベントの開催</h6>　頻繁にある<%= image_tag "5.jpg" %>少ない<br>
-<%end%>
+</div>

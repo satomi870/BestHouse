@@ -7,8 +7,6 @@ ja:
         age: "年齢"
         email: "メールアドレス"
         password: "パスワード"
-        password_confirmation: "パスワード(確認用)"
-        current_password: "現在のパスワード"
       review:
         title: 「タイトル」
         text: 「本文」
@@ -34,6 +32,10 @@ ja:
         relation: 「関係性」
       rule:
         body: 「ハウスルール」
+    # errors:
+    #   models:
+    #     attributes:
+    #       name
   enums:
     review:
       relation:
@@ -91,5 +93,7 @@ ja:
     format: "%{attribute}%{message}"
     messages:
       blank: を入力してください
+      too_short: が短いです
+      too_long: が長いです
 
 
