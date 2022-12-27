@@ -37,83 +37,23 @@
 　　　　</div>
 
         <div class= "row text-center">
-          <%=render 'review_meter_input',label: "住民の雰囲気", better: "良い", f: f, worth: "良くない",target: :atmosphere %>
+          <%=render '/user/properties/review_meter_input',label: "住民の雰囲気", better: "良い", f: f, worth: "良くない",target: :atmosphere %>
+          <%=render '/user/properties/review_meter_input',label: "共有部の清潔さ", better: "清潔", f: f, worth: "不衛生",target: :distance_sense %>
+          <%=render '/user/properties/review_meter_input',label: "水回りの混雑具合", better: "常に使える", f: f, worth: "混雑している",target: :cleanliness_shared %>
+          <%=render '/user/properties/review_meter_input',label: "騒音", better: "静か", f: f, worth: "騒がしい",target: :congestion_shared %>
+          <%=render '/user/properties/review_meter_input',label: "共有部の清潔さ", better: "清潔", f: f, worth: "不衛生",target: :noise %>
+          <%=render '/user/properties/review_meter_input',label: "ネット速度", better: "速い", f: f, worth: "遅い",target: :net_speed %>
+          <%=render '/user/properties/review_meter_input',label: "シャワーの水圧", better: "強い", f: f, worth: "弱い",target: :shower %>
+          <%=render '/user/properties/review_meter_input',label: "パーティーやイベントの開催", better: "頻繁にある", f: f, worth: "少ない",target: :event %>
 
-          <div class="col-4">
-            <h4 class="mt-5">住人同士の距離感</h4>
-            親しい
-            <%= f.radio_button :distance_sense, '5' %>
-            <%= f.radio_button :distance_sense, '4' %>
-            <%= f.radio_button :distance_sense, '3' %>
-            <%= f.radio_button :distance_sense, '2' %>
-            <%= f.radio_button :distance_sense, '1' %>
-            挨拶程度
-          </div>
-          <div class="col-4">
-            <h4 class="mt-5">共有部の清潔さ</h4>
-            清潔
-            <%= f.radio_button :cleanliness_shared,'5' %>
-            <%= f.radio_button :cleanliness_shared,'4' %>
-            <%= f.radio_button :cleanliness_shared,'3' %>
-            <%= f.radio_button :cleanliness_shared,'2' %>
-            <%= f.radio_button :cleanliness_shared,'1' %>
-            不衛生
-          </div>
+
+
+
+
+
+
         </div>
-        <div class= "row text-center">
-          <div class="col-4">
-            <h4 class="mt-5">水回りの混雑具合</h4>
-            常に使える
-            <%= f.radio_button :congestion_shared, '5' %>
-            <%= f.radio_button :congestion_shared, '4' %>
-            <%= f.radio_button :congestion_shared, '3' %>
-            <%= f.radio_button :congestion_shared, '2' %>
-            <%= f.radio_button :congestion_shared, '1' %>
-          　混雑している
-        　</div>
-          <div class="col-4">
-            <h4 class="mt-5">騒音</h4>
-            静か
-            <%= f.radio_button :noise,'5' %>
-            <%= f.radio_button :noise,'4' %>
-            <%= f.radio_button :noise,'3' %>
-            <%= f.radio_button :noise,'2' %>
-            <%= f.radio_button :noise,'1' %>
-            騒がしい
-          </div>
-          <div class="col-4">
-            <h4 class="mt-5">ネット速度</h4>
-            速い
-            <%= f.radio_button :net_speed,'5' %>
-            <%= f.radio_button :net_speed,'4' %>
-            <%= f.radio_button :net_speed,'3' %>
-            <%= f.radio_button :net_speed,'2' %>
-            <%= f.radio_button :net_speed,'1' %>
-            遅い
-          </div>
-        </div>
-        <div class= "row text-center">
-          <div class="col-6">
-            <h4 class="mt-5">シャワーの水圧</h4>
-            強い
-            <%= f.radio_button :shower,'5' %>
-            <%= f.radio_button :shower,'4' %>
-            <%= f.radio_button :shower,'3' %>
-            <%= f.radio_button :shower,'2' %>
-            <%= f.radio_button :shower,'1' %>
-            遅い
-          </div>
-          <div class="col-6">
-            <h4 class="mt-5">パーティーやイベントの開催</h4>
-            頻繁にある
-            <%= f.radio_button :event,'5' %>
-            <%= f.radio_button :event,'4' %>
-            <%= f.radio_button :event,'3' %>
-            <%= f.radio_button :event,'2' %>
-            <%= f.radio_button :event,'1' %>
-            少ない
-          </div>
-        </div>
+
 
         <div class="text-center mt-5">
           <h3>タイトル<span class="h6">(1~100文字)</span></h3>
@@ -325,5 +265,22 @@ if(qLength !== "0") {
 }
 // テキストを追加する
 tab4.textContent += "(" + qLength + ")"
+</script>
+
+
+
+<script>
+// raty.jsの初期化
+window.raty = function(elem,opt) {
+    if (elem == null) return;
+    let raty =  new Raty(elem,opt)
+    raty.init();
+    return raty;
+}
+
+Rails.start()
+ActiveStorage.start()
+
+
 
 </script>

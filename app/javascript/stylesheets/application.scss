@@ -1,6 +1,8 @@
 @import '~bootstrap/scss/bootstrap';
 
 .name{
+  display: inline-block;
+  font-size: 30px;
   position: relative;
   color: #6eb0f9;
   line-height: 1.4;
@@ -160,6 +162,7 @@ img {
     background: #FFF;
     border: solid 3px #6091d3;/*線*/
     border-radius: 10px;/*角の丸み*/
+
 
 }
 

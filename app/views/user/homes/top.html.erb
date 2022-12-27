@@ -124,7 +124,7 @@
 <div class="d-flex">
   <% if @properties_atmosphere.present? %>
     <% @properties_atmosphere.each do |property| %>
-      <div class="mr-2 popular ">
+      <div class="mr-2 popular">
         <%=link_to property_path(property.id) do%>
           <%= image_tag property.images[0],size: '188x130' %>
           <p class="top_property"><%= property.property_name %></p>
@@ -133,14 +133,14 @@
       </div>
     <%end%>
   <%else%>
-  <div class="text-center">
-    <p>まだレビューがありません</p>
+
+    <p class="text-center">まだレビューがありません</p>
   </div>
   <%end%>
 </div>
 
 <h4 class="text-center mt-5">騒音が少ない物件</h4>
-<div class="d-flex">
+<div class="d-flex justify-content-center">
   <% if @properties_noise.present? %>
     <%  @properties_noise.each do |property| %>
       <div class="mr-2 popular ">

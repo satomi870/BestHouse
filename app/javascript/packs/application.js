@@ -13,7 +13,7 @@ import "../stylesheets/application"
 import "script.js"
 import Raty from "raty.js"
 
-// raty.jsの初期化
+// reaty.jsの初期化
 window.raty = function(elem,opt) {
     if (elem == null) return;
     let raty =  new Raty(elem,opt)
@@ -23,41 +23,5 @@ window.raty = function(elem,opt) {
 
 Rails.start()
 ActiveStorage.start()
-
-
-let lowerSelect = document.getElementById('lower_rent')
-let upperSelect = document.getElementById('upper_rent')
-
-if (lowerSelect) {
-  lowerSelect.addEventListener('change', function() {
-      let lowerRent = lowerSelect.selectedOptions[0].value;
-      let upperRent = upperSelect.selectedOptions[0].value;
-      if (!isValidRentRange(lowerRent, upperRent)) {
-        alert('下限が上限を超えているので入力し直してください')
-        //好きな処理を描く
-      }
-  })
-}
-
-if (upperSelect) {
-  upperSelect.addEventListener('change', function() {
-      let lowerRent = lowerSelect.selectedOptions[0].value;
-      let upperRent = upperSelect.selectedOptions[0].value;
-      if (!isValidRentRange(lowerRent, upperRent)) {
-        alert('下限が上限を超えているので入力し直してください')
-      }
-  })
-}
-
-function isValidRentRange(lowerRent, upperRent) {
-  if (Number(upperRent) === 0) {
-    return true
-  }
-  return Number(lowerRent)< Number(upperRent);
-}
-
-
-
-
 
 
