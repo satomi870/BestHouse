@@ -59,7 +59,7 @@
           <h3>タイトル<span class="h6">(1~100文字)</span></h3>
           <%= f.text_field :title,:size=>"60x10" %>
           <h3 class="mt-3">本文<span class="h6">(10文字~1000文字)</span></h3>
-          <%= f.text_area :text,:size=>"60x10"%>
+          <%= f.text_area :body,:size=>"60x10"%>
         </div>
 
         <%#= f.hidden_field :relation,value: @review_relation.relation %>
@@ -84,9 +84,29 @@
 
       <div class="coordination mb-5">
         <h3>総合評価</h3>
-        <div class="mb-5">
-          <div id="show_raty" data-avg-score=<%= @avg_score %> ></div>
-        </div>
+
+        <% unless @avg_atmosphere == 0 && @avg_distance_sence == 0 && @avg_cleanliness_shared == 0 && @avg_noise == 0 && @avg_net_spead == 0 && @avg_shower == 0 && @avg_event == 0 %>
+          <div class="mb-5">
+            <div id="show_raty" data-avg-score=<%= @avg_score %> ></div>
+          </div>
+
+          <%= render '/user/properties/review_avg',
+            avg_atmosphere: @avg_atmosphere,
+            avg_distance_sence: @avg_distance_sence,
+            avg_cleanliness_shared: @avg_cleanliness_shared,
+            avg_noise: @avg_noise,
+            avg_net_spead: @avg_net_spead,
+            avg_shower: @avg_shower,
+            avg_event: @avg_event
+          %>
+
+        <% else %>
+
+          <div class="mb-5">
+            <h5>レビューがありません。</h5>
+          </div>
+
+        <% end %>
 
         <% if @avg_atmosphere == 5 %>
           <h6>住民の雰囲気</h6> 良い<%= image_tag "1.jpg" %>良くない<br>
@@ -184,7 +204,7 @@
             <%end%>
           </div>
         </div>
-        <p class="mb-4"><%=review.text%></p>
+        <p class="mb-4"><%=review.body%></p>
 
         <%= render '/user/properties/review', review: review %>
 
@@ -240,7 +260,7 @@
             <%=f.submit 'シェアする',class: "btn"%>
           <%end%>
       </div>
-    </div>
+
 　　　　<div class="rule rule01">
 　　　　  <h3 class="text-center font-weight-bold">ハウスルール</h3>
         <%@rules.each do |rule|%>
@@ -249,6 +269,7 @@
         <%end%>
         </div>
 　　</div>
+　</div>
 　</div>
 </div>
 

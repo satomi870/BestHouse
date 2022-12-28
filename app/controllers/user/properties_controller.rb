@@ -63,7 +63,7 @@ class User::PropertiesController < ApplicationController
 
       #@results = @ransack.result
 
-    
+
 
     #検索条件を検索希望一覧画面で表示
     @tag_list = Tag.where(id: @tags)
@@ -95,7 +95,7 @@ class User::PropertiesController < ApplicationController
 
 
     @tags=Tag.all
-    
+
     basic = Category.find_by(category: "basic") #カテゴリわけwhereを使うパターンもある　rails 検索　やり方
     @basic_tags=basic.tags
 
@@ -122,6 +122,7 @@ class User::PropertiesController < ApplicationController
     .or(Property.where("address LIKE ?", "%#{params[:keyword]}%"))
     .or(Property.where("rent LIKE ?", "%#{params[:keyword]}%"))
     .or(Property.where("property_name LIKE ?", "%#{params[:keyword]}%"))
+
 
 
     @keyword = params[:keyword]

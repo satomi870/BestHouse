@@ -12,6 +12,8 @@ import "bootstrap";
 import "../stylesheets/application"
 import "script.js"
 import Raty from "raty.js"
+const images = require.context('../images', true)
+const imagePath = (name) => images(name, true)
 
 // reaty.jsの初期化
 window.raty = function(elem,opt) {

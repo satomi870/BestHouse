@@ -1,7 +1,7 @@
 <%@reviews.each do |review|%>
   <p><%=review.property.property_name%></p>
   <p><%=review.title%></p>
-  <p><%=review.text%></p>
+  <p><%=review.body%></p>
 
 　<% if review.atmosphere == 0 %>
     住民の雰囲気 良い<%= image_tag "1.jpg" %>良くない<br>

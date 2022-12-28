@@ -72,6 +72,15 @@
   line-height: 2.5;
 }
 
+
+
+
+
+
+
+
+
+
 #areamap, #areamap_detail {
   width: 900px;
   height: 600px;
@@ -87,7 +96,7 @@ ul {
 }
 
 ul#areamap li a {
-  color: white;
+  color: blue;
 }
 
 ul#areamap li a:hover {

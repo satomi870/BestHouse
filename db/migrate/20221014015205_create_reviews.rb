@@ -16,7 +16,7 @@ class CreateReviews < ActiveRecord::Migration[6.1]
       t.integer :event,                 null: false
       t.string  :repeat,                null: false
       t.string  :title,                 null: false
-      t.string  :text,                  null: false
+      t.string  :body,                  null: false
 
       t.timestamps
     end

@@ -189,7 +189,7 @@ ActiveRecord::Schema.define(version: 2022_12_24_064832) do
     t.integer "event", null: false
     t.string "repeat", null: false
     t.string "title", null: false
-    t.string "text", null: false
+    t.string "body", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "relation_detail"

@@ -67,11 +67,14 @@
         <% if @area_group_list.blank? && @tag_list && @area_list && @display_lower_amount && @display_upper_amount %>
           <% array = @tag_list.pluck(:name) + @area_list.pluck(:area_name) + [rent_range_text(@display_lower_amount.to_i, @display_upper_amount.to_i)] %>
 
+
           <span style="color:#1E90FF"><%= search_condition_text(array) %></span>
         <%elsif @area_group_list.blank? && @tag_list.present? && @area_list.present? %>
           <% array = @tag_list.pluck(:name) + @area_list.pluck(:area_name) %>
 
+
           <span style="color:#1E90FF"><%= search_condition_text(array) %></span>
+
         <% end %>
 
 
@@ -80,13 +83,18 @@
             <span style="color:#1E90FF"><%#= area_name.area_name %></span>
           <%# end %>
         <%#end%>
-        <% if @area_group_list %>
+        <%# byebug %>
+        <% if @area_group_list.any?%>
           <% @area_group_list.each do |area_group_name| %>
             <span style="color:#1E90FF"><%= area_group_name.area_group_name %>のシェアハウス</span>
 
           <% end %>
         <%elsif @keyword%>
-          <span style="color:#1E90FF"><%= @keyword %>のシェアハウス</span>
+          <%if @keyword.present?%>
+            <span style="color:#1E90FF"><%= @keyword %>のシェアハウス</span>
+          <%end%>
+        <%elsif @tag_list.any?%>
+          <%=@tag_list.pluck(:name).join(',') %>のシェアハウス
 
         <%end%>
         <%#unless @display_lower_amount.to_i.zero? && @display_upper_amount.to_i.zero? %>

@@ -14,7 +14,7 @@ class Review < ApplicationRecord
    #enum shower: { excellent: 0, very_good: 1, good: 2, average: 3, poor: 4 }, _prefix: true
    #enum event: { excellent: 0, very_good: 1, good: 2, average: 3, poor: 4 }, _prefix: true
    validates :title, presence: true, length: { in: 1..100}
-   validates :text, presence: true, length: { in: 10..1000 }
+   validates :body, presence: true, length: { in: 10..1000 }
    validates :relation, presence: true
    validates :atmosphere, presence: true
    validates :cleanliness_shared, presence: true

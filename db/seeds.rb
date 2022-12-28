@@ -185,6 +185,14 @@ propertyE.images.attach(io: File.open(Rails.root.join('app/assets/images/images/
     #property.avatar.attach(io: File.open(Rails.root.join('app/assets/images/logo.jpg')),
                   #filename: 'logo.jpg')
 
+propertyF=Property.create!(
+    area_id: area_shinagawa.id,area_group_id: area_group_kamata.id,property_name:'物件F', address:'東京都', access:'品川駅 徒歩4分', rent: 30000, condition:'男女どちらともOK', vacancy:6, introduction:'主要駅までのアクセス良好です', common_service_fee:15000,
+    room_facility:'エアコン・ベッド・クローゼット、ミニ冷蔵庫',
+    living:'テレビ、ソファ、テーブル、DVD', kitchen:'電子レンジ,冷蔵庫,炊飯器', bath:'シャワールーム 2室',toilet:'洋式3室',wash_room:'3台',washing_machine:'洗濯機 2台',cleaning_support:'クリーンスタッフが掃除', event:'イベントあり',breadth:'4.5畳', latitude: '35.71819680517442', altitude: '139.7018533781967')
+propertyF.images.attach(io: File.open(Rails.root.join('app/assets/images/images/house5.jpg')),filename: 'house5.jpg')
+    #property.avatar.attach(io: File.open(Rails.root.join('app/assets/images/logo.jpg')),
+                  #filename: 'logo.jpg')
+
 
 category_basic = Category.create!(
   category:'basic'
@@ -472,4 +480,9 @@ TagProperty.create!(
 TagProperty.create!(
   property_id: propertyE.id,
   tag_id: tag_many_event.id
+  )
+
+TagProperty.create!(
+  property_id: propertyF.id,
+  tag_id: tag_cook.id
   )

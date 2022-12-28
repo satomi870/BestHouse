@@ -104,7 +104,7 @@
 <div class="text-center mt-5 mb-3">
   <span class="under">人気物件</span>
 </div>
-<div class="d-flex">
+<div class="d-flex justify-content-center">
   <% @properties_favorites.each do |property| %>
     <div class="mr-2 popular mb-5">
       <%=link_to property_path(property.id) do%>
@@ -121,7 +121,7 @@
 </div>
 
 <h4 class="text-center mt-5">住民の雰囲気がいい物件</h4>
-<div class="d-flex">
+<div class="d-flex justify-content-center">
   <% if @properties_atmosphere.present? %>
     <% @properties_atmosphere.each do |property| %>
       <div class="mr-2 popular">
@@ -133,9 +133,7 @@
       </div>
     <%end%>
   <%else%>
-
-    <p class="text-center">まだレビューがありません</p>
-  </div>
+    <p>まだレビューがありません</p>
   <%end%>
 </div>
 
@@ -158,7 +156,7 @@
 
 
 <h4 class="text-center mt-5">水回りの混雑が少ない物件</h4>
-<div class="d-flex">
+<div class="d-flex justify-content-center">
   <% if @properties_congestion_shared.present? %>
     <% @properties_congestion_shared.each do |property| %>
       <div class="mr-2 popular ">
@@ -175,7 +173,7 @@
 </div>
 
 <h4 class="text-center mt-5">共有部が清潔な物件</h4>
-<div class="d-flex">
+<div class="d-flex justify-content-center">
   <% if @properties_cleanliness_shared.present? %>
     <% @properties_cleanliness_shared.each do |property| %>
       <div class="mr-2 popular ">
@@ -187,9 +185,7 @@
       </div>
     <%end%>
   <%else%>
-  <div class="text-center">
     <p>まだレビューがありません</p>
-  </div>
   <%end%>
 </div>
 </div>
