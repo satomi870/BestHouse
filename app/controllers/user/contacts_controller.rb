@@ -9,8 +9,15 @@ class User::ContactsController < ApplicationController
     @contact = Contact.new(contact_params)
     @contact.user_id = current_user.id
     @contact.property_id = params[:property_id]
-    @contact.save
+    if  @contact.save
+      flash[:notice] = "お問い合せの投稿が完了しました!"
     redirect_to root_path
+  else
+    @property=Property.find(params[:property_id])
+    render :new
+  end
+
+
 
   end
 

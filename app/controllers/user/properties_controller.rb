@@ -63,11 +63,7 @@ class User::PropertiesController < ApplicationController
 
       #@results = @ransack.result
 
-    basic = Category.find_by(category: "basic") #カテゴリわけwhereを使うパターンもある　rails 検索　やり方
-    @basic_tags=basic.tags
-
-    room = Category.find_by(category: "room")
-    @room_tags=room.tags
+    
 
     #検索条件を検索希望一覧画面で表示
     @tag_list = Tag.where(id: @tags)
@@ -99,6 +95,12 @@ class User::PropertiesController < ApplicationController
 
 
     @tags=Tag.all
+    
+    basic = Category.find_by(category: "basic") #カテゴリわけwhereを使うパターンもある　rails 検索　やり方
+    @basic_tags=basic.tags
+
+    room = Category.find_by(category: "room")
+    @room_tags=room.tags
 
     surrounding = Category.find_by(category: "surrounding")
     @surrounding_tags=surrounding.tags

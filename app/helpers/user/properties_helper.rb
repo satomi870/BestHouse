@@ -15,4 +15,5 @@ module User::PropertiesHelper
   def rent_range_text(lower_rent, upper_rent)
     lower_rent_text(lower_rent) + '~' + upper_rent_text(upper_rent)
   end
+
 end

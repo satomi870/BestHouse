@@ -1,3 +1,4 @@
+
 <%= form_with model: @comment_comment, url: comment_comment_comments_path(@comment_id) do |f|  %>
   <%= f.text_field :body %>
   <%= f.select :relation, [['住人','resident'],['元住人','former_resident'],['入居検討者','kentosya'], ['入居予定者','yoteisya'], ['周辺住人','syuhenjunin'], ['住人の知人','chizin'], ['大家さん','oya'], ['不動産関係者','kankeisya'], ['その他','sonota']],{prompt: '選択してください'} %>

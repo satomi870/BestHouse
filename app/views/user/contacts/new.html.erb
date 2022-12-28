@@ -1,3 +1,4 @@
+<%= render '/user/properties/error', model: @contact%>
 <%= form_with model: @contact, url: property_contacts_path(@property.id) do |f| %>
    <table>
     <thead>
@@ -22,24 +23,24 @@
       </tr>
        <tr>
         <td>必須 <%=f.label :gender,"性別"%></td>
-        <td><%= f.radio_button :gender, "男性" %>男</td>
-        <td><%= f.radio_button :gender, "女性" %>女</td>
+        <td><%= f.radio_button :gender, "男性" %>男性</td>
+        <td><%= f.radio_button :gender, "女性" %>女性</td>
       </tr>
       <tr>
         <td>必須 <%=f.label :age,"年齢"%></td>
-        <td colspan="2"><%= f.text_field :age%></td> <!--ageをinteger型じゃなくてstring型にして['20代', "20代"]でもいい-->
+        <td colspan="2"><%= f.text_field :age, class: "age"%>歳</td>
       <tr>
         <td>必須 <%=f.label :nationality,"国籍"%></td>
-        <td><%= f.select :nationality, [['日本','日本'], ['日本以外','日本以外']]  %></td> <!--ageをinteger型じゃなくてstring型にして['20代', "20代"]でもいい-->
-        <td><%= f.text_field :nationality %></td>
+        <td><%= f.radio_button :nationality, "日本" %>日本</td>
+        <td><%= f.radio_button :nationality, "日本以外" %>日本以外</td>
       <tr>
       <tr>
         <td>必須 <%=f.label :email,"E_mail" %></td>
-        <td colspan="2"><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
+        <td colspan="2"><%= f.email_field :email, autofocus: true, autocomplete: "email" , placeholder: "例）info@besthouse.jp"%></td>
       </tr>
       <tr>
         <td>任意 <%=f.label :telephone_number,"電話番号"%></td>
-        <td colspan="2"><%=f.text_field :telephone_number%></td>
+        <td colspan="2"><%=f.text_field :telephone_number , placeholder: "例）08012345678"%></td>
       </tr>
       <tr>
         <td>任意 <%=f.label :address,"現住所"%></td>
@@ -59,7 +60,7 @@
       <tr>
       <tr>
         <td>必須 <%=f.label :contact,"お問い合わせ内容"%></td>
-        <td colspan="2"><%=f.text_area :contact%></td>
+        <td colspan="2"><%=f.text_area :contact,:size=>"60x10"%></td>
       </tr>
       <tr>
         <td> <%= f.submit "送信"%></td>
