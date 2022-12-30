@@ -33,6 +33,10 @@ area_group_ueno = AreaGroup.create!(
   area_group_name:'上野 浅草 秋葉原'
   )
 
+area_group_kitasenju = AreaGroup.create!(
+  area_group_name:'北千住 亀有 葛西'
+  )
+
 area_group_other = AreaGroup.create!(
   area_group_name:'23区外'
   )
@@ -51,10 +55,12 @@ area_suginami = Area.create!(
   area_name:'杉並区',
   area_group_id: area_group_nakano.id
   )
+
 area_nakano = Area.create!(
   area_name:'中野区',
   area_group_id: area_group_nakano.id
   )
+
 area_shibuya = Area.create!(
   area_name:'渋谷区',
   area_group_id: area_group_ebisu.id
@@ -104,15 +110,15 @@ area_daito = Area.create!(
   )
 area_arakawa = Area.create!(
   area_name:'荒川区',
-  area_group_id: area_group_ueno.id
+  area_group_id: area_group_kitasenju.id
   )
 area_adachi = Area.create!(
   area_name:'足立区',
-  area_group_id: area_group_ueno.id
+  area_group_id: area_group_kitasenju.id
   )
 area_katushika = Area.create!(
   area_name:'葛飾区',
-  area_group_id: area_group_ueno.id
+  area_group_id: area_group_kitasenju.id
   )
 area_sumida = Area.create!(
   area_name:'墨田区',
@@ -124,7 +130,7 @@ area_kouto = Area.create!(
   )
  area_edogawa = Area.create!(
   area_name:'江戸川区',
-  area_group_id: area_group_ueno.id
+  area_group_id: area_group_kitasenju.id
   )
 area_toshima = Area.create!(
   area_name:'豊島区',

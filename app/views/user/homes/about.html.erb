@@ -2,8 +2,8 @@
 
 <%= form_with  url: search_path, method: :get do |f|%>
 
-  <div class="text-center mt-5">
-    <h3>エリアを選ぼう</h3>
+  <div class="text-center">
+    <h3 class="area">エリアを選ぼう</h3>
 
     <ul id="areamap_detail">
       <%= f.collection_check_boxes :area_id, Area.all, :id, :area_name %>
@@ -144,7 +144,7 @@
     </div>
   <!--</div>-->
 
-  <div class="text-center mt-4">
+  <div class="text-center mt-5">
     <h3><%=f.submit 'この条件で検索', class: "btn"%></h3>
   </div>
 

@@ -106,20 +106,58 @@
 
 
           <h2><%=property.property_name%></h2>
-         <%=image_tag property.images[0],size: '300x200' %>
+         <%=image_tag property.images[0],size: '300x212' %>
         </div>
 
         <div class="col-7 mt-5">
-          <table class="content" width="400" height="200"border="1">
-            <tr><th bgcolor="#75A9FF">賃料</th><td><%=property.rent%></td></tr>
-            <tr><th bgcolor="#75A9FF">住所</th><td><%=property.address%></td></tr>
-            <tr><th bgcolor="#75A9FF">アクセス</th><td><%=property.access%></td></tr>
-            <tr><th bgcolor="#75A9FF">入居条件</th><td><%=property.condition%></td></tr>
-            <tr><th bgcolor="#75A9FF">空室</th></th><td><%=property.vacancy%></td></tr>
+<div class="point">
+    <div class="row mb-2">
+      <div class="col-3 mt-3">
+        <h6 class="point-font ml-2">賃料</h6>
+      </div>
+      <div class="col-9 mt-3 point-font">
+        <%=property.rent%>円
+      </div>
+    </div>
+    <div class="row mb-2">
+      <div class="col-3">
+        <h6 class="point-font ml-2">住所</h6>
+      </div>
+      <div class="col-9 point-font">
+        <%=property.address%>
+      </div>
+    </div>
+    <div class="row mb-2">
+      <div class="col-3">
+        <h6 class="point-font ml-2">アクセス</h6>
+      </div>
+      <div class="col-9 point-font">
+        <%=property.access%>
+      </div>
+    </div>
+    <div class="row mb-2">
+      <div class="col-3">
+        <h6 class="point-font ml-2">入居条件</h6>
+      </div>
+      <div class="col-9 point-font">
+       <%=property.condition%>
+      </div>
+    </div>
+    <div class="row mb-2">
+      <div class="col-3">
+        <h6 class="point-font ml-2">空室</h6>
+      </div>
+      <div class="col-9 point-font">
+        <%=property.vacancy%>
+      </div>
 
-         </table>
-        </div>
-        </div>
+    </div>
+    </div>
+    </div>
+
+
+  </div>
+
 
         <div class="row">
           <%property.tags.each do |tag|%>
@@ -131,7 +169,7 @@
           <%end%>
       </div>
       <div class="row">
-      <div class="col-6 mb-5 mt-3">
+      <div class="col-3 mb-5 mt-3">
       <%if user_signed_in? %>
          <%=link_to "詳細を見る",property_path(property.id), class: "btn"%>
        <%else%>
@@ -139,7 +177,7 @@
 
       <%end%>
      </div>
-      <div class="col-6 mt-3">
+      <div class="col-3 mt-3">
       <%if user_signed_in? %>
         <% if property.favorited_by?(current_user) %>
             <%= link_to property_favorites_path(property.id, 1), method: :delete, class: "btn" do %>

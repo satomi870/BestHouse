@@ -4,6 +4,7 @@ class User::PropertiesController < ApplicationController
   def search
     # 配列の中の空要素を取り除く
     #@area_groups = params[:area_group_name].reject(&:empty?)
+    #単独検索の場合
     if params[:from_top].present?
       @area_groups = params[:area_group_id]
       @areas = params[:area_id]
@@ -18,7 +19,7 @@ class User::PropertiesController < ApplicationController
       #     end
       #   end
       # end
-
+      #複数検索の場合
       @areas = []
       if params[:area_id].present?
         @areas = params[:area_id].reject(&:empty?)
