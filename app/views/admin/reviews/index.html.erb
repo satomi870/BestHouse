@@ -1,31 +1,26 @@
-<table>
-  <thead>
-    <th></th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </thead>
-  <tbody>
-  <% @reviews.each do |review| %>
-    <tr>
-      <td><%= review.property.property_name %></td>
-    </tr>
-    <tr>
-      <td><%= review.title %><%= link_to "削除", admin_review_path(review.id), method: :delete %>
+<h4 class="ml-3">レビュー一覧</h4>
+
+<% @reviews.each do |review| %>
+ <div class="container mt-5">
+    <div class="row mb-2">
+      <div class="col-6">
+        <h6><%= review.property.property_name %></h6>
+        <div class="writing">
+        <div class="mb-2"><%= review.title %></div>
+        <%=review.body %>
+        </div>
+      </div>
+      <div class="col-6">
+        <span class="mr-2"><%= link_to "削除", admin_review_path(review.id), method: :delete %></span>
         <%= link_to admin_user_path(review.user.id) do %>
           <%= review.user.nickname %>
         <%end%>
-      </td>
-    </tr>
-    <tr>
-      <td><%=review.text %></td>
-    </tr>
-  <%end%>
-  </tbody>
-</table>
+      </div>
+    </div>
+  </div>
+<%end%>
 
-
-
+<div class="ml-3"><%= link_to "ユーザー一覧" , admin_users_path %></div>
 
 
 

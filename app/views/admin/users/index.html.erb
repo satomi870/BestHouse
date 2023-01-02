@@ -1,43 +1,63 @@
- <h2>ユーザー一覧</h2>
-
- <table>
-   <thead>
-     <th>ユーザーID</th>
-     <th>ユーザー名</th>
-     <th>メールアドレス</th>
-     <th>ステータス</th>
-     <th>利用停止</th>
-   </thead>
-   <% @users.each do |user| %>
-   <tbody>
-     <tr>
-       <td><%= user.id %></td>
-       <td>
-         <%=link_to admin_user_path(user.id) do%>
+ <h4 class="ml-3">ユーザー一覧</h4>
+<% @users.each do |user| %>
+ <div class="container mt-5">
+    <div class="row mb-2">
+      <div class="col-3">
+        ユーザーID
+      </div>
+      <div class="col-9">
+        <%= user.id %>
+      </div>
+    </div>
+    <div class="row mb-2">
+      <div class="col-3">
+        ユーザー名
+      </div>
+      <div class="col-9">
+        <%=link_to admin_user_path(user.id) do%>
            <%=user.nickname%>
          <%end%>
-       </td>
-       <td><%= user.email %></td>
-       <td>
-         <% if user.is_deleted%>
+      </div>
+    </div>
+    <div class="row mb-2">
+      <div class="col-3">
+        メールアドレス
+      </div>
+      <div class="col-9">
+        <%= user.email %>
+      </div>
+    </div>
+    <div class="row mb-2">
+      <div class="col-3">
+        ステータス
+      </div>
+      <div class="col-9">
+        <% if user.is_deleted%>
            退会
          <%else%>
            有効
          <%end%>
-       </td>
-       <td>
+      </div>
+    </div>
+    <div class="row mb-2">
+      <div class="col-3">
+        利用可否
+      </div>
+      <div class="col-9">
          <% if user.is_active%>
            無効
          <%else%>
            有効
          <%end%>
-       </td>
-     </tr>
-   </tbody>
-   <%end%>
- </table>
+      </div>
+    </div>
+  </div>
+
+<%end%>
+
+
 
  <%= link_to "Q＆A一覧", admin_questions_path %>
  <%= link_to "レビュー一覧",admin_reviews_path %>
  <%= link_to "ハウスルール一覧",admin_rules_path %>
- <%= link_to "お問合わせ一覧",admin_contacts_path %>
+ <%= link_to "お問い合わせ一覧",admin_contacts_path %>

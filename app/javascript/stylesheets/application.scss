@@ -1,28 +1,32 @@
 @import '~bootstrap/scss/bootstrap';
-
+//サイト名
 .name{
   display: inline-block;
-  font-size: 30px;
+  font-size: 40px;
   position: relative;
-  color: #6eb0f9;
+  color: #4689FF;
   line-height: 1.4;
   -webkit-box-reflect: below -10px -webkit-linear-gradient(top,rgba(0,0,0,0),rgba(0,0,0,0) 10%,rgba(0, 0, 0, 0.6));
 }
 
+.flex-fill{
+  color: #5D99FF;
+}
+
 .register{
-  margin-left: 282px;
+  margin-left: 250px;
 }
 
 
 
 
 h3,h2,h4,h5{
-  color: #1E90FF;
+  color: #4689FF;
 
 }
 
 h6{
-  color: #1E90FF;
+  color: #4689FF;
   font-weight: bold;
 }
 
@@ -30,14 +34,6 @@ p{
   font-size: 16px;
 }
 
-th, td {
-  font-size:  15px;
-}
-
-th{
-  color: white;
-  width: 100px;
-}
 
 .wrapper{
   margin: 0 auto;
@@ -67,7 +63,7 @@ th{
   position: relative;
 }
 
-// topページ　スライド
+// topページ スライド
 .slick-slide {
   position: relative;
 }
@@ -120,7 +116,7 @@ th{
 
 .btn {
 
-    color: #1E90FF;
+    color: #4689FF;
     transition: 0.3s ease-in-out;
     font-weight: 600;
     background: #fcfcfc;
@@ -139,7 +135,7 @@ th{
     font-family: "Font Awesome 5 Free";
     font-weight: 900;
     margin-right: 8px;
-    color:  #1E90FF;
+    color:  #4689FF;
     opacity: 0.8;
     font-size: 1.3rem;
     transform: translateY(-1px);
@@ -160,9 +156,9 @@ th{
     //padding: 0.5em 1em;
     //margin: 2em 0;
     font-weight: bold;
-    color: #6091d3;/*文字色*/
+    color: #4689FF;/*文字色*/
     background: #FFF;
-    border: solid 3px #6091d3;/*線*/
+    border: solid 3px #4689FF;/*線*/
     border-radius: 10px;/*角の丸み*/
 
 
@@ -197,14 +193,14 @@ th{
   display: block;
   padding: 20px;
   text-align: center;
-  background: #00BFFF;
+  background: #4689FF;
   border: 1px solid white;
   border-bottom: none;
   border-radius: 20px;
 }
 
 #tab-menu .active {
-  background: #1E90FF;
+  background: #75A9FF;
   color: white;
 }
 
@@ -262,7 +258,7 @@ th{
   position: relative;
   margin-right: 120px;
   font-size: 15px;
-  color: #4169E1;
+  color: #4689FF;
   font-weight: bold;
 
 }
@@ -284,8 +280,8 @@ ul {
 }
 
 ul#areamap li a {
-  color: #1E90FF;
-  font-weight: bold;
+  color: #4689FF;
+
 }
 
 ul#areamap li a:hover {
@@ -293,6 +289,14 @@ ul#areamap li a:hover {
   text-decoration: none;
   font-weight: bold;
 }
+
+ a:link  {
+  text-decoration: none;
+  font-weight: bold;
+
+
+}
+
 
 //新宿 中野 高円寺
 #areamap #areamap_1 {
@@ -678,7 +682,7 @@ section {
 }
 
 .menu {
-  background-color: #75A9FF;
+  //background-color: #4689FF;
   color: white;
   font-size: 18px;
   padding: 10px;
@@ -687,6 +691,26 @@ section {
   user-select: none;
   border-width: 2px;
 border-style: outset;
+}
+
+.menu1{
+background-color: #00BFFF;
+}
+
+.menu2{
+background-color: #00CED1;
+}
+
+.menu3{
+background-color: #2C7CFF;
+}
+
+.menu4{
+background-color: #1E90FF;
+}
+
+.menu5{
+background-color: #008BBB;
 }
 
 p {
@@ -732,7 +756,7 @@ p {
     padding: 0.5em 1em;
     margin: 2em 0;
     font-weight: bold;
-    color: #1E90FF;
+    color: #4689FF;
     background: #FFF;
     border: solid 3px #6091d3;
     border-radius: 10px;
@@ -742,7 +766,7 @@ p {
 .under{
   background: linear-gradient(transparent 70%, #FFFF33 80%);
   font-size: 23px;
-  color: #1E90FF;
+  color: #4689FF;
   font-weight: bold;
 }
 
@@ -798,12 +822,16 @@ p {
 .tags{
 
     font-weight: thin;
-    color: #1E90FF;
+    color: #4689FF;
     background: white;
     border: solid 1px;
 
 
 
+}
+
+.search-tag{
+  color: #4689FF;
 }
 
 .point{
@@ -814,10 +842,22 @@ border-top:solid 5px #A4C6FF;/*上の線の種類・太さ・色*/
 border-bottom:solid 5px #A4C6FF;/*下の線の種類・太さ・色*/
 background-color:#D7EEFF;
 }
+
 .point-font{
-  color: #75A9FF;
+  color: #4689FF;
 
 }
+
+.favorite{
+  color: #4689FF;
+  font-size: 11px;
+}
+
+.favorite-explanation{
+  color: #4689FF;
+  font-size: 13px;
+}
+
 //property show
 
 
@@ -833,13 +873,13 @@ background-color:#D7EEFF;
 
 //タブreviw一覧
 .coordination{
-  border: 5px double #D9E5FF;
+  border: 5px double #4689FF;
   padding: 10px;
   border-radius: 25px
 }
 
 h6{
-  color: #1E90FF;
+  color: #4689FF;
   display: inline-block;
 
 }
@@ -850,22 +890,22 @@ h6{
 
 .comment_color{
 
-  border-top: 3px solid #D9E5FF;
+  border-top: 3px solid #75A9FF;
 }
 .question{
-  border: 6px solid #D9E5FF;
+  border: 4px solid #75A9FF;
   padding: 10px;
   border-radius: 15px
 }
 
 
 .sub_comment {
-   font-size: 8px;
+   font-size: 12px;
 }
 
 
 .line{
-  border-top: 3px solid #1E90FF;
+  border-top: 3px solid #4689FF;
   width:   800px;
 }
 
@@ -902,15 +942,10 @@ h6{
   background: #e3e3e3;
   border-color: #fff #fff #e3e3e3 #e3e3e3;
 }
-.rule p{
-  font-size: 15px;
-  margin: 0 0 15px;
-    color: #87b5de;
-}
 
 //お気に入り
 .favorite-btn{
-  font-size: 15px;
+  font-size: 10px;
 }
 
 //user編集
@@ -923,16 +958,19 @@ h6{
   margin-top: 70px;
 }
 
+.change{
+  margin-left: 167px;
+}
 //閲覧履歴
 .history{
   display: inline-block;
 }
 
-//通知
+//通知赤丸
 .count{
     display: inline-block;
-    width: 20px;
-    height: 20px;
+    width: 22px;
+    height: 22px;
     border-radius: 22px;
     background-color: red;
     color: #fff;
@@ -949,3 +987,10 @@ h6{
 
 
 
+.contact{
+  margin-left: 100px;
+}
+
+.writing{
+  word-wrap: break-word;
+}

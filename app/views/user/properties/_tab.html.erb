@@ -66,7 +66,7 @@
         <%#= f.hidden_field :relation_detail,value: @review_relation.relation_detail %>
 
          <div class="text-center mt-3">
-          住み続けたい?
+          <h6>住み続けたい?</h6>
           <%= f.radio_button :repeat,'3' %>はい
           <%= f.radio_button :repeat,'1' %>いいえ
           <%= f.radio_button :repeat,'2'%>わからない
@@ -108,95 +108,12 @@
 
         <% end %>
 
-        <% if @avg_atmosphere == 5 %>
-          <h6>住民の雰囲気</h6> 良い<%= image_tag "1.jpg" %>良くない<br>
-        <% elsif @avg_atmosphere == 4 %>
-          <h6>住民の雰囲気</h6> 良い<%= image_tag "2.jpg" %>良くない<br>
-        <% elsif @avg_atmosphere == 3 %>
-          <h6>住民の雰囲気</h6> 良い<%= image_tag "3.jpg" %>良くない<br>
-        <% elsif @avg_atmosphere == 2 %>
-          <h6>住民の雰囲気</h6> 良い<%= image_tag "4.jpg" %>良くない<br>
-        <% elsif @avg_atmosphere == 1 %>
-          <h6>住民の雰囲気</h6>良い<%= image_tag "5.jpg" %>良くない<br>
-        <%end%>
-
-       <% if @avg_distance_sence == 5 %>
-          <h6>住人同士の距離感</h6> 親しい<%= image_tag "1.jpg" %>挨拶程度<br>
-        <% elsif @avg_distance_sence == 4 %>
-          <h6>住人同士の距離感</h6> 親しい<%= image_tag "2.jpg" %>挨拶程度<br>
-        <% elsif @avg_distance_sence == 3 %>
-          <h6>住人同士の距離感</h6> 親しい<%= image_tag "3.jpg" %>挨拶程度<br>
-        <% elsif @avg_distance_sence == 2 %>
-          <h6>住人同士の距離感</h6> 親しい<%= image_tag "4.jpg" %>挨拶程度<br>
-        <% elsif @avg_distance_sence == 1 %>
-          <h6>住人同士の距離感</h6> 親しい<%= image_tag "5.jpg" %>挨拶程度<br>
-        <%end%>
-
-        <% if @avg_cleanliness_shared == 5 %>
-          <h6>共有部の清潔さ</h6> 清潔<%= image_tag "1.jpg" %>不衛生<br>
-        <% elsif @avg_cleanliness_shared == 4 %>
-          <h6>共有部の清潔さ</h6> 清潔<%= image_tag "2.jpg" %>不衛生<br>
-        <% elsif @avg_cleanliness_shared == 3 %>
-          <h6>共有部の清潔さ</h6> 清潔<%= image_tag "3.jpg" %>不衛生<br>
-        <% elsif @avg_cleanliness_shared == 2 %>
-          <h6>共有部の清潔さ</h6> 清潔<%= image_tag "4.jpg" %>不衛生<br>
-        <% elsif @avg_cleanliness_shared == 1 %>
-          <h6>共有部の清潔さ</h6>清潔<%= image_tag "5.jpg" %>不衛生<br>
-        <%end%>
-
-        <% if @avg_noise == 5 %>
-          <h6>騒音</h6> 静か<%= image_tag "1.jpg" %>騒がしい<br>
-        <% elsif @avg_noise == 4 %>
-          <h6>騒音</h6> 静か<%= image_tag "2.jpg" %>騒がしい<br>
-        <% elsif @avg_noise == 3 %>
-          <h6>騒音</h6> 静か<%= image_tag "3.jpg" %>騒がしい<br>
-        <% elsif @avg_noise == 2 %>
-          <h6>騒音</h6> 静か<%= image_tag "4.jpg" %>騒がしい<br>
-        <% elsif @avg_noise == 1 %>
-          <h6>騒音</h6> 静か<%= image_tag "5.jpg" %>騒がしい<br>
-        <%end%>
-
-        <% if @avg_net_spead == 5 %>
-        　<h6>ネット速度</h6> 速い<%= image_tag "1.jpg" %>遅い<br>
-        <% elsif @avg_net_spead == 4 %>
-          <h6>ネット速度</h6> 速い<%= image_tag "2.jpg" %>遅い<br>
-        <% elsif @avg_net_spead == 3 %>
-          <h6>ネット速度</h6> 速い<%= image_tag "3.jpg" %>遅い<br>
-        <% elsif @avg_net_spead == 2 %>
-          <h6>ネット速度</h6> 速い<%= image_tag "4.jpg" %>遅い<br>
-        <% elsif @avg_net_spead == 1 %>
-          <h6>ネット速度</h6> 速い<%= image_tag "5.jpg" %>遅い<br>
-        <%end%>
-
-        <% if @avg_shower == 5 %>
-          <h6>シャワーの水圧</h6> 強い<%= image_tag "1.jpg" %>弱い<br>
-        <% elsif @avg_shower == 4 %>
-          <h6>シャワーの水圧</h6> 強い<%= image_tag "2.jpg" %>弱い<br>
-        <% elsif @avg_shower == 3 %>
-          <h6>シャワーの水圧</h6>　強い<%= image_tag"3.jpg" %>弱い<br>
-        <% elsif @avg_shower == 2 %>
-          <h6>シャワーの水圧</h6> 強い<%= image_tag "4.jpg" %>弱い<br>
-        <% elsif @avg_shower== 1 %>
-          <h6>シャワーの水圧</h6> 強い<%= image_tag "5.jpg" %>弱い<br>
-        <%end%>
-
-        <% if  @avg_event == 5 %>
-          <h6>パーティーやイベントの開催</h6>　頻繁にある<%= image_tag "1.jpg" %>少ない<br>
-        <% elsif @avg_event == 4 %>
-          <h6>パーティーやイベントの開催</h6>　頻繁にある<%= image_tag "2.jpg" %>少ない<br>
-        <% elsif @avg_event == 3 %>
-       　　<h6>パーティーやイベントの開催</h6>　頻繁にある<%= image_tag "3.jpg" %>少ない<br>
-        <% elsif @avg_event == 2 %>
-          <h6>パーティーやイベントの開催</h6>　頻繁にある<%= image_tag "4.jpg" %>少ない<br>
-        <% elsif @avg_event == 1 %>
-          <h6>パーティーやイベントの開催</h6>　頻繁にある<%= image_tag "5.jpg" %>少ない<br>
-        <%end%>
 
       </div>
       <% @reviews.each do |review| %>
         <div class="row">
-          <div class="col-3">
-            <p class="mb-3"><%=review.title%></p>
+          <div class="col-5">
+            <span class="mb-3 ml-3 writing under"><%=review.title%></span>
           </div>
           <div class="col-2">
             <% if review.repeat == "3" %>
@@ -204,11 +121,11 @@
             <%end%>
           </div>
         </div>
-        <p class="mb-4"><%=review.body%></p>
+        <p class="mb-4 ml-3 writing"><%=review.body%></p>
 
         <%= render '/user/properties/review', review: review %>
 
-        <div class="mb-5 mt-3">
+        <div class="mb-5 mt-3 ml-3">
           <%=review.user.nickname%>
           <% unless review.user.gender == "非公開" %>
             <%= review.user.gender %>
@@ -254,6 +171,7 @@
 
 　　  <%= render '/user/properties/error', model: @rule %>
       <div class="rule-form">
+        <h3>ハウスルールをシェアする</h3>
     　　  <p>※なるべく下記のハウスルールリストにまだ書かれていないことをご記入ください</p>
     　　  <%= form_with model: @rule, url:  property_rules_path(property_id: @property.id) do |f| %>
             <%= f.text_area :body ,:size=>"60x5"%>
@@ -262,9 +180,9 @@
       </div>
 
 　　　　<div class="rule rule01">
-　　　　  <h3 class="text-center font-weight-bold">ハウスルール</h3>
+　　　　  <h3 class="text-center font-weight-bold mb-4">ハウスルール</h3>
         <%@rules.each do |rule|%>
-          <p>•<%= rule.body %></p>
+          <p class="writing">•<%= rule.body %></p>
 
         <%end%>
         </div>

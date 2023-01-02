@@ -1,4 +1,5 @@
 class Admin::RulesController < ApplicationController
+  before_action :authenticate_admin!
   def index
     @rules = Rule.all
   end

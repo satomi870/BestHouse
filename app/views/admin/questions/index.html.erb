@@ -1,61 +1,70 @@
-
-
-<table>
-  <thead>
-    <th></th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </thead>
-  <tbody>
-  <% @questions.each do |question| %>
-    <tr>
-      <td>物件名</td>
-      <td><%= question.property.property_name %></td>
-    </tr>
-    <tr>
-      <td>質問タイトル</td>
-      <td><%= question.title %><%= link_to "削除", admin_question_path(question.id), method: :delete %>
+<h4 class="ml-3">Q&A一覧</h4>
+<% @questions.each do |question| %>
+<div class="container mt-5">
+    <div class="row mb-2">
+      <div class="col-2">
+        物件名
+      </div>
+      <div class="col-6">
+        <%= question.property.property_name %>
+      </div>
+    </div>
+    <div class="row mb-2">
+      <div class="col-2">
+        質問タイトル
+      </div>
+      <div class="col-6 writing">
+        <%= question.title %>
+      </div>
+      <div class="col-4">
+        <%= link_to "削除", admin_question_path(question.id), method: :delete %>
         <%=link_to admin_user_path(question.user.id) do%>
           <%=question.user.nickname %>
-        <%end%>
-      </td>
-    </tr>
-    <tr>
-      <td>質問本文</td>
-      <td><%= question.body %></td>
-    </tr>
+          <%end%>
+      </div>
+    </div>
+    <div class="row mb-2">
+      <div class="col-2">
+        質問本文
+      </div>
+      <div class="col-6 writing">
+        <%= question.body %>
+      </div>
+    </div>
     <% question.comments.each do |comment| %>
-      <tr>
-        <td>コメント本文</td>
-        <td><%=comment.body %><%= link_to "削除", admin_comment_path(comment.id), method: :delete %>
+    <div class="row mb-2">
+      <div class="col-2">
+        コメント
+      </div>
+      <div class="col-6 writing">
+        <%=comment.body %><%= link_to "削除", admin_comment_path(comment.id), method: :delete %>
+      </div>
+      <div class="col-4">
+        <%= link_to "削除", admin_comment_path(comment.id), method: :delete %>
           <%=link_to admin_user_path(comment.user.id) do%>
             <%=comment.user.nickname %>
           <%end%>
-        </td>
-      </tr>
-      <% comment.comment_comments.each do |comment_comment| %>
-        <tr>
-          <td>コメントへのリプライ</td>
-          <td><%= comment_comment.body %><%= link_to "削除", admin_comment_comment_path(comment_comment.id), method: :delete %>
+      </div>
+    </div>
+    <% comment.comment_comments.each do |comment_comment| %>
+    <div class="row mb-2">
+      <div class="col-2">
+        サブコメント
+      </div>
+      <div class="col-6 writing">
+        <%= comment_comment.body %><%= link_to "削除", admin_comment_comment_path(comment_comment.id), method: :delete %>
+      </div>
+      <div class="col-4">
+        <%= link_to "削除", admin_comment_comment_path(comment_comment.id), method: :delete %>
             <%=link_to admin_user_path(comment_comment.user.id) do%>
               <%=comment_comment.user.nickname %>
-            <%end%>
-          </td>
-        </tr>
-      <%end%>
-    <%end%>
-  <%end%>
-  </tbody>
-</table>
+          <%end%>
+      </div>
+    </div>
+<%end%>
+<%end%>
+  </div>
+<%end%>
 
 
-
-
-
-
-
-
-
-
-
+<div class="ml-3"><%= link_to "ユーザー一覧" , admin_users_path %></div>

@@ -24,7 +24,7 @@
 
     <div class ="wrapper">
     <header>
-      <h2 class="name">BestHouse</h2><h5 class="text-center"><%= flash[:notice] %></h5>
+      <h1 class="name">BestHouse</h1><h5 class="text-center"><%= flash[:notice] %></h5>
 
 
     </header>
@@ -57,8 +57,24 @@
         </li>
       <% elsif admin_signed_in? %>
         <li class=" flex-fill">
+          <%= link_to "ユーザー一覧",admin_users_path %>
+        </li>
+        <li class=" flex-fill">
+          <%= link_to "レビュー一覧",admin_reviews_path %>
+        </li>
+        <li class=" flex-fill">
+          <%= link_to "Q＆A一覧", admin_questions_path %>
+        </li>
+        <li class=" flex-fill">
+          <%= link_to "ハウスルール一覧",admin_rules_path %>
+        </li>
+        <li class=" flex-fill">
+           <%= link_to "お問い合わせ一覧",admin_contacts_path %>
+        </li>
+         <li class=" flex-fill">
           <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
         </li>
+
       <% else %>
         <li class=" flex-fill">
           <%= link_to "新規登録", new_user_registration_path %>

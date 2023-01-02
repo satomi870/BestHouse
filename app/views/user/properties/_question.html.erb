@@ -2,8 +2,8 @@
 
     <div class="question mb-3">
       <h3>質問</h3>
-        <p><%=question.title%></p>
-        <p><%=question.body%></p>
+        <span class="under writing"><%=question.title%></span>
+        <p class="writing"><%=question.body%></p>
         <%=question.user.nickname%>
         <% unless question.user.gender == "非公開" %>
           <%= question.user.gender %>
@@ -31,7 +31,7 @@
 
           <%#= form_with model: @comment, url: question_reply_path(comment_id: comment.id, question_id: question.id) do |f|  %> <!--[@question, @answer]にしちゃうとコントローラで@question = Question.find(params[:id])を書かないといけなくなり%=link_to '質問に答える', property_questions_path(@property.id)%>ここでquestion.idを送らないとダメになるからそうやって書かない-->
 
-          <div class="comment_color mb-3">
+          <div class="comment_color writing mb-3">
             <p class="mt-4"><%= comment.body %></p>
             <%#= comment.relation_i18n %>
             <%=comment.user.nickname%>
@@ -66,9 +66,8 @@
             </div>
           </div>
             <% comment.comment_comments.each do |comment_comment| %>
-            <p class="sub_comment">
-              <%#= comment.relation_i18n %>
-              <%=comment_comment.body%>
+              <p class="sub_comment writing">
+              <%=comment_comment.body%><br>
               <%=comment_comment.user.nickname%>
               <% unless comment_comment.user.gender == "非公開" %>
                 <%= comment_comment.user.gender %>

@@ -1,4 +1,4 @@
-<h3>マイページ</h3>
+<h3 class="mt-4">マイページ</h3>
 
   <div class="row">
     <div class="col-1 mr-4">
@@ -6,7 +6,7 @@
     </div>
     <div class="col-2 mt-2">
       <p><%=@user.nickname%></p>
-      <p><%=@user.age%></p>
+      <p><%=@user.age%>代</p>
       <p><%=@user.gender%></p>
     </div>
     <div class="col-3 edit">
@@ -24,17 +24,17 @@
       <li><a href="#tab2" class="">投稿した質問</a></li>
       <li><a href="#tab3" class="">投稿したコメント</a></li>
       <li><a href="#tab4" class="">投稿したリプライ</a></li>
-      <li><a href="#tab5" class="">シェアしたハウスルール</a></li>
+      <li><a href="#tab5" class="">ハウスルール</a></li>
    </ul>
  </div>
 
  <div id="tab-contents">
    <div id="tab1" class="tab">
     <% @reviews.each do |review| %>
-    <h5><%= review.property.property_name %></h5>
+    <h5 class="ml-3"><%= review.property.property_name %></h5>
     <div class="mb-5">
-      <p class="mb-3"><%=review.title%></p>
-      <p class="mb-4"><%=review.body%></p>
+      <p class="mb-3 ml-3"><%=review.title%></p>
+      <p class="mb-4 ml-3"><%=review.body%></p>
       <%= render '/user/properties/review', review: review %>
 
     </div>
@@ -64,14 +64,180 @@
 
   　<div id="tab5" class="tab">
       <div class="rule rule01">
+        <h3 class="text-center">シェアしたハウスルール</h3>
         <% @property_rules.each do |property|%>
-          <p><%=property.property_name %></p>
+          <h6 class="mt-4"><%=property.property_name %></h6>
           <% property.rules.where(user: current_user).each do |rule|%>
-            <span>•<%= rule.body %></span>
+            <p>•<%= rule.body %></p>
           <% end %>
         <% end %>
       </div>
 　　</div>
 </div>
 </div>
+
+
+
+
+Admin.create!(
+  email: 'g@aaaa',
+  password: '222222'
+)# This file should contain all the record creation needed to seed the database with its default values.
+# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
+#
+# Examples:
+#
+#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
+#   Character.create(name: 'Luke', movie: movies.first)
+area_group_nakano = AreaGroup.create!(
+  area_group_name:'新宿 中野 高円寺'
+)
+
+area_group_ebisu = AreaGroup.create!(
+  area_group_name:'渋谷 恵比寿 下北沢'
+  )
+
+area_group_kamata = AreaGroup.create!(
+  area_group_name:'品川 蒲田 大森'
+  )
+
+area_group_roppongi = AreaGroup.create!(
+  area_group_name:'六本木 麻布十番 神田'
+  )
+
+area_group_ikebukuro = AreaGroup.create!(
+  area_group_name:'池袋 赤羽 練馬'
+)
+
+area_group_ueno = AreaGroup.create!(
+  area_group_name:'上野 浅草 秋葉原'
+  )
+
+area_group_kitasenju = AreaGroup.create!(
+  area_group_name:'北千住 亀有 葛西'
+  )
+
+area_group_other = AreaGroup.create!(
+  area_group_name:'23区外'
+  )
+
+area_nerima = Area.create!(
+  area_name:'練馬区',
+  area_group_id: area_group_ikebukuro.id
+  )
+
+area_itabashi = Area.create!(
+  area_name:'板橋区',
+  area_group_id: area_group_ikebukuro.id
+  )
+北
+
+豊島
+
+文京
+
+世田谷
+area_suginami = Area.create!(
+  area_name:'杉並区',
+  area_group_id: area_group_nakano.id
+  )
+
+area_nakano = Area.create!(
+  area_name:'中野区',
+  area_group_id: area_group_nakano.id
+  )
+
+area_shibuya = Area.create!(
+  area_name:'渋谷区',
+  area_group_id: area_group_ebisu.id
+  )
+
+area_maguro = Area.create!(
+  area_name:'目黒区',
+  area_group_id: area_group_ebisu.id
+  )
+中野
+area_shinjuku = Area.create!(
+  area_name:'新宿区',
+  area_group_id: area_group_nakano.id
+  )
+
+area_oota = Area.create!(
+  area_name:'太田区',
+  area_group_id: area_group_kamata.id
+  )
+ area_shinagawa = Area.create!(
+   area_name:'品川区',
+  area_group_id: area_group_kamata.id
+   )
+area_minato = Area.create!(
+  area_name:'港区',
+  area_group_id: area_group_roppongi.id
+  )
+area_chiyoda = Area.create!(
+  area_name:'千代田区',
+  area_group_id: area_group_roppongi.id
+  )
+
+area_cyuo = Area.create!(
+  area_name:'中央区',
+  area_group_id: area_group_roppongi.id
+  )
+area_bunkyo = Area.create!(
+  area_name:'文京区',
+  area_group_id: area_group_ikebukuro.id
+  )
+area_kita = Area.create!(
+  area_name:'北区',
+  area_group_id: area_group_ikebukuro.id
+  )
+area_daito = Area.create!(
+  area_name:'台東区',
+  area_group_id: area_group_ueno.id
+  )
+area_arakawa = Area.create!(
+  area_name:'荒川区',
+  area_group_id: area_group_kitasenju.id
+  )
+area_adachi = Area.create!(
+  area_name:'足立区',
+  area_group_id: area_group_kitasenju.id
+  )
+area_katushika = Area.create!(
+  area_name:'葛飾区',
+  area_group_id: area_group_kitasenju.id
+  )
+area_sumida = Area.create!(
+  area_name:'墨田区',
+  area_group_id: area_group_ueno.id
+  )
+area_kouto = Area.create!(
+  area_name:'江東区',
+  area_group_id: area_group_ueno.id
+  )
+ area_edogawa = Area.create!(
+  area_name:'江戸川区',
+  area_group_id: area_group_kitasenju.id
+  )
+area_toshima = Area.create!(
+  area_name:'豊島区',
+  area_group_id: area_group_ikebukuro.id
+  )
+
+ area_setagaya = Area.create!(
+   area_name:'世田谷区',
+  area_group_id: area_group_ebisu.id
+   )
+
+area_other = Area.create!(
+  area_name:'23区外',
+  area_group_id: area_group_other.id
+  )
+
+
+
+
+
+
+
 

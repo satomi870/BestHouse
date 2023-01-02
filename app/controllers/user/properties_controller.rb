@@ -1,6 +1,5 @@
 class User::PropertiesController < ApplicationController
   #before_action :set_ransack, only: [:search_keyword]
-
   def search
     # 配列の中の空要素を取り除く
     #@area_groups = params[:area_group_name].reject(&:empty?)
@@ -94,6 +93,9 @@ class User::PropertiesController < ApplicationController
       @display_upper_amount = upper_rent.slice(0, digits_upper_rent - 4)
     end
 
+    @lower_rent = params[:lower_rent].to_i
+    @upper_rent = params[:upper_rent].to_i
+
 
     @tags=Tag.all
 
@@ -112,13 +114,15 @@ class User::PropertiesController < ApplicationController
     other = Category.find_by(category: "other")
     @other_tags=other.tags
 
-    @lower_rent = params[:lower_rent].to_i
-    @upper_rent = params[:upper_rent].to_i
+
+
+
   end
 
+
+
+
   def search_keyword
-    # @results = @ransack.result
-    #曖昧検索
     @properties = Property.where("access LIKE ?", "%#{params[:keyword]}%")
     .or(Property.where("address LIKE ?", "%#{params[:keyword]}%"))
     .or(Property.where("rent LIKE ?", "%#{params[:keyword]}%"))
@@ -128,14 +132,16 @@ class User::PropertiesController < ApplicationController
 
     @keyword = params[:keyword]
 
+    @checkd_areas = Area.where("area_name LIKE ?", "#{params[:keyword]}%").pluck(:id)
+
+
+  @tags=Tag.all
 
     basic = Category.find_by(category: "basic") #カテゴリわけwhereを使うパターンもある　rails 検索　やり方
     @basic_tags=basic.tags
 
     room = Category.find_by(category: "room")
     @room_tags=room.tags
-
-    @tags=Tag.all
 
     surrounding = Category.find_by(category: "surrounding")
     @surrounding_tags=surrounding.tags
@@ -146,9 +152,10 @@ class User::PropertiesController < ApplicationController
     other = Category.find_by(category: "other")
     @other_tags=other.tags
 
-    @checkd_areas = Area.where("area_name LIKE ?", "#{params[:keyword]}%").pluck(:id)
-  end
 
+
+
+  end
   def map
     @property=Property.find(params[:property_id])
   end
@@ -238,3 +245,4 @@ end
 
     #@properties = params[:tag_id].present? ? Tag.find(params[:tag_id]).properties : Property.all  4.5.10行目を合わせてるだけ
      #@property=Property.find(params[:id])
+

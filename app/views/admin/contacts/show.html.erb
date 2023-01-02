@@ -1,64 +1,114 @@
-<table>
-    <thead>
-      <th></th>
-      <th></th>
-      <th></th>
-    </thead>
-    <tbody>
-      <tr>
-        <td>お問い合わせ物件</td>
-        <td><%= @contact.property.property_name %></td>
-      </tr>
-      <tr>
-        <td>名前</td>
-        <%=link_to admin_user_path(@contact.user.id) do%>
-        <td colspan="2"><%=@contact.name %></td>
-        <%end%>
-      </tr>
-      <tr>
-        <td>フリガナ</td>
-        <td colspan="2"><%=@contact.name_kana%></td>
-      </tr>
-      <tr>
-        <td>性別</td>
-        <td colspan="2"><%=@contact.gender%></td>
-      </tr>
-      <tr>
-        <td>年齢</td>
-         <td colspan="2"><%=@contact.age%></td> <!--ageをinteger型じゃなくてstring型にして['20代', "20代"]でもいい-->
-      <tr>
-      <tr>
-        <td>国籍</td>
-        <td colspan="2"><%=@contact.nationality%></td>
-      </tr>
-      <tr>
-        <td>E_mail</td>
-        <td colspan="2"><%=@contact.email%></td>
-      </tr>
-      <tr>
-        <td>電話番号</td>
-        <td colspan="2"><%=@contact.telephone_number%></td>
-      </tr>
-      <tr>
-        <td>現住所</td>
-        <td colspan="2"><%=@contact.address%></td>
-      </tr>
+<h4 class="ml-3">お問い合わせ詳細</h4>
+<div class="container mt-5">
+    <div class="row mb-2">
+      <div class="col-4">
+        お問い合わせ物件
+      </div>
+      <div class="col-8">
+        <%= @contact.property.property_name %>
+      </div>
+    </div>
+    <div class="row mb-2">
+      <div class="col-4">
+        <span class="text-danger mr-2">必須</span> 名前
+      </div>
+      <div class="col-8">
+        <%=@contact.name %>
+      </div>
+    </div>
+    <div class="row mb-2">
+      <div class="col-4">
+        <span class="text-danger mr-2">必須</span> フリガナ
+      </div>
+      <div class="col-8">
+        <%=@contact.name_kana %>
+      </div>
+    </div>
+    <div class="row mb-2">
+      <div class="col-4">
+        <span class="text-danger mr-2">必須</span> 性別
+      </div>
+      <div class="col-8">
+        <%=@contact.gender%>
+      </div>
+    </div>
+    <div class="row mb-2">
+      <div class="col-4">
+        <span class="text-danger mr-2">必須</span> 年齢
+      </div>
+      <div class="col-8">
+        <%=@contact.age%>歳
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-4">
+        <span class="text-danger mr-2">必須</span> 国籍
+      </div>
+      <div class="col-8 mb-2">
+        <%=@contact.nationality%>
+      </div>
+      </div>
+      <div class="row mb-2">
+      <div class="col-4">
+        <span class="text-danger mr-2">必須</span> メールアドレス
+      </div>
+      <div class="col-8">
+        <%=@contact.email%>
+      </div>
+    </div>
+    <div class="row mb-2">
+      <div class="col-4">
+        <span class="text-primary mr-2">任意</span>電話番号
+      </div>
+      <div class="col-8">
+        <%=@contact.telephone_number%>
+      </div>
+    </div>
+    <div class="row mb-2">
+      <div class="col-4">
+      <span class="text-primary mr-2">任意</span>現住所
+      </div>
+      <div class="col-8">
+       <%=@contact.address%>
+      </div>
+    </div>
+    <div class="row mb-2">
+      <div class="col-4">
+       <span class="text-primary mr-2">任意</span>職業
+      </div>
+      <div class="col-8">
+        <%=@contact.occupation%>
+      </div>
+    </div>
+    <div class="row mb-2">
+      <div class="col-4">
+        <span class="text-danger mr-2">必須</span> 入居予定日
+      </div>
+      <div class="col-8">
+        <%=@contact.schedule%>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-4">
+       <span class="text-danger mr-2">必須</span> 希望項目
+      </div>
+      <div class="col-8 mb-2">
+        <%=@contact.hope%>
+      </div>
+      </div>
+      <div class="row">
+      <div class="col-4">
+        <span class="text-danger mr-2">必須</span> お問い合せ内容
+      </div>
+      <div class="col-8 mb-2 writing">
+        <%=@contact.contact%>
+      </div>
+      </div>
+  </div>
 
-      <tr>
-        <td>職業</td>
-        <td colspan="2"><%=@contact.occupation%></td>
-      </tr>
-      <tr>
-        <td>入居予定日</td>
-        <td colspan="2"><%=@contact.schedule%></td>
-      </tr>
-      <tr>
-        <td>希望項目</td>
-        <td colspan="2"><%=@contact.hope%></td>
-      </tr>
-      <tr>
-        <td>お問合せ内容</td></td>
-        <td colspan="2"><%=@contact.contact%></td>
-      </tr>
+<div class="ml-3"><%= link_to "お問い合わせ一覧" , admin_contacts_path %></div>
+
+
+
 
 

@@ -5,23 +5,22 @@
     <div class="slicker w-8s5 d-flex mx-auto align-items-center justify-content-center">
       <div>
         <%=image_tag'A-living1.jpg', class:'slide_picture'%>
-        <p class="caption">非日常的な空間でシェア暮らし。トレーニングジムで汗を流したりワーキングスペースで集中したり</p>
+        <p class="caption">2022年9月オープン!!&nbsp;&nbsp;&nbsp;ゆっくりした空間のリビングでくつろげること間違いなし</p>
       </div>
 
       <div>
-        <%=image_tag'top2.jpg', class:'slide_picture'%>
-        <p class="caption">ラウンジ、シアタールーム、コワーキングルーム、フィットネスルーム、ルーフトップテラス付きとQOLアップ間違いなし</p>
+        <%=image_tag'top3.jpg', class:'slide_picture'%>
+        <p class="caption">お仕事や勉強に没頭できるワーキングラウンジが設備</p>
       </div>
     </div>
   </div>
 
 
   <h3 class="text-center mt-5 mb-4">BestHouseとは</h3>
-  <p class ="text-center mb-3">BestHouseとは、様々な特徴から検索できる東京都内のシェアハウス検索サイトです
-    実際に住んでいる住人のレビューが見れたり、住人に質問できる<br>
-    シェアシェアはシェアハウスに特化したシェアハウス情報検索サイトです。
-    シェアハウスなどを、ご希望の条件に合わせて、<br>エリア（地域）や沿線（路線）、地図、家賃、こだわり条件などいろいろな方法で検索することができます。<br>
-    デザイナーズ、家具家電付き、ペット可、事務所可といったこだわりの人気の条件のシェアハウスも掲載中!!</p>
+  <p class ="text-center mb-3">BestHouseとは、シェアハウスに特化したシェアハウス情報検索サイトです。<br>
+    ご希望の条件に合わせて、エリアや地図、家賃、こだわり条件などいろいろな方法で検索することができます。<br>
+    実際に住んでいる住人のレビューが見ること、質問することができるのでリアルな物件の実情を知ることができます。<br>
+    BestHouseを利用してあなたにとって最高の物件をぜひ見つけてください。</p>
 <div class ="wrapper">
 
 
@@ -55,14 +54,14 @@
       <h3>特徴から探す</h3>
       <section>
         <div class="accordion">
-          <p class="menu">入居者の特性</p>
+          <p class="menu menu1">入居者の特性</p>
           <div class="contents">
             <%@basic_tags.each do |basic_tag|%>
               <div><%=link_to basic_tag.name,search_path(tag_id: basic_tag.id, from_top: true)%>&nbsp;&nbsp;&nbsp;</div>
             <%end%>
           </div>
 
-          <p class="menu">部屋</p>
+          <p class="menu menu2">部屋</p>
           <div class="contents">
             <%@room_tags.each do |room_tag|%>
               <div><%=link_to room_tag.name,search_path(tag_id: room_tag.id, from_top: true)%>&nbsp;&nbsp;&nbsp;</div>
@@ -70,7 +69,7 @@
           </div>
 
 
-          <p class="menu">周辺環境</p>
+          <p class="menu menu3">周辺環境</p>
           <div class="contents">
             <%@surrounding_tags.each do |surrounding_tag|%>
             <div><%=link_to surrounding_tag.name,search_path(tag_id: surrounding_tag.id, from_top: true)%>&nbsp;&nbsp;&nbsp;</div>
@@ -78,14 +77,14 @@
           </div>
 
 
-          <p class="menu">共有設備</p>
+          <p class="menu menu4">共有設備</p>
           <div class="contents">
             <%@shared_facility_tags.each do |shared_facility_tag|%>
               <div><%=link_to shared_facility_tag.name,search_path(tag_id: shared_facility_tag.id, from_top: true)%>&nbsp;&nbsp;&nbsp;</div>
             <%end%>
           </div>
 
-          <p class="menu">その他</p>
+          <p class="menu menu5">その他</p>
           <div class="contents">
             <%@other_tags.each do |other_tag|%>
             <div><%=link_to other_tag.name,search_path(tag_id: other_tag.id, from_top: true)%>&nbsp;&nbsp;&nbsp;</div>

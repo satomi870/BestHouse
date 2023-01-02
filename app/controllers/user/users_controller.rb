@@ -55,6 +55,7 @@ class User::UsersController < ApplicationController
 
   def favorite
     @favorites = current_user.favorites
+
   end
 
   # def destroy
