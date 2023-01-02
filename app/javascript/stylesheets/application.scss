@@ -380,278 +380,287 @@ ul#areamap li a:hover {
   left: 180px;
 }
 
-//杉並区
+//北区
 #areamap_detail #area_id_3 {
+  position: absolute;
+  top: 110px;
+  left: 240px;
+}
+
+#areamap_detail label[for="area_id_3"] {
+  position: absolute;
+  top: 105px;
+  left: 255px;
+}
+
+//豊島区
+#areamap_detail #area_id_4 {
+  position: absolute;
+  top: 155px;
+  left: 190px;
+}
+
+#areamap_detail label[for="area_id_4"] {
+  position: absolute;
+  top: 150px;
+  left: 205px;
+}
+
+//文京区
+#areamap_detail #area_id_5 {
+  position: absolute;
+  top: 185px;
+  left: 240px;
+}
+
+#areamap_detail label[for="area_id_5"] {
+  position: absolute;
+  top: 180px;
+  left: 255px;
+}
+
+//世田谷区
+#areamap_detail #area_id_6 {
+  position: absolute;
+  top: 320px;
+  left: 65px;
+}
+
+#areamap_detail label[for="area_id_6"] {
+  position: absolute;
+  top: 315px;
+  left: 80px;
+}
+
+
+
+//杉並区
+#areamap_detail #area_id_7 {
   position: absolute;
   top: 220px;
   left: 65px;
 }
 
-#areamap_detail label[for="area_id_3"] {
+#areamap_detail label[for="area_id_7"] {
   position: absolute;
   top: 215px;
   left: 80px;
 }
 
-//中野区
-#areamap_detail #area_id_4 {
-  position: absolute;
-  top: 180px;
-  left: 110px;
-}
-
-#areamap_detail label[for="area_id_4"] {
-  position: absolute;
-  top: 175px;
-  left: 125px;
-}
-
 //渋谷区
-#areamap_detail #area_id_5 {
+#areamap_detail #area_id_8 {
   position: absolute;
   top: 260px;
   left: 165px;
 }
 
-#areamap_detail label[for="area_id_5"] {
+#areamap_detail label[for="area_id_8"] {
   position: absolute;
   top: 255px;
   left: 180px;
 }
 
 //目黒区
-#areamap_detail #area_id_6 {
+#areamap_detail #area_id_9 {
   position: absolute;
   top: 350px;
   left: 150px;
 }
 
-#areamap_detail label[for="area_id_6"] {
+#areamap_detail label[for="area_id_9"] {
   position: absolute;
   top: 345px;
   left: 165px;
 }
 
+//中野区
+#areamap_detail #area_id_10 {
+  position: absolute;
+  top: 180px;
+  left: 110px;
+}
+
+#areamap_detail label[for="area_id_10"] {
+  position: absolute;
+  top: 175px;
+  left: 125px;
+}
+
+
+
+
 //新宿区
-#areamap_detail #area_id_7 {
+#areamap_detail #area_id_11 {
   position: absolute;
   top: 210px;
   left: 200px;
 }
 
-#areamap_detail label[for="area_id_7"] {
+#areamap_detail label[for="area_id_11"] {
   position: absolute;
   top: 205px;
   left: 215px;
 }
 
 //太田区
-#areamap_detail #area_id_8 {
+#areamap_detail #area_id_12 {
   position: absolute;
   top: 440px;
   left: 190px;
 }
 
-#areamap_detail label[for="area_id_8"] {
+#areamap_detail label[for="area_id_12"] {
   position: absolute;
   top: 435px;
   left: 205px;
 }
 
 //品川区
-#areamap_detail #area_id_9 {
+#areamap_detail #area_id_13 {
   position: absolute;
   top: 375px;
   left: 210px;
 }
 
-#areamap_detail label[for="area_id_9"] {
+#areamap_detail label[for="area_id_13"] {
   position: absolute;
   top: 370px;
   left: 225px;
 }
 
 //港区
-#areamap_detail #area_id_10 {
+#areamap_detail #area_id_14 {
   position: absolute;
   top: 290px;
   left: 240px;
 }
 
-#areamap_detail label[for="area_id_10"] {
+#areamap_detail label[for="area_id_14"] {
   position: absolute;
   top: 285px;
   left: 255px;
 }
 
 //千代田区
-#areamap_detail #area_id_11 {
+#areamap_detail #area_id_15 {
   position: absolute;
   top: 245px;
   left: 250px;
 }
 
-#areamap_detail label[for="area_id_11"] {
+#areamap_detail label[for="area_id_15"] {
   position: absolute;
   top: 240px;
   left: 265px;
 }
 
 //中央区
-#areamap_detail #area_id_12 {
+#areamap_detail #area_id_16 {
   position: absolute;
   top: 270px;
   left: 290px;
 }
 
-#areamap_detail label[for="area_id_12"] {
+#areamap_detail label[for="area_id_16"] {
   position: absolute;
   top: 265px;
   left: 305px;
 }
 
-//文京区
-#areamap_detail #area_id_13 {
-  position: absolute;
-  top: 185px;
-  left: 240px;
-}
 
-#areamap_detail label[for="area_id_13"] {
-  position: absolute;
-  top: 180px;
-  left: 255px;
-}
-
-//北区
-#areamap_detail #area_id_14 {
-  position: absolute;
-  top: 110px;
-  left: 240px;
-}
-
-#areamap_detail label[for="area_id_14"] {
-  position: absolute;
-  top: 105px;
-  left: 255px;
-}
 
 //台東区
-#areamap_detail #area_id_15 {
+#areamap_detail #area_id_17 {
   position: absolute;
   top: 185px;
   left: 305px;
 }
 
-#areamap_detail label[for="area_id_15"] {
+#areamap_detail label[for="area_id_17"] {
   position: absolute;
   top: 180px;
   left: 320px;
 }
 
 //荒川区
-#areamap_detail #area_id_16 {
+#areamap_detail #area_id_18 {
   position: absolute;
   top: 155px;
   left: 300px;
 }
 
-#areamap_detail label[for="area_id_16"] {
+#areamap_detail label[for="area_id_18"] {
   position: absolute;
   top: 150px;
   left: 315px;
 }
 
 //足立区
-#areamap_detail #area_id_17 {
+#areamap_detail #area_id_19 {
   position: absolute;
   top: 75px;
   left: 310px;
 }
 
-#areamap_detail label[for="area_id_17"] {
+#areamap_detail label[for="area_id_19"] {
   position: absolute;
   top: 70px;
   left: 325px;
 }
 
 //葛飾区
-#areamap_detail #area_id_18 {
+#areamap_detail #area_id_20 {
   position: absolute;
   top: 130px;
   left: 395px;
 }
 
-#areamap_detail label[for="area_id_18"] {
+#areamap_detail label[for="area_id_20"] {
   position: absolute;
   top: 125px;
   left: 410px;
 }
 
 //墨田区
-#areamap_detail #area_id_19 {
+#areamap_detail #area_id_21 {
   position: absolute;
   top: 210px;
   left: 345px;
 }
 
-#areamap_detail label[for="area_id_19"] {
+#areamap_detail label[for="area_id_21"] {
   position: absolute;
   top: 205px;
   left: 360px;
 }
 
 //江東区
-#areamap_detail #area_id_20 {
+#areamap_detail #area_id_22 {
   position: absolute;
   top: 250px;
   left: 345px;
 }
 
-#areamap_detail label[for="area_id_20"] {
+#areamap_detail label[for="area_id_22"] {
   position: absolute;
   top: 245px;
   left: 360px;
 }
 
 //江戸川区
-#areamap_detail #area_id_21 {
+#areamap_detail #area_id_23 {
   position: absolute;
   top: 220px;
   left: 445px;
 }
 
-#areamap_detail label[for="area_id_21"] {
+#areamap_detail label[for="area_id_23"] {
   position: absolute;
   top: 215px;
   left: 460px;
 }
 
-//豊島区
-#areamap_detail #area_id_22 {
-  position: absolute;
-  top: 155px;
-  left: 190px;
-}
 
-#areamap_detail label[for="area_id_22"] {
-  position: absolute;
-  top: 150px;
-  left: 205px;
-}
-
-//世田谷区
-#areamap_detail #area_id_23 {
-  position: absolute;
-  top: 320px;
-  left: 65px;
-}
-
-#areamap_detail label[for="area_id_23"] {
-  position: absolute;
-  top: 315px;
-  left: 80px;
-}
 
 //23区外
 #areamap_detail #area_id_24 {
@@ -985,12 +994,35 @@ h6{
   width: 40px;
 }
 
-
-
 .contact{
   margin-left: 100px;
 }
 
+
 .writing{
   word-wrap: break-word;
 }
+
+//ページネーション
+.pagination{
+    margin: 20px auto 0;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    span{
+        text-align: center;
+        width: 50px;
+        :hover{
+            background-color:#f3f3f3;
+        }
+        a{
+            display: block;
+            width: 100%;
+            height: 100%;
+            :hover{
+                background-color: #f3f3f3;
+              }
+        }
+    }
+}
+

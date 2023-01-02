@@ -105,7 +105,7 @@
 
 
 
-          <h2><%=property.property_name%></h2>
+          <h4><%=property.property_name%></h4>
          <%=image_tag property.images[0],size: '300x212' %>
         </div>
 
@@ -200,6 +200,7 @@
     <%end%>
   </div>
   </div>
+<div class="pagination"><%= paginate properties %></div>
 
 <%else%>
 <div class="text-center mt-5">
