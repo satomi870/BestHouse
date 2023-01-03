@@ -2,7 +2,7 @@ class User::UsersController < ApplicationController
 
   def show
     @user = current_user
-    @reviews = current_user.reviews
+    @reviews = current_user.reviews.page(params[:page]).per(10)
     @comment = Comment.new
     @comment_comment = CommentComment.new
     @questions = current_user.questions
@@ -54,7 +54,7 @@ class User::UsersController < ApplicationController
   end
 
   def favorite
-    @favorites = current_user.favorites
+    @favorites = current_user.favorites.page(params[:page]).per(10)
 
   end
 

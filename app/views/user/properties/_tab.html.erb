@@ -3,7 +3,7 @@
     <li><a href="#tab1" class="review active">口コミを投稿する</a></li>
     <li><a href="#tab2" class="">口コミを見る</a></li>
     <li><a href="#tab3" class="">質問をする</a></li>
-    <li><a href="#tab4" class="qa">Q&A</a></li>
+    <li><a href="#tab4" class="qa">Q&A <span class="text-danger">(<%=@questions.count%>)</span></a></li>
     <li><a href="#tab5" class="">ルールをシェア</a></li>
  </ul>
 </div>
@@ -110,6 +110,7 @@
 
 
       </div>
+      <h5 class="mb-5 ml-3">全<%=@reviews.count%>件</h5>
       <% @reviews.each do |review| %>
         <div class="row">
           <div class="col-5">
@@ -160,6 +161,7 @@
 　　<div id="tab4" class="tab">
       <%= render '/user/properties/error', model: @comment %>
       <%= render '/user/properties/error', model: @comment_comment %>
+      <h5 class="mb-5 ml-1">全<%=@questions.count%>件</h5>
 　　  <% @questions.each do |question| %>
 
 　　    <%= render '/user/properties/question', question: question, comment: @comment, comment_comment: @comment_comment %>

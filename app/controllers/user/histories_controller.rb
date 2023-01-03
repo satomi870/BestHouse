@@ -1,7 +1,7 @@
 class User::HistoriesController < ApplicationController
 
   def index
-    @histories = current_user.histories.limit(20)
+    @histories = current_user.histories.page(params[:page]).per(10)
   end
 
   def destroy

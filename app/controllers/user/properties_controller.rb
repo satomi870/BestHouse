@@ -37,11 +37,11 @@ class User::PropertiesController < ApplicationController
     end
 
     # 未入力の場合は全件が対象
-    @properties = Property.page(params[:page])
+    @properties = Property.page(params[:page]).per(10)
     # エリア関連の検索処理
     @checkd_areas = []
     if !@areas.blank?
-      @properties = @properties.where(area_id: @areas).page(params[:page])
+      @properties = @properties.where(area_id: @areas).page(params[:page]).per(10)
       @checkd_areas = @areas
     elsif !@area_groups.blank? && @tags.blank?
       @properties = @properties.where(area_group_id: @area_groups)

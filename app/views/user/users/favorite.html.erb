@@ -1,5 +1,7 @@
 <h3 class="mt-4">お気に入り</h3>
 
+<% if @favorites.present? %>
+<h5 class="text-left mt-4">全<%=@favorites. count%>件</h5>
 <%@favorites.each do |favorite|%>
         <div class="row">
         <div class="col-3 mt-3">
@@ -81,3 +83,7 @@
     <%end%>
   </div>
   </div>
+  <div class="pagination"><%= paginate @favorites %></div>
+<%else%>
+<h6 class="mt-4">お気に入りがありません</h6>
+<%end%>

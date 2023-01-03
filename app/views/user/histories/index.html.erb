@@ -1,5 +1,7 @@
 <h3 class="mt-4">閲覧履歴</h3>
 
+<% if @histories.present? %>
+<h5 class="text-left mt-4">全<%=@histories. count%>件</h5>
 <% @histories.each do |history| %>
   <%=link_to property_path(history.property.id) do%>
   <div class="mb-3 mt-3">
@@ -9,3 +11,7 @@
   <%end%>
 <%end%>
 
+<%else%>
+<h6 class="mt-4">閲覧履歴がありません</h6>
+<%end%>
+<div class="pagination"><%= paginate @histories %></div>

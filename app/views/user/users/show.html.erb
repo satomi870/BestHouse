@@ -5,9 +5,9 @@
       <%= image_tag @user.get_image(100,100)%>
     </div>
     <div class="col-2 mt-2">
-      <p><%=@user.nickname%></p>
-      <p><%=@user.age%>代</p>
-      <p><%=@user.gender%></p>
+      <h6><%=@user.nickname%></h6>
+      <h6><%=@user.age%>代</h6><br>
+      <h6><%=@user.gender%></h6>
     </div>
     <div class="col-3 edit">
       <%= link_to "編集する",edit_user_path,class: "btn"%>
@@ -30,39 +30,56 @@
 
  <div id="tab-contents">
    <div id="tab1" class="tab">
+     <% if @reviews.present? %>
     <% @reviews.each do |review| %>
     <h5 class="ml-3"><%= review.property.property_name %></h5>
     <div class="mb-5">
       <p class="mb-3 ml-3"><%=review.title%></p>
       <p class="mb-4 ml-3"><%=review.body%></p>
       <%= render '/user/properties/review', review: review %>
-
     </div>
     <% end %>
+    <%else%>
+    <h6 class="mt-4">投稿した口コミがありません</h6>
+    <%end%>
   </div>
 
   <div id="tab2" class="tab">
+    <% if @questions.present? %>
     <% @questions.each do |question| %>
     <h5 class="user-q"><%= question.property.property_name %></h5>
     <%= render 'user/properties/question', question: question, comment: @comment,comment_comment: @comment_comment %>
     <%end%>
+    <%else%>
+    <h6 class="mt-4">投稿した質問がありません</h6>
+    <%end%>
   </div>
 
   <div id="tab3" class="tab">
+    <% if @comment_questions.present? %>
     <% @comment_questions.each do |comment_question| %>
       <h5 class="user-q"><%= comment_question.property.property_name %></h5>
       <%= render 'user/properties/question', question: comment_question, comment: @comment, comment_comment: @comment_comment %>
     <% end %>
+    <%else%>
+    <h6 class="mt-4">投稿したコメントがありません</h6>
+    <%end%>
+
   </div>
 
   <div id="tab4" class="tab">
+    <% if @comment_comment_questions.present? %>
     <% @comment_comment_questions.each do |comment_comment_question| %>
       <h5 class="user-q"><%= comment_comment_question.property.property_name %></h5>
       <%= render 'user/properties/question', question: comment_comment_question, comment: @comment, comment_comment: @comment_comment %>
     <% end %>
+    <%else%>
+    <h6 class="mt-4">投稿したリプライがありません</h6>
+    <%end%>
   </div>
 
   　<div id="tab5" class="tab">
+　　　　<% if @property_rules.present? %>
       <div class="rule rule01">
         <h3 class="text-center">シェアしたハウスルール</h3>
         <% @property_rules.each do |property|%>
@@ -71,6 +88,9 @@
             <p>•<%= rule.body %></p>
           <% end %>
         <% end %>
+        <%else%>
+        <h6 class="mt-4">投稿したハウスルールがありません</h6>
+        <%end%>
       </div>
 　　</div>
 </div>
