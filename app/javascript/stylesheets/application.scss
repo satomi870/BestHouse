@@ -1,4 +1,10 @@
 @import '~bootstrap/scss/bootstrap';
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
 //サイト名
 .name{
   display: inline-block;
@@ -125,6 +131,7 @@ p{
     border-radius: 0.45rem;
     border-color: rgb(80,80,80,0.5);
     font-size: 8px;
+
 }
 .btn {
     opacity: 0.8;
@@ -144,13 +151,13 @@ p{
 
 
 
-.h{
-  display: inline-block;
-}
+// .h{
+//   display: inline-block;
+// }
 
-.k{
-  display: flex;
-}
+// .k{
+//   display: flex;
+
 
 .popular {
     //padding: 0.5em 1em;
@@ -676,11 +683,6 @@ ul#areamap li a:hover {
 }
 
 
-* {
-  margin: 0;
-  padding: 0;
-}
-
 section {
   margin-top: 30px;
 }
@@ -1025,6 +1027,7 @@ h6{
         }
     }
 }
+
 
 
 
