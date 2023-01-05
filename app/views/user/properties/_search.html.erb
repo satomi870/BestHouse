@@ -1,210 +1,190 @@
-
-<% if @properties.present?%>
-<div class="container">
-  <div class="row">
-
-    <div class="col-3 mt-4">
-      <div class ="sideber ">
-      <%= form_with url: search_path, method: :get do |f|%>
-        <div class="mb-3">
-        <span class="under">エリア</span>
-        </div>
-        <div class="area_check_box">
-          <ul>
-            <%=f.collection_check_boxes :area_id, Area.all, :id, :area_name, checked: checkd_areas do |b| %>
-              <li class="area_sideber"><%= b.label { b.check_box + b.text } %></li>
-            <% end %>
-          </ul>
-        </div>
-        <div class="mb-3">
-          <span class="under mt-3">家賃</span>
-        </div>
-        <div class="rent">
-          <%=f.select :lower_rent, Property.lower_select_rent_table,{selected: lower_rent} %><span style="font-size:0.8em;">&#12316;</span>
-          <%=f.select :upper_rent, Property.upper_select_rent_table,{selected: upper_rent} %>
-        </div>
-        <div class="mt-4">
-          <span class="under">特徴</span>
-        </div>
-        <h5 class="tag text-center m-1 mb-2 mt-4">入居者の特性</h5>
-        <%=f.collection_check_boxes :tag_id, basic_tags, :id, :name, checked: params[:tag_id] do |b| %>
-          <%= b.label { b.check_box + b.text } %>
-        <% end %>
-        <h5 class="tag text-center m-1 mb-2 mt-4">部屋</h5>
-        <%=f.collection_check_boxes :tag_id, room_tags, :id, :name, checked: params[:tag_id] do |b| %>
-          <%= b.label { b.check_box + b.text } %>
-        <%end%>
-        <h5 class="tag text-center m-1 mb-2 mt-4">共有設備</h5>
-        <%=f.collection_check_boxes :tag_id, shared_facility_tags, :id, :name, checked: params[:tag_id] do |b| %>
-          <%= b.label { b.check_box + b.text } %>
-        <%end%>
-        <h5 class="tag text-center m-1 mb-2 mt-4">周辺環境</h5>
-        <%=f.collection_check_boxes :tag_id, surrounding_tags, :id, :name, checked: params[:tag_id] do |b| %>
-          <%= b.label { b.check_box + b.text } %>
-        <%end%>
-        <h5 class="tag text-center m-1 mb-2 mt-4">その他</h5>
-        <%=f.collection_check_boxes :tag_id, other_tags, :id, :name, checked: params[:tag_id] do |b| %>
-           <%= b.label { b.check_box + b.text } %>
-        <%end%>
-
-
-        <h3 class="mt-3 ml-4"><%=f.submit 'この条件で検索', class: "btn"%></h3>
-      <%end%>
-      </div>
-    </div>
-
-    <div class="col-9">
-      <div class="text-center">
-        <h5 class="text-left mt-4">全<%=properties. count%>件</h5>
-
-
-      <% condition_flag = false %>
-       <% if @area_group_list.present? && @area_group_list.any? %>
-         <h6><%= @area_group_list.pluck(:area_group_name).join(" ") %></h6>
-         <% condition_flag = true %>
-       <% end %>
-
-       <% if @tag_list.present? && @tag_list.any? %>
-         <h6><%= @tag_list.pluck(:name).join(" ") %></h6>
-          <% condition_flag = true %>
-       <% end %>
-
-       <% if @area_list.present? && @area_list.any? %>
-         <h6><%= @area_list.pluck(:area_name).join(" ") %></h6>
-          <% condition_flag = true %>
-       <% end %>
-
-       <% if @display_lower_amount.present? %>
-          <h6>下限: <%= @display_lower_amount %>万円</h6>
-           <% condition_flag = true %>
-       <% end %>
-
-      <% if @display_upper_amount.present? %>
-         <h6>上限<%= @display_upper_amount%>万円</h6>
-          <% condition_flag = true %>
-       <% end %>
-
-       <% if @keyword.present? %>
-       <h6><%= @keyword %></h6>
-        <% condition_flag = true %>
-       <% end %>
-
-      <% if condition_flag %>
-      <h6>の物件一覧</h6>
-      <% end %>
-
-
-
-      </div>
-      <%properties.each do |property|%>
-        <div class="row">
-        <div class="col-5">
-          <%#property.tags each do |tag|%>
-          <%#=tag.name %>
-          <%#end%>
-
-
-
-          <h4 class="mb-3"><%=property.property_name%></h4>
-         <%=image_tag property.images[0],size: '300x212' %>
-        </div>
-
-        <div class="col-7 mt-5">
-<div class="point">
-    <div class="row mb-2">
-      <div class="col-3 mt-3">
-        <h6 class="point-font ml-2">賃料</h6>
-      </div>
-      <div class="col-9 mt-3 point-font">
-        <%=property.rent%>円
-      </div>
-    </div>
-    <div class="row mb-2">
-      <div class="col-3">
-        <h6 class="point-font ml-2">住所</h6>
-      </div>
-      <div class="col-9 point-font">
-        <%=property.address%>
-      </div>
-    </div>
-    <div class="row mb-2">
-      <div class="col-3">
-        <h6 class="point-font ml-2">アクセス</h6>
-      </div>
-      <div class="col-9 point-font">
-        <%=property.access%>
-      </div>
-    </div>
-    <div class="row mb-2">
-      <div class="col-3">
-        <h6 class="point-font ml-2">入居条件</h6>
-      </div>
-      <div class="col-9 point-font">
-       <%=property.condition%>
-      </div>
-    </div>
-    <div class="row mb-2">
-      <div class="col-3">
-        <h6 class="point-font ml-2">空室</h6>
-      </div>
-      <div class="col-9 point-font">
-        <%=property.vacancy%>
-      </div>
-
-    </div>
-    </div>
-    </div>
-
-
-  </div>
-
-
-        <div class="row">
-          <%property.tags.each do |tag|%>
-            <div class="mt-1 mr-2 ml-3">
-              <span class="tags rounded text-center">
-                <%=tag.name%>
-              </span>
+<% if @properties.present?%>🔴
+  <div class="container">
+    <div class="row">
+      <div class="col-3 mt-4">
+        <div class ="sideber ">
+          <%= form_with url: search_path, method: :get do |f|%>
+            <div class="mb-3">
+              <span class="under">エリア</span>
             </div>
+            <div class="area_check_box">
+              <ul>
+                <%=f.collection_check_boxes :area_id, Area.all, :id, :area_name, checked: @checkd_areas do |b| %>
+                  <li class="area_sideber"><%= b.label { b.check_box + b.text } %></li>
+                <% end %>
+              </ul>
+            </div>
+            <div class="mb-3">
+              <span class="under mt-3">家賃</span>
+            </div>
+            <div class="rent">
+              <%=f.select :lower_rent, Property.lower_select_rent_table,{selected: lower_rent} %><span style="font-size:0.8em;">&#12316;</span>
+              <%=f.select :upper_rent, Property.upper_select_rent_table,{selected: upper_rent} %>
+            </div>
+            <div class="mt-4">
+              <span class="under">特徴</span>
+            </div>
+            <h5 class="tag text-center m-1 mb-2 mt-4">入居者の特性</h5>
+            <%=f.collection_check_boxes :tag_id, @basic_tags, :id, :name, checked: params[:tag_id] do |b| %>
+              <%= b.label { b.check_box + b.text } %>
+            <% end %>
+            <h5 class="tag text-center m-1 mb-2 mt-4">部屋</h5>
+            <%=f.collection_check_boxes :tag_id, @room_tags, :id, :name, checked: params[:tag_id] do |b| %>
+              <%= b.label { b.check_box + b.text } %>
+            <%end%>
+            <h5 class="tag text-center m-1 mb-2 mt-4">共有設備</h5>
+            <%=f.collection_check_boxes :tag_id, @shared_facility_tags, :id, :name, checked: params[:tag_id] do |b| %>
+              <%= b.label { b.check_box + b.text } %>
+            <%end%>
+            <h5 class="tag text-center m-1 mb-2 mt-4">周辺環境</h5>
+            <%=f.collection_check_boxes :tag_id, @surrounding_tags, :id, :name, checked: params[:tag_id] do |b| %>
+              <%= b.label { b.check_box + b.text } %>
+            <%end%>
+            <h5 class="tag text-center m-1 mb-2 mt-4">その他</h5>
+            <%=f.collection_check_boxes :tag_id, @other_tags, :id, :name, checked: params[:tag_id] do |b| %>
+               <%= b.label { b.check_box + b.text } %>
+            <%end%>
+            <h3 class="mt-3 ml-4"><%=f.submit 'この条件で検索', class: "btn"%></h3>
           <%end%>
+        </div>
       </div>
-      <div class="row">
-      <div class="col-3 mb-5 mt-3">
-      <%if user_signed_in? %>
-         <%=link_to "詳細を見る",property_path(property.id), class: "btn"%>
-       <%else%>
-         <%= link_to "詳細を見る",new_user_registration_path, class: "btn"%>
 
-      <%end%>
-     </div>
-      <div class="col-3 mt-3">
-      <%if user_signed_in? %>
-        <% if property.favorited_by?(current_user) %>
-            <%= link_to property_favorites_path(property.id, 1), method: :delete, class: "btn" do %>
-              ♥<%= property.favorites.count %> お気に入り
-            <% end %>
-        <% else %>
-              <%= link_to property_favorites_path(property.id), method: :post, class: "btn" do %>
-              ♡<%= property.favorites.count %> お気に入り
-            <% end %>
-        <% end %>
-      <%else%>
-         <%= link_to new_user_registration_path, class: "btn" do %>
-         ♡<%= property.favorites.count %> お気に入り
-         <%end%>
-      <%end%>
+      <div class="col-9">
+        <div class="text-center">
+          <h5 class="text-left mt-4">全<%=@properties_count%>件</h5>
+
+          <% condition_flag = false %>
+          <% if @area_group_list.present? && @area_group_list.any? %>
+            <h6><%= @area_group_list.pluck(:area_group_name).join(" ") %></h6>
+            <% condition_flag = true %>
+          <% end %>
+
+          <% if @tag_list.present? && @tag_list.any? %>
+            <h6><%= @tag_list.pluck(:name).join(" ") %></h6>
+            <% condition_flag = true %>
+          <% end %>
+
+          <% if @area_list.present? && @area_list.any? %>
+            <h6><%= @area_list.pluck(:area_name).join(" ") %></h6>
+            <% condition_flag = true %>
+          <% end %>
+
+          <% if @display_lower_amount.present? %>
+            <h6>下限: <%= @display_lower_amount %>万円</h6>
+            <% condition_flag = true %>
+          <% end %>
+
+          <% if @display_upper_amount.present? %>
+            <h6>上限<%= @display_upper_amount%>万円</h6>
+            <% condition_flag = true %>
+          <% end %>
+
+          <% if @keyword.present? %>
+            <h6><%= @keyword %></h6>
+            <% condition_flag = true %>
+          <% end %>
+
+          <% if condition_flag %>
+            <h6>の物件一覧</h6>
+          <% end %>
+        </div>
+
+        <%@properties.each do |property|%>
+          <div class="row">
+            <div class="col-5">
+              <h4 class="mb-3"><%=property.property_name%></h4>
+              <%=image_tag property.images[0],size: '300x212' %>
+            </div>
+
+            <div class="col-7 mt-5">
+              <div class="point">
+                <div class="row mb-2">
+                  <div class="col-3 mt-3">
+                    <h6 class="point-font ml-2">賃料</h6>
+                  </div>
+                  <div class="col-9 mt-3 point-font">
+                    <%=property.rent%>円
+                  </div>
+                </div>
+                <div class="row mb-2">
+                  <div class="col-3">
+                    <h6 class="point-font ml-2">住所</h6>
+                  </div>
+                  <div class="col-9 point-font">
+                    <%=property.address%>
+                  </div>
+                </div>
+                <div class="row mb-2">
+                  <div class="col-3">
+                    <h6 class="point-font ml-2">アクセス</h6>
+                  </div>
+                  <div class="col-9 point-font">
+                    <%=property.access%>
+                  </div>
+                </div>
+                <div class="row mb-2">
+                  <div class="col-3">
+                    <h6 class="point-font ml-2">入居条件</h6>
+                  </div>
+                  <div class="col-9 point-font">
+                    <%=property.condition%>
+                  </div>
+                </div>
+                <div class="row mb-2">
+                  <div class="col-3">
+                    <h6 class="point-font ml-2">空室</h6>
+                  </div>
+                  <div class="col-9 point-font">
+                    <%=property.vacancy%>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <%@property.tags.each do |tag|%>
+              <div class="mt-1 mr-2 ml-3">
+                <span class="tags rounded text-center">
+                  <%=tag.name%>
+                </span>
+              </div>
+            <%end%>
+          </div>
+          <div class="row">
+            <div class="col-3 mb-5 mt-3">
+              <%if user_signed_in? %>
+                <%=link_to "詳細を見る",property_path(property.id), class: "btn"%>
+              <%else%>
+                <%= link_to "詳細を見る",new_user_registration_path, class: "btn"%>
+              <%end%>
+            </div>
+            <div class="col-3 mt-3">
+              <%if user_signed_in? %>
+                <% if property.favorited_by?(current_user) %>
+                  <%= link_to property_favorites_path(property.id, 1), method: :delete, class: "btn" do %>
+                    ♥<%= property.favorites.count %> お気に入り
+                  <% end %>
+                <% else %>
+                  <%= link_to property_favorites_path(property.id), method: :post, class: "btn" do %>
+                    ♡<%= property.favorites.count %> お気に入り
+                  <% end %>
+                <% end %>
+              <%else%>
+                <%= link_to new_user_registration_path, class: "btn" do %>
+                  ♡<%= property.favorites.count %> お気に入り
+                <%end%>
+              <%end%>
+            </div>
+          </div>
+        <%end%>
       </div>
-     </div>
-
-
-    <%end%>
+    </div>
   </div>
-  </div>
-<div class="pagination"><%= paginate properties %></div>
-
+  <div class="pagination"><%= paginate properties %></div>
 <%else%>
-<div class="text-center mt-5">
-  <p>ご指定の検索条件では、物件がありませんでした。</p>
-  <p>条件を見直して再度検索してください。</p>
-</div>
+  <div class="text-center mt-5">
+    <p>ご指定の検索条件では、物件がありませんでした。</p>
+    <p>条件を見直して再度検索してください。</p>
+  </div>
 <% end %>

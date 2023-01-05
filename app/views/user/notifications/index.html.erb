@@ -1,20 +1,19 @@
 <h3 class="mt-4">通知</h3>
-
-
 <% if current_user.passive_notifications.present? %>
-<h5 class="text-left mt-4">全<%=current_user.passive_notifications. count%>件</h5>
-    <% current_user.passive_notifications.each do |notification| %>
-        <div class="mt-3">
-        <%= link_to "通知削除", notification_path(notification), method: :delete  %>
-        </div>
-            <% if notification.action == 'comment_on_question' %>
-                <p><%= "#{notification.sender.nickname}さん"%>が、あなたの質問に<%= link_to "コメント", "/properties/#{notification.property_id}?flag=qa", method: :get %>しました<%="（#{notification.created_at.to_s(:datetime_jp)}）"%></p>
-            <%elsif notification.action == 'reply_on_comment'%>
-                <p><%= "#{notification.sender.nickname}さん" %>が、あなたのコメントに<%= link_to "コメント", "/properties/#{notification.property_id}?flag=qa", method: :get %>しました<%="（#{notification.created_at.to_s(:datetime_jp)}）"%></p>
-            <%elsif notification.action == 'review_on_question'%>
-                <p><%= "#{notification.sender.nickname}さん" %>が、あなたの口コミした物件に<%= link_to "質問", "/properties/#{notification.property_id}?flag=qa", method: :get %>が来ました<%="（#{notification.created_at.to_s(:datetime_jp)}）"%></p>
-            <%end%>
-        <% end %>
-    <% else %>
-    <h6 class="mt-4">通知がありません</h6>
+  <h5 class="text-left mt-4">全<%=current_user.passive_notifications. count%>件</h5>
+  <% current_user.passive_notifications.each do |notification| %>
+    <div class="mt-3">
+      <%= link_to "通知削除", notification_path(notification), method: :delete  %>
+    </div>
+    <% if notification.action == 'comment_on_question' %>
+      <p><%= "#{notification.sender.nickname}さん"%>が、あなたの質問に<%= link_to "コメント", "/properties/#{notification.property_id}?flag=qa", method: :get %>しました<%="（#{notification.created_at.to_s(:datetime_jp)}）"%></p>
+    <%elsif notification.action == 'reply_on_comment'%>
+      <p><%= "#{notification.sender.nickname}さん" %>が、あなたのコメントに<%= link_to "コメント", "/properties/#{notification.property_id}?flag=qa", method: :get %>しました<%="（#{notification.created_at.to_s(:datetime_jp)}）"%></p>
+    <%elsif notification.action == 'review_on_question'%>
+      <p><%= "#{notification.sender.nickname}さん" %>が、あなたの口コミした物件に<%= link_to "質問", "/properties/#{notification.property_id}?flag=qa", method: :get %>が来ました<%="（#{notification.created_at.to_s(:datetime_jp)}）"%></p>
+    <%end%>
+  <% end %>
+<% else %>
+  <h6 class="mt-4">通知がありません</h6>
 <% end %>
+<div class="pagination"><%#= paginate current_user.passive_notifications %></div>

@@ -1,7 +1,4 @@
-
-
-
-<%= render '/user/properties/error', model: @review %>
+<%= render '/user/properties/error', model: @review %>🔴
 <%= render '/user/properties/error', model: @question %>
 <%= render '/user/properties/error', model: @comment %>
 <%= render '/user/properties/error', model: @comment_comment %>
@@ -9,24 +6,21 @@
 
 <div class="slicker w-8s5 d-flex mx-auto align-items-center mt-5">
   <% @property.images.first(2).each do |image| %>
-
-      <%=image_tag image, class:'slide_picture'%>
-
+    <%=image_tag image, class:'slide_picture'%>
   <%end%>
 </div>
 <div class="text-center mb-5">
   <h3><%= @property.property_name %></h3>
   <p><%= @property.introduction %></p>
-
-<div class="row">
-<% @property.tags.each do |tag| %>
-  <div class="mt-1 mr-2 ml-3">
-  <span class="tags rounded taxt-center">
-    <%=tag.name%>
-  </span>
-</div>
-<%end%>
-</div>
+  <div class="row">
+    <% @property.tags.each do |tag| %>
+      <div class="mt-1 mr-2 ml-3">
+        <span class="tags rounded taxt-center">
+          <%=tag.name%>
+        </span>
+      </div>
+    <%end%>
+  </div>
 </div>
 
 <div class="container">
@@ -35,89 +29,84 @@
       <span class="under">共有設備</span>
       <p class="mt-3 mb-3">清掃&nbsp;&nbsp;&nbsp;<%= @property.cleaning_support %></p>
     </div>
-   <div class="col-6">
-    <h3>リビング</h3>
-    <p><%= image_tag @property.images[0],size: '400x230' %></p>
-    <p><%= @property.living%></p>
-  </div>
-  <div class="col-6">
-    <h3>キッチン</h3>
-    <p><%= image_tag @property.images[1],size: '400x230'  %></p>
-    <p><%= @property.kitchen%></p>
-  </div>
+    <div class="col-6">
+      <h3>リビング</h3>
+      <p><%= image_tag @property.images[0],size: '400x230' %></p>
+      <p><%= @property.living%></p>
+    </div>
+    <div class="col-6">
+      <h3>キッチン</h3>
+      <p><%= image_tag @property.images[1],size: '400x230'  %></p>
+      <p><%= @property.kitchen%></p>
+    </div>
   </div>
   <div class ="row mt-5">
-  <div class="col-4">
-    <h3>浴室</h3>
-    <p><%= image_tag @property.images[2],size: '260x250'%></p>
-    <p><%= @property.bath%></p>
-  </div>
-  <div class="col-4">
-  <h3 class="ml-4">洗濯機</h3>
-    <p class="ml-4"><%= image_tag @property.images[3],size: '200x250'%></p>
-    <p class="ml-4"><%= @property.washing_machine %></p>
-  </div>
-  <div class="col-4">
-  <h3>トイレ</h3>
-    <p><%= image_tag @property.images[4],size: '260x250'%></p>
-    <p><%= @property.toilet %></p>
+    <div class="col-4">
+      <h3>浴室</h3>
+      <p><%= image_tag @property.images[2],size: '260x250'%></p>
+      <p><%= @property.bath%></p>
+    </div>
+    <div class="col-4">
+      <h3 class="ml-4">洗濯機</h3>
+      <p class="ml-4"><%= image_tag @property.images[3],size: '200x250'%></p>
+      <p class="ml-4"><%= @property.washing_machine %></p>
+    </div>
+    <div class="col-4">
+      <h3>トイレ</h3>
+      <p><%= image_tag @property.images[4],size: '260x250'%></p>
+      <p><%= @property.toilet %></p>
     </div>
   </div>
 </div>
 
 <div class="mt-5 mb-4">
-<span class="under h3">部屋</span>
+  <span class="under h3">部屋</span>
 </div>
 <p>空室<%= @property.vacancy %></p>
 <p>入居条件<%= @property.condition %></p>
-
 <div class="row">
-
-    <div class="col-5 mt-4">
-  <%= image_tag @property.images[5],size: '350x200'%>
-</div>
-<div class="col-5 mt-4">
-<div class="point">
-    <div class="row mb-2">
-      <div class="col-3 mt-3">
-        <h6 class="point-font ml-2">賃料</h6>
+  <div class="col-5 mt-4">
+    <%= image_tag @property.images[5],size: '350x200'%>
+  </div>
+  <div class="col-5 mt-4">
+    <div class="point">
+      <div class="row mb-2">
+        <div class="col-3 mt-3">
+          <h6 class="point-font ml-2">賃料</h6>
+        </div>
+        <div class="col-9 mt-3 point-font">
+          <%= @property.rent %>円
+        </div>
       </div>
-      <div class="col-9 mt-3 point-font">
-        <%= @property.rent %>円
+      <div class="row mb-2">
+        <div class="col-3">
+          <h6 class="point-font ml-2">共益費</h6>
+        </div>
+        <div class="col-9 point-font">
+          <%= @property.common_service_fee %>
+        </div>
+      </div>
+      <div class="row mb-2">
+        <div class="col-3">
+          <h6 class="point-font ml-2">広さ</h6>
+        </div>
+        <div class="col-9 point-font">
+          <%= @property.breadth %>
+        </div>
+      </div>
+      <div class="row mb-2">
+        <div class="col-3">
+          <h6 class="point-font ml-2">設備</h6>
+        </div>
+        <div class="col-9 point-font">
+          <%= @property.room_facility %>
+        </div>
       </div>
     </div>
-    <div class="row mb-2">
-      <div class="col-3">
-        <h6 class="point-font ml-2">共益費</h6>
-      </div>
-      <div class="col-9 point-font">
-        <%= @property.common_service_fee %>
-      </div>
-    </div>
-    <div class="row mb-2">
-      <div class="col-3">
-        <h6 class="point-font ml-2">広さ</h6>
-      </div>
-      <div class="col-9 point-font">
-        <%= @property.breadth %>
-      </div>
-    </div>
-    <div class="row mb-2">
-      <div class="col-3">
-        <h6 class="point-font ml-2">設備</h6>
-      </div>
-      <div class="col-9 point-font">
-       <%= @property.room_facility %>
-      </div>
-    </div>
-
-
-    </div>
-</div>
-
+  </div>
 </div>
 <div class="mt-5">
-<span class="under mt-5">アクセス</span>
+  <span class="under mt-5">アクセス</span>
 </div>
 <p class="mt-4"><%= @property.address %></p>
 <p><%= @property.access %></p>
@@ -128,7 +117,6 @@
     <h5 class="font-weight-bold"><%= link_to "お問い合わせ",new_property_contact_path(@property.id)%></h5>
   </div>
 </div>
-
 
 <%= render "/user/properties/tab" %>
 
@@ -146,44 +134,45 @@
   });
 
 });
+</script>
 
-
-//qaだったらtab1のshowを消してtab4の方を表示させる デフォルトがshow
-<% if params[:flag].present? and params[:flag] == "qa" %>
-  //$(document).on("turbolinks:load", function() {
-  $(document).ready(function(){
-      $(".review").removeClass("active")
-      $(".qa").addClass("active")
-       $("#tab1").css("display","none");
-
-      $("#tab4").css("display","block");
-      $("#tab4").show();
-
-
-     //tab4のところまで一気にスクロール
-      $('html, body').animate({
-        scrollTop: $("#tab4").offset().top
-    }, 500);
-  })
-
-<%elsif params[:flag].present? and params[:flag] == "rl"%>
- $ (document).ready(function(){
-      $(".review").removeClass("active")
-      $(".rl").addClass("active")
-       $("#tab1").css("display","none");
-
-      $("#tab5").css("display","block");
-      $("#tab5").show();
-
-
-     //tab4のところまで一気にスクロール
-      $('html, body').animate({
-        scrollTop: $("#tab5").offset().top
-    }, 500);
-  })
-
-  //});
-<% end %>
+<script>
+  //qaだったらtab1のshowを消してtab4の方を表示させる デフォルトがshow
+  <% if params[:flag].present? and params[:flag] == "qa" %>
+    //$(document).on("turbolinks:load", function() {
+    $(document).ready(function(){
+        $(".review").removeClass("active")
+        $(".qa").addClass("active")
+         $("#tab1").css("display","none");
+  
+        $("#tab4").css("display","block");
+        $("#tab4").show();
+  
+  
+       //tab4のところまで一気にスクロール
+        $('html, body').animate({
+          scrollTop: $("#tab4").offset().top
+      }, 500);
+    })
+  
+  <%elsif params[:flag].present? and params[:flag] == "rl"%>
+   $ (document).ready(function(){
+        $(".review").removeClass("active")
+        $(".rl").addClass("active")
+         $("#tab1").css("display","none");
+  
+        $("#tab5").css("display","block");
+        $("#tab5").show();
+  
+  
+       //tab4のところまで一気にスクロール
+        $('html, body').animate({
+          scrollTop: $("#tab5").offset().top
+      }, 500);
+    })
+  
+    //});
+  <% end %>
 </script>
 
 

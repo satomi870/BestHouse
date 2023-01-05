@@ -9,6 +9,14 @@ class User::ReviewsController < ApplicationController
   end
 
   def create
+    @avg_atmosphere = Review.where(property_id: params[:id]).average(:atmosphere) ? Review.where(property_id: params[:id]).average(:atmosphere).round(0) : 0
+    @avg_distance_sence = Review.where(property_id: params[:id]).average(:distance_sense) ? Review.where(property_id: params[:id]).average(:atmosphere).round(0) : 0
+    @avg_cleanliness_shared  = Review.where(property_id: params[:id]).average(:cleanliness_shared) ? Review.where(property_id: params[:id]).average(:cleanliness_shared).round(0) : 0
+    @avg_noise = Review.where(property_id: params[:id]).average(:noise) ? Review.where(property_id: params[:id]).average(:noise).round(0) : 0
+    @avg_net_spead = Review.where(property_id: params[:id]).average(:net_speed) ? Review.where(property_id: params[:id]).average(:net_speed).round(0) : 0
+    @avg_shower = Review.where(property_id: params[:id]).average(:shower) ? Review.where(property_id: params[:id]).average(:shower).round(0) : 0
+    @avg_event = Review.where(property_id: params[:id]).average(:event) ? Review.where(property_id: params[:id]).average(:event).round(0) : 0
+
     relation_detail=""
     if review_params[:relation] == "former_resident"
       relation_detail = review_params[:relation_detail1]
@@ -25,7 +33,9 @@ class User::ReviewsController < ApplicationController
     @review.user_id = current_user.id
     @review.property_id = params[:property_id]
 
+
     # byebug
+
     if @review.save
       flash[:notice] = "レビューの投稿が完了しました!"
       redirect_to property_path(params[:property_id])
@@ -52,9 +62,6 @@ class User::ReviewsController < ApplicationController
       @rules = @property.rules
 
 
-      # if Read.create(question_id: @question.id, user_id: current_user.id)
-      #   @read = Read.update(complete: true)
-      # end
       render 'user/properties/show'
     end
 

@@ -1,8 +1,9 @@
+<%#newの方%>
 <div class="col-4">
   <h4 class="mt-5"><%=label%></h4>
-    <%=better%>
-    <% 5.step(1,-1) do |i| %>
+  <%=better%>
+  <% 5.step(1,-1) do |i| %>
     <%= f.radio_button target, i.to_s %>
-    <%end%>
-    <%=worth%>
-  </div>
+  <%end%>
+  <%=worth%>
+</div>

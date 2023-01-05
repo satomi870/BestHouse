@@ -1,6 +1,4 @@
 <%= form_with model: @user,url: user_path, method: :patch do |f| %>
-
-
   <div class="container">
     <div class="row mb-2">
       <div class="col-2 mt-5">
@@ -29,12 +27,9 @@
       </div>
     </div>
     <div class="change mb-3">
-  <%= f.submit "変更する", class: "btn"%>
+      <%= f.submit "変更する", class: "btn"%>
+    </div>
   </div>
-
-
-
-     <%=link_to "退会する",quit_path %>
-
-
 <%end%>
+
+<%=link_to "退会する",quit_path %>

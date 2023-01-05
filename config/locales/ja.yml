@@ -22,7 +22,7 @@ ja:
         password: "パスワード"
       review:
         title: 「タイトル」
-        text: 「本文」
+        body: 「本文」
         relation: 「関係性」
         atmosphere: 「住人の雰囲気」
         distance_sense: 「住人同士の距離感」

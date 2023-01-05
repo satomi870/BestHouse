@@ -1,83 +1,58 @@
         <%#=link_to  property_question_path(question_id: question.id) do%>
-
-    <div class="question mb-3">
-      <h3>質問</h3>
-        <span class="under writing"><%=question.title%></span>
-        <p class="writing"><%=question.body%></p>
-        <%=question.user.nickname%>
-        <% unless question.user.gender == "非公開" %>
-          <%= question.user.gender %>
-        <% end %>
-        <% unless question.user.age == "非公開" %>
-          <%= question.user.age %>
-        <% end %>
-        <%=question.relation_i18n%>
+<div class="question mb-3">🔴
+  <h3>質問</h3>
+  <span class="under writing"><%=question.title%></span>
+  <p class="writing"><%=question.body%></p>
+  <%=question.user.nickname%>
+  <% unless question.user.gender == "非公開" %>
+    <%= question.user.gender %>
+  <% end %>
+  <% unless question.user.age == "非公開" %>
+    <%= question.user.age %>
+  <% end %>
+  <%=question.relation_i18n%>
         <%#=question.relation_detail_i18n%>
+  <%= form_with model: comment, url: question_comments_path(question.id) do |f|  %> <!--[@question, @answer]にしちゃうとコントローラで@question = Question.find(params[:id])を書かないといけなくなり%=link_to '質問に答える', property_questions_path(@property.id)%>ここでquestion.idを送らないとダメになるからそうやって書かない-->
+    <%= f.text_field :body %>
+    <%= f.select :relation, [['住人','resident'],['元住人','former_resident'],['入居検討者','kentosya'], ['入居予定者','yoteisya'], ['周辺住人','syuhenjunin'], ['住人の知人','chizin'], ['大家さん','oya'], ['不動産関係者','kankeisya'], ['その他','sonota']],{prompt: '選択してください'} %>
+    <%= f.submit "コメントする",class: "btn"%>
+  <%end%>
+</div>
 
-
-
-
-        <%= form_with model: comment, url: question_comments_path(question.id) do |f|  %> <!--[@question, @answer]にしちゃうとコントローラで@question = Question.find(params[:id])を書かないといけなくなり%=link_to '質問に答える', property_questions_path(@property.id)%>ここでquestion.idを送らないとダメになるからそうやって書かない-->
-          <%= f.text_field :body %>
-          <%= f.select :relation, [['住人','resident'],['元住人','former_resident'],['入居検討者','kentosya'], ['入居予定者','yoteisya'], ['周辺住人','syuhenjunin'], ['住人の知人','chizin'], ['大家さん','oya'], ['不動産関係者','kankeisya'], ['その他','sonota']],{prompt: '選択してください'} %>
-          <%#= f.hidden_field :target_comment_id,value: question.user.id %>
-          <%= f.submit "コメントする",class: "btn"%>
-        <%end%>
-
-     </div>
-
-          <h3 class="mt-3">コメント一覧</h3>
-          <% question.comments.each do |comment| %>
-
-          <%#= form_with model: @comment, url: question_reply_path(comment_id: comment.id, question_id: question.id) do |f|  %> <!--[@question, @answer]にしちゃうとコントローラで@question = Question.find(params[:id])を書かないといけなくなり%=link_to '質問に答える', property_questions_path(@property.id)%>ここでquestion.idを送らないとダメになるからそうやって書かない-->
-
-          <div class="comment_color writing mb-3">
-            <p class="mt-4"><%= comment.body %></p>
-            <%#= comment.relation_i18n %>
-            <%=comment.user.nickname%>
-            <% unless comment.user.gender == "非公開" %>
-              <%= comment.user.gender %>
-            <% end %>
-            <% unless comment.user.age == "非公開" %>
-              <%= comment.user.age %>
-            <% end %>
-            <%=comment.relation_i18n%>
-            <%#= comment.relation_i18n %>
-
-            <%=comment.user.gender%>
-            <%=comment.user.age%>
-
-
-
-
-
-
-
-            <div class="mt-2">
-              <%= form_with model: comment_comment, url: comment_comment_comments_path(comment_id: comment.id), method: :post do |f|  %> <!--[@question, @answer]にしちゃうとコントローラで@question = Question.find(params[:id])を書かないといけなくなり%=link_to '質問に答える', property_questions_path(@property.id)%>ここでquestion.idを送らないとダメになるからそうやって書かない-->
-                <%= f.text_field :body %>
-                <%#= f.select :relation, [['住人','resident'],['元住人','former_resident'],['入居検討者','kentosya'], ['入居予定者','yoteisya'], ['周辺住人','syuhenjunin'], ['住人の知人','chizin'], ['大家さん','oya'], ['不動産関係者','kankeisya'], ['その他','sonota']],{prompt: '選択してください'} %>
-                <%#= f.hidden_field :target_comment_id, value: comment.id %>
-                <%= f.select :relation, [['住人','resident'],['元住人','former_resident'],['入居検討者','kentosya'], ['入居予定者','yoteisya'], ['周辺住人','syuhenjunin'], ['住人の知人','chizin'], ['大家さん','oya'], ['不動産関係者','kankeisya'], ['その他','sonota']],{prompt: '選択してください'} %>
-                <%#= f.select :relation, CommentComment.relations.keys.to_a,{prompt: '選択してください'} %>
-                <%#= f.hidden_field :target_comment_id, value: comment.id %>
-                <%= f.submit "コメントする" %>
-              <%end%>
-            </div>
-          </div>
-            <% comment.comment_comments.each do |comment_comment| %>
-              <p class="sub_comment writing">
-              <%=comment_comment.body%><br>
-              <%=comment_comment.user.nickname%>
-              <% unless comment_comment.user.gender == "非公開" %>
-                <%= comment_comment.user.gender %>
-              <% end %>
-              <% unless comment_comment.user.age == "非公開" %>
-                <%= comment_comment.user.age %>
-              <% end %>
-              <%=comment_comment.relation_i18n%></p>
-
-            <%end%>
-          <%end%>
+<h3 class="mt-3">コメント一覧</h3>
+<% question.comments.each do |comment| %>
+  <div class="comment_color writing mb-3">
+    <p class="mt-4"><%= comment.body %></p>
+    <%=comment.user.nickname%>
+    <% unless comment.user.gender == "非公開" %>
+      <%= comment.user.gender %>
+  　<% end %>
+    <% unless comment.user.age == "非公開" %>
+      <%= comment.user.age %>
+    <% end %>
+    <%=comment.relation_i18n%>
+    <%=comment.user.gender%>
+    <%=comment.user.age%>
+    <div class="mt-2">
+      <%= form_with model: comment_comment, url: comment_comment_comments_path(comment_id: comment.id), method: :post do |f|  %> <!--[@question, @answer]にしちゃうとコントローラで@question = Question.find(params[:id])を書かないといけなくなり%=link_to '質問に答える', property_questions_path(@property.id)%>ここでquestion.idを送らないとダメになるからそうやって書かない-->
+        <%= f.text_field :body %>
+        <%= f.select :relation, [['住人','resident'],['元住人','former_resident'],['入居検討者','kentosya'], ['入居予定者','yoteisya'], ['周辺住人','syuhenjunin'], ['住人の知人','chizin'], ['大家さん','oya'], ['不動産関係者','kankeisya'], ['その他','sonota']],{prompt: '選択してください'} %>
+        <%= f.submit "コメントする" %>
+      <%end%>
+    </div>
+  </div>
+  <% comment.comment_comments.each do |comment_comment| %>
+    <p class="sub_comment writing">
+      <%=comment_comment.body%><br>
+      <%=comment_comment.user.nickname%>
+      <% unless comment_comment.user.gender == "非公開" %>
+        <%= comment_comment.user.gender %>
+      <% end %>
+      <% unless comment_comment.user.age == "非公開" %>
+        <%= comment_comment.user.age %>
+      <% end %>
+      <%=comment_comment.relation_i18n%></p>
+  <%end%>
+<%end%>
 
 

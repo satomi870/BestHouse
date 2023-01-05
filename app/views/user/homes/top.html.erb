@@ -1,204 +1,183 @@
 
 </div>
 
-  <div class="mt-5 mb-5">
-    <div class="slicker w-8s5 d-flex mx-auto align-items-center justify-content-center">
-      <div>
-        <%=image_tag'A-living1.jpg', class:'slide_picture'%>
-        <p class="caption">2022年9月オープン!!&nbsp;&nbsp;&nbsp;ゆっくりした空間のリビングでくつろげること間違いなし</p>
-      </div>
+<div class="mt-5 mb-5">
+  <div class="slicker w-8s5 d-flex mx-auto align-items-center justify-content-center">
+    <div>
+      <%=image_tag'A-living1.jpg', class:'slide_picture'%>
+      <p class="caption">2022年9月オープン!!&nbsp;&nbsp;&nbsp;ゆっくりした空間のリビングでくつろげること間違いなし</p>
+    </div>
 
-      <div>
-        <%=image_tag'top3.jpg', class:'slide_picture'%>
-        <p class="caption">お仕事や勉強に没頭できるワーキングラウンジが設備</p>
-      </div>
+    <div>
+      <%=image_tag'top3.jpg', class:'slide_picture'%>
+      <p class="caption">お仕事や勉強に没頭できるワーキングラウンジが設備</p>
     </div>
   </div>
+</div>
 
-
-  <h3 class="text-center mt-5 mb-4">BestHouseとは</h3>
+<h3 class="text-center mt-5 mb-4">BestHouseとは</h3>
   <p class ="text-center mb-3">BestHouseとは、シェアハウスに特化したシェアハウス情報検索サイトです。<br>
     ご希望の条件に合わせて、エリアや地図、家賃、こだわり条件などいろいろな方法で検索することができます。<br>
     実際に住んでいる住人のレビューが見ること、質問することができるのでリアルな物件の実情を知ることができます。<br>
-    BestHouseを利用してあなたにとって最高の物件をぜひ見つけてください。</p>
+    BestHouseを利用してあなたにとって最高の物件をぜひ見つけてください。
+  </p>
 <div class ="wrapper">
+  <div class="container">
+    <div class="row area-search">
+      <div class="col-7">
+        <h3>エリアで探す</h3>
+        <ul id="areamap">
+          <%@area_groups.each do |area_group|%>
+            <li id="areamap_<%= area_group.id %>"><%=link_to area_group.area_group_name,search_path(area_group_id: area_group.id, from_top: true)%></li> <%#左が名前(皆が見てわかりやすい名前)右が値%>
+          <%end%>
+        </ul>
+      </div>
 
-
-
-<%#@areas.each do |area|%>
-  <%#=link_to area.area_name,seach_path(area_id: area.id, from_top: true)%> <%#左が名前(皆が見てわかりやすい名前)右が値%>
-<%#end%>
-<div class="container">
-  <div class="row area-search">
-    <div class="col-7">
-      <h3>エリアで探す</h3>
-
-      <ul id="areamap">
-      <%@area_groups.each do |area_group|%>
-        <li id="areamap_<%= area_group.id %>"><%=link_to area_group.area_group_name,search_path(area_group_id: area_group.id, from_top: true)%></li> <%#左が名前(皆が見てわかりやすい名前)右が値%>
-      <%end%>
-      </ul>
-
-    </div>
-
-    <div class="col-5">
-    <div class="mb-5">
-    <h3>フリーワードで探す</h3>
-    <%= form_with url: search_keyword_path, method: :get do |f| %>
-      <%= f.label :keyword, 'キーワード検索'%>
-      <%= f.text_field :keyword %>
-      <%= f.submit '検索' ,class: "btn"%>
-    <% end %>
-    </div>
-
-      <h3>特徴から探す</h3>
-      <section>
-        <div class="accordion">
-          <p class="menu menu1">入居者の特性</p>
-          <div class="contents">
-            <%@basic_tags.each do |basic_tag|%>
-              <div><%=link_to basic_tag.name,search_path(tag_id: basic_tag.id, from_top: true)%>&nbsp;&nbsp;&nbsp;</div>
-            <%end%>
-          </div>
-
-          <p class="menu menu2">部屋</p>
-          <div class="contents">
-            <%@room_tags.each do |room_tag|%>
-              <div><%=link_to room_tag.name,search_path(tag_id: room_tag.id, from_top: true)%>&nbsp;&nbsp;&nbsp;</div>
-            <%end%>
-          </div>
-
-
-          <p class="menu menu3">周辺環境</p>
-          <div class="contents">
-            <%@surrounding_tags.each do |surrounding_tag|%>
-            <div><%=link_to surrounding_tag.name,search_path(tag_id: surrounding_tag.id, from_top: true)%>&nbsp;&nbsp;&nbsp;</div>
-            <%end%>
-          </div>
-
-
-          <p class="menu menu4">共有設備</p>
-          <div class="contents">
-            <%@shared_facility_tags.each do |shared_facility_tag|%>
-              <div><%=link_to shared_facility_tag.name,search_path(tag_id: shared_facility_tag.id, from_top: true)%>&nbsp;&nbsp;&nbsp;</div>
-            <%end%>
-          </div>
-
-          <p class="menu menu5">その他</p>
-          <div class="contents">
-            <%@other_tags.each do |other_tag|%>
-            <div><%=link_to other_tag.name,search_path(tag_id: other_tag.id, from_top: true)%>&nbsp;&nbsp;&nbsp;</div>
-            <%end%>
-          </div>
-
-          <h3 class="mt-5"><%=link_to "詳しく探す",about_path%><%= image_tag 'detail.jpg' %></h3>
-
-
+      <div class="col-5">
+        <div class="mb-5">
+          <h3>フリーワードで探す</h3>
+          <%= form_with url: search_path, method: :get do |f| %>
+            <%= f.label :keyword, 'キーワード検索'%>
+            <%= f.text_field :keyword %>
+            <%= f.submit '検索' ,class: "btn"%>
+          <% end %>
         </div>
+
+        <h3>特徴から探す</h3>
+        <section>
+          <div class="accordion">
+            <p class="menu menu1">入居者の特性</p>
+            <div class="contents">
+              <%@basic_tags.each do |basic_tag|%>
+                <div><%=link_to basic_tag.name,search_path(tag_id: basic_tag.id, from_top: true)%>&nbsp;&nbsp;&nbsp;</div>
+              <%end%>
+            </div>
+
+            <p class="menu menu2">部屋</p>
+            <div class="contents">
+              <%@room_tags.each do |room_tag|%>
+                <div><%=link_to room_tag.name,search_path(tag_id: room_tag.id, from_top: true)%>&nbsp;&nbsp;&nbsp;</div>
+              <%end%>
+            </div>
+
+            <p class="menu menu3">周辺環境</p>
+            <div class="contents">
+              <%@surrounding_tags.each do |surrounding_tag|%>
+                <div><%=link_to surrounding_tag.name,search_path(tag_id: surrounding_tag.id, from_top: true)%>&nbsp;&nbsp;&nbsp;</div>
+              <%end%>
+            </div>
+
+            <p class="menu menu4">共有設備</p>
+            <div class="contents">
+              <%@shared_facility_tags.each do |shared_facility_tag|%>
+                <div><%=link_to shared_facility_tag.name,search_path(tag_id: shared_facility_tag.id, from_top: true)%>&nbsp;&nbsp;&nbsp;</div>
+              <%end%>
+            </div>
+
+            <p class="menu menu5">その他</p>
+            <div class="contents">
+              <%@other_tags.each do |other_tag|%>
+                <div><%=link_to other_tag.name,search_path(tag_id: other_tag.id, from_top: true)%>&nbsp;&nbsp;&nbsp;</div>
+              <%end%>
+            </div>
+
+            <h3 class="mt-5"><%=link_to "詳しく探す",about_path%><%= image_tag 'detail.jpg' %></h3>
+          </div>
         </section>
       </div>
     </div>
   </div>
   <div class="row">
-  <div class="col-12">
-<div class="text-center mt-5 mb-3">
-  <span class="under">人気物件</span>
-</div>
-<div class="d-flex justify-content-center">
-  <% @properties_favorites.each do |property| %>
-    <div class="mr-2 popular mb-5">
-      <%=link_to property_path(property.id) do%>
-      <%= image_tag property.images[0],size: '188x130' %>
-      <p class="top_property"><%= property.property_name %></p>
-      <p class="top_property"><%= property.rent %>円 <%=property.access%></p>
-      <%end%>
+    <div class="col-12">
+      <div class="text-center mt-5 mb-3">
+        <span class="under">人気物件</span>
+      </div>
+      <div class="d-flex justify-content-center">
+        <% @properties_favorites.each do |property| %>
+          <div class="mr-2 popular mb-5">
+            <%=link_to property_path(property.id) do%>
+              <%= image_tag property.images[0],size: '188x130' %>
+              <p class="top_property"><%= property.property_name %></p>
+              <p class="top_property"><%= property.rent %>円 <%=property.access%></p>
+            <%end%>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="text-center mt-3 mb-1">
+        <span class="under">住人による口コミ物件</span>
+      </div>
+
+      <h4 class="popular text-center mt-5">住民の雰囲気がいい物件</h4>
+      <div class="d-flex justify-content-center">
+        <% if @properties_atmosphere.present? %>
+          <% @properties_atmosphere.each do |property| %>
+            <div class="mr-2 popular_property">
+              <%=link_to property_path(property.id) do%>
+                <%= image_tag property.images[0],size: '188x130' %>
+                <p class="top_property"><%= property.property_name %></p>
+                <p class="top_property"><%= property.rent %>円 <%=property.access%></p>
+              <%end%>
+            </div>
+          <%end%>
+        <%else%>
+          <p>まだレビューがありません</p>
+        <%end%>
+      </div>
+
+      <h4 class="popular text-center mt-5">騒音が少ない物件</h4>
+      <div class="d-flex justify-content-center">
+        <% if @properties_noise.present? %>
+          <% @properties_noise.each do |property| %>
+            <div class="mr-2 popular_property ">
+              <%=link_to property_path(property.id) do%>
+                <%= image_tag property.images[0],size: '188x130' %>
+                <p class="top_property"><%= property.property_name %></p>
+                <p class="top_property"><%= property.rent %>円 <%=property.access%></p>
+              <%end%>
+            </div>
+          <%end%>
+        <%else%>
+          <p>まだレビューがありません</p>
+        <%end%>
+      </div>
+
+
+      <h4 class="popular text-center mt-5">水回りの混雑が少ない物件</h4>
+      <div class="d-flex justify-content-center">
+        <% if @properties_congestion_shared.present? %>
+          <% @properties_congestion_shared.each do |property| %>
+            <div class="mr-2 popular_property ">
+              <%=link_to property_path(property.id) do%>
+                <%= image_tag property.images[0],size: '188x130' %>
+                <p class="top_property"><%= property.property_name %></p>
+                <p class="top_property"><%= property.rent %>円 <%=property.access%></p>
+              <%end%>
+            </div>
+          <%end%>
+        <%else%>
+          <p>まだレビューがありません</p>
+        <%end%>
+      </div>
+
+      <h4 class=" popular text-center mt-5">共有部が清潔な物件</h4>
+      <div class="d-flex justify-content-center">
+        <% if @properties_cleanliness_shared.present? %>
+          <% @properties_cleanliness_shared.each do |property| %>
+            <div class="mr-2 popular_property ">
+              <%=link_to property_path(property.id) do%>
+                <%= image_tag property.images[0],size: '188x130' %>
+                <p class="top_property"><%= property.property_name %></p>
+                <p class="top_property"><%= property.rent %>円 <%=property.access%></p>
+              <%end%>
+            </div>
+          <%end%>
+        <%else%>
+          <p>まだレビューがありません</p>
+        <%end%>
+      </div>
     </div>
-  <% end %>
-</div>
-
-<div class="text-center mt-3 mb-1">
-  <span class="under">住人による口コミ物件</span>
-</div>
-
-<h4 class="text-center mt-5">住民の雰囲気がいい物件</h4>
-<div class="d-flex justify-content-center">
-  <% if @properties_atmosphere.present? %>
-    <% @properties_atmosphere.each do |property| %>
-      <div class="mr-2 popular">
-        <%=link_to property_path(property.id) do%>
-          <%= image_tag property.images[0],size: '188x130' %>
-          <p class="top_property"><%= property.property_name %></p>
-          <p class="top_property"><%= property.rent %>円 <%=property.access%></p>
-        <%end%>
-      </div>
-    <%end%>
-  <%else%>
-    <p>まだレビューがありません</p>
-  <%end%>
-</div>
-
-<h4 class="text-center mt-5">騒音が少ない物件</h4>
-<div class="d-flex justify-content-center">
-  <% if @properties_noise.present? %>
-    <%  @properties_noise.each do |property| %>
-      <div class="mr-2 popular ">
-        <%=link_to property_path(property.id) do%>
-          <%= image_tag property.images[0],size: '188x130' %>
-          <p class="top_property"><%= property.property_name %></p>
-          <p class="top_property"><%= property.rent %>円 <%=property.access%></p>
-        <%end%>
-      </div>
-    <%end%>
-  <%else%>
-    <p>まだレビューがありません</p>
-  <%end%>
-</div>
-
-
-<h4 class="text-center mt-5">水回りの混雑が少ない物件</h4>
-<div class="d-flex justify-content-center">
-  <% if @properties_congestion_shared.present? %>
-    <% @properties_congestion_shared.each do |property| %>
-      <div class="mr-2 popular ">
-        <%=link_to property_path(property.id) do%>
-          <%= image_tag property.images[0],size: '188x130' %>
-          <p class="top_property"><%= property.property_name %></p>
-          <p class="top_property"><%= property.rent %>円 <%=property.access%></p>
-        <%end%>
-      </div>
-    <%end%>
-  <%else%>
-    <p>まだレビューがありません</p>
-  <%end%>
-</div>
-
-<h4 class="text-center mt-5">共有部が清潔な物件</h4>
-<div class="d-flex justify-content-center">
-  <% if @properties_cleanliness_shared.present? %>
-    <% @properties_cleanliness_shared.each do |property| %>
-      <div class="mr-2 popular ">
-        <%=link_to property_path(property.id) do%>
-          <%= image_tag property.images[0],size: '188x130' %>
-          <p class="top_property"><%= property.property_name %></p>
-          <p class="top_property"><%= property.rent %>円 <%=property.access%></p>
-        <%end%>
-      </div>
-    <%end%>
-  <%else%>
-    <p>まだレビューがありません</p>
-  <%end%>
-</div>
-</div>
-</div>
-
-</div>
-
-
-
-
-</section>
-
-
+  </div>
 </div>
 
 
@@ -214,7 +193,6 @@
       for (let i = 0; i < menu.length; i++) {
         menu[i].addEventListener("click", toggle);
       }
-
 </script>
 <script>
   var $jq = jQuery.noConflict();
@@ -230,7 +208,4 @@
   });
 
 });
-
-
-
 </script>

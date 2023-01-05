@@ -15,20 +15,26 @@
   -webkit-box-reflect: below -10px -webkit-linear-gradient(top,rgba(0,0,0,0),rgba(0,0,0,0) 10%,rgba(0, 0, 0, 0.6));
 }
 
+//ヘッダー
 .flex-fill{
   color: #5D99FF;
 }
-
+.wrapper{
+  margin: 0 auto;
+  max-width: 1000px;
+  width: 100%;
+}
+//新規登録ボタン
 .register{
   margin-left: 250px;
 }
 
-
-
+ul {
+  list-style-type: none
+}
 
 h3,h2,h4,h5{
   color: #4689FF;
-
 }
 
 h6{
@@ -36,45 +42,34 @@ h6{
   font-weight: bold;
 }
 
+h6{
+  color: #4689FF;
+  display: inline-block;
+
+}
+
+
 p{
   font-size: 16px;
 }
 
-
-.wrapper{
-  margin: 0 auto;
-  max-width: 1000px;
-  width: 100%;
-
-}
-
-// ul {
-// list-style: none;
-
+// topページ
+// .top_picture{
+//   width: 100vw !important;
+//   height: 300px;
+//   background-size: cover;
+//   background-position: 50px 100px;
 // }
-
-//topページ
-
-
-
-.top_picture{
-  width: 100vw !important;
-  height: 300px;
-  background-size: cover;
-  background-position: 50px 100px;
-}
-
-
-.top {
-  position: relative;
-}
+// .top {
+//   position: relative;
+// }
 
 // topページ スライド
 .slick-slide {
   position: relative;
 }
 
-.slick-slide .caption { //ここをいじる
+.slick-slide .caption {
   position: absolute;
   left: 0;
   bottom: 0;
@@ -100,6 +95,7 @@ p{
   transform-origin: 110% 50%;
   filter: blur(7px);
 }
+
 .slick-current {
   position: relative;
   z-index: 2;
@@ -107,21 +103,21 @@ p{
   transform-origin: 50% 50%;
   filter: blur(0);
 }
+
 .slick-current + .slick-slide {
   transform-origin: -10% 50%;
 }
 
-.explanation {
-  color: #fff;
-  font-size: 24px;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%,-50%);
-}
+// .explanation {
+//   color: #fff;
+//   font-size: 24px;
+//   position: absolute;
+//   left: 50%;
+//   top: 50%;
+//   transform: translate(-50%,-50%);
+// }
 
 .btn {
-
     color: #4689FF;
     transition: 0.3s ease-in-out;
     font-weight: 600;
@@ -131,11 +127,12 @@ p{
     border-radius: 0.45rem;
     border-color: rgb(80,80,80,0.5);
     font-size: 8px;
-
 }
+
 .btn {
     opacity: 0.8;
 }
+
 .btn {
     content: "\f005";
     position: relative;
@@ -158,79 +155,101 @@ p{
 // .k{
 //   display: flex;
 
+p {
+  margin-bottom: 0;
+}
 
-.popular {
-    //padding: 0.5em 1em;
-    //margin: 2em 0;
+.popular_property {
     font-weight: bold;
-    color: #4689FF;/*文字色*/
+    color: #4689FF;
     background: #FFF;
-    border: solid 3px #4689FF;/*線*/
-    border-radius: 10px;/*角の丸み*/
-
-
+    border: solid 3px #4689FF;
+    border-radius: 10px;
 }
 
 .top_property{
-  font-size: 14px;
+  font-size: 11px;
+}
+.popular{
+  font-weight: 1000px;
+  color: transparent;
+  -webkit-text-stroke: 1px #4689FF;
 }
 
-//タブ
 
-
-
-.wrap {
-  width: 100%;
-  max-width: 1000px;
+//topページアコーディオンメニュー
+.accordion {
+  width: 400px;
   margin: 0 auto;
 }
 
-#tab-menu {
-  display: flex;
-}
-
-#tab-menu li {
-  list-style-type: none;
-  width: 25%;
-}
-
-#tab-menu li a {
+.menu {
+  //background-color: #4689FF;
   color: white;
-  text-decoration: none;
-  display: block;
-  padding: 20px;
+  font-size: 18px;
+  padding: 10px;
   text-align: center;
-  background: #4689FF;
-  border: 1px solid white;
-  border-bottom: none;
-  border-radius: 20px;
+  cursor: pointer;
+  user-select: none;
+  border-width: 2px;
+　border-style: outset;
+　color: white;
+  margin: 0.2cem;
+  font-weight: bold;
+  background: #FFF;
+  border: solid 3px #6091d3;
+  border-radius: 10px;
+
 }
 
-#tab-menu .active {
-  background: #75A9FF;
-  color: white;
+
+.menu1{
+background-color: #00BFFF;
 }
 
-#tab-contents {
+.menu2{
+background-color: #00CED1;
+}
+
+.menu3{
+background-color: #2C7CFF;
+}
+
+.menu4{
+background-color: #1E90FF;
+}
+
+.menu5{
+background-color: #008BBB;
+}
+
+
+
+.contents {
+  text-align: center;
+  line-height: 0;
+  height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition-duration: 0.4s;
   display: flex;
   flex-wrap: wrap;
 }
 
-#tab-contents .tab {
-  width: 100%;
-  padding: 30px;
-  background: white;
-  border: 1px solid white;
-  border-top: none;
+.contents.is-open {
+  border: 1px solid black;
+  padding: 10px;
+  line-height: normal;
+  height: auto;
+  opacity: 1;
 }
 
-#tab-contents p {
-  color: #000;
-  line-height: 2.5;
+.accordion_rank {
+  width: 600px;
+  margin: 0 auto;
 }
 
-//top
-
+//マップ
 .areamap-position{
   margin-top: 80px;
 }
@@ -238,8 +257,6 @@ p{
 .area-search{
   margin-top: 120px;
 }
-
-
 
 #areamap {
   width: 480px;
@@ -270,22 +287,6 @@ p{
 
 }
 
-// #areamap, #areamap_detail {
-//   width: 500px;
-//   height: 600px;
-//   background-repeat: no-repeat;
-//   background-size: contain;
-//   background-position: center center;
-//   //background-image: url("assets/areamap.jpg");
-//   position: relative;
-//   margin-right: 100px;
-// }
-
-
-ul {
-  list-style-type: none
-}
-
 ul#areamap li a {
   color: #4689FF;
 
@@ -300,10 +301,7 @@ ul#areamap li a:hover {
  a:link  {
   text-decoration: none;
   font-weight: bold;
-
-
 }
-
 
 //新宿 中野 高円寺
 #areamap #areamap_1 {
@@ -493,9 +491,6 @@ ul#areamap li a:hover {
   left: 125px;
 }
 
-
-
-
 //新宿区
 #areamap_detail #area_id_11 {
   position: absolute;
@@ -683,79 +678,6 @@ ul#areamap li a:hover {
 }
 
 
-section {
-  margin-top: 30px;
-}
-
-.accordion {
-  width: 400px;
-  margin: 0 auto;
-}
-
-.menu {
-  //background-color: #4689FF;
-  color: white;
-  font-size: 18px;
-  padding: 10px;
-  text-align: center;
-  cursor: pointer;
-  user-select: none;
-  border-width: 2px;
-border-style: outset;
-}
-
-.menu1{
-background-color: #00BFFF;
-}
-
-.menu2{
-background-color: #00CED1;
-}
-
-.menu3{
-background-color: #2C7CFF;
-}
-
-.menu4{
-background-color: #1E90FF;
-}
-
-.menu5{
-background-color: #008BBB;
-}
-
-p {
-  margin-bottom: 0;
-}
-
-
-
-.contents {
-  text-align: center;
-  line-height: 0;
-  height: 0;
-  overflow: hidden;
-  opacity: 0;
-  transition-duration: 0.4s;
-  display: flex;
-  flex-wrap: wrap;
-}
-
-
-
-.contents.is-open {
-  border: 1px solid black;
-  padding: 10px;
-  line-height: normal;
-  height: auto;
-  opacity: 1;
-}
-
-.accordion_rank {
-  width: 600px;
-  margin: 0 auto;
-}
-
 //about
 .area{
   margin-top: 80px;
@@ -793,8 +715,6 @@ p {
 
   }
 
-
-
 .tag{
   padding: 0.5em 1em;
   margin: 2em 0;
@@ -814,20 +734,20 @@ p {
 
 // }
 
-.content{
-    border-collapse: collapse;
-    border-radius: 15px;
+// .content{
+//     border-collapse: collapse;
+//     border-radius: 15px;
 
 
-}
-.content td{
-    border: 2px solid #1E90FF;
-}
+// }
+// .content td{
+//     border: 2px solid #1E90FF;
+// }
 
-.content th{
-    border: 2px solid #1E90FF;
+// .content th{
+//     border: 2px solid #1E90FF;
 
-}
+// }
 
 
 .tags{
@@ -836,9 +756,6 @@ p {
     color: #4689FF;
     background: white;
     border: solid 1px;
-
-
-
 }
 
 .search-tag{
@@ -846,9 +763,6 @@ p {
 }
 
 .point{
-
-
-
 border-top:solid 5px #A4C6FF;/*上の線の種類・太さ・色*/
 border-bottom:solid 5px #A4C6FF;/*下の線の種類・太さ・色*/
 background-color:#D7EEFF;
@@ -859,28 +773,67 @@ background-color:#D7EEFF;
 
 }
 
-.favorite{
-  color: #4689FF;
-  font-size: 11px;
+//タブ
+.wrap {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
-.favorite-explanation{
-  color: #4689FF;
-  font-size: 13px;
+#tab-menu {
+  display: flex;
 }
+
+#tab-menu li {
+  list-style-type: none;
+  width: 25%;
+}
+
+#tab-menu li a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  padding: 20px;
+  text-align: center;
+  background: #4689FF;
+  border: 1px solid white;
+  border-bottom: none;
+  border-radius: 20px;
+}
+
+#tab-menu .active {
+  background: #75A9FF;
+  color: white;
+}
+
+#tab-contents {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#tab-contents .tab {
+  width: 100%;
+  padding: 30px;
+  background: white;
+  border: 1px solid white;
+  border-top: none;
+}
+
+#tab-contents p {
+  color: #000;
+  line-height: 2.5;
+}
+
 
 //property show
-
-
-
 .slide_picture{
   width: 890px;
   height: 500px;
 }
 // タブ レビュー投稿
-.repeat{
-  margin-bottom: 30px;
-}
+// .repeat{
+//   margin-bottom: 30px;
+// }
 
 //タブreviw一覧
 .coordination{
@@ -889,31 +842,23 @@ background-color:#D7EEFF;
   border-radius: 25px
 }
 
-h6{
-  color: #4689FF;
-  display: inline-block;
-
-}
-
 
 
 //タブQ&A
 
 .comment_color{
-
-  border-top: 3px solid #75A9FF;
+   border-top: 3px solid #75A9FF;
 }
+
 .question{
   border: 4px solid #75A9FF;
   padding: 10px;
   border-radius: 15px
 }
 
-
 .sub_comment {
    font-size: 12px;
 }
-
 
 .line{
   border-top: 3px solid #4689FF;
@@ -957,6 +902,15 @@ h6{
 //お気に入り
 .favorite-btn{
   font-size: 10px;
+}
+.favorite{
+  color: #4689FF;
+  font-size: 11px;
+}
+
+.favorite-explanation{
+  color: #4689FF;
+  font-size: 13px;
 }
 
 //user編集

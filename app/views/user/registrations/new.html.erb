@@ -1,4 +1,4 @@
-<h3>新規登録</h3>
+<h3>新規登録</h3>🔴
 
 <%#= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 <%= form_with model: @user, url: user_registration_path do |f| %>
@@ -53,17 +53,16 @@
       <div class="col-9 mb-3">
         <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
       </div>
-      </div>
+    </div>
     <div class="register mb-3">
-  <%= f.submit "新規登録をする", class: "btn"%>
+      <%= f.submit "新規登録をする", class: "btn"%>
+    </div>
   </div>
-
 <%end%>
 
-
-  <div class="mr-5">
-    <%= render "user/shared/links" %>
-  </div>
+<div class="mr-5">
+  <%= render "user/shared/links" %>
+</div>
 
 
 
