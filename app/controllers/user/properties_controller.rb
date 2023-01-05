@@ -35,13 +35,13 @@ class User::PropertiesController < ApplicationController
       # @tags = params[:tag_id].reject(&:empty?)
       # p @tags
     end
-
     # 未入力の場合は全件が対象
-    @properties = Property.page(params[:page]).per(10)
+    #@properties_count = Property.count
+    @properties = Property.all
     # エリア関連の検索処理
     @checkd_areas = []
     if !@areas.blank?
-      @properties = @properties.where(area_id: @areas).page(params[:page]).per(10)
+      @properties = @properties.where(area_id: @areas)
       @checkd_areas = @areas
     elsif !@area_groups.blank? && @tags.blank?
       @properties = @properties.where(area_group_id: @area_groups)
@@ -60,6 +60,8 @@ class User::PropertiesController < ApplicationController
     elsif (params[:lower_rent] && !params[:lower_rent].to_i.zero?) && (params[:upper_rent] && params[:upper_rent].to_i.zero?)
       @properties = @properties.where(rent: params[:lower_rent].to_i..)
     end
+    @properties_count = @properties.count
+    @properties = @properties.page(params[:page]).per(10)
 
       #@results = @ransack.result
 
@@ -99,6 +101,7 @@ class User::PropertiesController < ApplicationController
 
     @tags=Tag.all
 
+
     basic = Category.find_by(category: "basic") #カテゴリわけwhereを使うパターンもある　rails 検索　やり方
     @basic_tags=basic.tags
 
@@ -115,47 +118,55 @@ class User::PropertiesController < ApplicationController
     @other_tags=other.tags
 
 
-
-
-  end
-
-
-
-
-  def search_keyword
-    @properties = Property.where("access LIKE ?", "%#{params[:keyword]}%")
+    @keyword = params[:keyword]
+    if !@keyword.blank?
+    @properties= Property.where("access LIKE ?", "%#{params[:keyword]}%")
     .or(Property.where("address LIKE ?", "%#{params[:keyword]}%"))
     .or(Property.where("rent LIKE ?", "%#{params[:keyword]}%"))
     .or(Property.where("property_name LIKE ?", "%#{params[:keyword]}%"))
 
-
-
-    @keyword = params[:keyword]
+    @properties_count = @properties.count
+    @properties = @properties.page(params[:page]).per(1)
 
     @checkd_areas = Area.where("area_name LIKE ?", "#{params[:keyword]}%").pluck(:id)
-
-
-  @tags=Tag.all
-
-    basic = Category.find_by(category: "basic") #カテゴリわけwhereを使うパターンもある　rails 検索　やり方
-    @basic_tags=basic.tags
-
-    room = Category.find_by(category: "room")
-    @room_tags=room.tags
-
-    surrounding = Category.find_by(category: "surrounding")
-    @surrounding_tags=surrounding.tags
-
-    shared_facility = Category.find_by(category: "shared_facility")
-    @shared_facility_tags=shared_facility.tags
-
-    other = Category.find_by(category: "other")
-    @other_tags=other.tags
-
-
-
+  end
 
   end
+
+
+
+
+  # def search_keyword
+  #   @properties_keyword = Property.where("access LIKE ?", "%#{params[:keyword]}%").page(params[:page]).per(10)
+  #   .or(Property.where("address LIKE ?", "%#{params[:keyword]}%"))
+  #   .or(Property.where("rent LIKE ?", "%#{params[:keyword]}%"))
+  #   .or(Property.where("property_name LIKE ?", "%#{params[:keyword]}%"))
+  #   @keyword = params[:keyword]
+
+  #   @checkd_areas = Area.where("area_name LIKE ?", "#{params[:keyword]}%").pluck(:id)
+
+
+  #   @tags=Tag.all
+
+  #   basic = Category.find_by(category: "basic") #カテゴリわけwhereを使うパターンもある　rails 検索　やり方
+  #   @basic_tags=basic.tags
+
+  #   room = Category.find_by(category: "room")
+  #   @room_tags=room.tags
+
+  #   surrounding = Category.find_by(category: "surrounding")
+  #   @surrounding_tags=surrounding.tags
+
+  #   shared_facility = Category.find_by(category: "shared_facility")
+  #   @shared_facility_tags=shared_facility.tags
+
+  #   other = Category.find_by(category: "other")
+  #   @other_tags=other.tags
+
+
+
+
+  # end
   def map
     @property=Property.find(params[:property_id])
   end
@@ -196,7 +207,7 @@ class User::PropertiesController < ApplicationController
     @avg_net_spead = Review.where(property_id: params[:id]).average(:net_speed) ? Review.where(property_id: params[:id]).average(:net_speed).round(0) : 0
     @avg_shower = Review.where(property_id: params[:id]).average(:shower) ? Review.where(property_id: params[:id]).average(:shower).round(0) : 0
     @avg_event = Review.where(property_id: params[:id]).average(:event) ? Review.where(property_id: params[:id]).average(:event).round(0) : 0
-
+#byebug
   end
 end
 #違うURLで同じアクションに飛びたい時は一つにルーティングをまとめ
