@@ -1,4 +1,4 @@
-<div class="wrap mt-5">🔴
+<div class="wrap mt-5">
   <ul id="tab-menu">
     <li><a href="#tab1" class="review active">口コミを投稿する</a></li>
     <li><a href="#tab2" class="">口コミを見る</a></li>
@@ -46,16 +46,12 @@
         <%=render '/user/properties/review_meter_input',label: "パーティーやイベントの開催", better: "頻繁にある", f: f, worth: "少ない",target: :event %>
       </div>
 
-
       <div class="text-center mt-5">
         <h3>タイトル<span class="h6">(1~100文字)</span></h3>
         <%= f.text_field :title,:size=>"60x10" %>
         <h3 class="mt-3">本文<span class="h6">(10文字~1000文字)</span></h3>
         <%= f.text_area :body,:size=>"60x10"%>
       </div>
-
-        <%#= f.hidden_field :relation,value: @review_relation.relation %>
-        <%#= f.hidden_field :relation_detail,value: @review_relation.relation_detail %>
 
       <div class="text-center mt-3">
         <h6>住み続けたい?</h6>
@@ -71,29 +67,29 @@
   </div>
 
   <div id="tab2" class="tab">
-    <div class="coordination mb-5">
-      <% unless @avg_atmosphere == 0 && @avg_distance_sence == 0 && @avg_cleanliness_shared == 0 && @avg_noise == 0 && @avg_net_spead == 0 && @avg_shower == 0 && @avg_event == 0
-      @avg_atmosphere.nil? && @avg_distance_sence.nil? && @avg_cleanliness_shared.nil? && @avg_noise.nil? && @avg_net_spead.nil? && @avg_shower.nil? && @avg_event.nil? %>
-      <h5 class="mb-5 ml-3"><%=@reviews.count%></h5>
+    <%if @reviews.present?%>
+      <div class="mb-5">
+        <%# unless @avg_atmosphere == 0 && @avg_distance_sence == 0 && @avg_cleanliness_shared == 0 && @avg_noise == 0 && @avg_net_spead == 0 && @avg_shower == 0 && @avg_event == 0 %>
+        <h5 class="mb-5 ml-3">全<%=@reviews.count%>件</h5>
         <h3 class="ml-3">総合評価</h3>
-          <div class="mb-5 ml-3">
-            <div id="show_raty" data-avg-score=<%= @avg_score %> ></div>
-          </div>
-          <%= render '/user/properties/review_avg',
-            avg_atmosphere: @avg_atmosphere,
-            avg_distance_sence: @avg_distance_sence,
-            avg_cleanliness_shared: @avg_cleanliness_shared,
-            avg_noise: @avg_noise,
-            avg_net_spead: @avg_net_spead,
-            avg_shower: @avg_shower,
-            avg_event: @avg_event
-          %>
-      <% else %>
-        <div class="mb-5">
-          <h6>レビューがありません</h6>
+        <div class="mb-5 ml-3">
+          <div id="show_raty" data-avg-score=<%= @avg_score %> ></div>
         </div>
-      <% end %>
-    </div>
+            <%#= render '/user/properties/review_avg',
+              avg_atmosphere: @avg_atmosphere,
+              avg_distance_sence: @avg_distance_sence,
+              avg_cleanliness_shared: @avg_cleanliness_shared,
+              avg_noise: @avg_noise,
+              avg_net_spead: @avg_net_spead,
+              avg_shower: @avg_shower,
+              avg_event: @avg_event
+            %>
+      </div>
+    <% else %>
+      <div class="mb-5">
+        <h6>レビューがありません</h6>
+      </div>
+    <% end %>
     <% @reviews.each do |review| %>
       <div class="row">
         <div class="col-5">
@@ -124,7 +120,7 @@
 
   <div id="tab3" class="tab">
 　　<div class="text-center">
-  　　  <%= render '/user/properties/error', model: @question %>
+      <%= render '/user/properties/error', model: @question %>
   　　  <%= form_with model: @question, url:  property_questions_path(property_id: @property.id) do |f| %>
         <h3>タイトル<span class="h6">(1~100文字)</span></h3>
         <%= f.text_field :title,:size=>"60x10" %>
@@ -161,7 +157,7 @@
          <%=f.submit 'シェアする',class: "btn"%>
        <%end%>
     </div>
-    <div class="rule rule01">
+    <div class="rule rule01 mt-5">
 　　　<h3 class="text-center font-weight-bold mb-4">ハウスルール</h3>
       <%@rules.each do |rule|%>
         <p class="writing">•<%= rule.body %></p>

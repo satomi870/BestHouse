@@ -125,14 +125,7 @@ class User::PropertiesController < ApplicationController
 
     #星評価の平均点を算出
     @avg_score = Review.where(property_id: params[:id]).average(:score)
-    #ラジオボタンレビュー項目の平均点を算出
-    @avg_atmosphere = Review.where(property_id: params[:id]).average(:atmosphere) ? Review.where(property_id: params[:id]).average(:atmosphere).round(0) : 0
-    @avg_distance_sence = Review.where(property_id: params[:id]).average(:distance_sense) ? Review.where(property_id: params[:id]).average(:atmosphere).round(0) : 0
-    @avg_cleanliness_shared  = Review.where(property_id: params[:id]).average(:cleanliness_shared) ? Review.where(property_id: params[:id]).average(:cleanliness_shared).round(0) : 0
-    @avg_noise = Review.where(property_id: params[:id]).average(:noise) ? Review.where(property_id: params[:id]).average(:noise).round(0) : 0
-    @avg_net_spead = Review.where(property_id: params[:id]).average(:net_speed) ? Review.where(property_id: params[:id]).average(:net_speed).round(0) : 0
-    @avg_shower = Review.where(property_id: params[:id]).average(:shower) ? Review.where(property_id: params[:id]).average(:shower).round(0) : 0
-    @avg_event = Review.where(property_id: params[:id]).average(:event) ? Review.where(property_id: params[:id]).average(:event).round(0) : 0
+
   end
 end
 

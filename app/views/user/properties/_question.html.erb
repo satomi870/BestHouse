@@ -1,5 +1,4 @@
-        <%#=link_to  property_question_path(question_id: question.id) do%>
-<div class="question mb-3">🔴
+<div class="question mb-3">
   <h3>質問</h3>
   <span class="under writing"><%=question.title%></span>
   <p class="writing"><%=question.body%></p>
@@ -11,7 +10,6 @@
     <%= question.user.age %>
   <% end %>
   <%=question.relation_i18n%>
-        <%#=question.relation_detail_i18n%>
   <%= form_with model: comment, url: question_comments_path(question.id) do |f|  %> <!--[@question, @answer]にしちゃうとコントローラで@question = Question.find(params[:id])を書かないといけなくなり%=link_to '質問に答える', property_questions_path(@property.id)%>ここでquestion.idを送らないとダメになるからそうやって書かない-->
     <%= f.text_field :body %>
     <%= f.select :relation, [['住人','resident'],['元住人','former_resident'],['入居検討者','kentosya'], ['入居予定者','yoteisya'], ['周辺住人','syuhenjunin'], ['住人の知人','chizin'], ['大家さん','oya'], ['不動産関係者','kankeisya'], ['その他','sonota']],{prompt: '選択してください'} %>
