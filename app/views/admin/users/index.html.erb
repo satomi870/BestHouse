@@ -1,6 +1,6 @@
- <h4 class="ml-3">ユーザー一覧</h4>
+<h4 class="ml-3">ユーザー一覧</h4>
 <% @users.each do |user| %>
- <div class="container mt-5">
+  <div class="container mt-5">
     <div class="row mb-2">
       <div class="col-3">
         ユーザーID
@@ -33,10 +33,10 @@
       </div>
       <div class="col-9">
         <% if user.is_deleted%>
-           退会
-         <%else%>
-           有効
-         <%end%>
+          退会
+        <%else%>
+          有効
+        <%end%>
       </div>
     </div>
     <div class="row mb-2">
@@ -44,20 +44,17 @@
         利用可否
       </div>
       <div class="col-9">
-         <% if user.is_active%>
-           無効
-         <%else%>
-           有効
-         <%end%>
+        <% if user.is_active%>
+          無効
+        <%else%>
+          有効
+        <%end%>
       </div>
     </div>
   </div>
-
 <%end%>
 
-
-
- <%= link_to "Q＆A一覧", admin_questions_path %>
- <%= link_to "レビュー一覧",admin_reviews_path %>
- <%= link_to "ハウスルール一覧",admin_rules_path %>
- <%= link_to "お問い合わせ一覧",admin_contacts_path %>
+<%= link_to "Q＆A一覧", admin_questions_path %>
+<%= link_to "レビュー一覧",admin_reviews_path %>
+<%= link_to "ハウスルール一覧",admin_rules_path %>
+<%= link_to "お問い合わせ一覧",admin_contacts_path %>

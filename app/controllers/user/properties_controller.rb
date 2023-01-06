@@ -1,24 +1,13 @@
 class User::PropertiesController < ApplicationController
   before_action :authenticate_user!, except: [:search]
-  #before_action :set_ransack, only: [:search_keyword]
+
   def search
-    # 配列の中の空要素を取り除く
-    #@area_groups = params[:area_group_name].reject(&:empty?)
-    #単独検索の場合
+    #topページの検索の場合
     if params[:from_top].present?
       @area_groups = params[:area_group_id]
       @areas = params[:area_id]
       @tags = params[:tag_id]
     else
-      #@area_groups = params[:area_group_name].reject(&:empty?) #aboutの場合
-      # @areas = []
-      # unless params[:area_group_id].nil?
-      #   params[:area_group_id].reject(&:empty?).each do |id|
-      #     if (id != "")
-      #       @areas.push(id.to_i)
-      #     end
-      #   end
-      # end
       #複数検索の場合
       @areas = []
       if params[:area_id].present?
@@ -33,11 +22,9 @@ class User::PropertiesController < ApplicationController
           end
         end
       end
-      # @tags = params[:tag_id].reject(&:empty?)
-      # p @tags
     end
+
     # 未入力の場合は全件が対象
-    #@properties_count = Property.count
     @properties = Property.all
     # エリア関連の検索処理
     @checkd_areas = []
@@ -64,26 +51,10 @@ class User::PropertiesController < ApplicationController
     @properties_count = @properties.count
     @properties = @properties.page(params[:page]).per(10)
 
-      #@results = @ransack.result
-
-
-
     #検索条件を検索希望一覧画面で表示
     @tag_list = Tag.where(id: @tags)
     @area_list = Area.where(id: @areas)
     @area_group_list = AreaGroup.where(id: @area_groups)
-
-    # lower_rent = params[:lower_rent]
-    # upper_rent = params[:upper_rent]
-
-    # #下限と上限の金額の桁数を変数に入れている
-    # digits_lower_rent = lower_rent&.length
-    # digits_upper_rent = upper_rent&.length
-
-    # 表示する賃料を万円表示にする
-    # e.g. 40_000 → 4万円 と表記するため
-    # @display_lower_amount = lower_rent&.slice(0, digits_lower_rent - 4) || "0"
-    # @display_upper_amount = upper_rent&.slice(0, digits_upper_rent - 4) || "0"
 
     if params[:lower_rent]
       lower_rent = params[:lower_rent]
@@ -96,14 +67,9 @@ class User::PropertiesController < ApplicationController
       @display_upper_amount = upper_rent.slice(0, digits_upper_rent - 4)
     end
 
-    @lower_rent = params[:lower_rent].to_i
-    @upper_rent = params[:upper_rent].to_i
-
-
     @tags=Tag.all
 
-
-    basic = Category.find_by(category: "basic") #カテゴリわけwhereを使うパターンもある　rails 検索　やり方
+    basic = Category.find_by(category: "basic")
     @basic_tags=basic.tags
 
     room = Category.find_by(category: "room")
@@ -118,62 +84,23 @@ class User::PropertiesController < ApplicationController
     other = Category.find_by(category: "other")
     @other_tags=other.tags
 
-
+    #キーワード検索の処理
     @keyword = params[:keyword]
     if !@keyword.blank?
-    @properties= Property.where("access LIKE ?", "%#{params[:keyword]}%")
-    .or(Property.where("address LIKE ?", "%#{params[:keyword]}%"))
-    .or(Property.where("rent LIKE ?", "%#{params[:keyword]}%"))
-    .or(Property.where("property_name LIKE ?", "%#{params[:keyword]}%"))
+      @properties= Property.where("access LIKE ?", "%#{params[:keyword]}%")
+      .or(Property.where("address LIKE ?", "%#{params[:keyword]}%"))
+      .or(Property.where("rent LIKE ?", "%#{params[:keyword]}%"))
+      .or(Property.where("property_name LIKE ?", "%#{params[:keyword]}%"))
 
-    @properties_count = @properties.count
-    @properties = @properties.page(params[:page]).per(1)
+      @properties_count = @properties.count
+      @properties = @properties.page(params[:page]).per(10)
 
-    @checkd_areas = Area.where("area_name LIKE ?", "#{params[:keyword]}%").pluck(:id)
+      @checkd_areas = Area.where("area_name LIKE ?", "#{params[:keyword]}%").pluck(:id)
+    end
   end
 
-  end
-
-
-
-
-  # def search_keyword
-  #   @properties_keyword = Property.where("access LIKE ?", "%#{params[:keyword]}%").page(params[:page]).per(10)
-  #   .or(Property.where("address LIKE ?", "%#{params[:keyword]}%"))
-  #   .or(Property.where("rent LIKE ?", "%#{params[:keyword]}%"))
-  #   .or(Property.where("property_name LIKE ?", "%#{params[:keyword]}%"))
-  #   @keyword = params[:keyword]
-
-  #   @checkd_areas = Area.where("area_name LIKE ?", "#{params[:keyword]}%").pluck(:id)
-
-
-  #   @tags=Tag.all
-
-  #   basic = Category.find_by(category: "basic") #カテゴリわけwhereを使うパターンもある　rails 検索　やり方
-  #   @basic_tags=basic.tags
-
-  #   room = Category.find_by(category: "room")
-  #   @room_tags=room.tags
-
-  #   surrounding = Category.find_by(category: "surrounding")
-  #   @surrounding_tags=surrounding.tags
-
-  #   shared_facility = Category.find_by(category: "shared_facility")
-  #   @shared_facility_tags=shared_facility.tags
-
-  #   other = Category.find_by(category: "other")
-  #   @other_tags=other.tags
-
-
-
-
-  # end
   def map
     @property=Property.find(params[:property_id])
-  end
-
-  def index
-    @properties=Property.all
   end
 
   def show
@@ -187,12 +114,10 @@ class User::PropertiesController < ApplicationController
     end
     history.save
 
-    #@review_relation = Review.new#()ないは関係性ページの値を受け取るために設置
     @review = Review.new
     @reviews=@property.reviews
     @question = Question.new
     @questions = @property.questions
-    # @questions = @property.questions.where("answer_flg = false")
     @comment = Comment.new
     @comment_comment = CommentComment.new
     @rule = Rule.new
@@ -208,53 +133,10 @@ class User::PropertiesController < ApplicationController
     @avg_net_spead = Review.where(property_id: params[:id]).average(:net_speed) ? Review.where(property_id: params[:id]).average(:net_speed).round(0) : 0
     @avg_shower = Review.where(property_id: params[:id]).average(:shower) ? Review.where(property_id: params[:id]).average(:shower).round(0) : 0
     @avg_event = Review.where(property_id: params[:id]).average(:event) ? Review.where(property_id: params[:id]).average(:event).round(0) : 0
-#byebug
   end
 end
-#違うURLで同じアクションに飛びたい時は一つにルーティングをまとめ
 
 
 
- #   if params[:format].present?
-  #     @formats = params[:format].split("/")
-  #   end
 
-
-  #   @tags = params[:tag]
-  #   @areas = params[:area_name]
-
-  # #byebug
-
-  #   if params[:format].present?
-  #     @properties = Property.where(id: @formats)
-  #   elsif  @tags != ["", "", "", ""] && @areas != [""]
-  #     @properties =  Property.includes(:tag_properties).where(tag_properties: {tag_id: @tags }).where(area_id: @areas)
-  #   elsif @tags != ["", "", "", ""] && @areas == [""]
-  #     @properties =  Property.includes(:tag_properties).where(tag_properties: {tag_id: @tags })
-  #   elsif @tags == ["", "", "", ""] && @areas != [""]
-  #     @properties =  Property.where(area_id: @areas)
-  #   else
-  #     @properties =  Property.all
-  #   end
-
-      #Parent.includes(:children).where(children: {name: "taro"})
-      #Child.includes(:parent).where(:parents: {name: "takashi"})
-      #njnnjjjjjnn[;kl[Child.where(name: "taro")
-
-    # if params[:tag_id]
-    #   @tag=Tag.find(params[:tag_id])
-    #   @properties = @tag.properties
-    # elsif params[:area_id]
-    #   @area = Area.find(params[:area_id])
-    #   @properties = @area.properties
-    # end
-
-    # @items = []
-    # @properties.each do |property|
-    #   @items << property.id
-    # end
-    # @items = @properties.ids # 上と同義。エラーが出るようなら上記と入れ替え
-
-    #@properties = params[:tag_id].present? ? Tag.find(params[:tag_id]).properties : Property.all  4.5.10行目を合わせてるだけ
-     #@property=Property.find(params[:id])
 

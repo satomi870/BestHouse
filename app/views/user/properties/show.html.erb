@@ -1,4 +1,4 @@
-<%= render '/user/properties/error', model: @review %>🔴
+<%= render '/user/properties/error', model: @review %>
 <%= render '/user/properties/error', model: @question %>
 <%= render '/user/properties/error', model: @comment %>
 <%= render '/user/properties/error', model: @comment_comment %>
@@ -9,18 +9,18 @@
     <%=image_tag image, class:'slide_picture'%>
   <%end%>
 </div>
-<div class="text-center mb-5">
+<div class="text-center mb-4">
   <h3><%= @property.property_name %></h3>
-  <p><%= @property.introduction %></p>
-  <div class="row">
-    <% @property.tags.each do |tag| %>
-      <div class="mt-1 mr-2 ml-3">
-        <span class="tags rounded taxt-center">
-          <%=tag.name%>
-        </span>
-      </div>
-    <%end%>
-  </div>
+</div>
+<%= @property.introduction %>
+<div class="row">
+  <% @property.tags.each do |tag| %>
+    <div class="mt-1 mr-2 ml-3">
+      <span class="tags rounded taxt-center">
+        <%=tag.name%>
+      </span>
+    </div>
+  <%end%>
 </div>
 
 <div class="container">
@@ -144,33 +144,33 @@
         $(".review").removeClass("active")
         $(".qa").addClass("active")
          $("#tab1").css("display","none");
-  
+
         $("#tab4").css("display","block");
         $("#tab4").show();
-  
-  
+
+
        //tab4のところまで一気にスクロール
         $('html, body').animate({
           scrollTop: $("#tab4").offset().top
       }, 500);
     })
-  
+
   <%elsif params[:flag].present? and params[:flag] == "rl"%>
    $ (document).ready(function(){
         $(".review").removeClass("active")
         $(".rl").addClass("active")
          $("#tab1").css("display","none");
-  
+
         $("#tab5").css("display","block");
         $("#tab5").show();
-  
-  
+
+
        //tab4のところまで一気にスクロール
         $('html, body').animate({
           scrollTop: $("#tab5").offset().top
       }, 500);
     })
-  
+
     //});
   <% end %>
 </script>

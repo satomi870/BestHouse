@@ -34,13 +34,10 @@ Rails.application.routes.draw do
     resources :histories, only: [:index, :destroy]
     resources :notifications, only: [:index, :destroy]
     resources :questions do
-      #resources :answers, only: [:create,:show]
-      #post '/comments/:comment_id' => 'comments#reply', as: 'reply'
       resources :comments, only: [:create]
     end
     resources :comments do
       resources :comment_comments, only: [:create]
-
     end
   end
   namespace :admin do
@@ -51,9 +48,7 @@ Rails.application.routes.draw do
     resources :comment_comments,only: [:destroy]
     resources :contacts,only:[:index,:show]
     resources :rules,only:[:index,:destroy]
-
-
-  end
+   end
 
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

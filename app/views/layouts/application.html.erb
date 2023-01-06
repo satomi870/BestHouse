@@ -2,8 +2,8 @@
 <html>
   <head>
 
-   <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-   <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
 
 
     <title>BestHouse</title>
@@ -14,7 +14,6 @@
     <script src="https://kit.fontawesome.com/801a1ac1e5.js" crossorigin="anonymous"></script>
     <%= stylesheet_pack_tag 'application', media: 'all'%> <%#ブートストラップ使う場合外す%>
     <%= javascript_pack_tag 'application' %>
-
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
@@ -23,11 +22,9 @@
   <body>
 
     <div class ="wrapper">
-    <header>
-      <h1 class="name">BestHouse</h1><h5 class="text-center"><%= flash[:notice] %></h5>
-
-
-    </header>
+      <header>
+        <h1 class="name">BestHouse</h1><h5 class="text-center"><%= flash[:notice] %></h5>
+      </header>
       <ul class="d-flex justify-content-center mt-5 text-center">
         <% if user_signed_in? %>
           <li class=" flex-fill">
@@ -43,14 +40,13 @@
             <%= link_to"通知",notifications_path %>
               <%if current_user.passive_notifications.where(checked: false).size > 0%>
                 <div class="count"><%= current_user.passive_notifications.where(checked: false).size%></div>
-            <%end%>
+              <%end%>
           </li>
           <li class=" flex-fill">
             <%= link_to"閲覧履歴",histories_path %>
           </li>
           <li class=" flex-fill">
             <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-            <%#= button_to 'ログアウト', destroy_user_session_path, method: :delete %>
           </li>
         <% elsif admin_signed_in? %>
           <li class=" flex-fill">

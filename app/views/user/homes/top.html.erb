@@ -94,7 +94,7 @@
       </div>
       <div class="d-flex justify-content-center">
         <% @properties_favorites.each do |property| %>
-          <div class="mr-2 popular mb-5">
+          <div class="mr-2 popular_property mb-5">
             <%=link_to property_path(property.id) do%>
               <%= image_tag property.images[0],size: '188x130' %>
               <p class="top_property"><%= property.property_name %></p>

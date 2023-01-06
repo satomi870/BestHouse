@@ -1,5 +1,5 @@
 class Admin::ReviewsController < ApplicationController
-before_action :authenticate_admin!
+  before_action :authenticate_admin!
 
   def index
     @reviews = Review.all
@@ -10,5 +10,4 @@ before_action :authenticate_admin!
     @review.destroy
     redirect_to admin_reviews_path
   end
-
 end

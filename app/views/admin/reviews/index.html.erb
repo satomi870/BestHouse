@@ -1,13 +1,12 @@
 <h4 class="ml-3">レビュー一覧</h4>
-
 <% @reviews.each do |review| %>
  <div class="container mt-5">
     <div class="row mb-2">
       <div class="col-6">
         <h6><%= review.property.property_name %></h6>
         <div class="writing">
-        <div class="mb-2"><%= review.title %></div>
-        <%=review.body %>
+          <div class="mb-2"><%= review.title %></div>
+          <%=review.body %>
         </div>
       </div>
       <div class="col-6">

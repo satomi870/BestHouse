@@ -4,8 +4,8 @@ class User::UsersController < ApplicationController
   def show
     @user = current_user
     @reviews = current_user.reviews.page(params[:page]).per(10)
-    @comment = Comment.new
-    @comment_comment = CommentComment.new
+    #@comment = Comment.new
+    #@comment_comment = CommentComment.new
     @questions = current_user.questions
     @comment_questions = Question.joins(:comments).where(comments: { user: current_user }) #あくまでとってきたいのはquestionのデータ
     @comment_comment_questions = Question.joins(:comment_comments).where(comment_comments: { user: current_user })#あくまでとってきたいのはquestionのデータ

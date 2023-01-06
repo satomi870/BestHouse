@@ -16,4 +16,4 @@
 <% else %>
   <h6 class="mt-4">通知がありません</h6>
 <% end %>
-<div class="pagination"><%#= paginate current_user.passive_notifications %></div>
+<div class="pagination"><%= paginate @notifications %></div>
