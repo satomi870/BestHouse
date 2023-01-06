@@ -1,4 +1,5 @@
 class User::ContactsController < ApplicationController
+  before_action :authenticate_user!
   def new
     @property=Property.find(params[:property_id])
     @contact = Contact.new

@@ -1,4 +1,5 @@
 class User::CommentCommentsController < ApplicationController
+  before_action :authenticate_user!
   def create
     @comment_comment = CommentComment.new(comment_comment_params)
     @comment_comment.user_id = current_user .id

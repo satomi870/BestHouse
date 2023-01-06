@@ -1,5 +1,5 @@
 class User::ReviewsController < ApplicationController
-
+before_action :authenticate_user!
 
   def new
     #byebug
@@ -109,8 +109,3 @@ end
     # elsif params[:review][:relation] == 'others' && !params[:review][:relation_detail2].blank?
     #   @review_relation.relation_detail = params[:review][:relation_detail2]
     # end
-
-
-
-
-

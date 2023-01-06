@@ -1,4 +1,5 @@
 class User::PropertiesController < ApplicationController
+  before_action :authenticate_user!, except: [:search]
   #before_action :set_ransack, only: [:search_keyword]
   def search
     # 配列の中の空要素を取り除く

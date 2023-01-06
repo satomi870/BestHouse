@@ -1,4 +1,5 @@
 class User::CommentsController < ApplicationController
+  before_action :authenticate_user!
   def create
     #byebug
     @comment = Comment.new(comment_params)

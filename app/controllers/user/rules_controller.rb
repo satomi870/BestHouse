@@ -1,5 +1,5 @@
 class User::RulesController < ApplicationController
-
+  before_action :authenticate_user!
   def create
     @rule = Rule.new(rule_params)
     @rule.user_id = current_user.id

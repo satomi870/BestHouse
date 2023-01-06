@@ -1,5 +1,6 @@
 
 class User::FavoritesController < ApplicationController
+  before_action :authenticate_user!
   def create
     # @format = params[:format]
     property = Property.find(params[:property_id])

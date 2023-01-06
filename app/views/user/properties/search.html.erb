@@ -59,32 +59,26 @@
             <h6><%= @area_group_list.pluck(:area_group_name).join(" ") %></h6>
             <% condition_flag = true %>
           <% end %>
-
           <% if @tag_list.present? && @tag_list.any? %>
             <h6><%= @tag_list.pluck(:name).join(" ") %></h6>
             <% condition_flag = true %>
           <% end %>
-
           <% if @area_list.present? && @area_list.any? %>
             <h6><%= @area_list.pluck(:area_name).join(" ") %></h6>
             <% condition_flag = true %>
           <% end %>
-
           <% if @display_lower_amount.present? %>
             <h6>下限: <%= @display_lower_amount %>万円</h6>
             <% condition_flag = true %>
           <% end %>
-
           <% if @display_upper_amount.present? %>
             <h6>上限<%= @display_upper_amount%>万円</h6>
             <% condition_flag = true %>
           <% end %>
-
           <% if @keyword.present? %>
             <h6><%= @keyword %></h6>
             <% condition_flag = true %>
           <% end %>
-
           <% if condition_flag %>
             <h6>の物件一覧</h6>
           <% end %>
@@ -142,7 +136,6 @@
               </div>
             </div>
           </div>
-
           <div class="row">
             <%property.tags.each do |tag|%>
               <div class="mt-1 mr-2 ml-3">
@@ -157,7 +150,7 @@
               <%if user_signed_in? %>
                 <%=link_to "詳細を見る",property_path(property.id), class: "btn"%>
               <%else%>
-                <%= link_to "詳細を見る",new_user_registration_path, class: "btn"%>
+                <%= link_to "詳細を見る",new_user_session_path, class: "btn"%>
               <%end%>
             </div>
             <div class="col-3 mt-3">
@@ -172,7 +165,7 @@
                   <% end %>
                 <% end %>
               <%else%>
-                <%= link_to new_user_registration_path, class: "btn" do %>
+                <%= link_to new_user_session_path, class: "btn" do %>
                   ♡<%= property.favorites.count %> お気に入り
                 <%end%>
               <%end%>
@@ -189,3 +182,4 @@
     <p>条件を見直して再度検索してください。</p>
   </div>
 <% end %>
+Footer

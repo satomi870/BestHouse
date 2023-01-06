@@ -58,32 +58,26 @@
             <h6><%= @area_group_list.pluck(:area_group_name).join(" ") %></h6>
             <% condition_flag = true %>
           <% end %>
-
           <% if @tag_list.present? && @tag_list.any? %>
             <h6><%= @tag_list.pluck(:name).join(" ") %></h6>
             <% condition_flag = true %>
           <% end %>
-
           <% if @area_list.present? && @area_list.any? %>
             <h6><%= @area_list.pluck(:area_name).join(" ") %></h6>
             <% condition_flag = true %>
           <% end %>
-
           <% if @display_lower_amount.present? %>
             <h6>下限: <%= @display_lower_amount %>万円</h6>
             <% condition_flag = true %>
           <% end %>
-
           <% if @display_upper_amount.present? %>
             <h6>上限<%= @display_upper_amount%>万円</h6>
             <% condition_flag = true %>
           <% end %>
-
           <% if @keyword.present? %>
             <h6><%= @keyword %></h6>
             <% condition_flag = true %>
           <% end %>
-
           <% if condition_flag %>
             <h6>の物件一覧</h6>
           <% end %>
