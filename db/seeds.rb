@@ -1,42 +1,29 @@
-
 Admin.create!(
   email: 'g@aaaa',
   password: '222222'
-)# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+  )
+
 area_group_nakano = AreaGroup.create!(
   area_group_name:'新宿 中野 高円寺'
-)
-
+  )
 area_group_ebisu = AreaGroup.create!(
   area_group_name:'渋谷 恵比寿 下北沢'
   )
-
 area_group_kamata = AreaGroup.create!(
   area_group_name:'品川 蒲田 大森'
   )
-
 area_group_roppongi = AreaGroup.create!(
   area_group_name:'六本木 麻布十番 神田'
   )
-
 area_group_ikebukuro = AreaGroup.create!(
   area_group_name:'池袋 赤羽 練馬'
-)
-
+  )
 area_group_ueno = AreaGroup.create!(
   area_group_name:'上野 浅草 秋葉原'
   )
-
 area_group_kitasenju = AreaGroup.create!(
   area_group_name:'北千住 亀有 葛西'
   )
-
 area_group_other = AreaGroup.create!(
   area_group_name:'23区外'
   )
@@ -45,66 +32,54 @@ area_nerima = Area.create!(
   area_name:'練馬区',
   area_group_id: area_group_ikebukuro.id
   )
-
 area_itabashi = Area.create!(
   area_name:'板橋区',
   area_group_id: area_group_ikebukuro.id
   )
-
 area_kita = Area.create!(
   area_name:'北区',
   area_group_id: area_group_ikebukuro.id
   )
-
 area_toshima = Area.create!(
   area_name:'豊島区',
   area_group_id: area_group_ikebukuro.id
   )
-
 area_bunkyo = Area.create!(
   area_name:'文京区',
   area_group_id: area_group_ikebukuro.id
   )
-
- area_setagaya = Area.create!(
+area_setagaya = Area.create!(
    area_name:'世田谷区',
   area_group_id: area_group_ebisu.id
-   )
-
+  )
 area_suginami = Area.create!(
   area_name:'杉並区',
   area_group_id: area_group_nakano.id
   )
-
 area_shibuya = Area.create!(
   area_name:'渋谷区',
   area_group_id: area_group_ebisu.id
   )
-
 area_meguro = Area.create!(
   area_name:'目黒区',
   area_group_id: area_group_ebisu.id
   )
-
 area_nakano = Area.create!(
   area_name:'中野区',
   area_group_id: area_group_nakano.id
   )
-
-
 area_shinjuku = Area.create!(
   area_name:'新宿区',
   area_group_id: area_group_nakano.id
   )
-
 area_oota = Area.create!(
   area_name:'太田区',
   area_group_id: area_group_kamata.id
   )
- area_shinagawa = Area.create!(
-   area_name:'品川区',
+area_shinagawa = Area.create!(
+  area_name:'品川区',
   area_group_id: area_group_kamata.id
-   )
+  )
 area_minato = Area.create!(
   area_name:'港区',
   area_group_id: area_group_roppongi.id
@@ -113,12 +88,10 @@ area_chiyoda = Area.create!(
   area_name:'千代田区',
   area_group_id: area_group_roppongi.id
   )
-
 area_chuo = Area.create!(
   area_name:'中央区',
   area_group_id: area_group_roppongi.id
   )
-
 area_daito = Area.create!(
   area_name:'台東区',
   area_group_id: area_group_ueno.id
@@ -143,15 +116,10 @@ area_kouto = Area.create!(
   area_name:'江東区',
   area_group_id: area_group_ueno.id
   )
- area_edogawa = Area.create!(
+area_edogawa = Area.create!(
   area_name:'江戸川区',
   area_group_id: area_group_kitasenju.id
   )
-
-
-
-
-
 area_other = Area.create!(
   area_name:'23区外',
   area_group_id: area_group_other.id
@@ -187,8 +155,6 @@ propertyB.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbin
 propertyB.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbing/toilet.jpg')),filename: 'toilet.jpg')#4
 propertyB.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbing/room.jpg')),filename: 'room.jpg')#4
 
-     #property.avatar.attach(io: File.open(Rails.root.join('app/assets/images/logo.jpg')),
-                  #filename: 'logo.jpg')
 propertyC=Property.create!(
     area_id: area_setagaya.id,area_group_id: area_group_ebisu.id,property_name:'カトレア経堂', address:'東京都世田谷区経堂', access:'経堂駅 徒歩9分', rent:40000, condition:'女性', vacancy:6,common_service_fee:15000,
     introduction:'2015年4月に新しくリニューアル致しました。交通が便利で、設備が新しく、居室内はカラーが異なり3色から選べます。また、防犯対策としてALSOKのホームセキュリティと居室内の窓にシャッターが付いています。
@@ -202,7 +168,6 @@ propertyC.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbin
 propertyC.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbing/wash.jpg')),filename: 'wash.jpg')#4
 propertyC.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbing/toilet.jpg')),filename: 'toilet.jpg')#4
 propertyC.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbing/room.jpg')),filename: 'room.jpg')#4
-
 
 propertyD=Property.create!(
     area_id: area_nerima.id,area_group_id: area_group_ikebukuro.id,property_name:'キャトルセゾン石神井', address:'東京都練馬区石神井', access:'石神井公園駅 徒歩3分', rent:40000, condition:'男女どちらともOK', vacancy:4, common_service_fee:15000,
@@ -219,7 +184,6 @@ propertyD.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbin
 propertyD.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbing/toilet.jpg')),filename: 'toilet.jpg')#4
 propertyD.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbing/room.jpg')),filename: 'room.jpg')#4
 
-
 propertyE=Property.create!(
     area_id: area_shinagawa.id,area_group_id: area_group_kamata.id,property_name:'スカイ大崎', address:'東京都品川区大崎', access:'大崎駅 徒歩6分', rent: 58000, condition:'男女どちらともOK', vacancy:2, common_service_fee:15000,
     introduction:'都心の利便性、快適性が満喫できる「スカイ大崎」が、2019年2月にオープンしました。居室4室の小さなシェアハウスです。4人に対して、洗面台2台、シャワー2室、トイレも2室あります。
@@ -234,7 +198,6 @@ propertyE.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbin
 propertyE.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbing/wash.jpg')),filename: 'wash.jpg')#4
 propertyE.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbing/toilet.jpg')),filename: 'toilet.jpg')#4
 propertyE.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbing/room.jpg')),filename: 'room.jpg')#4
-
 
 propertyF=Property.create!(
     area_id: area_katushika.id,area_group_id: area_group_kitasenju.id,property_name:'ハイツ亀有', address:'東京都葛飾区亀有', access:'亀有駅 徒歩6分', rent: 30000, condition:'男女どちらともOK', vacancy:8, common_service_fee:10000,
@@ -265,7 +228,6 @@ propertyG.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbin
 propertyG.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbing/toilet.jpg')),filename: 'toilet.jpg')#4
 propertyG.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbing/room.jpg')),filename: 'room.jpg')#4
 
-
 propertyH=Property.create!(
     area_id: area_edogawa.id,area_group_id: area_group_kitasenju.id,property_name:'スター江戸川', address:'東京都江戸川区西葛西', access:'西葛西駅 徒歩8分', rent: 30000, condition:'男女どちらともOK', vacancy:1,  common_service_fee:15000,
     introduction:'2018年6月オープン。スター江戸川は、家族でもなく友達でもなく、それでいて家族のような友達のような不思議な関係を持ったコミュニティです。
@@ -280,7 +242,6 @@ propertyH.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbin
 propertyH.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbing/toilet.jpg')),filename: 'toilet.jpg')#4
 propertyH.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbing/room.jpg')),filename: 'room.jpg')#4
 
-
 propertyI=Property.create!(
     area_id: area_nakano.id,area_group_id: area_group_nakano.id,property_name:'スターハイツ東中野', address:'東京都中野区東中野', access:'東中野駅 徒歩8分', rent: 50000, condition:'男女どちらともOK', vacancy:6, common_service_fee:15000,
     introduction:'新宿へのアクセス抜群。共有スペースで入居者様同士でコミュニケーションを楽しんだり、個室でプライベートな時を過ごしたり、
@@ -294,8 +255,6 @@ propertyI.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbin
 propertyI.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbing/wash.jpg')),filename: 'wash.jpg')#4
 propertyI.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbing/toilet.jpg')),filename: 'toilet.jpg')#4
 propertyI.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbing/room.jpg')),filename: 'room.jpg')#4
-
-
 
 propertyJ=Property.create!(
     area_id: area_bunkyo.id,area_group_id: area_group_ikebukuro.id,property_name:'千駄木Fairy', address:'東京都文京区千駄木', access:'千駄木駅 徒歩6分', rent: 60000, condition:'女性', vacancy:5, 'common_service_fee':15000,
@@ -312,7 +271,6 @@ propertyJ.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbin
 propertyJ.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbing/toilet.jpg')),filename: 'toilet.jpg')#4
 propertyJ.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbing/room.jpg')),filename: 'room.jpg')#4
 
-
 propertyK=Property.create!(
     area_id: area_kita.id,area_group_id: area_group_ikebukuro.id,property_name:'コモン上十条', address:'東京都北区上十条', access:'上十条駅 徒歩6分', rent: 30000, condition:'男女どちらともOK', vacancy:7, common_service_fee:16000,
     introduction:'静かなシェアハウスです。個室の広さ、収納の充実、清潔さを重視しました。
@@ -326,7 +284,6 @@ propertyK.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbin
 propertyK.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbing/wash.jpg')),filename: 'wash.jpg')#4
 propertyK.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbing/toilet.jpg')),filename: 'toilet.jpg')#4
 propertyK.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbing/room.jpg')),filename: 'room.jpg')#4
-
 
 propertyL=Property.create!(
     area_id: area_daito.id,area_group_id: area_group_ueno.id,property_name:'SPICA上野', address:'東京都台東区上野', access:'上野駅 徒歩4分', rent: 50000, condition:'外国人大歓迎', vacancy:2, common_service_fee:13000,
@@ -344,7 +301,6 @@ propertyL.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbin
 propertyL.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbing/toilet.jpg')),filename: 'toilet.jpg')#4
 propertyL.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbing/room.jpg')),filename: 'room.jpg')#4
 
-
 propertyM=Property.create!(
     area_id: area_arakawa.id,area_group_id: area_group_kitasenju.id,property_name:'町屋ハウス', address:'東京都荒川区町屋', access:'町屋駅 徒歩3分', rent: 40000, condition:'男女どちらともOK', vacancy:6, common_service_fee:10000,
     introduction:'大手町まで12分。表参道まで27分。通勤、遊びにも嬉しい場所にシェアハウス「町屋ハウス」が2014年3月にオープンしました。
@@ -361,7 +317,6 @@ propertyM.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbin
 propertyM.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbing/toilet.jpg')),filename: 'toilet.jpg')#4
 propertyM.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbing/room.jpg')),filename: 'room.jpg')#4
 
-
 propertyN=Property.create!(
     area_id: area_adachi.id,area_group_id: area_group_kitasenju.id,property_name:'share綾瀬', address:'東京都足立区綾瀬', access:'綾瀬駅 徒歩7分', rent: 30000, condition:'外国人大歓迎', vacancy:6, common_service_fee:10000,
     introduction:'2022年6月新規オープン！出来立てホヤホヤです！コンセプトは「低価格で入居できるおしゃれなシェアハウス」。
@@ -377,8 +332,6 @@ propertyN.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbin
 propertyN.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbing/toilet.jpg')),filename: 'toilet.jpg')#4
 propertyN.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbing/room.jpg')),filename: 'room.jpg')#4
 
-
-
 propertyO=Property.create!(
     area_id: area_sumida.id,area_group_id: area_group_ueno.id,property_name:'フィネッツァ両国', address:'東京都墨田区両国', access:'両国駅 徒歩10分', rent: 50000, condition:'外国人大歓迎', vacancy:5, common_service_fee:15000,
     introduction:'2019年12月オープン。豊かな自然と江戸の歴史を感じることができる街にフィネッツァ両国ができました！利便性も抜群です。
@@ -392,7 +345,6 @@ propertyO.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbin
 propertyO.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbing/wash.jpg')),filename: 'wash.jpg')#4
 propertyO.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbing/toilet.jpg')),filename: 'toilet.jpg')#4
 propertyO.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbing/room.jpg')),filename: 'room.jpg')#4
-
 
 propertyP=Property.create!(
     area_id: area_kouto.id,area_group_id: area_group_ueno.id,property_name:'MONZENNAKAMACHI', address:'東京都江東区門前仲町', access:'門前仲町駅 徒歩10分', rent: 50000, condition:'二人入居可', vacancy:3, common_service_fee:17000,
@@ -423,7 +375,6 @@ propertyQ.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbin
 propertyQ.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbing/toilet.jpg')),filename: 'toilet.jpg')#4
 propertyQ.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbing/room.jpg')),filename: 'room.jpg')#4
 
-
 propertyR=Property.create!(
     area_id: area_suginami.id,area_group_id: area_group_nakano.id,property_name:'杉並の家', address:'東京都杉並区荻窪', access:'荻窪駅 徒歩10分', rent: 50000, condition:'男女どちらともOK', vacancy:3,common_service_fee:15000,
     introduction:'荻窪の賑やかな商店街を抜けた先にある自然豊かな地域。リビングは暖かみのある赤の壁を基調としたゆったり空間。
@@ -439,7 +390,6 @@ propertyR.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbin
 propertyR.images.attach(io: File.open(Rails.root.join('app/assets/images/no_image/no_image.jpg')),filename: 'no_image.jpg')#4
 propertyR.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbing/room.jpg')),filename: 'room.jpg')#4
 
-
 propertyS=Property.create!(
     area_id: area_shibuya.id,area_group_id: area_group_ebisu.id,property_name:'BeGood_Daikanyama', address:'東京都渋谷区代官山', access:'代官山駅 徒歩9分', rent: 80000, condition:'男女どちらともOK', vacancy:1, common_service_fee:19000,
     introduction:'憧れの「代官山」暮らすだけでセンスが良くなる、イキイキと生活が出来る…都心で働く社会人を応援するのがコンセプトのシェアハウスです。
@@ -454,8 +404,6 @@ propertyS.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbin
 propertyS.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbing/toilet.jpg')),filename: 'toilet.jpg')#4
 propertyS.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbing/room.jpg')),filename: 'room.jpg')#4
 
-
-
 propertyT=Property.create!(
     area_id: area_meguro.id,area_group_id: area_group_ebisu.id,property_name:'フィーユ中目黒', address:'東京都目黒区中目黒', access:'中目黒駅 徒歩5分', rent: 70000, condition:'女性', vacancy:4, common_service_fee:18000,
     introduction:'2021年4月新築！中目黒駅徒歩5分！4路線利用可能、都心の好立地シェアハウスです。スーパーはもちろん、銀行、病院、カフェ、レストランやホテルなど様々な施設が複数あり、全て徒歩圏内。
@@ -469,8 +417,6 @@ propertyT.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbin
 propertyT.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbing/wash.jpg')),filename: 'wash.jpg')#4
 propertyT.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbing/toilet.jpg')),filename: 'toilet.jpg')#4
 propertyT.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbing/room.jpg')),filename: 'room.jpg')#4
-
-
 
 propertyU=Property.create!(
     area_id: area_shinjuku.id,area_group_id: area_group_nakano.id,property_name:'テラス西新宿', address:'東京都新宿区西新宿', access:'西新宿駅 徒歩9分', rent: 60000, condition:'男女どちらともOK', vacancy:5, common_service_fee:15000,
@@ -488,8 +434,6 @@ propertyU.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbin
 propertyU.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbing/toilet.jpg')),filename: 'toilet.jpg')#4
 propertyU.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbing/room.jpg')),filename: 'room.jpg')#4
 
-
-
 propertyV=Property.create!(
     area_id: area_minato.id,area_group_id: area_group_roppongi.id,property_name:'麻布Breeze', address:'東京都港区麻布十番', access:'麻布十番駅 徒歩6分', rent: 90000, condition:'女性', vacancy:6, common_service_fee:21000,
     introduction:'リビングからは東京タワー、テラスからは六本木ヒルズを望めます。麻布十番駅周辺には、数々の名店がひしめきあっています。
@@ -504,8 +448,6 @@ propertyV.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbin
 propertyV.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbing/wash.jpg')),filename: 'wash.jpg')#4
 propertyV.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbing/toilet.jpg')),filename: 'toilet.jpg')#4
 propertyV.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbing/room.jpg')),filename: 'room.jpg')#4
-
-
 
 propertyW=Property.create!(
     area_id: area_chiyoda.id,area_group_id: area_group_roppongi.id,property_name:'kiki大手町', address:'東京都千代田区大手町', access:'大手町駅 徒歩12分', rent: 120000, condition:'二人入居可', vacancy:5, common_service_fee:15000,
@@ -522,7 +464,6 @@ propertyW.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbin
 propertyW.images.attach(io: File.open(Rails.root.join('app/assets/images/no_image/no_image.jpg')),filename: 'no_image.jpg')#4
 propertyW.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbing/room.jpg')),filename: 'room.jpg')#4
 
-
 propertyX=Property.create!(
     area_id: area_chuo.id,area_group_id: area_group_roppongi.id,property_name:'ARDEN築地', address:'東京都中央区築地', access:'築地駅 徒歩10分', rent: 60000, condition:'外国人大歓迎', vacancy:4, common_service_fee:15000,
     introduction:'日本の台所築地市場のすぐ近く。銀座も徒歩圏内の便利なシェアハウスです。日比谷線築地駅から4分で、大江戸線の築地市場駅や勝どき駅も徒歩圏内です。
@@ -537,7 +478,6 @@ propertyX.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbin
 propertyX.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbing/toilet.jpg')),filename: 'toilet.jpg')#4
 propertyX.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbing/room.jpg')),filename: 'room.jpg')#4
 
-
 propertyY=Property.create!(
     area_id: area_other.id,area_group_id: area_group_other.id,property_name:'ソフィア府中', address:'東京都府中市府中', access:'府中駅 徒歩8分', rent: 30000, condition:'女性', vacancy:6, common_service_fee:11000,
     introduction:'府中駅に2013年5月にオープンしました。共用スペース・室内共に館内全てリノベーションしているので、とても綺麗です。室内は明るく、全室収納もあります。
@@ -551,7 +491,6 @@ propertyY.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbin
 propertyY.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbing/wash.jpg')),filename: 'wash.jpg')#4
 propertyY.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbing/toilet.jpg')),filename: 'toilet.jpg')#4
 propertyY.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbing/room.jpg')),filename: 'room.jpg')#4
-
 
 propertyZ=Property.create!(
     area_id: area_other.id,area_group_id: area_group_other.id,property_name:'hause西八王子', address:'東京都八王子市西八王子', access:'西八王子駅 徒歩8分', rent: 30000, condition:'男女どちらともOK', vacancy:2, common_service_fee:10000,
@@ -568,10 +507,6 @@ propertyZ.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbin
 propertyZ.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbing/room.jpg')),filename: 'room.jpg')#4
 
 
-
-
-
-
 category_basic = Category.create!(
   category:'basic'
 )
@@ -584,7 +519,6 @@ category_surrounding = Category.create!(
   category:'surrounding'
 )
 
-
 category_shared_facility = Category.create!(
   category:'shared_facility'
 )
@@ -596,157 +530,109 @@ category_other = Category.create!(
 
 
 tag_woman = Tag.create!(
-    category_id: category_basic.id,
-    name: '女性専用'
-    #genre: 'basic'
-  )
-
+  category_id: category_basic.id,
+  name: '女性専用'
+)
 
 tag_manwoman = Tag.create!(
-    category_id: category_basic.id,
-    name: '男女どちらともOK'
-    #genre: 'basic'
-
-  )
+  category_id: category_basic.id,
+  name: '男女どちらともOK'
+)
 
 tag_foreigner = Tag.create!(
-    category_id: category_basic.id,
-    name: '外国人大歓迎'
-    #genre: 'basic'
+  category_id: category_basic.id,
+  name: '外国人大歓迎'
+)
 
-  )
 tag_pair = Tag.create!(
-    category_id: category_basic.id,
-    name: '二人入居可'
-    #genre: 'basic'
-
-  )
+  category_id: category_basic.id,
+  name: '二人入居可'
+)
 
 tag_sound = Tag.create!(
-    category_id: category_room.id,
-    name: '防音'
-    #genre: 'room'
+  category_id: category_room.id,
+  name: '防音'
+)
 
-  )
 tag_wide = Tag.create!(
-    category_id: category_room.id,
-    name: '六畳以上'
-    #genre: 'room'
+  category_id: category_room.id,
+  name: '六畳以上'
+)
 
-  )
+tag_bath = Tag.create!(
+  category_id: category_room.id,
+  name: '専用バス付き'
+)
 
- tag_bath = Tag.create!(
-    category_id: category_room.id,
-    name: '専用バス付き'
-    #genre: 'surrounding'
+tag_toilet = Tag.create!(
+  category_id: category_room.id,
+  name: '専用トイレ付き'
+)
 
-  )
+tag_kitchen= Tag.create!(
+  category_id: category_room.id,
+  name: '専用キッチン付き'
+)
 
-  tag_toilet = Tag.create!(
-    category_id: category_room.id,
-    name: '専用トイレ付き'
-    #genre: 'surrounding'
+tag_station = Tag.create!(
+  category_id: category_surrounding.id,
+  name: '駅から5分以内'
+)
 
-  )
+tag_supermarket = Tag.create!(
+  category_id: category_surrounding.id,
+  name: 'コンビニ・スーパー近い'
+)
 
-  tag_kitchen= Tag.create!(
-    category_id: category_room.id,
-    name: '専用キッチン付き'
-    #genre: 'surrounding'
+tag_residential  = Tag.create!(
+  category_id: category_surrounding.id,
+  name: '住宅街'
+)
 
-  )
+tag_office  = Tag.create!(
+  category_id: category_surrounding.id,
+  name: 'オフィス街'
+)
 
-  tag_station = Tag.create!(
-    category_id: category_surrounding.id,
-    name: '駅から5分以内'
-    #genre: 'surrounding'
+tag_plumbing= Tag.create!(
+  category_id: category_shared_facility.id,
+  name: '水回りの設備多め'
+)
 
-  )
+tag_cook= Tag.create!(
+  category_id: category_shared_facility.id,
+  name: '料理器具充実'
+)
 
-  tag_supermarket = Tag.create!(
-    category_id: category_surrounding.id,
-    name: 'コンビニ・スーパー近い'
-    #genre: 'surrounding'
+tag_cleaning_support= Tag.create!(
+  category_id: category_shared_facility.id,
+  name: '清掃サポート付き'
+)
 
-  )
+tag_entertainment= Tag.create!(
+  category_id: category_shared_facility.id,
+  name: '娯楽設備付き'
+)
 
-  tag_residential  = Tag.create!(
-    category_id: category_surrounding.id,
-    name: '住宅街'
-    #genre: 'surrounding'
+tag_parking = Tag.create!(
+  category_id: category_other.id,
+  name: '駐輪場あり'
+)
 
-  )
+tag_autoloc = Tag.create!(
+  category_id: category_other.id,
+  name: 'オートロック'
+)
 
-  tag_office  = Tag.create!(
-    category_id: category_surrounding.id,
-    name: 'オフィス街'
-    #genre: 'surrounding'
+tag_many_event= Tag.create!(
+  category_id: category_other.id,
+  name: 'イベントあり'
+)
 
-  )
-
-
-
-
-
-   tag_plumbing= Tag.create!(
-    category_id: category_shared_facility.id,
-    name: '水回りの設備多め'
-    #genre: 'surrounding'
-
-  )
-
-  tag_cook= Tag.create!(
-    category_id: category_shared_facility.id,
-    name: '料理器具充実'
-    #genre: 'surrounding'
-
-  )
-
-
-
-   tag_cleaning_support= Tag.create!(
-    category_id: category_shared_facility.id,
-    name: '清掃サポート付き'
-    #genre: 'surrounding'
-
-  )
-
-  tag_entertainment= Tag.create!(
-    category_id: category_shared_facility.id,
-    name: '娯楽設備付き'
-    #genre: 'surrounding'
-
-  )
-
-
-   tag_parking = Tag.create!(
-    category_id: category_other.id,
-    name: '駐輪場あり'
-    #genre: 'building'
-
-  )
-
-  tag_autoloc = Tag.create!(
-    category_id: category_other.id,
-    name: 'オートロック'
-    #genre: 'building'
-
-  )
-
-
-   tag_many_event= Tag.create!(
-    category_id: category_other.id,
-    name: 'イベントあり'
-    #genre: 'surrounding'
-
-  )
-
-   tag_no_event= Tag.create!(
-    category_id: category_other.id,
-    name: 'イベントなし'
-    #genre: 'surrounding'
-
-  )
+tag_no_event= Tag.create!(
+  category_id: category_other.id,
+  name: 'イベントなし'
+)
 
 
 #propertyA

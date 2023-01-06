@@ -664,7 +664,6 @@ ul#areamap li a:hover {
 }
 
 
-
 //23区外
 #areamap_detail #area_id_24 {
   position: absolute;
@@ -677,7 +676,6 @@ ul#areamap li a:hover {
   top: 430px;
   left: 390px;
 }
-
 
 //about
 .area{
@@ -723,34 +721,6 @@ ul#areamap li a:hover {
   border: solid 1px #1E90FF;
 }
 
-
-
-// .content {
-//   //border-color: #1E90FF;
-//   border: bold 1px #1E90FF;
-//   //border-spacing: 0;
-//   //border-collapse: separate;
-//   border-radius: 10px;
-
-
-// }
-
-// .content{
-//     border-collapse: collapse;
-//     border-radius: 15px;
-
-
-// }
-// .content td{
-//     border: 2px solid #1E90FF;
-// }
-
-// .content th{
-//     border: 2px solid #1E90FF;
-
-// }
-
-
 .tags{
 
     font-weight: thin;
@@ -764,8 +734,8 @@ ul#areamap li a:hover {
 }
 
 .point{
-border-top:solid 5px #A4C6FF;/*上の線の種類・太さ・色*/
-border-bottom:solid 5px #A4C6FF;/*下の線の種類・太さ・色*/
+border-top:solid 5px #A4C6FF;
+border-bottom:solid 5px #A4C6FF;
 background-color:#D7EEFF;
 }
 
@@ -774,6 +744,11 @@ background-color:#D7EEFF;
 
 }
 
+//property show
+.slide_picture{
+  width: 890px;
+  height: 500px;
+}
 //タブ
 .wrap {
   width: 100%;
@@ -826,17 +801,6 @@ background-color:#D7EEFF;
 }
 
 
-//property show
-.slide_picture{
-  width: 890px;
-  height: 500px;
-}
-// タブ レビュー投稿
-// .repeat{
-//   margin-bottom: 30px;
-// }
-
-
 //タブQ&A
 
 .comment_color{
@@ -851,11 +815,6 @@ background-color:#D7EEFF;
 
 .sub_comment {
    font-size: 12px;
-}
-
-.line{
-  border-top: 3px solid #4689FF;
-  width:   800px;
 }
 
 //タブ　rule
@@ -938,7 +897,7 @@ background-color:#D7EEFF;
     font-size: 15px;
 }
 
-//お問合せ
+//お問い合せ
 .age{
   width: 40px;
 }

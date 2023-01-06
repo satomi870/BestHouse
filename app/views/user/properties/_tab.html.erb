@@ -43,13 +43,13 @@
         <%=render '/user/properties/review_meter_input',label: "共有部の清潔さ", better: "清潔", f: f, worth: "不衛生",target: :noise %>
         <%=render '/user/properties/review_meter_input',label: "ネット速度", better: "速い", f: f, worth: "遅い",target: :net_speed %>
         <%=render '/user/properties/review_meter_input',label: "シャワーの水圧", better: "強い", f: f, worth: "弱い",target: :shower %>
-        <%=render '/user/properties/review_meter_input',label: "パーティーやイベントの開催", better: "頻繁にある", f: f, worth: "少ない",target: :event %>
+        <%=render '/user/properties/review_meter_input',label: "イベントの開催", better: "頻繁にある", f: f, worth: "少ない",target: :event %>
       </div>
 
       <div class="text-center mt-5">
         <h3>タイトル<span class="h6">(1~100文字)</span></h3>
         <%= f.text_field :title,:size=>"60x10" %>
-        <h3 class="mt-3">本文<span class="h6">(10文字~1000文字)</span></h3>
+        <h3 class="mt-3">本文<span class="h6">(7文字~1000文字)</span></h3>
         <%= f.text_area :body,:size=>"60x10"%>
       </div>
 
@@ -69,21 +69,11 @@
   <div id="tab2" class="tab">
     <%if @reviews.present?%>
       <div class="mb-5">
-        <%# unless @avg_atmosphere == 0 && @avg_distance_sence == 0 && @avg_cleanliness_shared == 0 && @avg_noise == 0 && @avg_net_spead == 0 && @avg_shower == 0 && @avg_event == 0 %>
         <h5 class="mb-5 ml-3">全<%=@reviews.count%>件</h5>
         <h3 class="ml-3">総合評価</h3>
         <div class="mb-5 ml-3">
           <div id="show_raty" data-avg-score=<%= @avg_score %> ></div>
         </div>
-            <%#= render '/user/properties/review_avg',
-              avg_atmosphere: @avg_atmosphere,
-              avg_distance_sence: @avg_distance_sence,
-              avg_cleanliness_shared: @avg_cleanliness_shared,
-              avg_noise: @avg_noise,
-              avg_net_spead: @avg_net_spead,
-              avg_shower: @avg_shower,
-              avg_event: @avg_event
-            %>
       </div>
     <% else %>
       <div class="mb-5">
@@ -119,12 +109,12 @@
 　</div>
 
   <div id="tab3" class="tab">
+    <%= render '/user/properties/error', model: @question %>
 　　<div class="text-center">
-      <%= render '/user/properties/error', model: @question %>
   　　  <%= form_with model: @question, url:  property_questions_path(property_id: @property.id) do |f| %>
         <h3>タイトル<span class="h6">(1~100文字)</span></h3>
         <%= f.text_field :title,:size=>"60x10" %>
-        <h3 class="mt-3">本文<span class="h6">(10~1000文字)</span></h3>
+        <h3 class="mt-3">本文<span class="h6">(7~1000文字)</span></h3>
         <%= f.text_area :body,:size=>"60x10"%></br>
         <div class="mb-3">
           <%= f.select :relation, [['住人','resident'],['元住人','former_resident'],['入居検討者','kentosya'], ['入居予定者','yoteisya'], ['周辺住人','syuhenjunin'], ['住人の知人','chizin'], ['大家さん','oya'], ['不動産関係者','kankeisya'], ['その他','sonota']],{prompt: '選択してください'}%><br>

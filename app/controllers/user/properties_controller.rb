@@ -13,7 +13,6 @@ class User::PropertiesController < ApplicationController
       if params[:area_id].present?
         @areas = params[:area_id].reject(&:empty?)
       end
-
       @tags = []
       unless params[:tag_id].nil?
         params[:tag_id].reject(&:empty?).each do |id|
@@ -51,7 +50,7 @@ class User::PropertiesController < ApplicationController
     @properties_count = @properties.count
     @properties = @properties.page(params[:page]).per(10)
 
-    #検索条件を検索希望一覧画面で表示
+    #検索条件を検索希望一覧画面で表示するため
     @tag_list = Tag.where(id: @tags)
     @area_list = Area.where(id: @areas)
     @area_group_list = AreaGroup.where(id: @area_groups)
@@ -67,6 +66,7 @@ class User::PropertiesController < ApplicationController
       @display_upper_amount = upper_rent.slice(0, digits_upper_rent - 4)
     end
 
+    #再検索用
     @tags=Tag.all
 
     basic = Category.find_by(category: "basic")
@@ -105,9 +105,9 @@ class User::PropertiesController < ApplicationController
 
   def show
     @property=Property.find(params[:id])
+    #閲覧履歴
     history = @property.histories.new
     history.user_id = current_user.id
-    #閲覧履歴
     if current_user.histories.exists?(property_id: "#{params[:id]}")
       old_history = current_user.histories.find_by(property_id: "#{params[:id]}")
       old_history.destroy
@@ -125,7 +125,6 @@ class User::PropertiesController < ApplicationController
 
     #星評価の平均点を算出
     @avg_score = Review.where(property_id: params[:id]).average(:score)
-
   end
 end
 

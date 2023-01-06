@@ -16,8 +16,8 @@ class User::ContactsController < ApplicationController
     else
       @property=Property.find(params[:property_id])
        render :new
+    end
   end
-end
 
   private
 

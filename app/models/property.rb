@@ -11,13 +11,9 @@ class Property < ApplicationRecord
   has_many :histories, dependent: :destroy
   has_many :rules,dependent: :destroy
 
-
-
  def favorited_by?(user)
     favorites.exists?(user_id: user.id)
  end
-
-
 
   RENT_TABLE = [
     { ja_rent: '3万', rent: 30000 },

@@ -8,7 +8,6 @@ Rails.application.routes.draw do
     sessions: 'user/sessions'
   }
 
-
   scope module: :user do
     root to:'homes#top'
     get 'about'=>'homes#about'
@@ -17,10 +16,6 @@ Rails.application.routes.draw do
     patch 'user/out'=> 'users#out', as: 'out'
     get 'user/favorite' => 'users#favorite', as: 'favorite'
     post 'users/guest_login' => 'guest_sessions#create'
-    #get 'users/review' => 'users#review', as: 'review'
-    #get 'users/question' => 'users#question', as: 'question'
-    #get 'users/comment' => 'users#comment', as: 'comment'
-    #get 'users/comment_comment' => 'users#comment_comment', as: 'comment_comment'
     get 'properties/map/:property_id'=>  'properties#map', as: 'map'
     get 'properties/search'=>  'properties#search', as: 'search'#違うURLで同じアクションに飛びたい時は二つかかず一つにルーティングをまとめる　idはどうするかというとtophtmlの方で分岐させる
     get 'properties/search_keyword'=>  'properties#search_keyword', as: 'search_keyword'

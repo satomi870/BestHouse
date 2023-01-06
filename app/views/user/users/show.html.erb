@@ -5,7 +5,7 @@
   </div>
   <div class="col-2 mt-2">
     <h6><%=@user.nickname%></h6>
-    <h6><%=@user.age%>代</h6><br>
+    <h6><%=@user.age%></h6><br>
     <h6><%=@user.gender%></h6>
   </div>
   <div class="col-3 edit">
@@ -17,8 +17,8 @@
   <ul id="tab-menu">
     <li><a href="#tab1" class="active ">投稿した口コミ</a></li>
     <li><a href="#tab2" class="">投稿した質問</a></li>
-    <li><a href="#tab3" class="">投稿したコメント</a></li>
-    <li><a href="#tab4" class="">投稿したリプライ</a></li>
+    <li><a href="#tab3" class="">投稿した回答</a></li>
+    <li><a href="#tab4" class="">投稿したコメント</a></li>
     <li><a href="#tab5" class="">ハウスルール</a></li>
   </ul>
 </div>
@@ -26,6 +26,7 @@
 <div id="tab-contents">
   <div id="tab1" class="tab">
     <% if @reviews.present? %>
+      <h5 class="ml-3 mb-5">全<%=@reviews.count%>件</h5>
       <% @reviews.each do |review| %>
         <h5 class="ml-3"><%= review.property.property_name %></h5>
         <div class="mb-5">
@@ -41,6 +42,7 @@
 
   <div id="tab2" class="tab">
     <% if @questions.present? %>
+      <h5>全<%=@questions.count%>件</h5>
       <% @questions.each do |question| %>
         <h5 class="user-q"><%= question.property.property_name %></h5>
         <%= render 'user/properties/question', question: question, comment: @comment,comment_comment: @comment_comment %>
@@ -52,23 +54,25 @@
 
   <div id="tab3" class="tab">
     <% if @comment_questions.present? %>
+      <h5>全<%=@comment_questions.count%>件</h5>
       <% @comment_questions.each do |comment_question| %>
         <h5 class="user-q"><%= comment_question.property.property_name %></h5>
         <%= render 'user/properties/question', question: comment_question, comment: @comment, comment_comment: @comment_comment %>
       <% end %>
     <%else%>
-      <h6 class="mt-4">投稿したコメントがありません</h6>
+      <h6 class="mt-4">投稿した回答がありません</h6>
     <%end%>
   </div>
 
   <div id="tab4" class="tab">
     <% if @comment_comment_questions.present? %>
+      <h5>全<%=@comment_comment_questions.count%>件</h5>
       <% @comment_comment_questions.each do |comment_comment_question| %>
         <h5 class="user-q"><%= comment_comment_question.property.property_name %></h5>
         <%= render 'user/properties/question', question: comment_comment_question, comment: @comment, comment_comment: @comment_comment %>
       <% end %>
     <%else%>
-      <h6 class="mt-4">投稿したリプライがありません</h6>
+      <h6 class="mt-4">投稿したコメントがありません</h6>
     <%end%>
   </div>
 

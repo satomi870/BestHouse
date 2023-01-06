@@ -1,6 +1,6 @@
 class Contact < ApplicationRecord
-   belongs_to :property
-   belongs_to :user
+  belongs_to :property
+  belongs_to :user
 
   validates :name, presence: true
   validates :name_kana, presence: true
@@ -12,5 +12,4 @@ class Contact < ApplicationRecord
   validates :schedule, presence: true
   validates :hope, presence: true
   validates :contact, presence: true
-
 end

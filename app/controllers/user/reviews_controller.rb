@@ -1,5 +1,4 @@
 class User::ReviewsController < ApplicationController
-
   before_action :authenticate_user!
 
   def create
@@ -24,7 +23,6 @@ class User::ReviewsController < ApplicationController
       redirect_to property_path(params[:property_id])
     else
       @property=Property.find(params[:property_id])
-
       @reviews=@property.reviews
       @question = Question.new
       @questions = @property.questions
@@ -32,10 +30,8 @@ class User::ReviewsController < ApplicationController
       @comment_comment = CommentComment.new
       @rule = Rule.new
       @rules = @property.rules
-
       render 'user/properties/show'
     end
-
   end
 
   private

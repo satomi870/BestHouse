@@ -24,6 +24,7 @@ class User::UsersController < ApplicationController
   end
 
   def favorite
+    @favorites_count = current_user.favorites.count
     @favorites = current_user.favorites.page(params[:page]).per(10)
   end
 

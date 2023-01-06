@@ -1,7 +1,5 @@
 class ApplicationController < ActionController::Base
-  #before_action :authenticate_user!, except: [:top,:about,:search,:search_keyword]
   before_action :store_user_location!, if: :storable_location?
-  #before_action :authenticate_admin!, except: [:top]
 
   def storable_location?
     # Turbo Framesを使う時はコメントを反転させる。

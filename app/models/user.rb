@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
+
   has_many :reviews, dependent: :destroy
   has_many :questions, dependent: :destroy
   has_many :comments, dependent: :destroy
@@ -11,17 +14,9 @@ class User < ApplicationRecord
   has_many :histories, dependent: :destroy
   has_many :rules, dependent: :destroy
 
-
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
-
-
   validates :nickname, presence: true
   validates :gender, presence: true
   validates :age, presence: true
-
 
   has_one_attached :image
 
@@ -32,6 +27,4 @@ class User < ApplicationRecord
     end
     image.variant(resize_to_limit: [width, height]).processed
   end
-
-
 end
