@@ -47,6 +47,8 @@ https://docs.google.com/spreadsheets/d/1QFm__qF8vD7yPytYJfYdUAcwBFqH6EH7tqgf7g3c
 
 
 ## 使用素材
-使用検討中です
+- pixabay https://pixabay.com/ja/
+- photoAC https://www.photo-ac.com/
+- icooon-mono https://icooon-mono.comv
 
 
