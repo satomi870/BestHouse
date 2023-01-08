@@ -37,7 +37,7 @@
           コメント
         </div>
         <div class="col-6 writing">
-          <%=comment.body %><%= link_to "削除", admin_comment_path(comment.id), method: :delete %>
+          <%=comment.body %>
         </div>
         <div class="col-4">
           <%= link_to "削除", admin_comment_path(comment.id), method: :delete %>
@@ -52,7 +52,7 @@
             サブコメント
           </div>
           <div class="col-6 writing">
-            <%= comment_comment.body %><%= link_to "削除", admin_comment_comment_path(comment_comment.id), method: :delete %>
+            <%= comment_comment.body %>
           </div>
           <div class="col-4">
             <%= link_to "削除", admin_comment_comment_path(comment_comment.id), method: :delete %>

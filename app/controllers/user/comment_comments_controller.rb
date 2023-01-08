@@ -28,6 +28,7 @@ class User::CommentCommentsController < ApplicationController
       @comment = Comment.new
       @rule = Rule.new
       @rules = @property.rules
+      @avg_score = Review.where(property_id: @property.id).average(:score)
       render 'user/properties/show'
     end
   end

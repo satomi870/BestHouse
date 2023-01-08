@@ -95,7 +95,9 @@
          starType: 'img',
          score: 5,
          scoreName: 'review[score]',
-         path: '/assets',
+         starOn: "<%= asset_path('star-on.png') %>",
+         starOff: "<%= asset_path('star-off.png') %>",
+         starHalf: "<%= asset_path('star-half.png') %>",
         };
        raty(elem,opt);
     </script>
@@ -108,7 +110,9 @@
          starType: 'img',
          readOnly: true,
          score: avgScore,
-         path: '/assets',
+         starOn: "<%= asset_path('star-on.png') %>",
+         starOff: "<%= asset_path('star-off.png') %>",
+         starHalf: "<%= asset_path('star-half.png') %>",
         };
        raty(elem2,opt2);
     </script>
