@@ -146,7 +146,7 @@ propertyB=Property.create!(
     introduction:'毎日夜遅くまでお仕事でお疲れのあなた。通勤や食事や買い物の時間も勿体ない。そんな合理的で利便性が高く、そしてグレード感のある住まいを求めるそんなあなたにぴったりのシェア住居です。
     繁華街に建つビルのペントハウスがあなたの新しい住まいです。お部屋の中は8帖とシェア住居とは思えないほどの余裕の広さを確保。ベッドをはじめとする家具は実用的でセンシブルなものをセッティングしました。',
     room_facility:'エアコン・ベッド・クローゼット、TV',
-    living:'テレビ、ソファ、テーブル、エアコン', kitchen:'電子レンジ,冷蔵庫,炊飯器、トースター', bath:'シャワールーム 4室',toilet:'洋式3室',wash_room:'4台',washing_machine:'洗濯機 4台',
+    living:'テレビ、ソファ、テーブル、エアコン', kitchen:'電子レンジ、冷蔵庫、炊飯器、トースター', bath:'シャワールーム 4室',toilet:'洋式3室',wash_room:'4台',washing_machine:'洗濯機 4台',
     cleaning_support:'クリーンスタッフが掃除',event:'イベントなし',breadth:'8畳',latitude:'35.73777411001525',altitude:'139.7162934895781')
 propertyB.images.attach(io: File.open(Rails.root.join('app/assets/images/houseB/living.jpg')),filename: 'living.jpg')#0
 propertyB.images.attach(io: File.open(Rails.root.join('app/assets/images/houseB/kitchen.jpg')),filename: 'kichen.jpg')#2
