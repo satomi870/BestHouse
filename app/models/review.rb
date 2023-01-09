@@ -11,12 +11,11 @@ class Review < ApplicationRecord
    validates :relation, presence: true
    validates :score, presence: true
    validates :atmosphere, presence: true
-   validates :cleanliness_shared, presence: true
-   validates :congestion_shared, presence: true
-   validates :noise, presence: true
    validates :distance_sense, presence: true
+   validates :congestion_shared, presence: true
+   validates :cleanliness_shared, presence: true
+   validates :noise, presence: true
    validates :net_speed, presence: true
    validates :shower, presence: true
    validates :event, presence: true
-   validates :repeat, presence: true
 end

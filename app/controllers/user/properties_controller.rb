@@ -6,7 +6,31 @@ class User::PropertiesController < ApplicationController
     if params[:from_top].present?
       @area_groups = params[:area_group_id]
       @areas = params[:area_id]
-      @tags = params[:tag_id]
+      @tags = if params[:tag_id].present?
+                [params[:tag_id].to_i]
+              else
+                nil
+              end
+
+      # 特徴から探す場合
+      # params[:tag_id]がある
+      # params[:tag_id] → 選択したタグのidになる(ただし,文字列) e.g. "1"
+      # 以下の code を実行できるような考慮が必要
+      #  @tags.each do | tag_id |
+      #    ...
+      #  end
+      # 上記の code を動かすようにするためには @tags のなかに each を実行できる data を代入する必要がある
+      # そもそも each を実行できる data とは [] (配列)のことです
+      # そのため [1] みたいな配列の中に data を入れてあげる必要があります
+
+      # エリアから探す場合
+      # params[:tag_id]がない
+      # params[:tag_id] → nil が返る
+      # 以下の条件が true になるような実装にしないといけない
+      # elsif !@area_groups.blank? && @tags.blank?
+      # そのため @tags.blank? が true になるような値を @tags に代入する必要がある
+      # [@tags.blank? が true になるような値] とは 以下の4つです
+      # nil or [] or '' or {}
     else
       #複数検索の場合
       @areas = []
@@ -36,7 +60,15 @@ class User::PropertiesController < ApplicationController
     end
     # タグの検索処理
     if !@tags.blank?
-      @properties = @properties.includes(:tag_properties).where(tag_properties: {tag_id: @tags })
+      property_ids = @properties.pluck(:id)
+      #pp property_ids
+      @tags.each do | tag_id |
+        property_ids = Property.joins(:tags).where(id: property_ids).where(tags: {id: tag_id}).pluck(:id)
+        #pp property_ids
+      end
+      @properties = Property.where(id: property_ids)
+      #pp @properties
+      #@properties = @properties.includes(:tag_properties).where(tag_properties: {tag_id: @tags })
     end
 
     # 金額の条件
