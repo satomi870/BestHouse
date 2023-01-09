@@ -7,7 +7,7 @@ class User::CommentsController < ApplicationController
     @comment.question_id = params[:question_id]
     question = Question.find(params[:question_id])
     if @comment.save
-    #質問に対してのコメントしてくれた人に通知する処理
+    #質問に対してコメントしてくれた人に通知する処理
       @notification = Notification.new
       #質問に対してのコメント
       @notification.action = "comment_on_question"

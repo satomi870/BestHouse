@@ -34,7 +34,7 @@
     <% question.comments.each do |comment| %>
       <div class="row mb-2">
         <div class="col-2">
-          コメント
+          回答
         </div>
         <div class="col-6 writing">
           <%=comment.body %>
@@ -49,7 +49,7 @@
       <% comment.comment_comments.each do |comment_comment| %>
         <div class="row mb-2">
           <div class="col-2">
-            サブコメント
+            コメント
           </div>
           <div class="col-6 writing">
             <%= comment_comment.body %>
