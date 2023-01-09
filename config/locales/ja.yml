@@ -52,7 +52,7 @@ ja:
         age: 年齢
         nationality: 国籍
         email: メール
-        contact: お問合せ内容
+        contact: お問い合わせ内容
         telephone_number: 電話番号
 
     # errors:
@@ -201,7 +201,7 @@ ja:
       greater_than_or_equal_to: は%{count}以上の値にしてください
       in: は%{count}の範囲に含めてください
       inclusion: は一覧にありません
-      invalid: は不正な値です
+      invalid: を正しい値で入力してください
       less_than: は%{count}より小さい値にしてください
       less_than_or_equal_to: は%{count}以下の値にしてください
       model_invalid: 'バリデーションに失敗しました: %{errors}'

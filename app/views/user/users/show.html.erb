@@ -1,12 +1,9 @@
 <h3 class="mt-4">マイページ</h3>
 <div class="row">
-  <div class="col-1 mr-4">
-    <%= image_tag @user.get_image(100,100)%>
-  </div>
   <div class="col-2 mt-2">
-    <h6><%=@user.nickname%></h6>
-    <h6><%=@user.age%></h6><br>
-    <h6><%=@user.gender%></h6>
+    <p><%=@user.nickname%></p>
+    <p><%=@user.age%></p>
+    <p><%=@user.gender%></p>
   </div>
   <div class="col-3 edit">
     <%= link_to "編集する",edit_user_path,class: "btn"%>
@@ -54,7 +51,7 @@
 
   <div id="tab3" class="tab">
     <% if @comment_questions.present? %>
-      <h5>全<%=@comment_questions.count%>件</h5>
+      <h5>全<%=@comments.count%>件</h5>
       <% @comment_questions.each do |comment_question| %>
         <h5 class="user-q"><%= comment_question.property.property_name %></h5>
         <%= render 'user/properties/question', question: comment_question, comment: @comment, comment_comment: @comment_comment %>
@@ -66,7 +63,7 @@
 
   <div id="tab4" class="tab">
     <% if @comment_comment_questions.present? %>
-      <h5>全<%=@comment_comment_questions.count%>件</h5>
+      <h5>全<%=@comment_comments.count%>件</h5>
       <% @comment_comment_questions.each do |comment_comment_question| %>
         <h5 class="user-q"><%= comment_comment_question.property.property_name %></h5>
         <%= render 'user/properties/question', question: comment_comment_question, comment: @comment, comment_comment: @comment_comment %>

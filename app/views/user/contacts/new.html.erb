@@ -18,7 +18,7 @@
           <span class="text-danger mr-2">必須</span> <%=f.label :name,"お名前"%>
         </div>
         <div class="col-8">
-          <%=f.text_field :name%>
+          <%=f.text_field :name, placeholder:"例）山田太郎"%>
         </div>
       </div>
       <div class="row mb-4">
@@ -60,7 +60,7 @@
           <span class="text-danger mr-2">必須</span> <%=f.label :email,"E_mail" %>
         </div>
         <div class="col-8">
-          <%= f.email_field :email, autofocus: true, autocomplete: "email" , placeholder: "例）info@besthouse.jp"%>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"例）info@besthouse.jp"%>
         </div>
       </div>
       <div class="row mb-2">

@@ -1,5 +1,5 @@
 <% if model.errors.any? %>
-  <%= model.errors.count %>件のエラーが発生しました
+  <div class="ml-2 text-danger font-weight-bold"><%= model.errors.count %>件のエラーが発生しました</div>
   <ul>
     <% model.errors.full_messages.each do |message| %>
       <li><%= message %></li>

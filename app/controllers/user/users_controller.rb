@@ -11,6 +11,9 @@ class User::UsersController < ApplicationController
     @comment_comment_questions = Question.joins(:comment_comments).where(comment_comments: { user: current_user }).distinct#あくまでとってきたいのはquestionのデータ
     @rules = current_user.rules
     @property_rules = Property.joins(:rules).where(rules: {user: current_user}).distinct
+    @comments = current_user.comments
+    @comment_comments = current_user.comment_comments
+
   end
 
   def edit
@@ -36,6 +39,6 @@ class User::UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:nickname,:age,:gender,:image,:email)
+    params.require(:user).permit(:nickname,:age,:gender)
   end
 end
