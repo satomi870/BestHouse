@@ -23,7 +23,7 @@ class User::PropertiesController < ApplicationController
       end
     end
 
-    # 未入力の場合は全件が対象
+    # 未入力の場合全件が対象
     @properties = Property.all
     # エリア関連の検索処理
     @checkd_areas = []
