@@ -9,12 +9,13 @@ class Review < ApplicationRecord
    validates :title, presence: true, length: { in: 1..100}
    validates :body, presence: true, length: { in: 7..1000}
    validates :relation, presence: true
+   #validates :relation_detail, presence: true
    validates :score, presence: true
    validates :atmosphere, presence: true
    validates :distance_sense, presence: true
-   validates :congestion_shared, presence: true
-   validates :cleanliness_shared, presence: true
    validates :noise, presence: true
+   validates :cleanliness_shared, presence: true
+   validates :congestion_shared, presence: true
    validates :net_speed, presence: true
    validates :shower, presence: true
    validates :event, presence: true

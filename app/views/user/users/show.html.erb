@@ -25,7 +25,7 @@
     <% if @reviews.present? %>
       <h5 class="ml-3 mb-5">全<%=@reviews.count%>件</h5>
       <% @reviews.each do |review| %>
-        <h5 class="ml-3"><%= review.property.property_name %></h5>
+        <h5 class="ml-3 font-weight-bold"><%= review.property.property_name %></h5>
         <div class="mb-5">
           <p class="mb-3 ml-3"><%=review.title%></p>
           <p class="mb-4 ml-3"><%=review.body%></p>
@@ -41,7 +41,7 @@
     <% if @questions.present? %>
       <h5>全<%=@questions.count%>件</h5>
       <% @questions.each do |question| %>
-        <h5 class="user-q"><%= question.property.property_name %></h5>
+        <h5 class="user-q font-weight-bold"><%= question.property.property_name %></h5>
         <%= render 'user/properties/question', question: question, comment: @comment,comment_comment: @comment_comment %>
       <%end%>
     <%else%>
@@ -53,7 +53,7 @@
     <% if @comment_questions.present? %>
       <h5>全<%=@comments.count%>件</h5>
       <% @comment_questions.each do |comment_question| %>
-        <h5 class="user-q"><%= comment_question.property.property_name %></h5>
+        <h5 class="user-q font-weight-bold"><%= comment_question.property.property_name %></h5>
         <%= render 'user/properties/question', question: comment_question, comment: @comment, comment_comment: @comment_comment %>
       <% end %>
     <%else%>
@@ -65,7 +65,7 @@
     <% if @comment_comment_questions.present? %>
       <h5>全<%=@comment_comments.count%>件</h5>
       <% @comment_comment_questions.each do |comment_comment_question| %>
-        <h5 class="user-q"><%= comment_comment_question.property.property_name %></h5>
+        <h5 class="user-q font-weight-bold"><%= comment_comment_question.property.property_name %></h5>
         <%= render 'user/properties/question', question: comment_comment_question, comment: @comment, comment_comment: @comment_comment %>
       <% end %>
     <%else%>
@@ -80,7 +80,7 @@
         <% @property_rules.each do |property|%>
           <h6 class="mt-4"><%=property.property_name %></h6>
           <% property.rules.where(user: current_user).each do |rule|%>
-            <p>•<%= rule.body %></p>
+            <p>• <%= rule.body %></p>
           <% end %>
         <% end %>
       </div>

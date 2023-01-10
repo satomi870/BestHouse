@@ -38,9 +38,9 @@
       <div class= "row text-center">
         <%=render '/user/properties/review_meter_input',label: "住民の雰囲気", better: "良い", f: f, worth: "良くない",target: :atmosphere %>
         <%=render '/user/properties/review_meter_input',label: "住人同士の距離感", better: "親しい", f: f, worth: "あいさつ程度",target: :distance_sense %>
-        <%=render '/user/properties/review_meter_input',label: "水回りの混雑具合", better: "常に使える", f: f, worth: "混雑している",target: :congestion_shared %>
         <%=render '/user/properties/review_meter_input',label: "騒音", better: "静か", f: f, worth: "騒がしい",target: :noise %>
         <%=render '/user/properties/review_meter_input',label: "共有部の清潔さ", better: "清潔", f: f, worth: "不衛生",target: :cleanliness_shared %>
+        <%=render '/user/properties/review_meter_input',label: "水回りの混雑具合", better: "常に使える", f: f, worth: "混雑している",target: :congestion_shared %>
         <%=render '/user/properties/review_meter_input',label: "ネット速度", better: "速い", f: f, worth: "遅い",target: :net_speed %>
         <%=render '/user/properties/review_meter_input',label: "シャワーの水圧", better: "強い", f: f, worth: "弱い",target: :shower %>
         <%=render '/user/properties/review_meter_input',label: "イベントの開催", better: "頻繁にある", f: f, worth: "少ない",target: :event %>
@@ -83,11 +83,11 @@
     <% @reviews.each do |review| %>
       <div class="row">
         <div class="col-5">
-          <span class="mb-3 ml-3 writing under"><%=review.title%></span>
+          <span class="ml-3 writing under"><%=review.title%></span>
         </div>
         <div class="col-2">
           <% if review.repeat == "3" %>
-            <p class="bg-danger text-white text-center rounded-pill small">住み続けたい</p>
+            <p class="bg-danger text-white text-center rounded-pill small mb-3">住み続けたい</p>
           <%end%>
         </div>
       </div>
@@ -150,7 +150,7 @@
     <div class="rule rule01 mt-5">
 　　　<h3 class="text-center font-weight-bold mb-4">ハウスルール</h3>
       <%@rules.each do |rule|%>
-        <p class="writing">•<%= rule.body %></p>
+        <p class="writing">• <%= rule.body %></p>
       <%end%>
     </div>
 　</div>

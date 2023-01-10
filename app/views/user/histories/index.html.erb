@@ -2,12 +2,16 @@
 <% if @histories.present? %>
   <h5 class="text-left mt-4">全<%=@histories_count%>件</h5>
   <% @histories.each do |history| %>
-    <%=link_to property_path(history.property.id) do%>
-      <div class="mb-4 mt-3">
-        <%= history.property.property_name %>&nbsp;&nbsp;&nbsp;
+    <div class="row">
+      <div class="col-3 mt-3">
+        <%=link_to property_path(history.property.id) do%>
+          <%= history.property.property_name %>
+        <%end%>
+      </div>
+      <div class="col-6 mt-3">
         <%= link_to "履歴から削除", history_path(history.id), method: :delete %>
       </div>
-    <%end%>
+    </div>
   <%end%>
 <%else%>
   <h6 class="mt-4">閲覧履歴がありません</h6>

@@ -24,6 +24,7 @@ ja:
         title: 「タイトル」
         body: 「本文」
         relation: 「関係性」
+        relation_detail: 「関係性」の選択肢
         atmosphere: 「住人の雰囲気」
         distance_sense: 「住人同士の距離感」
         cleanliness_shared: 「共有部の清潔さ」

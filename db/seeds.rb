@@ -506,6 +506,49 @@ propertyZ.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbin
 propertyZ.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbing/toilet.jpg')),filename: 'toilet.jpg')#4
 propertyZ.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbing/room.jpg')),filename: 'room.jpg')#4
 
+propertyAA=Property.create!(
+    area_id: area_nerima.id,area_group_id: area_group_ikebukuro.id,property_name:'エトワール練馬', address:'東京都練馬区練馬', access:'練馬駅 徒歩2分', rent: 60000, condition:'男女どちらともOK', vacancy:2, common_service_fee:10000,
+    introduction:'池袋駅へ9分、新宿駅へ18分と、どこに行くにも便利です。アクセスは抜群ですが閑静な住宅街にあるのでとても静かです。
+    日常の買い物には徒歩6分のところにある23時まで営業しているスーパーがあります。',
+    room_facility:'エアコン・ベッド・クローゼット、ミニ冷蔵庫',
+    living:'テレビ、ソファ、テーブル、DVD', kitchen:'電子レンジ、冷蔵庫、炊飯器、食器洗浄器、ケトル', bath:'シャワールーム 2室',toilet:'洋式 2室',wash_room:'3台',washing_machine:'洗濯機 2台',
+    cleaning_support:'クリーンスタッフが掃除', event:'イベントあり',breadth:'5.5畳', latitude: '35.71819680517442', altitude: '139.7018533781967')
+propertyAA.images.attach(io: File.open(Rails.root.join('app/assets/images/houseZ/living.jpg')),filename: 'living.jpg')#0
+propertyAA.images.attach(io: File.open(Rails.root.join('app/assets/images/houseZ/kitchen.jpg')),filename: 'kichen.jpg')#2
+propertyAA.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbing/bath.jpg')),filename: 'bath.jpg')#s3
+propertyAA.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbing/wash.jpg')),filename: 'wash.jpg')#4
+propertyAA.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbing/toilet.jpg')),filename: 'toilet.jpg')#4
+propertyAA.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbing/room.jpg')),filename: 'room.jpg')#4
+
+propertyBB=Property.create!(
+    area_id: area_nerima.id,area_group_id: area_group_ikebukuro.id,property_name:'サニー豊島園', address:'東京都練馬区豊島園', access:'豊島園駅 徒歩8分', rent: 30000, condition:'男女どちらともOK', vacancy:4, common_service_fee:10000,
+    introduction:'2022年9月新規オープン！出来立てホヤホヤです！コンセプトは「低価格で入居できるおしゃれなシェアハウス」。
+    様々なコストカットに成功し、初期費用の安さは地域No.1です。少しでもご興味がある方はお気軽にご連絡下さいませ。
+    もちろん安いだけではなく、フルリノベーションしたばかりなのでとても綺麗です。',
+    room_facility:'エアコン・ベッド・クローゼット、ミニ冷蔵庫',
+    living:'テレビ、ソファ、テーブル、DVD', kitchen:'電子レンジ、冷蔵庫、炊飯器', bath:'シャワールーム 2室',toilet:'洋式 2室',wash_room:'3台',washing_machine:'洗濯機 2台',
+    cleaning_support:'クリーンスタッフが掃除', event:'イベントなし',breadth:'6畳', latitude: '35.71819680517442', altitude: '139.7018533781967')
+propertyBB.images.attach(io: File.open(Rails.root.join('app/assets/images/houseZ/living.jpg')),filename: 'living.jpg')#0
+propertyBB.images.attach(io: File.open(Rails.root.join('app/assets/images/houseZ/kitchen.jpg')),filename: 'kichen.jpg')#2
+propertyBB.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbing/bath.jpg')),filename: 'bath.jpg')#s3
+propertyBB.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbing/wash.jpg')),filename: 'wash.jpg')#4
+propertyBB.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbing/toilet.jpg')),filename: 'toilet.jpg')#4
+propertyBB.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbing/room.jpg')),filename: 'room.jpg')#4
+
+propertyCC=Property.create!(
+    area_id: area_setagaya.id,area_group_id: area_group_ebisu.id,property_name:'成城モア', address:'東京都世田谷区成城', access:'成城学園前駅 徒歩4分', rent: 50000, condition:'女性', vacancy:4, common_service_fee:12000,
+    introduction:'徒歩4分の「成城学園前」駅は、便利な急行停車駅。新宿まで4駅15分。治安も良く安心の高級住宅街です。
+    新しくなった駅ビル「成城コルティ」には、スーパーや三省堂書店、雑貨店など便利でスタイリッシュなお店が36店も集まっています。',
+    room_facility:'エアコン・ベッド・クローゼット、ミニ冷蔵庫',
+    living:'テレビ、ソファ、テーブル、DVD', kitchen:'電子レンジ、冷蔵庫、炊飯器', bath:'シャワールーム 2室',toilet:'洋式 2室',wash_room:'3台',washing_machine:'洗濯機 2台',
+    cleaning_support:'クリーンスタッフが掃除', event:'イベントなし',breadth:'6畳', latitude: '35.71819680517442', altitude: '139.7018533781967')
+propertyCC.images.attach(io: File.open(Rails.root.join('app/assets/images/houseZ/living.jpg')),filename: 'living.jpg')#0
+propertyCC.images.attach(io: File.open(Rails.root.join('app/assets/images/houseZ/kitchen.jpg')),filename: 'kichen.jpg')#2
+propertyCC.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbing/bath.jpg')),filename: 'bath.jpg')#s3
+propertyCC.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbing/wash.jpg')),filename: 'wash.jpg')#4
+propertyCC.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbing/toilet.jpg')),filename: 'toilet.jpg')#4
+propertyCC.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbing/room.jpg')),filename: 'room.jpg')#4
+
 
 category_basic = Category.create!(
   category:'basic'
@@ -1201,4 +1244,94 @@ TagProperty.create!(
 TagProperty.create!(
   property_id: propertyZ.id,
   tag_id: tag_wide.id
+  )
+
+#propertyAA
+TagProperty.create!(
+  property_id: propertyAA.id,
+  tag_id: tag_manwoman.id
+  )
+TagProperty.create!(
+  property_id: propertyAA.id,
+  tag_id: tag_many_event.id
+  )
+TagProperty.create!(
+  property_id: propertyAA.id,
+  tag_id: tag_station.id
+  )
+TagProperty.create!(
+  property_id: propertyAA.id,
+  tag_id: tag_cleaning_support.id
+  )
+TagProperty.create!(
+  property_id: propertyAA.id,
+  tag_id: tag_residential.id
+  )
+TagProperty.create!(
+  property_id: propertyAA.id,
+  tag_id: tag_residential.id
+  )
+TagProperty.create!(
+  property_id: propertyAA.id,
+  tag_id: tag_parking.id
+  )
+TagProperty.create!(
+  property_id: propertyAA.id,
+  tag_id: tag_cook.id
+  )
+
+#propertyBB
+TagProperty.create!(
+  property_id: propertyBB.id,
+  tag_id: tag_manwoman.id
+  )
+TagProperty.create!(
+  property_id: propertyBB.id,
+  tag_id: tag_no_event.id
+  )
+TagProperty.create!(
+  property_id: propertyBB.id,
+  tag_id: tag_autoloc.id
+  )
+TagProperty.create!(
+  property_id: propertyBB.id,
+  tag_id: tag_cleaning_support.id
+  )
+TagProperty.create!(
+  property_id: propertyBB.id,
+  tag_id: tag_wide.id
+  )
+TagProperty.create!(
+  property_id: propertyBB.id,
+  tag_id: tag_parking.id
+  )
+
+#propertyCC
+TagProperty.create!(
+  property_id: propertyCC.id,
+  tag_id: tag_woman.id
+  )
+TagProperty.create!(
+  property_id: propertyCC.id,
+  tag_id: tag_no_event.id
+  )
+TagProperty.create!(
+  property_id: propertyCC.id,
+  tag_id: tag_autoloc.id
+  )
+TagProperty.create!(
+  property_id: propertyCC.id,
+  tag_id: tag_cleaning_support.id
+  )
+TagProperty.create!(
+  property_id: propertyCC.id,
+  tag_id: tag_wide.id
+  )
+TagProperty.create!(
+  property_id: propertyCC.id,
+  tag_id: tag_station.id
+  )
+TagProperty.create!(
+  property_id: propertyCC.id,
+  tag_id: tag_supermarket.id
   )

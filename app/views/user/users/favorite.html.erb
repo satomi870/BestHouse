@@ -4,7 +4,7 @@
   <%@favorites.each do |favorite|%>
     <div class="row">
       <div class="col-3 mt-3">
-        <h4><%= favorite.property.property_name%></h4>
+        <h5 class="font-weight-bold"><%= favorite.property.property_name%></h5>
         <%=image_tag favorite.property.images[0],size: '230x150' %>
       </div>
       <div class="col-4 mt-5">
