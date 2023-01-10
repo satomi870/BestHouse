@@ -19,4 +19,5 @@ class Review < ApplicationRecord
    validates :net_speed, presence: true
    validates :shower, presence: true
    validates :event, presence: true
+   validates :repeat, presence: true
 end
