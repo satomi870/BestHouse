@@ -87,11 +87,11 @@
         </div>
         <div class="col-2">
           <% if review.repeat == "3" %>
-            <p class="bg-danger text-white text-center rounded-pill small mb-3">住み続けたい</p>
+            <p class="bg-danger text-white text-center rounded-pill small mb-5 mt-3">住み続けたい</p>
           <%end%>
         </div>
       </div>
-      <p class="mb-4 ml-3 writing"><%=review.body%></p>
+      <p class="mb-4 ml-3 writing line"><%=review.body%></p>
       <%= render '/user/properties/review', review: review %>
       <div class="mb-5 mt-3 ml-3">
         <%=review.user.nickname%>

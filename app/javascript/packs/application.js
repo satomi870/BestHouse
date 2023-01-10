@@ -10,6 +10,7 @@ import 'jquery'
 import "popper.js";
 import "bootstrap";
 import "../stylesheets/application"
+import "../stylesheets/map"
 import "script.js"
 import Raty from "raty.js"
 const images = require.context('../images', true)
