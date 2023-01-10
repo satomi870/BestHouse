@@ -128,9 +128,9 @@ area_other = Area.create!(
 
 propertyA=Property.create!(
     area_id: area_nerima.id,area_group_id: area_group_ikebukuro.id, property_name:'ファースト南大泉', address:'東京都練馬区南大泉', access:'保谷駅 徒歩6分', rent:40000, condition:'女性', vacancy:4, common_service_fee:12000,
-    introduction:'知らない人同士が数人で住んで、キッチンやリビング、お風呂、トイレなどを共有するひとり暮らしだけどひとり暮らしではない、安心の住まい方です。
+    introduction:'2022年9月オープン!! ファースト南大泉は周辺環境はとても静かで、生活利便性もよく暮らしやすい場所です。
     生活スタイルも育った環境も異なる他人が、共有・共住するので、いろいろな人のことを受け入れていかなくてはなりませんが、人間としての幅も広がり、精神的な成長の場となります。
-    周辺環境はとても静かで、生活利便性もよく暮らしやすい場所です。お問い合せをお待ちしております。',
+    お問い合わせをお待ちしております。',
     room_facility:'エアコン・ベッド、クローゼット、トイレ、シャワールーム',
     living:'テレビ、ソファ、テーブル', kitchen:'電子レンジ、冷蔵庫、炊飯器', bath:'シャワールーム 2室',toilet:'洋式 3室',wash_room:'3台',washing_machine:'洗濯機 2台',
     cleaning_support:'住人同士の当番制',event:'イベントなし', breadth:'5畳',latitude:'35.737798415787815',altitude:'139.63589408832408')

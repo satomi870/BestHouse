@@ -14,6 +14,9 @@ class User::ReviewsController < ApplicationController
     review_params_copy[:relation_detail] = relation_detail
 
     @review = Review.new(review_params_copy)
+    if @review.relation == "resident"
+      @review.relation_detail = "now_resident"
+    end
 
     @review.user_id = current_user.id
     @review.property_id = params[:property_id]

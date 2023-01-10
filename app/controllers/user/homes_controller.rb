@@ -21,9 +21,9 @@ class User::HomesController < ApplicationController
 
     #ラジオボタンレビュー項目の平均点を物件ごとに算出して上位5件を表示
     @properties_atmosphere = Property.find(Review.group(:property_id).where(atmosphere: 3..).order("avg(atmosphere) desc").limit(5).pluck(:property_id))
-    @properties_noise = Property.find(Review.group(:property_id).where(atmosphere: 3..).order("avg(noise) desc").limit(5).pluck(:property_id))
-    @properties_congestion_shared = Property.find(Review.group(:property_id).where(atmosphere: 3..).order("avg(congestion_shared) desc").limit(5).pluck(:property_id))
-    @properties_cleanliness_shared= Property.find(Review.group(:property_id).where(atmosphere: 3..).order("avg(cleanliness_shared) desc").limit(5).pluck(:property_id))
+    @properties_noise = Property.find(Review.group(:property_id).where(noise: 3..).order("avg(noise) desc").limit(5).pluck(:property_id))
+    @properties_cleanliness_shared= Property.find(Review.group(:property_id).where(cleanliness_shared: 3..).order("avg(cleanliness_shared) desc").limit(5).pluck(:property_id))
+    @properties_congestion_shared = Property.find(Review.group(:property_id).where(congestion_shared: 3..).order("avg(congestion_shared) desc").limit(5).pluck(:property_id))
     #各物件のお気に入り数が多い物件上位5件を表示
     @properties_favorites = Property.all.sort { |x, y| y.favorites.count <=> x.favorites.count }.reject { _1.favorites.count == 0 }.first(5)
   end

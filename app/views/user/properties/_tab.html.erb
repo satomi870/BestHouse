@@ -102,7 +102,9 @@
           <%= review.user.age %>
         <% end %>
         <%=review.relation_i18n%>
-        <%=review.relation_detail_i18n%>
+        <% if review.relation_detail_i18n != "Now resident" %>
+          <%=review.relation_detail_i18n%>
+        <%end%>
         <%= review.created_at.to_s(:datetime_jp) %>
       </div>
     <% end %>

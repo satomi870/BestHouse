@@ -121,7 +121,7 @@
             </div>
           <%end%>
         <%else%>
-          <p>まだレビューがありません</p>
+          <p>まだ口コミがありません</p>
         <%end%>
       </div>
 
@@ -138,25 +138,7 @@
             </div>
           <%end%>
         <%else%>
-          <p>まだレビューがありません</p>
-        <%end%>
-      </div>
-
-
-      <h4 class="popular text-center mt-5">水回りの混雑が少ない物件</h4>
-      <div class="d-flex justify-content-center">
-        <% if @properties_congestion_shared.present? %>
-          <% @properties_congestion_shared.each do |property| %>
-            <div class="mr-2 popular_property ">
-              <%=link_to property_path(property.id) do%>
-                <%= image_tag property.images[0],size: '188x130' %>
-                <p class="top_property"><%= property.property_name %></p>
-                <p class="top_property"><%= property.rent %>円 <%=property.access%></p>
-              <%end%>
-            </div>
-          <%end%>
-        <%else%>
-          <p>まだレビューがありません</p>
+          <p>まだ口コミがありません</p>
         <%end%>
       </div>
 
@@ -173,7 +155,24 @@
             </div>
           <%end%>
         <%else%>
-          <p>まだレビューがありません</p>
+          <p>まだ口コミがありません</p>
+        <%end%>
+      </div>
+
+      <h4 class="popular text-center mt-5">水回りの混雑が少ない物件</h4>
+      <div class="d-flex justify-content-center">
+        <% if @properties_congestion_shared.present? %>
+          <% @properties_congestion_shared.each do |property| %>
+            <div class="mr-2 popular_property ">
+              <%=link_to property_path(property.id) do%>
+                <%= image_tag property.images[0],size: '188x130' %>
+                <p class="top_property"><%= property.property_name %></p>
+                <p class="top_property"><%= property.rent %>円 <%=property.access%></p>
+              <%end%>
+            </div>
+          <%end%>
+        <%else%>
+          <p>まだ口コミがありません</p>
         <%end%>
       </div>
     </div>
