@@ -8,7 +8,7 @@
         ユーザー名
       </div>
       <div class="col-9">
-        <%= f.text_field :nickname %>
+        <%= f.text_field :nickname,:size=>"40x10"%>
       </div>
     </div>
     <div class="row mb-2">
@@ -16,7 +16,7 @@
         年齢
       </div>
       <div class="col-9">
-       <%= f.select :age, [['10代','10代'], ['20代', '20代'], ['30代', '30代'], ['40代','40代'], ['50代','50代'], ['60代','60代'], ['70代','70代'],'80代以上','80代以上'], ['非公開','非公開']] %>
+       <%= f.select :age, [['10代','10代'], ['20代', '20代'], ['30代', '30代'], ['40代','40代'], ['50代','50代'], ['60代','60代'], ['70代','70代'], ['80代以上','80代以上'], ['非公開','非公開']] %>
       </div>
     </div>
     <div class="row mb-2">
@@ -34,7 +34,7 @@
         メールアドレス
       </div>
       <div class="col-9">
-         <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+         <%= f.email_field :email, autofocus: true, autocomplete: "email",:size=>"40x10" %>
       </div>
     </div>
     <div class="row mb-2">
@@ -42,7 +42,7 @@
         ステータス
       </div>
       <div class="col-9">
-        <%= f.radio_button :is_deleted, true %><%= f.label :is_deleted, "退会済み" %>
+        <%= f.radio_button :is_deleted, true %><%= f.label :is_deleted, "退会" %>
   			<%= f.radio_button :is_deleted, false %><%= f.label :is_deleted, "有効" %>
       </div>
     </div>
