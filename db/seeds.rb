@@ -186,7 +186,7 @@ propertyD.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbin
 
 propertyE=Property.create!(
     area_id: area_shinagawa.id,area_group_id: area_group_kamata.id,property_name:'スカイ大崎', address:'東京都品川区大崎', access:'大崎駅 徒歩6分', rent: 58000, condition:'男女どちらともOK', vacancy:2, common_service_fee:15000,
-    introduction:'都心の利便性、快適性が満喫できる「スカイ大崎」が、2019年2月にオープンしました。居室4室の小さなシェアハウスです。4人に対して、洗面台2台、シャワー2室、トイレも2室あります。
+    introduction:'都心の利便性、快適性が満喫できるスカイ大崎が、2019年2月にオープンしました。居室4室の小さなシェアハウスです。4人に対して、洗面台2台、シャワー2室、トイレも2室あります。
     また、屋上には洗濯物干場が用意されています。居室はオーナーデザインによる内装となっていて、落ち着いた時間をお過ごしいただけると思います。
     居室はオーナーデザインによる内装となっていて、落ち着いた時間をお過ごしいただけると思います。',
     room_facility:'エアコン・ベッド・クローゼット、ミニ冷蔵庫',
@@ -216,7 +216,7 @@ propertyF.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbin
 
 propertyG=Property.create!(
     area_id: area_oota.id,area_group_id: area_group_kamata.id,property_name:'ステージ蒲田', address:'東京都太田区蒲田', access:'蒲田駅 徒歩8分', rent: 40000, condition:'男女どちらともOK', vacancy:6,common_service_fee:11000,
-    introduction:'都心の隠れスポットとして話題の蒲田に2021年1月にシェアハウスステージ蒲田が誕生しました。「京急蒲田」「蒲田」の各駅周辺、2駅間の商業地域の開発により進化する蒲田。
+    introduction:'都心の隠れスポットとして話題の蒲田に2021年1月にステージ蒲田が誕生しました。「京急蒲田」「蒲田」の各駅周辺、2駅間の商業地域の開発により進化する蒲田。
     東京都心部や横浜、羽田空港などのアクセスが良く、テレビ番組でも紹介されるグルメな街として賑わい活気があります。',
     room_facility:'エアコン・ベッド・クローゼット、ミニ冷蔵庫',
     living:'テレビ、ソファ、テーブル、DVD', kitchen:'電子レンジ、冷蔵庫、炊飯器', bath:'シャワールーム 2室',toilet:'洋式 3室',wash_room:'3台',washing_machine:'洗濯機 2台',
@@ -287,7 +287,7 @@ propertyK.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbin
 
 propertyL=Property.create!(
     area_id: area_daito.id,area_group_id: area_group_ueno.id,property_name:'SPICA上野', address:'東京都台東区上野', access:'上野駅 徒歩4分', rent: 50000, condition:'外国人大歓迎', vacancy:2, common_service_fee:13000,
-    introduction:'2013年4月、上野駅から徒歩4分の恵まれた環境に、シェアハウスがオープンしました。
+    introduction:'2013年4月、上野駅から徒歩4分の恵まれた環境に、SPICA上野がオープンしました。
     四季折々の植物たちが生い茂る小道を歩いて玄関へ、大きな窓からは明るい陽射しがたっぷり降り注ぎほっこり癒される室内空間。
     都会の中の緑豊かなシェアハウスで、明るいお部屋は全部で10つ、それぞれに異なるデザイン・インテリアで角部屋がメインの個室です。
     リビングは、庭の植物を眺めながらゆったりくつろげる癒しの空間となっていて、大型のキッチンは収納も多く使い勝手抜群です。',
@@ -303,7 +303,7 @@ propertyL.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbin
 
 propertyM=Property.create!(
     area_id: area_arakawa.id,area_group_id: area_group_kitasenju.id,property_name:'町屋ハウス', address:'東京都荒川区町屋', access:'町屋駅 徒歩3分', rent: 40000, condition:'男女どちらともOK', vacancy:6, common_service_fee:10000,
-    introduction:'大手町まで12分。表参道まで27分。通勤、遊びにも嬉しい場所にシェアハウス「町屋ハウス」が2014年3月にオープンしました。
+    introduction:'大手町まで12分。表参道まで27分。通勤、遊びにも嬉しい場所に町屋ハウスが2014年3月にオープンしました。
     東京メトロ千代田線にありながら、なぜかふっと落ち着く。町はそんな雰囲気です。帰途までには威勢のいいお惣菜屋さんや、むかしながらの珈琲屋さん。
     定食屋さん。リサイクルショップ。花屋さん。などなど町全体がゆっくりと時間が流れるけど、みんな元気。東京でのかっこいい生活、だけど、家の灯りが見えてくるとほっとする。
     そんな街にあるシェアハウスです。',
@@ -494,7 +494,7 @@ propertyY.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbin
 
 propertyZ=Property.create!(
     area_id: area_other.id,area_group_id: area_group_other.id,property_name:'house西八王子', address:'東京都八王子市西八王子', access:'西八王子駅 徒歩8分', rent: 30000, condition:'男女どちらともOK', vacancy:2, common_service_fee:10000,
-    introduction:'駅から近く、値段もお手頃で眺望と日当たりの良いシェアハウス。広々とした個室は日当たりがよく、開放感も抜群です。hause西八王子はほとんどのお買い物は駅前でまかなえます。
+    introduction:'駅から近く、値段もお手頃で眺望と日当たりの良いシェアハウス。広々とした個室は日当たりがよく、開放感も抜群です。house西八王子はほとんどのお買い物は駅前でまかなえます。
     共有スペースはこじんまりしていますが、各お部屋の間取りを広くとっている物件です。家具家電完備。',
     room_facility:'エアコン・ベッド・クローゼット、ミニ冷蔵庫',
     living:'テレビ、ソファ、テーブル、DVD', kitchen:'電子レンジ、冷蔵庫、炊飯器', bath:'シャワールーム 2室',toilet:'洋式 3室',wash_room:'3台',washing_machine:'洗濯機 2台',
@@ -1262,10 +1262,6 @@ TagProperty.create!(
 TagProperty.create!(
   property_id: propertyAA.id,
   tag_id: tag_cleaning_support.id
-  )
-TagProperty.create!(
-  property_id: propertyAA.id,
-  tag_id: tag_residential.id
   )
 TagProperty.create!(
   property_id: propertyAA.id,
