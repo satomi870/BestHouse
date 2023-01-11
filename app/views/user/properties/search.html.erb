@@ -5,6 +5,7 @@
         <div class ="sideber ">
           <%= form_with url: search_path, method: :get do |f|%>
             <div class="mb-3">
+              <div class="mt-2 mb-3 text-center sideber-explain">更に絞り込んで<br>理想の物件に近づこう</div>
               <span class="under">エリア</span>
             </div>
             <div class="area_check_box">
@@ -182,3 +183,34 @@
   </div>
 <% end %>
 
+<script>
+  let lowerSelect = document.getElementById('lower_rent')
+  let upperSelect = document.getElementById('upper_rent')
+
+  if (lowerSelect) {
+    lowerSelect.addEventListener('change', function() {
+        let lowerRent = lowerSelect.selectedOptions[0].value;
+        let upperRent = upperSelect.selectedOptions[0].value;
+        if (!isValidRentRange(lowerRent, upperRent)) {
+          alert('下限が上限を超えているので入力し直してください')
+        }
+    })
+  }
+
+  if (upperSelect) {
+    upperSelect.addEventListener('change', function() {
+        let lowerRent = lowerSelect.selectedOptions[0].value;
+        let upperRent = upperSelect.selectedOptions[0].value;
+        if (!isValidRentRange(lowerRent, upperRent)) {
+          alert('下限が上限を超えているので入力し直してください')
+        }
+    })
+  }
+
+  function isValidRentRange(lowerRent, upperRent) {
+    if (Number(upperRent) === 0) {
+      return true
+    }
+    return Number(lowerRent)< Number(upperRent);
+  }
+</script>

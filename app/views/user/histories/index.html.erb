@@ -13,8 +13,8 @@
       </div>
     </div>
   <%end%>
+  <div class="pagination"><%= paginate @histories, theme: 'twitter-bootstrap-4'%></div>
 <%else%>
   <h6 class="mt-4">閲覧履歴がありません</h6>
 <%end%>
-<div class="pagination"><%= paginate @histories %></div>
 

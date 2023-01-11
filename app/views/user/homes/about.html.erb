@@ -134,33 +134,32 @@
 
 <script>
   let lowerSelect = document.getElementById('lower_rent')
-let upperSelect = document.getElementById('upper_rent')
+  let upperSelect = document.getElementById('upper_rent')
 
-if (lowerSelect) {
-  lowerSelect.addEventListener('change', function() {
-      let lowerRent = lowerSelect.selectedOptions[0].value;
-      let upperRent = upperSelect.selectedOptions[0].value;
-      if (!isValidRentRange(lowerRent, upperRent)) {
-        alert('下限が上限を超えているので入力し直してください')
-      }
-  })
-}
-
-if (upperSelect) {
-  upperSelect.addEventListener('change', function() {
-      let lowerRent = lowerSelect.selectedOptions[0].value;
-      let upperRent = upperSelect.selectedOptions[0].value;
-      if (!isValidRentRange(lowerRent, upperRent)) {
-        alert('下限が上限を超えているので入力し直してください')
-      }
-  })
-}
-
-function isValidRentRange(lowerRent, upperRent) {
-  if (Number(upperRent) === 0) {
-    return true
+  if (lowerSelect) {
+    lowerSelect.addEventListener('change', function() {
+        let lowerRent = lowerSelect.selectedOptions[0].value;
+        let upperRent = upperSelect.selectedOptions[0].value;
+        if (!isValidRentRange(lowerRent, upperRent)) {
+          alert('下限が上限を超えているので入力し直してください')
+        }
+    })
   }
-  return Number(lowerRent)< Number(upperRent);
-}
 
+  if (upperSelect) {
+    upperSelect.addEventListener('change', function() {
+        let lowerRent = lowerSelect.selectedOptions[0].value;
+        let upperRent = upperSelect.selectedOptions[0].value;
+        if (!isValidRentRange(lowerRent, upperRent)) {
+          alert('下限が上限を超えているので入力し直してください')
+        }
+    })
+  }
+
+  function isValidRentRange(lowerRent, upperRent) {
+    if (Number(upperRent) === 0) {
+      return true
+    }
+    return Number(lowerRent)< Number(upperRent);
+  }
 </script>

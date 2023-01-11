@@ -69,9 +69,9 @@
   <div id="tab2" class="tab">
     <%if @reviews.present?%>
       <div class="mb-5">
-        <h5 class="mb-5 ml-3">全<%=@reviews.count%>件</h5>
-        <h3 class="ml-3">総合評価</h3>
-        <div class="mb-5 ml-3">
+        <h5 class="mb-5">全<%=@reviews.count%>件</h5>
+        <h3>総合評価</h3>
+        <div class="mb-5">
           <div id="show_raty" data-avg-score=<%= @avg_score %> ></div>
         </div>
       </div>
@@ -83,17 +83,17 @@
     <% @reviews.each do |review| %>
       <div class="row">
         <div class="col-5">
-          <span class="ml-3 writing under"><%=review.title%></span>
+          <h4 class="writing"><%=review.title%></h4>
         </div>
         <div class="col-2">
           <% if review.repeat == "3" %>
-            <p class="bg-danger text-white text-center rounded-pill small mb-5 mt-3">住み続けたい</p>
+            <p class="bg-danger text-white text-center rounded-pill small mb-5 mt-1">住み続けたい</p>
           <%end%>
         </div>
       </div>
-      <p class="mb-4 ml-3 writing line"><%=review.body%></p>
+      <p class="mb-4 writing"><%=review.body%></p>
       <%= render '/user/properties/review', review: review %>
-      <div class="mb-5 mt-3 ml-3">
+      <div class="review-name mt-3">
         <%=review.user.nickname%>
         <% unless review.user.gender == "非公開" %>
           <%= review.user.gender %>
@@ -130,7 +130,7 @@
     <%= render '/user/properties/error', model: @comment %>
     <%= render '/user/properties/error', model: @comment_comment %>
     <%if @questions.present?%>
-      <h5 class="mb-5 ml-1">全<%=@questions.count%>件</h5>
+      <h5 class="ml-1">全<%=@questions.count%>件</h5>
 　　  <% @questions.each do |question| %>
         <%= render '/user/properties/question', question: question, comment: @comment, comment_comment: @comment_comment %>
 　　  <% end %>
@@ -152,7 +152,7 @@
     <div class="rule rule01 mt-5">
 　　　<h3 class="text-center font-weight-bold mb-4">ハウスルール</h3>
       <%@rules.each do |rule|%>
-        <p class="writing">• <%= rule.body %></p>
+        <p class="writing mb-3">• <%= rule.body %></p>
       <%end%>
     </div>
 　</div>

@@ -3,7 +3,7 @@ class User::HistoriesController < ApplicationController
 
   def index
     @histories_count = current_user.histories.count
-    @histories = current_user.histories.page(params[:page]).per(10)
+    @histories = current_user.histories.page(params[:page]).per(20)
   end
 
   def destroy

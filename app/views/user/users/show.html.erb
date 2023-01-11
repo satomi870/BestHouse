@@ -23,12 +23,12 @@
 <div id="tab-contents">
   <div id="tab1" class="tab">
     <% if @reviews.present? %>
-      <h5 class="ml-3 mb-5">全<%=@reviews.count%>件</h5>
+      <h5 class="mb-5">全<%=@reviews.count%>件</h5>
       <% @reviews.each do |review| %>
-        <h5 class="ml-3 font-weight-bold"><%= review.property.property_name %></h5>
+        <h5 class="font-weight-bold"><%= review.property.property_name %></h5>
         <div class="mb-5">
-          <p class="mb-3 ml-3"><%=review.title%></p>
-          <p class="mb-4 ml-3"><%=review.body%></p>
+          <p class="mb-3"><%=review.title%></p>
+          <p class="mb-4"><%=review.body%></p>
           <%= render '/user/properties/review', review: review %>
         </div>
       <% end %>
@@ -78,9 +78,9 @@
       <div class="rule rule01">
         <h3 class="text-center">シェアしたハウスルール</h3>
         <% @property_rules.each do |property|%>
-          <h6 class="mt-4"><%=property.property_name %></h6>
+          <h6 class="mt-4 ml-2"><%=property.property_name %></h6>
           <% property.rules.where(user: current_user).each do |rule|%>
-            <p>• <%= rule.body %></p>
+            <p class="mb-3">• <%= rule.body %></p>
           <% end %>
         <% end %>
       </div>

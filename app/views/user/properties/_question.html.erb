@@ -1,7 +1,7 @@
-<div class="question mb-3">
+<div class="question mb-3 mt-3">
   <h3>質問</h3>
-  <span class="under writing"><%=question.title%></span>
-  <p class="writing"><%=question.body%></p>
+  <h4 class="writing mt-3 mb-3"><%=question.title%></h4>
+  <p class="writing mb-2"><%=question.body%></p>
   <%=question.user.nickname%>
   <% unless question.user.gender == "非公開" %>
     <%= question.user.gender %>
@@ -20,7 +20,7 @@
 <h3 class="mt-3">回答一覧</h3>
 <% question.comments.each do |comment| %>
   <div class="comment_color writing mb-3">
-    <p class="mt-4"><%= comment.body %></p>
+    <p class="mt-4 mb-2"><%= comment.body %></p>
     <%=comment.user.nickname%>
     <% unless comment.user.gender == "非公開" %>
       <%= comment.user.gender%>
@@ -38,7 +38,7 @@
     </div>
   </div>
   <% comment.comment_comments.each do |comment_comment| %>
-    <p class="sub_comment writing border-bottom">
+    <p class="sub_comment writing border-top mb-2">
       <%=comment_comment.body%><br>
       <%=comment_comment.user.nickname%>
       <% unless comment_comment.user.gender == "非公開" %>
