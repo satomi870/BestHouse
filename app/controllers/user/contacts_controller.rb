@@ -11,7 +11,7 @@ class User::ContactsController < ApplicationController
     @contact.user_id = current_user.id
     @contact.property_id = params[:property_id]
     if  @contact.save
-      flash[:notice] = "お問い合わせの投稿が完了しました!"
+      flash[:notice] = "お問い合わせの送信が完了しました!"
       redirect_to root_path
     else
       @property=Property.find(params[:property_id])
