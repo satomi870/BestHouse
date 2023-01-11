@@ -14,9 +14,9 @@
         ユーザー名
       </div>
       <div class="col-9">
-        <%=link_to admin_user_path(user.id) do%>
-           <%=user.nickname%>
-         <%end%>
+        <%= link_to admin_user_path(user.id) do %>
+           <%= user.nickname %>
+         <% end %>
       </div>
     </div>
     <div class="row mb-2">
@@ -32,13 +32,13 @@
         ステータス
       </div>
       <div class="col-9">
-        <% if user.is_deleted%>
+        <% if user.is_deleted %>
           退会
-        <%else%>
+        <% else %>
           有効
-        <%end%>
+        <% end %>
       </div>
     </div>
   </div>
-<%end%>
+<% end %>
 

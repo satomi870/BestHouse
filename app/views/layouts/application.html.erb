@@ -28,7 +28,7 @@
       <ul class="d-flex justify-content-center mt-5 text-center">
         <% if user_signed_in? %>
           <li class=" flex-fill">
-            <%=link_to"シェアハウスを探す",root_path%>
+            <%= link_to"シェアハウスを探す",root_path %>
           </li>
           <li class=" flex-fill">
             <%= link_to "お気に入り", favorite_path %>
@@ -38,9 +38,9 @@
           </li>
           <li class=" flex-fill">
             <%= link_to"通知",notifications_path %>
-              <%if current_user.passive_notifications.where(checked: false).size > 0%>
-                <div class="count"><%= current_user.passive_notifications.where(checked: false).size%></div>
-              <%end%>
+              <% if current_user.passive_notifications.where(checked: false).size > 0 %>
+                <div class="count"><%= current_user.passive_notifications.where(checked: false).size %></div>
+              <% end %>
           </li>
           <li class=" flex-fill">
             <%= link_to"閲覧履歴",histories_path %>
@@ -62,7 +62,7 @@
             <%= link_to "ハウスルール一覧",admin_rules_path %>
           </li>
           <li class=" flex-fill">
-             <%= link_to "お問い合わせ一覧",admin_contacts_path %>
+            <%= link_to "お問い合わせ一覧",admin_contacts_path %>
           </li>
            <li class=" flex-fill">
             <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
@@ -75,10 +75,10 @@
             <%= link_to "ログイン", new_user_session_path %>
           </li>
           <li class=" flex-fill">
-            <%=link_to 'ゲストログイン', users_guest_login_path, method: :post %>
+            <%= link_to 'ゲストログイン', users_guest_login_path, method: :post %>
           </li>
           <li class=" flex-fill">
-            <%=link_to"シェアハウスを探す",root_path%>
+            <%= link_to"シェアハウスを探す",root_path %>
           </li>
         <% end %>
       </ul>

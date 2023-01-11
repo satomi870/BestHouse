@@ -11,26 +11,6 @@ class User::PropertiesController < ApplicationController
               else
                 nil
               end
-
-      # 特徴から探す場合
-      # params[:tag_id]がある
-      # params[:tag_id] → 選択したタグのidになる(ただし,文字列) e.g. "1"
-      # 以下の code を実行できるような考慮が必要
-      #  @tags.each do | tag_id |
-      #    ...
-      #  end
-      # 上記の code を動かすようにするためには @tags のなかに each を実行できる data を代入する必要がある
-      # そもそも each を実行できる data とは [] (配列)のことです
-      # そのため [1] みたいな配列の中に data を入れてあげる必要があります
-
-      # エリアから探す場合
-      # params[:tag_id]がない
-      # params[:tag_id] → nil が返る
-      # 以下の条件が true になるような実装にしないといけない
-      # elsif !@area_groups.blank? && @tags.blank?
-      # そのため @tags.blank? が true になるような値を @tags に代入する必要がある
-      # [@tags.blank? が true になるような値] とは 以下の4つです
-      # nil or [] or '' or {}
     else
       #複数検索の場合
       @areas = []

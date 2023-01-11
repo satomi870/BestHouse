@@ -4,7 +4,7 @@ class User::HomesController < ApplicationController
     @areas=Area.all
     @area_groups = AreaGroup.all
 
-    basic = Category.find_by(category: "basic") #カテゴリわけwhereを使うパターンもある　rails 検索　やり方
+    basic = Category.find_by(category: "basic") #カテゴリわけwhereを使うパターンもある
     @basic_tags=basic.tags
 
     room = Category.find_by(category: "room")

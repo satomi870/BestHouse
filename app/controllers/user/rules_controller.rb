@@ -23,6 +23,6 @@ class User::RulesController < ApplicationController
   private
 
   def rule_params
-    params.require(:rule).permit( :body)
+    params.require(:rule).permit(:body)
   end
 end

@@ -18,9 +18,9 @@
       </div>
       <div class="col-4">
         <%= link_to "削除", admin_question_path(question.id), method: :delete %>
-        <%=link_to admin_user_path(question.user.id) do%>
-          <%=question.user.nickname %>
-        <%end%>
+        <%= link_to admin_user_path(question.user.id) do %>
+          <%= question.user.nickname %>
+        <% end %>
       </div>
     </div>
     <div class="row mb-2">
@@ -37,13 +37,13 @@
           回答
         </div>
         <div class="col-6 writing">
-          <%=comment.body %>
+          <%= comment.body %>
         </div>
         <div class="col-4">
           <%= link_to "削除", admin_comment_path(comment.id), method: :delete %>
-          <%=link_to admin_user_path(comment.user.id) do%>
-            <%=comment.user.nickname %>
-          <%end%>
+          <%= link_to admin_user_path(comment.user.id) do %>
+            <%= comment.user.nickname %>
+          <% end %>
         </div>
       </div>
       <% comment.comment_comments.each do |comment_comment| %>
@@ -56,14 +56,14 @@
           </div>
           <div class="col-4">
             <%= link_to "削除", admin_comment_comment_path(comment_comment.id), method: :delete %>
-            <%=link_to admin_user_path(comment_comment.user.id) do%>
-              <%=comment_comment.user.nickname %>
-            <%end%>
+            <%= link_to admin_user_path(comment_comment.user.id) do %>
+              <%= comment_comment.user.nickname %>
+            <% end %>
           </div>
         </div>
-      <%end%>
-    <%end%>
+      <% end %>
+    <% end %>
   </div>
-<%end%>
+<% end %>
 
 

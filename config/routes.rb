@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     get 'user/favorite' => 'users#favorite', as: 'favorite'
     post 'users/guest_login' => 'guest_sessions#create'
     get 'properties/map/:property_id'=>  'properties#map', as: 'map'
-    get 'properties/search'=>  'properties#search', as: 'search'#違うURLで同じアクションに飛びたい時は二つかかず一つにルーティングをまとめる　idはどうするかというとtophtmlの方で分岐させる
+    get 'properties/search'=>  'properties#search', as: 'search'#違うURLで同じアクションに飛びたい時は二つかかず一つにルーティングをまとめる idはどうするかというとtophtmlの方で分岐させる
     get 'properties/search_keyword'=>  'properties#search_keyword', as: 'search_keyword'
     resources :properties,only:[:show] do
       resources :contacts,only:[:new, :create]
@@ -35,6 +35,7 @@ Rails.application.routes.draw do
       resources :comment_comments, only: [:create]
     end
   end
+
   namespace :admin do
     resources :users,only:[:index,:show,:edit,:update]
     resources :reviews,only:[:index,:destroy]
@@ -43,9 +44,5 @@ Rails.application.routes.draw do
     resources :comment_comments,only: [:destroy]
     resources :contacts,only:[:index,:show]
     resources :rules,only:[:index,:destroy]
-   end
-
-
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-
+  end
 end

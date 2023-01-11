@@ -493,7 +493,7 @@ propertyY.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbin
 propertyY.images.attach(io: File.open(Rails.root.join('app/assets/images/plumbing/room.jpg')),filename: 'room.jpg')
 
 propertyZ=Property.create!(
-    area_id: area_other.id,area_group_id: area_group_other.id,property_name:'hause西八王子', address:'東京都八王子市西八王子', access:'西八王子駅 徒歩8分', rent: 30000, condition:'男女どちらともOK', vacancy:2, common_service_fee:10000,
+    area_id: area_other.id,area_group_id: area_group_other.id,property_name:'house西八王子', address:'東京都八王子市西八王子', access:'西八王子駅 徒歩8分', rent: 30000, condition:'男女どちらともOK', vacancy:2, common_service_fee:10000,
     introduction:'駅から近く、値段もお手頃で眺望と日当たりの良いシェアハウス。広々とした個室は日当たりがよく、開放感も抜群です。hause西八王子はほとんどのお買い物は駅前でまかなえます。
     共有スペースはこじんまりしていますが、各お部屋の間取りを広くとっている物件です。家具家電完備。',
     room_facility:'エアコン・ベッド・クローゼット、ミニ冷蔵庫',

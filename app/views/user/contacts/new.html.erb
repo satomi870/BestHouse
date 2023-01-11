@@ -1,37 +1,37 @@
-<%= render '/user/properties/error', model: @contact%>
+<%= render '/user/properties/error', model: @contact %>
 <%= form_with model: @contact, url: property_contacts_path(@property.id) do |f| %>
   <div class="contact rule rule01 mt-5">
     <h3 class="mt-5 text-center mr-3">お問い合わせ</h3>
     <div class="container mt-5">
       <div class="row mb-2">
         <div class="col-4">
-          <%=f.label :property,"お問い合わせ物件"%>
+          <%= f.label :property,"お問い合わせ物件" %>
         </div>
         <div class="col-8">
-          <span class="mr-5"><%=image_tag @property.images[0],size: '188x130'%></span>
+          <span class="mr-5"><%= image_tag @property.images[0],size: '188x130' %></span>
           <%= @property.property_name %>
-          <%= f.hidden_field :property_id, :value => @property.id%>
+          <%= f.hidden_field :property_id, :value => @property.id %>
         </div>
       </div>
       <div class="row mb-4">
         <div class="col-4">
-          <span class="text-danger mr-2">必須</span> <%=f.label :name,"お名前"%>
+          <span class="text-danger mr-2">必須</span> <%= f.label :name,"お名前" %>
         </div>
         <div class="col-8">
-          <%=f.text_field :name, placeholder:"例）山田太郎"%>
+          <%= f.text_field :name, placeholder:"例）山田太郎" %>
         </div>
       </div>
       <div class="row mb-4">
         <div class="col-4">
-          <span class="text-danger mr-2">必須</span> <%=f.label :name_kana,"お名前(フリガナ)"%>
+          <span class="text-danger mr-2">必須</span> <%= f.label :name_kana,"お名前(フリガナ)" %>
         </div>
         <div class="col-8">
-          <%=f.text_field :name_kana%>
+          <%= f.text_field :name_kana %>
         </div>
       </div>
       <div class="row mb-2">
         <div class="col-4">
-          <span class="text-danger mr-2">必須</span><%=f.label :gender,"性別"%>
+          <span class="text-danger mr-2">必須</span><%= f.label :gender,"性別" %>
         </div>
         <div class="col-8">
           <%= f.radio_button :gender, "男性" %>男性
@@ -40,15 +40,15 @@
       </div>
       <div class="row mb-2">
         <div class="col-4">
-          <span class="text-danger mr-2">必須</span> <%=f.label :age,"年齢"%>（半角数字）
+          <span class="text-danger mr-2">必須</span> <%= f.label :age,"年齢" %>（半角数字）
         </div>
         <div class="col-8">
-          <%= f.text_field :age, class: "age"%>歳
+          <%= f.text_field :age, class: "age" %>歳
         </div>
       </div>
       <div class="row">
         <div class="col-4">
-          <span class="text-danger mr-2">必須</span> <%=f.label :nationality,"国籍"%>
+          <span class="text-danger mr-2">必須</span> <%= f.label :nationality,"国籍" %>
         </div>
         <div class="col-8 mb-3">
           <%= f.radio_button :nationality, "日本" %>日本
@@ -57,63 +57,63 @@
       </div>
       <div class="row mb-2">
         <div class="col-4">
-          <span class="text-danger mr-2">必須</span> <%=f.label :email,"メールアドレス" %>
+          <span class="text-danger mr-2">必須</span> <%= f.label :email,"メールアドレス" %>
         </div>
         <div class="col-8">
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"例）info@besthouse.jp"%>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"例）info@besthouse.jp" %>
         </div>
       </div>
       <div class="row mb-2">
         <div class="col-4">
-          <span class="text-primary mr-2">任意</span> <%=f.label :telephone_number,"電話番号"%>（半角数字）
+          <span class="text-primary mr-2">任意</span> <%= f.label :telephone_number,"電話番号" %>（半角数字）
         </div>
         <div class="col-8">
-          <%=f.text_field :telephone_number , placeholder: "例）08012345678"%>
+          <%= f.text_field :telephone_number , placeholder: "例）08012345678" %>
         </div>
       </div>
       <div class="row mb-2">
         <div class="col-4">
-          <span class="text-primary mr-2">任意</span> <%=f.label :address,"現住所"%>
+          <span class="text-primary mr-2">任意</span> <%= f.label :address,"現住所" %>
         </div>
         <div class="col-8">
-         <%=f.text_field :address%>
+         <%= f.text_field :address %>
         </div>
       </div>
       <div class="row mb-2">
         <div class="col-4">
-         <span class="text-primary mr-2">任意</span> <%=f.label :occupation,"職業"%>
+         <span class="text-primary mr-2">任意</span> <%= f.label :occupation,"職業" %>
         </div>
         <div class="col-8">
-          <%=f.text_field :occupation%>
+          <%= f.text_field :occupation %>
         </div>
       </div>
       <div class="row mb-2">
         <div class="col-4">
-          <span class="text-danger mr-2">必須</span> <%=f.label :schedule,"入居予定日"%>
+          <span class="text-danger mr-2">必須</span> <%= f.label :schedule,"入居予定日" %>
         </div>
         <div class="col-8">
-          <%= f.select :schedule, [['今すぐ','今すぐ'], ['今月中','今月中'], ['来月中','来月中'], ['未定','未定']]  %>
+          <%= f.select :schedule, [['今すぐ','今すぐ'], ['今月中','今月中'], ['来月中','来月中'], ['未定','未定']] %>
         </div>
       </div>
       <div class="row">
         <div class="col-4">
-          <span class="text-danger mr-2">必須</span><%=f.label :hope,"希望項目"%>
+          <span class="text-danger mr-2">必須</span><%= f.label :hope,"希望項目" %>
         </div>
         <div class="col-8 mb-3">
-          <%= f.select :hope, [['見学希望','見学希望'], ['入居希望', '入居希望'], ['予約希望','予約希望'], ['その他','その他']]  %>
+          <%= f.select :hope, [['見学希望','見学希望'], ['入居希望', '入居希望'], ['予約希望','予約希望'], ['その他','その他']] %>
         </div>
       </div>
       <div class="row">
         <div class="col-4">
-          <span class="text-danger mr-2">必須</span> <%=f.label :contact,"お問い合わせ内容"%>
+          <span class="text-danger mr-2">必須</span> <%= f.label :contact,"お問い合わせ内容" %>
         </div>
         <div class="col-8 mb-3">
-          <%=f.text_area :contact,:size=>"50x10"%>
+          <%= f.text_area :contact,:size=>"50x10" %>
         </div>
       </div>
       <div class="register mb-3">
-        <%= f.submit "送信する", class: "btn"%>
+        <%= f.submit "送信する", class: "btn" %>
       </div>
     </div>
   </div>
-<%end%>
+<% end %>

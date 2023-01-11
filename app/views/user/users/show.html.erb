@@ -1,12 +1,12 @@
 <h3 class="mt-4">マイページ</h3>
 <div class="row">
   <div class="col-2 mt-2">
-    <p><%=@user.nickname%></p>
-    <p><%=@user.age%></p>
-    <p><%=@user.gender%></p>
+    <p><%= @user.nickname %></p>
+    <p><%= @user.age %></p>
+    <p><%= @user.gender %></p>
   </div>
   <div class="col-3 edit">
-    <%= link_to "編集する",edit_user_path,class: "btn"%>
+    <%= link_to "編集する",edit_user_path,class: "btn" %>
   </div>
 </div>
 
@@ -23,70 +23,70 @@
 <div id="tab-contents">
   <div id="tab1" class="tab">
     <% if @reviews.present? %>
-      <h5 class="mb-5">全<%=@reviews.count%>件</h5>
+      <h5 class="mb-5">全<%=@reviews.count %>件</h5>
       <% @reviews.each do |review| %>
         <h5 class="font-weight-bold"><%= review.property.property_name %></h5>
         <div class="mb-5">
-          <p class="mb-3"><%=review.title%></p>
-          <p class="mb-4"><%=review.body%></p>
+          <p class="mb-3"><%= review.title %></p>
+          <p class="mb-4"><%= review.body %></p>
           <%= render '/user/properties/review', review: review %>
         </div>
       <% end %>
-    <%else%>
+    <% else %>
       <h6 class="mt-4">投稿した口コミがありません</h6>
-    <%end%>
+    <% end %>
   </div>
 
   <div id="tab2" class="tab">
     <% if @questions.present? %>
-      <h5>全<%=@questions.count%>件</h5>
+      <h5>全<%= @questions.count %>件</h5>
       <% @questions.each do |question| %>
         <h5 class="user-q font-weight-bold"><%= question.property.property_name %></h5>
         <%= render 'user/properties/question', question: question, comment: @comment,comment_comment: @comment_comment %>
-      <%end%>
-    <%else%>
+      <% end %>
+    <% else %>
       <h6 class="mt-4">投稿した質問がありません</h6>
-    <%end%>
+    <% end %>
   </div>
 
   <div id="tab3" class="tab">
     <% if @comment_questions.present? %>
-      <h5>全<%=@comments.count%>件</h5>
+      <h5>全<%= @comments.count %>件</h5>
       <% @comment_questions.each do |comment_question| %>
         <h5 class="user-q font-weight-bold"><%= comment_question.property.property_name %></h5>
         <%= render 'user/properties/question', question: comment_question, comment: @comment, comment_comment: @comment_comment %>
       <% end %>
-    <%else%>
+    <% else %>
       <h6 class="mt-4">投稿した回答がありません</h6>
-    <%end%>
+    <% end %>
   </div>
 
   <div id="tab4" class="tab">
     <% if @comment_comment_questions.present? %>
-      <h5>全<%=@comment_comments.count%>件</h5>
+      <h5>全<%= @comment_comments.count %>件</h5>
       <% @comment_comment_questions.each do |comment_comment_question| %>
         <h5 class="user-q font-weight-bold"><%= comment_comment_question.property.property_name %></h5>
         <%= render 'user/properties/question', question: comment_comment_question, comment: @comment, comment_comment: @comment_comment %>
       <% end %>
-    <%else%>
+    <% else %>
       <h6 class="mt-4">投稿したコメントがありません</h6>
-    <%end%>
+    <% end %>
   </div>
 
   <div id="tab5" class="tab">
-　　<% if @property_rules.present? %>
+    <% if @property_rules.present? %>
       <div class="rule rule01">
         <h3 class="text-center">シェアしたハウスルール</h3>
-        <% @property_rules.each do |property|%>
-          <h6 class="mt-4 ml-2"><%=property.property_name %></h6>
-          <% property.rules.where(user: current_user).each do |rule|%>
+        <% @property_rules.each do |property| %>
+          <h6 class="mt-4 ml-2"><%= property.property_name %></h6>
+          <% property.rules.where(user: current_user).each do |rule| %>
             <p class="mb-3">• <%= rule.body %></p>
           <% end %>
         <% end %>
       </div>
-    <%else%>
+    <% else %>
       <h6 class="mt-4">投稿したハウスルールがありません</h6>
-    <%end%>
+    <% end %>
   </div>
 </div>
 

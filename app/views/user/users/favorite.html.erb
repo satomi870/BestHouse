@@ -1,11 +1,11 @@
 <h3 class="mt-4">お気に入り</h3>
 <% if @favorites.present? %>
-  <h5 class="text-left mt-4">全<%= @favorites_count%>件</h5>
-  <%@favorites.each do |favorite|%>
+  <h5 class="text-left mt-4">全<%= @favorites_count %>件</h5>
+  <% @favorites.each do |favorite| %>
     <div class="row">
       <div class="col-3 mt-3">
-        <h5 class="font-weight-bold"><%= favorite.property.property_name%></h5>
-        <%=image_tag favorite.property.images[0],size: '230x150' %>
+        <h5 class="font-weight-bold"><%= favorite.property.property_name %></h5>
+        <%= image_tag favorite.property.images[0],size: '230x150' %>
       </div>
       <div class="col-4 mt-5">
         <div class="point">
@@ -14,7 +14,7 @@
               <h6 class="favorite ml-2">賃料</h6>
             </div>
             <div class="col-9 mt-1 favorite-explanation">
-              <%=favorite.property.rent%>円
+              <%= favorite.property.rent %>円
             </div>
           </div>
           <div class="row">
@@ -22,7 +22,7 @@
               <h6 class="favorite ml-2">住所</h6>
             </div>
             <div class="col-9 mt-1 favorite-explanation">
-              <%=favorite.property.address%>
+              <%= favorite.property.address %>
             </div>
           </div>
           <div class="row">
@@ -30,7 +30,7 @@
               <h6 class="favorite ml-2">アクセス</h6>
             </div>
             <div class="col-9 mt-1 favorite-explanation">
-              <%=favorite.property.access%>
+              <%= favorite.property.access %>
             </div>
           </div>
           <div class="row">
@@ -38,7 +38,7 @@
               <h6 class="favorite ml-2">入居条件</h6>
             </div>
             <div class="col-9 mt-1 favorite-explanation">
-              <%=favorite.property.condition%>
+              <%= favorite.property.condition %>
             </div>
           </div>
           <div class="row">
@@ -46,7 +46,7 @@
               <h6 class="favorite ml-2">空室</h6>
             </div>
             <div class="col-9 mt-1 favorite-explanation">
-              <%=favorite.property.vacancy%>
+              <%= favorite.property.vacancy %>
             </div>
           </div>
         </div>
@@ -55,9 +55,9 @@
 
     <div class="row">
       <div class="col-1 mb-5 mt-3">
-        <%=link_to property_path(favorite.property.id),class: "btn" do%>
+        <%= link_to property_path(favorite.property.id),class: "btn" do %>
           <p class="favorite-btn ">詳細</p>
-        <%end%>
+        <% end %>
       </div>
       <div class="col-2 mt-3">
         <%= link_to property_favorites_path(favorite.property.id), method: :delete, class: "btn" do %>
@@ -65,8 +65,8 @@
         <% end %>
       </div>
     </div>
-  <%end%>
-  <div class="pagination"><%= paginate @favorites, theme: 'twitter-bootstrap-4'%></div>
-<%else%>
+  <% end %>
+  <div class="pagination"><%= paginate @favorites, theme: 'twitter-bootstrap-4' %></div>
+<% else %>
   <h6 class="mt-4">お気に入りがありません</h6>
-<%end%>
+<% end %>

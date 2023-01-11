@@ -6,8 +6,8 @@
 
 <div class="slicker w-8s5 d-flex mx-auto align-items-center mt-5">
   <% @property.images.first(2).each do |image| %>
-    <%=image_tag image, class:'slide_picture'%>
-  <%end%>
+    <%= image_tag image, class:'slide_picture' %>
+  <% end %>
 </div>
 <div class="text-center mb-4">
   <h3><%= @property.property_name %></h3>
@@ -17,10 +17,10 @@
   <% @property.tags.each do |tag| %>
     <div class="mt-1 mr-2 ml-3">
       <span class="tags rounded taxt-center">
-        <%=tag.name%>
+        <%= tag.name %>
       </span>
     </div>
-  <%end%>
+  <% end %>
 </div>
 
 <div class="container">
@@ -36,24 +36,24 @@
     </div>
     <div class="col-6">
       <h3>キッチン</h3>
-      <p><%= image_tag @property.images[1],size: '400x230'  %></p>
+      <p><%= image_tag @property.images[1],size: '400x230' %></p>
       <p><%= @property.kitchen%></p>
     </div>
   </div>
   <div class ="row mt-5">
     <div class="col-4">
       <h3>浴室</h3>
-      <p><%= image_tag @property.images[2],size: '260x250'%></p>
+      <p><%= image_tag @property.images[2],size: '260x250' %></p>
       <p><%= @property.bath%></p>
     </div>
     <div class="col-4">
       <h3 class="ml-4">洗濯機</h3>
-      <p class="ml-4"><%= image_tag @property.images[3],size: '200x250'%></p>
+      <p class="ml-4"><%= image_tag @property.images[3],size: '200x250' %></p>
       <p class="ml-4"><%= @property.washing_machine %></p>
     </div>
     <div class="col-4">
       <h3>トイレ</h3>
-      <p><%= image_tag @property.images[4],size: '260x250'%></p>
+      <p><%= image_tag @property.images[4],size: '260x250' %></p>
       <p><%= @property.toilet %></p>
     </div>
   </div>
@@ -66,7 +66,7 @@
 <p>入居条件 <%= @property.condition %></p>
 <div class="row">
   <div class="col-5 mt-4">
-    <%= image_tag @property.images[5],size: '350x200'%>
+    <%= image_tag @property.images[5],size: '350x200' %>
   </div>
   <div class="col-5 mt-4">
     <div class="point">
@@ -110,11 +110,11 @@
 </div>
 <p class="mt-4"><%= @property.address %></p>
 <p><%= @property.access %></p>
-<p class="mt-3"><%=link_to "地図を見る",map_path(@property.id),class: "btn"%></p>
+<p class="mt-3"><%= link_to "地図を見る",map_path(@property.id),class: "btn" %></p>
 
 <div class="text-center">
   <div class="fixed-bottom">
-    <h5 class="font-weight-bold"><%= link_to "お問い合わせ",new_property_contact_path(@property.id)%></h5>
+    <h5 class="font-weight-bold"><%= link_to "お問い合わせ",new_property_contact_path(@property.id) %></h5>
   </div>
 </div>
 
@@ -155,7 +155,7 @@
       }, 500);
     })
 
-  <%elsif params[:flag].present? and params[:flag] == "rl"%>
+  <% elsif params[:flag].present? and params[:flag] == "rl" %>
    $ (document).ready(function(){
         $(".review").removeClass("active")
         $(".rl").addClass("active")

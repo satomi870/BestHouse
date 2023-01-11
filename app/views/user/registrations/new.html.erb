@@ -6,23 +6,23 @@
   <div class="container">
     <div class="row mb-2">
       <div class="col-3">
-        <%=f.label :nickname,"ニックネーム"%>
+        <%= f.label :nickname,"ニックネーム" %>
       </div>
       <div class="col-9">
-        <%=f.text_field :nickname%>
+        <%= f.text_field :nickname %>
       </div>
     </div>
     <div class="row mb-2">
       <div class="col-3">
-        <%=f.label :age,"年齢"%>
+        <%= f.label :age,"年齢" %>
       </div>
       <div class="col-9">
-        <%= f.select :age, [['10代','10代'], ['20代', '20代'], ['30代', '30代'], ['40代','40代'], ['50代','50代'], ['60代','60代'], ['70代','70代'], ['80代以上','80代以上'],['非公開','非公開']]%> <!--ageをinteger型じゃなくてstring型にして['20代', "20代"]でもいい-->
+        <%= f.select :age, [['10代','10代'], ['20代', '20代'], ['30代', '30代'], ['40代','40代'], ['50代','50代'], ['60代','60代'], ['70代','70代'], ['80代以上','80代以上'],['非公開','非公開']] %> <!--ageをinteger型じゃなくてstring型にして['20代', "20代"]でもいい-->
       </div>
     </div>
     <div class="row mb-2">
       <div class="col-3">
-        <%=f.label :gender,"性別"%>
+        <%= f.label :gender,"性別" %>
       </div>
       <div class="col-9">
         <%= f.radio_button :gender, "男性" %>男
@@ -32,7 +32,7 @@
     </div>
     <div class="row mb-2">
       <div class="col-3">
-        <%=f.label :email,"メールアドレス" %>
+        <%= f.label :email,"メールアドレス" %>
       </div>
       <div class="col-9">
         <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
@@ -58,7 +58,7 @@
       <%= f.submit "新規登録をする", class: "btn"%>
     </div>
   </div>
-<%end%>
+<% end %>
 
 <div class="mr-5">
   <%= render "user/shared/links" %>

@@ -14,18 +14,18 @@
       <h2 class="text-center">関係性を選ぶ</h2>
       <div class= "row text-center">
         <div class="col-4 mt-1">
-          <%=f.radio_button :relation, Review.relations.key(0) %>
-          <%=f.label :relation, Review.relations_i18n[:resident] %><br>
+          <%= f.radio_button :relation, Review.relations.key(0) %>
+          <%= f.label :relation, Review.relations_i18n[:resident] %><br>
         </div>
         <div class="col-4">
-          <%=f.radio_button :relation, Review.relations.key(1) %>
-          <%=f.label :relation, Review.relations_i18n[:former_resident] %><br>
+          <%= f.radio_button :relation, Review.relations.key(1) %>
+          <%= f.label :relation, Review.relations_i18n[:former_resident] %><br>
           <%= f.select :relation_detail1, [['2022年頃まで住んでいた','twenty_two'], ['2021年頃まで住んでいた','twenty_one'], ['2020年頃まで住んでいた','twenty'], ['2019年頃まで住んでいた','nineteen'], ['2018年頃まで住んでいた','eighteen'], ['それ以前に住んでいた','before_that']],{prompt: '選択してください'} %>
         </div>
           <!--モデルが関連している選択ボックス (2行目)&データベースから取ってきてないからこの書き方でいいデータベースから取ってきてたらnagano_cakeのやり方-->
         <div class="col-4">
-          <%=f.radio_button :relation, Review.relations.key(2) %>
-          <%=f.label :relation, Review.relations_i18n[:others] %><br>
+          <%= f.radio_button :relation, Review.relations.key(2) %>
+          <%= f.label :relation, Review.relations_i18n[:others] %><br>
           <%= f.select :relation_detail2, [['入居検討者','kentosya'], ['入居予定者','yoteisya'], ['周辺住人','syuhenjunin'], ['住人の知人','chizin'], ['大家さん','oya'], ['不動産関係者','kankeisya'], ['その他','sonota']],{prompt: '選択してください'} %>
         </div>
       </div>
@@ -36,40 +36,40 @@
       </div>
 
       <div class= "row text-center">
-        <%=render '/user/properties/review_meter_input',label: "住民の雰囲気", better: "良い", f: f, worth: "良くない",target: :atmosphere %>
-        <%=render '/user/properties/review_meter_input',label: "住人同士の距離感", better: "親しい", f: f, worth: "あいさつ程度",target: :distance_sense %>
-        <%=render '/user/properties/review_meter_input',label: "騒音", better: "静か", f: f, worth: "騒がしい",target: :noise %>
-        <%=render '/user/properties/review_meter_input',label: "共有部の清潔さ", better: "清潔", f: f, worth: "不衛生",target: :cleanliness_shared %>
-        <%=render '/user/properties/review_meter_input',label: "水回りの混雑具合", better: "常に使える", f: f, worth: "混雑している",target: :congestion_shared %>
-        <%=render '/user/properties/review_meter_input',label: "ネット速度", better: "速い", f: f, worth: "遅い",target: :net_speed %>
-        <%=render '/user/properties/review_meter_input',label: "シャワーの水圧", better: "強い", f: f, worth: "弱い",target: :shower %>
-        <%=render '/user/properties/review_meter_input',label: "イベントの開催", better: "頻繁にある", f: f, worth: "少ない",target: :event %>
+        <%= render '/user/properties/review_meter_input',label: "住民の雰囲気", better: "良い", f: f, worth: "良くない",target: :atmosphere %>
+        <%= render '/user/properties/review_meter_input',label: "住人同士の距離感", better: "親しい", f: f, worth: "あいさつ程度",target: :distance_sense %>
+        <%= render '/user/properties/review_meter_input',label: "騒音", better: "静か", f: f, worth: "騒がしい",target: :noise %>
+        <%= render '/user/properties/review_meter_input',label: "共有部の清潔さ", better: "清潔", f: f, worth: "不衛生",target: :cleanliness_shared %>
+        <%= render '/user/properties/review_meter_input',label: "水回りの混雑具合", better: "常に使える", f: f, worth: "混雑している",target: :congestion_shared %>
+        <%= render '/user/properties/review_meter_input',label: "ネット速度", better: "速い", f: f, worth: "遅い",target: :net_speed %>
+        <%= render '/user/properties/review_meter_input',label: "シャワーの水圧", better: "強い", f: f, worth: "弱い",target: :shower %>
+        <%= render '/user/properties/review_meter_input',label: "イベントの開催", better: "頻繁にある", f: f, worth: "少ない",target: :event %>
       </div>
 
       <div class="text-center mt-5">
         <h3>タイトル<span class="h6">(1~100文字)</span></h3>
         <%= f.text_field :title,:size=>"60x10" %>
         <h3 class="mt-3">本文<span class="h6">(7文字~1000文字)</span></h3>
-        <%= f.text_area :body,:size=>"60x10"%>
+        <%= f.text_area :body,:size=>"60x10" %>
       </div>
 
       <div class="text-center mt-3">
         <h6>住み続けたい?</h6>
         <%= f.radio_button :repeat,'3' %>はい
         <%= f.radio_button :repeat,'1' %>いいえ
-        <%= f.radio_button :repeat,'2'%>わからない
+        <%= f.radio_button :repeat,'2' %>わからない
       </div>
 
       <div class="text-center mt-3">
         <%= f.submit"投稿する",class: "btn" %>
       </div>
-    <%end%>
+    <% end %>
   </div>
 
   <div id="tab2" class="tab">
-    <%if @reviews.present?%>
+    <% if @reviews.present? %>
       <div class="mb-5">
-        <h5 class="mb-5">全<%=@reviews.count%>件</h5>
+        <h5 class="mb-5">全<%= @reviews.count %>件</h5>
         <h3>総合評価</h3>
         <div class="mb-5">
           <div id="show_raty" data-avg-score=<%= @avg_score %> ></div>
@@ -83,86 +83,84 @@
     <% @reviews.each do |review| %>
       <div class="row">
         <div class="col-5">
-          <h4 class="writing"><%=review.title%></h4>
+          <h4 class="writing"><%= review.title %></h4>
         </div>
         <div class="col-2">
           <% if review.repeat == "3" %>
             <p class="bg-danger text-white text-center rounded-pill small mb-5 mt-1">住み続けたい</p>
-          <%end%>
+          <% end %>
         </div>
       </div>
-      <p class="mb-4 writing"><%=review.body%></p>
+      <p class="mt-3 mb-4 writing"><%= review.body %></p>
       <%= render '/user/properties/review', review: review %>
       <div class="review-name mt-3">
-        <%=review.user.nickname%>
+        <%= review.user.nickname %>
         <% unless review.user.gender == "非公開" %>
           <%= review.user.gender %>
         <% end %>
         <% unless review.user.age == "非公開" %>
           <%= review.user.age %>
         <% end %>
-        <%=review.relation_i18n%>
+        <%= review.relation_i18n %>
         <% if review.relation_detail_i18n != "Now resident" %>
-          <%=review.relation_detail_i18n%>
-        <%end%>
+          <%= review.relation_detail_i18n %>
+        <% end %>
         <%= review.created_at.to_s(:datetime_jp) %>
       </div>
     <% end %>
-　</div>
+  </div>
 
   <div id="tab3" class="tab">
     <%= render '/user/properties/error', model: @question %>
-　　<div class="text-center">
-  　　  <%= form_with model: @question, url:  property_questions_path(property_id: @property.id) do |f| %>
+    <div class="text-center">
+      <%= form_with model: @question, url:  property_questions_path(property_id: @property.id) do |f| %>
         <h3>タイトル<span class="h6">(1~100文字)</span></h3>
         <%= f.text_field :title,:size=>"60x10" %>
         <h3 class="mt-3">本文<span class="h6">(7~1000文字)</span></h3>
-        <%= f.text_area :body,:size=>"60x10"%></br>
+        <%= f.text_area :body,:size=>"60x10" %></br>
         <div class="mb-3">
-          <%= f.select :relation, [['住人','resident'],['元住人','former_resident'],['入居検討者','kentosya'], ['入居予定者','yoteisya'], ['周辺住人','syuhenjunin'], ['住人の知人','chizin'], ['大家さん','oya'], ['不動産関係者','kankeisya'], ['その他','sonota']],{prompt: '選択してください'}%><br>
+          <%= f.select :relation, [['住人','resident'],['元住人','former_resident'],['入居検討者','kentosya'], ['入居予定者','yoteisya'], ['周辺住人','syuhenjunin'], ['住人の知人','chizin'], ['大家さん','oya'], ['不動産関係者','kankeisya'], ['その他','sonota']],{prompt: '選択してください'} %><br>
         </div>
-          <%= f.submit "投稿する",class: "btn" %>
-      <%end%>
+        <%= f.submit "投稿する",class: "btn" %>
+      <% end %>
     </div>
-　</div>
+  </div>
 
-　<div id="tab4" class="tab">
+  <div id="tab4" class="tab">
     <%= render '/user/properties/error', model: @comment %>
     <%= render '/user/properties/error', model: @comment_comment %>
-    <%if @questions.present?%>
-      <h5 class="ml-1">全<%=@questions.count%>件</h5>
-　　  <% @questions.each do |question| %>
+    <% if @questions.present? %>
+      <h5 class="ml-1">全<%= @questions.count %>件</h5>
+      <% @questions.each do |question| %>
         <%= render '/user/properties/question', question: question, comment: @comment, comment_comment: @comment_comment %>
-　　  <% end %>
-　　<%else%>
+      <% end %>
+    <% else %>
       <h6 class="mt-4">質問がありません</h6>
-    <%end%>
-　</div>
+    <% end %>
+  </div>
 
   <div id="tab5" class="tab">
-  <%= render '/user/properties/error', model: @rule %>
+    <%= render '/user/properties/error', model: @rule %>
     <div class="rule-form">
       <h3>ハウスルールをシェアする</h3>
-    　  <p>※なるべく下記のハウスルールリストにまだ書かれていないことをご記入ください</p>
-    　  <%= form_with model: @rule, url:  property_rules_path(property_id: @property.id) do |f| %>
-         <%= f.text_area :body ,:size=>"60x5"%>
-         <%=f.submit 'シェアする',class: "btn"%>
-       <%end%>
+      <p>※なるべく下記のハウスルールリストにまだ書かれていないことをご記入ください</p>
+      <%= form_with model: @rule, url:  property_rules_path(property_id: @property.id) do |f| %>
+        <%= f.text_area :body ,:size=>"60x5" %>
+        <%= f.submit 'シェアする',class: "btn" %>
+      <% end %>
     </div>
     <div class="rule rule01 mt-5">
-　　　<h3 class="text-center font-weight-bold mb-4">ハウスルール</h3>
-      <%@rules.each do |rule|%>
+      <h3 class="text-center font-weight-bold mb-4">ハウスルール</h3>
+      <% @rules.each do |rule| %>
         <p class="writing mb-3">• <%= rule.body %></p>
-      <%end%>
+      <% end %>
     </div>
-　</div>
+  </div>
 </div>
-
-
 
 <script>
 // RailsのデータをJSにセットする #ここでは質問数をセット
-const qLength = "<%== @questions.length %>"
+const qLength = "<%= @questions.length %>"
 // クラス名が[Q&A]のDOM要素を取得
 const tab4 = document.getElementsByClassName("Q&A")[0]
 // 質問があった場合あテキストカラーを変更する
@@ -172,8 +170,6 @@ if(qLength !== "0") {
 // テキストを追加する
 tab4.textContent += "(" + qLength + ")"
 </script>
-
-
 
 <script>
 // raty.jsの初期化

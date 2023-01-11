@@ -1,14 +1,14 @@
 
 <h4 class="ml-3 mt-5"><%= @user.nickname %> さんのユーザー情報編集</h4>
 
-<%=form_with model: @user,url: admin_user_path, method: :patch do |f| %>
+<%= form_with model: @user,url: admin_user_path, method: :patch do |f| %>
   <div class="container mt-5">
     <div class="row mb-2">
       <div class="col-3">
         ユーザー名
       </div>
       <div class="col-9">
-        <%=f.text_field :nickname%>
+        <%= f.text_field :nickname %>
       </div>
     </div>
     <div class="row mb-2">
@@ -16,7 +16,7 @@
         年齢
       </div>
       <div class="col-9">
-       <%= f.select :age, [['10代','10代'], ['20代', '20代'], ['30代', '30代'], ['40代','40代'], ['50代','50代'], ['60代','60代'], ['70代','70代'],['非公開','非公開']]%>
+       <%= f.select :age, [['10代','10代'], ['20代', '20代'], ['30代', '30代'], ['40代','40代'], ['50代','50代'], ['60代','60代'], ['70代','70代'],'80代以上','80代以上'], ['非公開','非公開']] %>
       </div>
     </div>
     <div class="row mb-2">
@@ -43,12 +43,12 @@
       </div>
       <div class="col-9">
         <%= f.radio_button :is_deleted, true %><%= f.label :is_deleted, "退会済み" %>
-  			<%= f.radio_button :is_deleted, false %><%= f.label :is_deleted, "有効"%>
+  			<%= f.radio_button :is_deleted, false %><%= f.label :is_deleted, "有効" %>
       </div>
     </div>
   </div>
-  <div class="ml-3"><%= f.submit "変更"%></div>
-<%end%>
+  <div class="ml-3"><%= f.submit "変更" %></div>
+<% end %>
 
 
 

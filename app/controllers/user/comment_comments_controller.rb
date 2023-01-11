@@ -36,6 +36,6 @@ class User::CommentCommentsController < ApplicationController
   private
 
   def comment_comment_params
-      params.require(:comment_comment).permit(:body,:relation)
+      params.require(:comment_comment).permit(:body, :relation)
   end
 end
