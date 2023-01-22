@@ -18,7 +18,7 @@
 
 //ヘッダー
 .flex-fill{
-  color: #5D99FF;
+  color: #4689FF;
 }
 .wrapper{
   margin: 0 auto;
@@ -98,15 +98,6 @@ p{
   transform-origin: -10% 50%;
 }
 
-// .explanation {
-//   color: #fff;
-//   font-size: 24px;
-//   position: absolute;
-//   left: 50%;
-//   top: 50%;
-//   transform: translate(-50%,-50%);
-// }
-
 .btn {
     color: #4689FF;
     transition: 0.3s ease-in-out;
@@ -165,7 +156,6 @@ p {
 }
 
 .menu {
-  //background-color: #4689FF;
   color: white;
   font-size: 18px;
   padding: 10px;
@@ -291,9 +281,9 @@ background-color: #008BBB;
 }
 
 .point{
-border-top:solid 5px #A4C6FF;
-border-bottom:solid 5px #A4C6FF;
-background-color:#D7EEFF;
+  border-top:solid 5px #A4C6FF;
+  border-bottom:solid 5px #A4C6FF;
+  background-color:#D7EEFF;
 }
 
 .point-font{
@@ -426,7 +416,7 @@ background-color:#D7EEFF;
   font-size: 13px;
 }
 
-//user編集
+//マイページ
 
 .edit{
   padding: 40px;
@@ -438,6 +428,14 @@ background-color:#D7EEFF;
 
 .change{
   margin-left: 167px;
+}
+
+.user-property{
+  font-size: 22px;
+}
+
+.user-property-rule{
+  font-size: 17px;
 }
 //閲覧履歴
 .history{

@@ -2,7 +2,8 @@ class Admin::RulesController < ApplicationController
   before_action :authenticate_admin!
 
   def index
-    @rules = Rule.all
+    @rules_count = Rule.all.count
+    @rules = Rule.page(params[:page]).per(10)
   end
 
   def destroy

@@ -68,11 +68,11 @@
             <% condition_flag = true %>
           <% end %>
           <% if @display_lower_amount.present? %>
-            <h6>下限: <%= @display_lower_amount %>万円</h6>
+            <h6>下限:<%= @display_lower_amount %>万円</h6>
             <% condition_flag = true %>
           <% end %>
           <% if @display_upper_amount.present? %>
-            <h6>上限<%= @display_upper_amount%>万円</h6>
+            <h6>上限:<%= @display_upper_amount%>万円</h6>
             <% condition_flag = true %>
           <% end %>
           <% if @keyword.present? %>

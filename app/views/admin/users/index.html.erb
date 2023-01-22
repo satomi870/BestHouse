@@ -1,4 +1,5 @@
 <h4 class="ml-3 mt-5">ユーザー一覧</h4>
+<div class="ml-3 mt-4">全<%= @users_count %>件</div>
 <% @users.each do |user| %>
   <div class="container mt-5">
     <div class="row mb-2">
@@ -41,4 +42,4 @@
     </div>
   </div>
 <% end %>
-
+<div class="pagination"><%= paginate @users, theme: 'twitter-bootstrap-4' %></div>

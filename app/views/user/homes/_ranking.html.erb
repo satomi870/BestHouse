@@ -1,0 +1,15 @@
+<div class="d-flex justify-content-center">
+  <% if model.present? %>
+    <% model.each do |property| %>
+      <div class="mr-2 popular_property">
+        <%= link_to property_path(property.id) do %>
+          <%= image_tag property.images[0],size: '188x130' %>
+          <p class="top_property"><%= property.property_name %></p>
+          <p class="top_property"><%= property.rent %>円 <%= property.access %></p>
+        <% end %>
+      </div>
+    <% end %>
+  <% else %>
+    <p>まだ口コミがありません</p>
+  <% end %>
+</div>

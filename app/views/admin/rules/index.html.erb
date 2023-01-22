@@ -1,4 +1,5 @@
 <h4 class="ml-3 mt-5">ハウスルール一覧</h4>
+<div class="ml-3 mt-4">全<%= @rules_count %>件</div>
 <% @rules.each do |rule| %>
   <div class="container mt-5">
     <div class="row mb-2">
@@ -17,6 +18,9 @@
     </div>
   </div>
 <% end %>
+<div class="pagination"><%= paginate @rules, theme: 'twitter-bootstrap-4' %></div>
+
+
 
 
 

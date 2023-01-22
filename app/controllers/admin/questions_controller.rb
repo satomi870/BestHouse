@@ -2,7 +2,8 @@ class Admin::QuestionsController < ApplicationController
   before_action :authenticate_admin!
 
   def index
-    @questions = Question.all
+    @questions_count = Question.all.count
+    @questions = Question.page(params[:page]).per(10)
   end
 
   def destroy

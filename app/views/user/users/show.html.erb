@@ -25,7 +25,9 @@
     <% if @reviews.present? %>
       <h5 class="mb-5">全<%=@reviews.count %>件</h5>
       <% @reviews.each do |review| %>
-        <h5 class="font-weight-bold"><%= review.property.property_name %></h5>
+        <%= link_to property_path(review.property.id) do %>
+          <div class="user-property font-weight-bold"><%= review.property.property_name %></div>
+        <% end %>
         <div class="mb-5">
           <p class="mb-3"><%= review.title %></p>
           <p class="mb-4"><%= review.body %></p>
@@ -41,7 +43,9 @@
     <% if @questions.present? %>
       <h5>全<%= @questions.count %>件</h5>
       <% @questions.each do |question| %>
-        <h5 class="user-q font-weight-bold"><%= question.property.property_name %></h5>
+        <%= link_to property_path(question.property.id) do %>
+          <div class="user-property user-q font-weight-bold"><%= question.property.property_name %></div>
+        <%end%>
         <%= render 'user/properties/question', question: question, comment: @comment,comment_comment: @comment_comment %>
       <% end %>
     <% else %>
@@ -53,7 +57,9 @@
     <% if @comment_questions.present? %>
       <h5>全<%= @comments.count %>件</h5>
       <% @comment_questions.each do |comment_question| %>
-        <h5 class="user-q font-weight-bold"><%= comment_question.property.property_name %></h5>
+        <%= link_to property_path(comment_question.property.id) do %>
+          <div class="user-property user-q font-weight-bold"><%= comment_question.property.property_name %></div>
+        <%end%>
         <%= render 'user/properties/question', question: comment_question, comment: @comment, comment_comment: @comment_comment %>
       <% end %>
     <% else %>
@@ -65,7 +71,9 @@
     <% if @comment_comment_questions.present? %>
       <h5>全<%= @comment_comments.count %>件</h5>
       <% @comment_comment_questions.each do |comment_comment_question| %>
-        <h5 class="user-q font-weight-bold"><%= comment_comment_question.property.property_name %></h5>
+        <%= link_to property_path(comment_comment_question.property.id) do %>
+          <div class="user-property user-q font-weight-bold"><%= comment_comment_question.property.property_name %></div>
+        <%end%>
         <%= render 'user/properties/question', question: comment_comment_question, comment: @comment, comment_comment: @comment_comment %>
       <% end %>
     <% else %>
@@ -78,7 +86,9 @@
       <div class="rule rule01">
         <h3 class="text-center">シェアしたハウスルール</h3>
         <% @property_rules.each do |property| %>
-          <h6 class="mt-4 ml-2"><%= property.property_name %></h6>
+          <%= link_to property_path(property.id) do %>
+            <div class="user-property-rule mt-4 ml-2"><%= property.property_name %></div>
+          <%end%>
           <% property.rules.where(user: current_user).each do |rule| %>
             <p class="mb-3">• <%= rule.body %></p>
           <% end %>
@@ -89,7 +99,4 @@
     <% end %>
   </div>
 </div>
-
-
-
 

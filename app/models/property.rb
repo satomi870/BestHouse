@@ -44,4 +44,18 @@ class Property < ApplicationRecord
   def self.select_rent_table
     RENT_TABLE.map { |table| [table[:ja_rent], table[:rent]] }
   end
+
+  def self.popular_ranking(review, count)
+    review_avg = Review.group(:property_id)
+                       .order("avg(#{review}) desc")
+                       .select("property_id, avg(#{review}) as property_review_avg")
+    Property.find(review_avg.select { |review| review.property_review_avg >= 3.0 }
+            .pluck(:property_id))
+            .first(count)
+  end
+
+
+  def self.many_favorite
+    self.all.sort { |x, y| y.favorites.count <=> x.favorites.count }.reject { _1.favorites.count == 0 }
+  end
 end

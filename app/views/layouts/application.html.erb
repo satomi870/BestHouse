@@ -34,7 +34,9 @@
             <%= link_to "お気に入り", favorite_path %>
           </li>
           <li class=" flex-fill">
-            <%= link_to "マイページ",user_path %>
+            <%unless current_user.email == "guest@example.com"%>
+              <%= link_to "マイページ",user_path %>
+            <%end%>
           </li>
           <li class=" flex-fill">
             <%= link_to"通知",notifications_path %>

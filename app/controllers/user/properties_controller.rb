@@ -1,12 +1,13 @@
 class User::PropertiesController < ApplicationController
-  before_action :authenticate_user!, except: [:search]
+  before_action :authenticate_user!, except: [:search, :index]
+  before_action :set_tags
 
   def search
     #topページの検索の場合
     if params[:from_top].present?
       @area_groups = params[:area_group_id]
       @areas = params[:area_id]
-      @tags = if params[:tag_id].present?
+      @tags = if params[:tag_id].present?#三項演算子
                 [params[:tag_id].to_i]
               else
                 nil
@@ -18,7 +19,7 @@ class User::PropertiesController < ApplicationController
         @areas = params[:area_id].reject(&:empty?)
       end
       @tags = []
-      unless params[:tag_id].nil?
+      if ! params[:tag_id].nil?
         params[:tag_id].reject(&:empty?).each do |id|
           if (id != "")
             @tags.push(id.to_i)
@@ -41,18 +42,14 @@ class User::PropertiesController < ApplicationController
     # タグの検索処理
     if !@tags.blank?
       property_ids = @properties.pluck(:id)
-      #pp property_ids
       @tags.each do | tag_id |
         property_ids = Property.joins(:tags).where(id: property_ids).where(tags: {id: tag_id}).pluck(:id)
-        #pp property_ids
       end
       @properties = Property.where(id: property_ids)
-      #pp @properties
-      #@properties = @properties.includes(:tag_properties).where(tag_properties: {tag_id: @tags })
     end
 
     # 金額の条件
-    if (params[:lower_rent] && !params[:lower_rent].to_i.zero?) && (params[:upper_rent] && !params[:upper_rent].to_i.zero?)
+    if (params[:lower_rent] && !params[:lower_rent].to_i.zero?) && (params[:upper_rent] && !params[:upper_rent].to_i.zero?)#ボッチ演算子
       @properties = @properties.where(rent: params[:lower_rent].to_i..params[:upper_rent].to_i)
     elsif (params[:lower_rent] && params[:lower_rent].to_i.zero?) && (params[:upper_rent] && !params[:upper_rent].to_i.zero?)
       @properties = @properties.where(rent: ..params[:upper_rent].to_i)
@@ -68,38 +65,19 @@ class User::PropertiesController < ApplicationController
     @area_group_list = AreaGroup.where(id: @area_groups)
 
     if params[:lower_rent]
-      lower_rent = params[:lower_rent]
-      digits_lower_rent = lower_rent.length
-      @display_lower_amount = lower_rent.slice(0, digits_lower_rent - 4)
+      @display_lower_amount =  params[:lower_rent].slice(0,  params[:lower_rent].length - 4)
     end
     if params[:upper_rent]
-      upper_rent = params[:upper_rent]
-      digits_upper_rent = upper_rent.length
-      @display_upper_amount = upper_rent.slice(0, digits_upper_rent - 4)
+      @display_upper_amount =  params[:upper_rent].slice(0,  params[:upper_rent].length - 4)
     end
 
     #再検索用
     @tags=Tag.all
 
-    basic = Category.find_by(category: "basic")
-    @basic_tags=basic.tags
-
-    room = Category.find_by(category: "room")
-    @room_tags=room.tags
-
-    surrounding = Category.find_by(category: "surrounding")
-    @surrounding_tags=surrounding.tags
-
-    shared_facility = Category.find_by(category: "shared_facility")
-    @shared_facility_tags=shared_facility.tags
-
-    other = Category.find_by(category: "other")
-    @other_tags=other.tags
-
     #キーワード検索の処理
     @keyword = params[:keyword]
     if !@keyword.blank?
-      @properties= Property.where("access LIKE ?", "%#{params[:keyword]}%")
+      @properties= Property.where("access LIKE ?", "%#{params[:keyword]}%")#モデルでスコープで書く
       .or(Property.where("address LIKE ?", "%#{params[:keyword]}%"))
       .or(Property.where("rent LIKE ?", "%#{params[:keyword]}%"))
       .or(Property.where("property_name LIKE ?", "%#{params[:keyword]}%"))
@@ -111,8 +89,7 @@ class User::PropertiesController < ApplicationController
     end
   end
 
-  def map
-    @property=Property.find(params[:property_id])
+  def index
   end
 
   def show
@@ -137,6 +114,10 @@ class User::PropertiesController < ApplicationController
 
     #星評価の平均点を算出
     @avg_score = Review.where(property_id: params[:id]).average(:score)
+  end
+
+  def map
+    @property=Property.find(params[:property_id])
   end
 end
 

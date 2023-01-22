@@ -35,7 +35,7 @@ class User::QuestionsController < ApplicationController
     end
   end
 
-   private
+  private
 
   def question_params
     params.require(:question).permit(:title, :body, :relation)

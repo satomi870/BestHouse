@@ -81,7 +81,7 @@
               <% end %>
             </div>
 
-            <h3 class="mt-5"><%= link_to "詳しく探す",about_path%><%= image_tag 'detail.jpg' %></h3>
+            <h3 class="mt-5"><%= link_to "詳しく探す", properties_path%><%= image_tag 'detail.jpg' %></h3>
           </div>
         </section>
       </div>
@@ -109,72 +109,16 @@
       </div>
 
       <h4 class="popular text-center mt-5">住民の雰囲気がいい物件</h4>
-      <div class="d-flex justify-content-center">
-        <% if @properties_atmosphere.present? %>
-          <% @properties_atmosphere.each do |property| %>
-            <div class="mr-2 popular_property">
-              <%= link_to property_path(property.id) do %>
-                <%= image_tag property.images[0],size: '188x130' %>
-                <p class="top_property"><%= property.property_name %></p>
-                <p class="top_property"><%= property.rent %>円 <%= property.access %></p>
-              <% end %>
-            </div>
-          <% end %>
-        <% else %>
-          <p>まだ口コミがありません</p>
-        <% end %>
-      </div>
+      <%= render 'ranking', model: @properties_atmosphere %>
 
       <h4 class="popular text-center mt-5">騒音が少ない物件</h4>
-      <div class="d-flex justify-content-center">
-        <% if @properties_noise.present? %>
-          <% @properties_noise.each do |property| %>
-            <div class="mr-2 popular_property ">
-              <%= link_to property_path(property.id) do %>
-                <%= image_tag property.images[0],size: '188x130' %>
-                <p class="top_property"><%= property.property_name %></p>
-                <p class="top_property"><%= property.rent %>円 <%=property.access %></p>
-              <% end %>
-            </div>
-          <% end %>
-        <% else %>
-          <p>まだ口コミがありません</p>
-        <% end %>
-      </div>
+      <%= render 'ranking', model: @properties_noise %>
 
       <h4 class=" popular text-center mt-5">共有部が清潔な物件</h4>
-      <div class="d-flex justify-content-center">
-        <% if @properties_cleanliness_shared.present? %>
-          <% @properties_cleanliness_shared.each do |property| %>
-            <div class="mr-2 popular_property ">
-              <%= link_to property_path(property.id) do %>
-                <%= image_tag property.images[0],size: '188x130' %>
-                <p class="top_property"><%= property.property_name %></p>
-                <p class="top_property"><%= property.rent %>円 <%= property.access %></p>
-              <% end %>
-            </div>
-          <% end %>
-        <% else %>
-          <p>まだ口コミがありません</p>
-        <% end %>
-      </div>
+      <%= render 'ranking', model: @properties_cleanliness_shared %>
 
       <h4 class="popular text-center mt-5">水回りの混雑が少ない物件</h4>
-      <div class="d-flex justify-content-center">
-        <% if @properties_congestion_shared.present? %>
-          <% @properties_congestion_shared.each do |property| %>
-            <div class="mr-2 popular_property ">
-              <%= link_to property_path(property.id) do %>
-                <%= image_tag property.images[0],size: '188x130' %>
-                <p class="top_property"><%= property.property_name %></p>
-                <p class="top_property"><%= property.rent %>円 <%= property.access %></p>
-              <% end %>
-            </div>
-          <% end %>
-        <% else %>
-          <p>まだ口コミがありません</p>
-        <% end %>
-      </div>
+      <%= render 'ranking', model: @properties_congestion_shared %>
     </div>
   </div>
 </div>

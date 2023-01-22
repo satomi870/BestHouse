@@ -16,5 +16,4 @@ class User < ApplicationRecord
   validates :nickname, presence: true
   validates :gender, presence: true
   validates :age, presence: true
-
 end
