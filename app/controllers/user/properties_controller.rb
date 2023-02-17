@@ -6,12 +6,13 @@ class User::PropertiesController < ApplicationController
     #topページの検索の場合
     if params[:from_top].present?
       @area_groups = params[:area_group_id]
-      @areas = params[:area_id]
       @tags = if params[:tag_id].present?#三項演算子
                 [params[:tag_id].to_i]
               else
                 nil
               end
+      #@tags =params[:tag_id].present? ? [params[:tag_id].to_i] : nil
+
     else
       #複数検索の場合
       @areas = []
@@ -28,6 +29,7 @@ class User::PropertiesController < ApplicationController
       end
     end
 
+
     # 未入力の場合全件が対象
     @properties = Property.all
     # エリア関連の検索処理
@@ -39,7 +41,7 @@ class User::PropertiesController < ApplicationController
       @properties = @properties.where(area_group_id: @area_groups)
       @checkd_areas = Area.where(area_group_id: @area_groups).ids
     end
-    # タグの検索処理
+
     if !@tags.blank?
       property_ids = @properties.pluck(:id)
       @tags.each do | tag_id |

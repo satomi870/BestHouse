@@ -1,25 +1,26 @@
 <h4 class="ml-3 mt-5">ハウスルール一覧</h4>
-<div class="ml-3 mt-4">全<%= @rules_count %>件</div>
-<% @rules.each do |rule| %>
-  <div class="container mt-5">
-    <div class="row mb-2">
-      <div class="col-6">
-        <h6><%= rule.property.property_name %></h6>
-        <div class="writing">
-          ・<%= rule.body %>
+<% if @rules.present? %>
+  <div class="ml-3 mt-4">全<%= @rules_count %>件</div>
+  <% @rules.each do |rule| %>
+    <div class="container mt-5">
+      <div class="row mb-2">
+        <div class="col-6">
+          <h6><%= rule.property.property_name %></h6>
+          <div class="writing">
+            ・<%= rule.body %>
+          </div>
+        </div>
+        <div class="col-6">
+          <span class="mr-2"><%= link_to "削除", admin_rule_path(rule.id), method: :delete %></span>
+          <%= link_to admin_user_path(rule.user.id) do %>
+            <%= rule.user.nickname %>
+          <% end %>
         </div>
       </div>
-      <div class="col-6">
-        <span class="mr-2"><%= link_to "削除", admin_rule_path(rule.id), method: :delete %></span>
-        <%= link_to admin_user_path(rule.user.id) do %>
-          <%= rule.user.nickname %>
-        <% end %>
-      </div>
     </div>
-  </div>
+  <% end %>
+  <div class="pagination"><%= paginate @rules, theme: 'twitter-bootstrap-4' %></div>
 <% end %>
-<div class="pagination"><%= paginate @rules, theme: 'twitter-bootstrap-4' %></div>
-
 
 
 

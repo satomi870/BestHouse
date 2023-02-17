@@ -3,7 +3,7 @@ class Admin::QuestionsController < ApplicationController
 
   def index
     @questions_count = Question.all.count
-    @questions = Question.page(params[:page]).per(10)
+    @questions = Question.page(params[:page]).per(15)
   end
 
   def destroy

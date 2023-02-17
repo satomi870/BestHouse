@@ -5,6 +5,7 @@ class User::UsersController < ApplicationController
   def show
     @user = current_user
     @reviews = current_user.reviews.page(params[:page]).per(10)
+    @contacts = current_user.contacts
     @comment = Comment.new
     @comment_comment = CommentComment.new
     @questions = current_user.questions

@@ -12,11 +12,12 @@
 
 <div class="wrap">
   <ul id="tab-menu">
-    <li><a href="#tab1" class="active ">投稿した口コミ</a></li>
-    <li><a href="#tab2" class="">投稿した質問</a></li>
-    <li><a href="#tab3" class="">投稿した回答</a></li>
-    <li><a href="#tab4" class="">投稿したコメント</a></li>
+    <li><a href="#tab1" class="active ">口コミ</a></li>
+    <li><a href="#tab2" class="">質問</a></li>
+    <li><a href="#tab3" class="">回答</a></li>
+    <li><a href="#tab4" class="">コメント</a></li>
     <li><a href="#tab5" class="">ハウスルール</a></li>
+    <li><a href="#tab6" class="">お問い合わせ</a></li>
   </ul>
 </div>
 
@@ -83,7 +84,7 @@
 
   <div id="tab5" class="tab">
     <% if @property_rules.present? %>
-      <div class="rule rule01">
+      <div class="rule rule01 ml-5">
         <h3 class="text-center">シェアしたハウスルール</h3>
         <% @property_rules.each do |property| %>
           <%= link_to property_path(property.id) do %>
@@ -98,5 +99,39 @@
       <h6 class="mt-4">投稿したハウスルールがありません</h6>
     <% end %>
   </div>
+
+  <div id="tab6" class="tab">
+    <% if @contacts.present? %>
+      <h5 class="mb-5">全<%= @contacts.count %>件</h5>
+      <h4 class="mt-5">お問い合わせ内容</h4>
+      <% @contacts.each do |contact| %>
+        <%= render 'user/contacts/contact', contact: contact %>
+      <%end%>
+    <% else %>
+      <h6 class="mt-4">お問い合わせがありません</h6>
+    <% end %>
+  </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

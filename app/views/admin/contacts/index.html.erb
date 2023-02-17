@@ -1,23 +1,24 @@
 <h4 class="ml-3 mt-5">お問い合わせ一覧</h4>
-<div class="ml-3 mt-4">全<%= @contacts_count %>件</div>
-<% @contacts.each do |contact| %>
-  <div class="container mt-3">
-    <div class="row mb-2">
-      <div class="col-3">
-        <%= link_to admin_contact_path(contact.id) do %>
-          <%= contact.property.property_name %>
-        <% end %>
-      </div>
-      <div class="col-9">
-        <%= link_to admin_user_path(contact.user.id) do %>
-          <%= contact.name %>
-        <% end %>
+<% if @contacts.present? %>
+  <div class="ml-3 mt-4">全<%= @contacts_count %>件</div>
+  <% @contacts.each do |contact| %>
+    <div class="container mt-3">
+      <div class="row mb-2">
+        <div class="col-3">
+          <%= link_to admin_contact_path(contact.id) do %>
+            <%= contact.property.property_name %>
+          <% end %>
+        </div>
+        <div class="col-9">
+          <%= link_to admin_user_path(contact.user.id) do %>
+            <%= contact.name %>
+          <% end %>
+        </div>
       </div>
     </div>
-  </div>
+  <% end %>
+  <div class="pagination"><%= paginate @contacts, theme: 'twitter-bootstrap-4' %></div>
 <% end %>
-<div class="pagination"><%= paginate @contacts, theme: 'twitter-bootstrap-4' %></div>
-
 
 
 

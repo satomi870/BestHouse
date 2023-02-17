@@ -1,6 +1,7 @@
 class Contact < ApplicationRecord
   belongs_to :property
   belongs_to :user
+  has_many :notifications, dependent: :destroy
 
   validates :name, presence: true
   validates :name_kana, presence: true

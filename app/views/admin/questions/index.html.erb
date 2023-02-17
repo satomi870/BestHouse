@@ -1,72 +1,73 @@
 <h4 class="ml-3 mt-5">Q&A一覧</h4>
-<div class="ml-3 mt-4">全<%= @questions_count %>件</div>
-<% @questions.each do |question| %>
-  <div class="container mt-5">
-    <div class="row mb-2">
-      <div class="col-2">
-        物件名
-      </div>
-      <div class="col-6">
-        <%= question.property.property_name %>
-      </div>
-    </div>
-    <div class="row mb-2">
-      <div class="col-2">
-        質問タイトル
-      </div>
-      <div class="col-6 writing">
-        <%= question.title %>
-      </div>
-      <div class="col-4">
-        <%= link_to "削除", admin_question_path(question.id), method: :delete %>
-        <%= link_to admin_user_path(question.user.id) do %>
-          <%= question.user.nickname %>
-        <% end %>
-      </div>
-    </div>
-    <div class="row mb-2">
-      <div class="col-2">
-        質問本文
-      </div>
-      <div class="col-6 writing">
-        <%= question.body %>
-      </div>
-    </div>
-    <% question.comments.each do |comment| %>
+<% if @questions.present? %>
+  <div class="ml-3 mt-4">全<%= @questions_count %>件</div>
+  <% @questions.each do |question| %>
+    <div class="container mt-5">
       <div class="row mb-2">
         <div class="col-2">
-          回答
+          物件名
+        </div>
+        <div class="col-6">
+          <h6><%= question.property.property_name %></h6>
+        </div>
+      </div>
+      <div class="row mb-2">
+        <div class="col-2">
+          質問タイトル
         </div>
         <div class="col-6 writing">
-          <%= comment.body %>
+          <%= question.title %>
         </div>
         <div class="col-4">
-          <%= link_to "削除", admin_comment_path(comment.id), method: :delete %>
-          <%= link_to admin_user_path(comment.user.id) do %>
-            <%= comment.user.nickname %>
+          <%= link_to "削除", admin_question_path(question.id), method: :delete %>
+          <%= link_to admin_user_path(question.user.id) do %>
+            <%= question.user.nickname %>
           <% end %>
         </div>
       </div>
-      <% comment.comment_comments.each do |comment_comment| %>
+      <div class="row mb-2">
+        <div class="col-2">
+          質問本文
+        </div>
+        <div class="col-6 writing">
+          <%= question.body %>
+        </div>
+      </div>
+      <% question.comments.each do |comment| %>
         <div class="row mb-2">
           <div class="col-2">
-            コメント
+            回答
           </div>
           <div class="col-6 writing">
-            <%= comment_comment.body %>
+            <%= comment.body %>
           </div>
           <div class="col-4">
-            <%= link_to "削除", admin_comment_comment_path(comment_comment.id), method: :delete %>
-            <%= link_to admin_user_path(comment_comment.user.id) do %>
-              <%= comment_comment.user.nickname %>
+            <%= link_to "削除", admin_comment_path(comment.id), method: :delete %>
+            <%= link_to admin_user_path(comment.user.id) do %>
+              <%= comment.user.nickname %>
             <% end %>
           </div>
         </div>
+        <% comment.comment_comments.each do |comment_comment| %>
+          <div class="row mb-2">
+            <div class="col-2">
+              コメント
+            </div>
+            <div class="col-6 writing">
+              <%= comment_comment.body %>
+            </div>
+            <div class="col-4">
+              <%= link_to "削除", admin_comment_comment_path(comment_comment.id), method: :delete %>
+              <%= link_to admin_user_path(comment_comment.user.id) do %>
+                <%= comment_comment.user.nickname %>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
       <% end %>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
+  <div class="pagination"><%= paginate @questions, theme: 'twitter-bootstrap-4' %></div>
 <% end %>
-<div class="pagination"><%= paginate @questions, theme: 'twitter-bootstrap-4' %></div>
-
 
 

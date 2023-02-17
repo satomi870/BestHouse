@@ -1,45 +1,47 @@
 <h4 class="ml-3 mt-5">ユーザー一覧</h4>
-<div class="ml-3 mt-4">全<%= @users_count %>件</div>
-<% @users.each do |user| %>
-  <div class="container mt-5">
-    <div class="row mb-2">
-      <div class="col-3">
-        ユーザーID
+<% if @users.present? %>
+  <div class="ml-3 mt-4">全<%= @users_count %>件</div>
+  <% @users.each do |user| %>
+    <div class="container mt-5">
+      <div class="row mb-2">
+        <div class="col-3">
+          ユーザーID
+        </div>
+        <div class="col-9">
+          <%= user.id %>
+        </div>
       </div>
-      <div class="col-9">
-        <%= user.id %>
+      <div class="row mb-2">
+        <div class="col-3">
+          ユーザー名
+        </div>
+        <div class="col-9">
+          <%= link_to admin_user_path(user.id) do %>
+             <%= user.nickname %>
+           <% end %>
+        </div>
+      </div>
+      <div class="row mb-2">
+        <div class="col-3">
+          メールアドレス
+        </div>
+        <div class="col-9">
+          <%= user.email %>
+        </div>
+      </div>
+      <div class="row mb-2">
+        <div class="col-3">
+          ステータス
+        </div>
+        <div class="col-9">
+          <% if user.is_deleted %>
+            退会
+          <% else %>
+            有効
+          <% end %>
+        </div>
       </div>
     </div>
-    <div class="row mb-2">
-      <div class="col-3">
-        ユーザー名
-      </div>
-      <div class="col-9">
-        <%= link_to admin_user_path(user.id) do %>
-           <%= user.nickname %>
-         <% end %>
-      </div>
-    </div>
-    <div class="row mb-2">
-      <div class="col-3">
-        メールアドレス
-      </div>
-      <div class="col-9">
-        <%= user.email %>
-      </div>
-    </div>
-    <div class="row mb-2">
-      <div class="col-3">
-        ステータス
-      </div>
-      <div class="col-9">
-        <% if user.is_deleted %>
-          退会
-        <% else %>
-          有効
-        <% end %>
-      </div>
-    </div>
-  </div>
+  <% end %>
+  <div class="pagination"><%= paginate @users, theme: 'twitter-bootstrap-4' %></div>
 <% end %>
-<div class="pagination"><%= paginate @users, theme: 'twitter-bootstrap-4' %></div>

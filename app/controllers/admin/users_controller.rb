@@ -3,7 +3,7 @@ class Admin::UsersController < ApplicationController
 
   def index
     @users_count = User.all.count
-    @users = User.page(params[:page]).per(10)
+    @users = User.page(params[:page]).per(15)
   end
 
   def show

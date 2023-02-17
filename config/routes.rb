@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     get 'properties/map/:property_id'=>  'properties#map', as: 'map'
     get 'properties/search'=>  'properties#search', as: 'search'#違うURLで同じアクションに飛びたい時は二つかかず一つにルーティングをまとめる idはどうするかというとtophtmlの方で分岐させる
     resources :properties,only:[:show, :index] do
-      resources :contacts,only:[:new, :create]
+      resources :contacts,only:[:new, :create, :show]
       resource :favorites, only: [:create, :destroy]
       resources :rules, only: [:create]
       resources :reviews, only: [:create]

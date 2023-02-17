@@ -3,7 +3,7 @@ class Admin::RulesController < ApplicationController
 
   def index
     @rules_count = Rule.all.count
-    @rules = Rule.page(params[:page]).per(10)
+    @rules = Rule.page(params[:page]).per(15)
   end
 
   def destroy
