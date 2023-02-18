@@ -29,8 +29,8 @@ class User::ContactsController < ApplicationController
   end
 
   def show
-    #@property=Property.find(params[:property_id]) serach画面の物件選ぶみたいに選んでないんだからidは取れない
-    #@contact = @property.Contact.find(params[:id])
+    @property=Property.find(params[:property_id]) #serach画面の物件選ぶみたいに選んでないんだからidは取れない
+    @contact = @property.Contact.find(params[:id])
   end
 
   private
