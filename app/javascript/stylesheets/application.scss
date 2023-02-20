@@ -476,3 +476,45 @@ background-color: #008BBB;
   display: flex;
   justify-content: center;
 }
+
+
+.popular{
+  display: flex;
+}
+// @media screen and (max-width: 1024px) {
+//   .slide_picture {
+//     width: 990px;
+//     height: 500px;
+//   }
+
+
+@media screen and (max-width: 480px) {
+
+  header {
+    width: 100%;
+  }
+
+  .wrapper{
+    width: 100%;
+  }
+
+  .flex-fill{
+  　font-size: 10px;
+  }
+
+  .slide_picture {
+    width: 350px;
+    height: 200px;
+  }
+
+  .popular-smart{
+    flex-wrap: wrap;
+    margin-left: 40px;
+
+  }
+
+
+
+
+
+}
