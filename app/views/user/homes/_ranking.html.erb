@@ -1,7 +1,7 @@
-<div class="d-flex justify-content-center">
+<div class="famous small-famous">
   <% if model.present? %>
     <% model.each do |property| %>
-      <div class="mr-2 popular_property">
+      <div class="mr-2 popular_property ">
         <%= link_to property_path(property.id) do %>
           <%= image_tag property.images[0],size: '188x130' %>
           <p class="top_property"><%= property.property_name %></p>

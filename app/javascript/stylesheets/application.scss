@@ -137,6 +137,7 @@ p {
     background: #FFF;
     border: solid 3px #4689FF;
     border-radius: 10px;
+    margin-bottom: 45px;
 }
 
 .top_property{
@@ -151,7 +152,7 @@ p {
 
 //topページアコーディオンメニュー
 .accordion {
-  width: 400px;
+  width: 300px;
   margin: 0 auto;
 }
 
@@ -249,7 +250,7 @@ background-color: #008BBB;
   font-weight: bold;
 }
 
-.area_sideber{
+.area-sideber{
   width: 45%;
   max-width: 45%;
   display: inline-block;
@@ -288,7 +289,11 @@ background-color: #008BBB;
 
 .point-font{
   color: #4689FF;
+}
 
+.search-img img{
+  width: 300px;
+  height: 212px;
 }
 
 //property show
@@ -309,7 +314,7 @@ background-color: #008BBB;
 
 #tab-menu li {
   list-style-type: none;
-  width: 25%;
+  width: 70%;
 }
 
 #tab-menu li a {
@@ -418,7 +423,9 @@ background-color: #008BBB;
 }
 
 //マイページ
-
+.nickname{
+  margin-top: 45px;
+}
 .edit{
   padding: 40px;
 }
@@ -438,6 +445,7 @@ background-color: #008BBB;
 .user-property-rule{
   font-size: 17px;
 }
+
 //閲覧履歴
 .history{
   display: inline-block;
@@ -478,7 +486,7 @@ background-color: #008BBB;
 }
 
 
-.popular{
+.famous{
   display: flex;
 }
 // @media screen and (max-width: 1024px) {
@@ -488,33 +496,93 @@ background-color: #008BBB;
 //   }
 
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 576px) {
 
   header {
     width: 100%;
   }
 
-  .wrapper{
-    width: 100%;
-  }
+  // .wrapperh{
+  //   width: 100%;
+  //   margin: 0 auto;
+  // }
 
   .flex-fill{
   　font-size: 10px;
   }
 
-  .slide_picture {
+  .slide_picturea {
     width: 350px;
     height: 200px;
   }
 
-  .popular-smart{
+  .small-famous{
     flex-wrap: wrap;
-    margin-left: 40px;
+    margin-left: 80px;
 
   }
 
 
+  .small-img img{
+   width: 400px;
+   height: 212px;
+  }
 
+  .small-sideber{
+  width: 30%;
+  max-width: 30%;
+  display: inline-block;
+  }
 
+ .small-tab-menu {
+  flex-flow: column;
+}
 
+.small-tab-menu li {
+  margin: 0 auto;
+}
+
+.tab-conten {
+  width: 100%;
+}
+
+#tab-conten .tab {
+  width: 100%;
+  padding: 5px;
+  background: white;
+  border: 1px solid white;
+  border-top: none;
+}
+
+#tab-contents p {
+  color: #000;
+  line-height: 1.5;
+}
+
+.small-worth{
+  margin-left: 130px;
+}
+
+.small-comment{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.small-rule-form{
+  margin-left: 5px;
+}
+
+.small-rule{
+  width: 300px;
+  margin: 0 0 0 5px;
+}
+
+.small-nickname{
+
+  margin-top: 0px;
+}
+
+.small-register{
+  margin-left: 5px;
+}
 }

@@ -3,11 +3,11 @@
   <h5 class="text-left mt-4">全<%= @favorites_count %>件</h5>
   <% @favorites.each do |favorite| %>
     <div class="row">
-      <div class="col-3 mt-3">
+      <div class="col-xl-3 mt-3">
         <h5 class="font-weight-bold"><%= favorite.property.property_name %></h5>
         <%= image_tag favorite.property.images[0],size: '230x150' %>
       </div>
-      <div class="col-4 mt-5">
+      <div class="col-xl-4 mt-5">
         <div class="point">
           <div class="row">
             <div class="col-3">
@@ -54,12 +54,12 @@
     </div>
 
     <div class="row">
-      <div class="col-1 mb-5 mt-3">
+      <div class="col-xl-1 col-3 mb-5 mt-3">
         <%= link_to property_path(favorite.property.id),class: "btn" do %>
           <p class="favorite-btn ">詳細</p>
         <% end %>
       </div>
-      <div class="col-2 mt-3">
+      <div class="col-xl-2 col-6 mt-3">
         <%= link_to property_favorites_path(favorite.property.id), method: :delete, class: "btn" do %>
           <p class="favorite-btn">お気に入りから消す</p>
         <% end %>

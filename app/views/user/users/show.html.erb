@@ -1,17 +1,17 @@
 <h3 class="mt-4">マイページ</h3>
 <div class="row">
-  <div class="col-2 mt-2">
+  <div class="col-xl-2 col-4 mt-2">
     <p><%= @user.nickname %></p>
     <p><%= @user.age %></p>
     <p><%= @user.gender %></p>
   </div>
-  <div class="col-3 edit">
+  <div class="col-xl-3 col-8 edit">
     <%= link_to "編集する",edit_user_path,class: "btn" %>
   </div>
 </div>
 
 <div class="wrap">
-  <ul id="tab-menu">
+  <ul id="tab-menu" class="small-tab-menu">
     <li><a href="#tab1" class="active ">口コミ</a></li>
     <li><a href="#tab2" class="">質問</a></li>
     <li><a href="#tab3" class="">回答</a></li>
@@ -84,7 +84,7 @@
 
   <div id="tab5" class="tab">
     <% if @property_rules.present? %>
-      <div class="rule rule01 ml-5">
+      <div class="rule rule01 small-rule">
         <h3 class="text-center">シェアしたハウスルール</h3>
         <% @property_rules.each do |property| %>
           <%= link_to property_path(property.id) do %>

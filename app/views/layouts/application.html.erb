@@ -21,14 +21,14 @@
 
   <body>
 
-    <div class ="wrapper">
+    <div class ="wrapper small-wrapper">
       <header>
         <h1 class="name">BestHouse</h1><h5 class="text-center"><%= flash[:notice] %></h5>
       </header>
       <ul class="d-flex justify-content-center mt-5 text-center">
         <% if user_signed_in? %>
           <li class=" flex-fill">
-            <%= link_to"シェアハウスを探す",root_path %>
+            <%= link_to"物件を探す",root_path %>
           </li>
           <li class=" flex-fill">
             <%= link_to "お気に入り", favorite_path %>
@@ -38,7 +38,7 @@
               <%= link_to "マイページ",user_path %>
             <%end%>
           </li>
-          <li class=" flex-fill">
+          <li class=" flex-fill ">
             <%= link_to"通知",notifications_path %>
               <% if current_user.passive_notifications.where(checked: false).size > 0 %>
                 <div class="count"><%= current_user.passive_notifications.where(checked: false).size %></div>
@@ -80,7 +80,7 @@
             <%= link_to 'ゲストログイン', users_guest_login_path, method: :post %>
           </li>
           <li class=" flex-fill">
-            <%= link_to"シェアハウスを探す",root_path %>
+            <%= link_to"物件を探す",root_path %>
           </li>
         <% end %>
       </ul>

@@ -4,12 +4,12 @@
 <div class="mt-5 mb-5">
   <div class="slicker w-8s5 d-flex mx-auto align-items-center justify-content-center">
     <div>
-      <%= image_tag'A-living1.jpg', class:'slide_picture' %>
+      <%= image_tag'A-living1.jpg',class: "img-responsive"%>
       <p class="caption">2022年9月オープン!!&nbsp;&nbsp;&nbsp;ゆっくりした空間のリビングでくつろげること間違いなし</p>
     </div>
 
     <div>
-      <%= image_tag'top.jpg', class:'slide_picture' %>
+      <%= image_tag'top.jpg',  size: '890x500' %>
       <p class="caption">お仕事や勉強に没頭できるワーキングラウンジが設備</p>
     </div>
   </div>
@@ -21,7 +21,7 @@
     また実際に住んでいる住人のレビューが見ること、質問することができるのでリアルな物件の実情を知ることができます。<br>
     BestHouseを利用してあなたにとって最高の物件をぜひ見つけてください。
   </p>
-<div class ="wrapper">
+<div class ="wrapper wrapperh">
   <div class="container">
     <div class="row area-search">
       <div class="col-xl-7">
@@ -92,7 +92,7 @@
       <div class="text-center mt-5 mb-3">
         <span class="under">人気物件</span>
       </div>
-      <div class="popular popular-smart">
+      <div class="famous small-famous">
         <% @properties_favorites.each do |property| %>
           <div class="mr-2 popular_property mb-5">
             <%= link_to property_path(property.id) do %>

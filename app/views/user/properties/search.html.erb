@@ -1,7 +1,7 @@
 <% if @properties.present? %>
   <div class="container">
     <div class="row">
-      <div class="col-3 mt-4">
+      <div class="col-xl-3 mt-4">
         <div class ="sideber ">
           <%= form_with url: search_path, method: :get do |f| %>
             <div class="mb-3">
@@ -11,7 +11,7 @@
             <div class="area_check_box">
               <ul>
                 <%= f.collection_check_boxes :area_id, Area.all, :id, :area_name, checked: @checkd_areas do |b| %>
-                  <li class="area_sideber"><%= b.label { b.check_box + b.text } %></li>
+                  <li class="area_sideber small-sideber"><%= b.label { b.check_box + b.text } %></li>
                 <% end %>
               </ul>
             </div>
@@ -50,7 +50,7 @@
         </div>
       </div>
 
-      <div class="col-9">
+      <div class="col-xl-9">
         <div class="text-center">
           <h5 class="text-left mt-4">全<%= @properties_count %>件</h5>
 
@@ -88,10 +88,10 @@
           <div class="row">
             <div class="col-5">
               <h4 class="mb-3"><%= property.property_name %></h4>
-              <%= image_tag property.images[0],size: '300x212' %>
+              <div class="search-img small-img"><%= image_tag property.images[0]%></div>
             </div>
 
-            <div class="col-7 mt-5">
+            <div class="col-xl-7 mt-5">
               <div class="point">
                 <div class="row mb-2">
                   <div class="col-3 mt-3">
@@ -146,14 +146,14 @@
             <% end %>
           </div>
           <div class="row">
-            <div class="col-3 mb-5 mt-3">
+            <div class="col-xl-3 col-6 mb-5 mt-3">
               <% if user_signed_in? %>
                 <%= link_to "詳細を見る",property_path(property.id), class: "btn" %>
               <% else %>
                 <%= link_to "詳細を見る",new_user_session_path, class: "btn" %>
               <% end %>
             </div>
-            <div class="col-3 mt-3">
+            <div class="col-xl-3 col-6 mt-3">
               <% if user_signed_in? %>
                 <% if property.favorited_by?(current_user) %>
                   <%= link_to property_favorites_path(property.id, 1), method: :delete, class: "btn" do %>

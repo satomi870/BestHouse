@@ -1,26 +1,26 @@
 <%= form_with model: @user,url: user_path, method: :patch do |f| %>
   <div class="container">
     <div class="row mb-2">
-      <div class="col-2 mt-5">
+      <div class="col-xl-2 mt-5">
         <%= f.label :nickname,"ニックネーム" %>
       </div>
-      <div class="col-9 mt-5">
+      <div class="col-xl-9 nickname small-nickname">
         <%= f.text_field :nickname %>
       </div>
     </div>
     <div class="row mb-2">
-      <div class="col-2">
+      <div class="col-xl-2">
         <%= f.label :age,"年齢" %>
       </div>
-      <div class="col-9">
+      <div class="col-xl-9">
         <%= f.select :age, [['10代','10代'], ['20代', '20代'], ['30代', '30代'], ['40代','40代'], ['50代','50代'], ['60代','60代'], ['70代','70代'],['非公開','非公開']] %> <!--ageをinteger型じゃなくてstring型にして['20代', "20代"]でもいい-->
       </div>
     </div>
     <div class="row mb-2">
-      <div class="col-2">
+      <div class="col-xl-2">
         <%= f.label :gender,"性別" %>
       </div>
-      <div class="col-9">
+      <div class="col-xl-9">
         <%= f.radio_button :gender, "男性" %>男
         <%= f.radio_button :gender, "女性", class: "ml-3" %>女
         <%= f.radio_button :gender, "非公開" , class: "ml-3" %>非公開
