@@ -17,6 +17,12 @@
 }
 
 //ヘッダー
+
+.header{
+  display: flex;
+  text-align: center;
+
+}
 .flex-fill{
   color: #4689FF;
 }
@@ -55,6 +61,12 @@ p{
 }
 
 // topページ スライド
+
+.slide-picture{
+  width: 890px;
+  height: 500px;
+}
+
 .slick-slide {
   position: relative;
 }
@@ -69,8 +81,8 @@ p{
   font-size: 14px;
   opacity: 0;
   text-align: center;
-  padding-top:20px;
-  height:60px;
+  padding-top: 20px;
+  height: 60px;
   width: 890px;
 }
 
@@ -297,10 +309,11 @@ background-color: #008BBB;
 }
 
 //property show
-.slide_picture{
-  width: 890px;
-  height: 500px;
-}
+// .slide_picture{
+//   width: 890px;
+//   height: 500px;
+// }
+
 //タブ
 .wrap {
   width: 100%;
@@ -498,23 +511,28 @@ background-color: #008BBB;
 
 @media screen and (max-width: 576px) {
 
-  header {
-    width: 100%;
+
+  .small-header{
+    //flex-wrap: wrap;
+    flex-flow: column;
+    text-align: left;
   }
 
-  // .wrapperh{
-  //   width: 100%;
-  //   margin: 0 auto;
-  // }
-
-  .flex-fill{
-  　font-size: 10px;
-  }
-
-  .slide_picturea {
-    width: 350px;
+  .small-slide-picture {
+    width: 250px;
     height: 200px;
+
   }
+
+.slick-slide .small-caption {
+  background-color: rgba(0, 0, 0, 0);
+  color: rgba(0, 0, 0, 0);
+}
+
+.small-explain{
+  font-size: 12px;
+  width: 400px;
+}
 
   .small-famous{
     flex-wrap: wrap;

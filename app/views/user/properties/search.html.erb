@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col-xl-3 mt-4">
-        <div class ="sideber ">
+        <div class ="sideber">
           <%= form_with url: search_path, method: :get do |f| %>
             <div class="mb-3">
               <div class="mt-2 mb-3 text-center sideber-explain">更に絞り込んで<br>理想の物件に近づこう</div>
@@ -11,7 +11,7 @@
             <div class="area_check_box">
               <ul>
                 <%= f.collection_check_boxes :area_id, Area.all, :id, :area_name, checked: @checkd_areas do |b| %>
-                  <li class="area_sideber small-sideber"><%= b.label { b.check_box + b.text } %></li>
+                  <li class="area-sideber small-sideber"><%= b.label { b.check_box + b.text } %></li>
                 <% end %>
               </ul>
             </div>

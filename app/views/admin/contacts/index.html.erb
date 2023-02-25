@@ -4,12 +4,12 @@
   <% @contacts.each do |contact| %>
     <div class="container mt-3">
       <div class="row mb-2">
-        <div class="col-3">
+        <div class="col-xl-3 col-7">
           <%= link_to admin_contact_path(contact.id) do %>
             <%= contact.property.property_name %>
           <% end %>
         </div>
-        <div class="col-9">
+        <div class="col-xl-9 col-5">
           <%= link_to admin_user_path(contact.user.id) do %>
             <%= contact.name %>
           <% end %>

@@ -25,26 +25,26 @@
       <header>
         <h1 class="name">BestHouse</h1><h5 class="text-center"><%= flash[:notice] %></h5>
       </header>
-      <ul class="d-flex justify-content-center mt-5 text-center">
+      <ul class="header small-header justify-content-center mt-5 ml-4">
         <% if user_signed_in? %>
-          <li class=" flex-fill">
+          <li class=" flex-fill all">
             <%= link_to"物件を探す",root_path %>
           </li>
-          <li class=" flex-fill">
+          <li class=" flex-fill all">
             <%= link_to "お気に入り", favorite_path %>
           </li>
-          <li class=" flex-fill">
+          <li class=" flex-fill all">
             <%unless current_user.email == "guest@example.com"%>
               <%= link_to "マイページ",user_path %>
             <%end%>
           </li>
-          <li class=" flex-fill ">
+          <li class=" flex-fill all">
             <%= link_to"通知",notifications_path %>
               <% if current_user.passive_notifications.where(checked: false).size > 0 %>
                 <div class="count"><%= current_user.passive_notifications.where(checked: false).size %></div>
               <% end %>
           </li>
-          <li class=" flex-fill">
+          <li class=" flex-fill all">
             <%= link_to"閲覧履歴",histories_path %>
           </li>
           <li class=" flex-fill">

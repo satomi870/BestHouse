@@ -6,7 +6,7 @@
 
 <div class="slicker w-8s5 d-flex mx-auto align-items-center mt-5">
   <% @property.images.first(2).each do |image| %>
-    <%= image_tag image, class:'slide_picture' %>
+    <%= image_tag image, class:'slide-picture small-slide-picture' %>
   <% end %>
 </div>
 <div class="text-center mb-4">
@@ -31,12 +31,12 @@
     </div>
     <div class="col-xl-6">
       <h3>リビング</h3>
-      <p><%= image_tag @property.images[0],size: '400x230' %></p>
+      <p><%= image_tag @property.images[0],size: '380x230' %></p>
       <p><%= @property.living%></p>
     </div>
     <div class="col-xl-6">
       <h3>キッチン</h3>
-      <p><%= image_tag @property.images[1],size: '400x230' %></p>
+      <p><%= image_tag @property.images[1],size: '380x230' %></p>
       <p><%= @property.kitchen%></p>
     </div>
   </div>
