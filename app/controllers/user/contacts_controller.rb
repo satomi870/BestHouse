@@ -11,15 +11,6 @@ class User::ContactsController < ApplicationController
     @contact.user_id = current_user.id
     @contact.property_id = params[:property_id]
     if  @contact.save
-      #
-      @notification = Notification.new
-      @notification.action = "contact"
-      @notification.sender_id = @contact.user_id
-      @notification.receiver_id = @contact.user_id
-      @notification.checked = false
-      @notification.property_id = @contact.property_id
-      @notification.save
-      #
       flash[:notice] = "お問い合わせの送信が完了しました!"
       redirect_to root_path
     else

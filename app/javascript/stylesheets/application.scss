@@ -143,6 +143,10 @@ p {
   margin-bottom: 0;
 }
 
+.famous{
+  display: flex;
+}
+
 .popular_property {
     font-weight: bold;
     color: #4689FF;
@@ -498,10 +502,6 @@ background-color: #008BBB;
   justify-content: center;
 }
 
-
-.famous{
-  display: flex;
-}
 // @media screen and (max-width: 1024px) {
 //   .slide_picture {
 //     width: 990px;
