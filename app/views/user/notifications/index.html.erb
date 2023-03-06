@@ -11,6 +11,8 @@
       <p><%= "#{notification.sender.nickname}さん" %>が、あなたのした回答に<%= link_to "コメント", "/properties/#{notification.property_id}?flag=qa", method: :get %>しました<%= "（#{notification.created_at.to_s(:datetime_jp)}）" %></p>
     <% elsif notification.action == 'review_on_question'%>
       <p><%= "#{notification.sender.nickname}さん" %>が、あなたの口コミした物件に<%= link_to "質問", "/properties/#{notification.property_id}?flag=qa", method: :get %>しました<%= "（#{notification.created_at.to_s(:datetime_jp)}）"%></p>
+        <% elsif notification.action == 'contact'%>
+      <p>お問合せが完了しました</p>
     <% end %>
   <% end %>
 <% else %>
