@@ -312,11 +312,6 @@ background-color: #008BBB;
   height: 212px;
 }
 
-//property show
-// .slide_picture{
-//   width: 890px;
-//   height: 500px;
-// }
 
 //タブ
 .wrap {
@@ -502,18 +497,10 @@ background-color: #008BBB;
   justify-content: center;
 }
 
-// @media screen and (max-width: 1024px) {
-//   .slide_picture {
-//     width: 990px;
-//     height: 500px;
-//   }
-
-
 @media screen and (max-width: 576px) {
 
 
   .small-header{
-    //flex-wrap: wrap;
     flex-flow: column;
     text-align: left;
   }
