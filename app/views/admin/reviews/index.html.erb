@@ -5,7 +5,9 @@
     <div class="container mt-5">
       <div class="row mb-2">
         <div class="col-6">
-          <h6><%= review.property.property_name %></h6>
+          <%= link_to property_path(review.property.id) do %>
+            <h6><%= review.property.property_name %></h6>
+          <% end %>
           <div class="writing">
             <div class="mb-2"><%= review.title %></div>
             <%= review.body %>
