@@ -1,1 +1,15 @@
 <p>色々検索</p>
+<div class="text-center mt-3 mb-1">
+  <span class="under">住人の口コミによる人気物件</span>
+</div>
+<h4 class="popular text-center mt-5">住民の雰囲気がいい物件</h4>
+<%= render 'ranking', model: @properties_atmosphere %>
+
+<h4 class="popular text-center mt-5">騒音が少ない物件</h4>
+<%= render 'ranking', model: @properties_noise %>
+
+<h4 class=" popular text-center mt-5">共有部が清潔な物件</h4>
+<%= render 'ranking', model: @properties_cleanliness_shared %>
+
+<h4 class="popular text-center mt-5">水回りの混雑が少ない物件</h4>
+<%= render 'ranking', model: @properties_congestion_shared %>
