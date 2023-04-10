@@ -13,3 +13,117 @@
 
 <h4 class="popular text-center mt-5">水回りの混雑が少ない物件</h4>
 <%= render 'ranking', model: @properties_congestion_shared %>
+
+
+<div class="text-center mt-3">
+    <h3 class="mb-4">こだわりを選ぼう</h3>
+    <%= f.collection_check_boxes :tag_id, @basic_tags, :id, :name do |b| %>
+      <% if  b.object.id == 1 %>
+        <%= image_tag 'woman.jpg' %>
+      <% end %>
+      <% if  b.object.id == 2 %>
+        <%= image_tag 'gender.jpg' %>
+      <% end %>
+
+      <% if  b.object.id == 3 %>
+        <%= image_tag 'earth.jpg' %>
+      <% end %>
+
+      <% if  b.object.id == 4 %>
+        <%= image_tag 'friend.jpg' %>
+      <% end %>
+
+      <%= b.label { b.check_box + b.text } %> <!--if文で選ばれたのをこの１行で表示 -->
+    <% end %>
+    <div class="grid-item mt-2">
+      <%= f.collection_check_boxes :tag_id, @room_tags, :id, :name do |b| %>
+        <% if  b.object.id == 5 %>
+          <%= image_tag 'noise.jpg' %>
+        <% end %>
+
+        <% if  b.object.id == 6 %>
+          <%= image_tag 'wide.jpg' %>
+        <% end %>
+
+        <% if  b.object.id == 7 %>
+          <%= image_tag 'bath.jpg' %>
+        <%end %>
+
+        <% if  b.object.id == 8 %>
+          <%= image_tag 'toilet.jpg' %>
+        <% end %>
+
+        <% if  b.object.id == 9 %>
+          <%= image_tag 'kitchen.jpg' %>
+        <% end %>
+
+        <%= b.label { b.check_box + b.text } %> <!--if文で選ばれたのをこの１行で表示 -->
+      <% end %>
+    </div>
+
+    <div class="grid-item mt-2">
+      <%= f.collection_check_boxes :tag_id, @shared_facility_tags, :id, :name do |b| %>
+        <% if  b.object.id == 14 %>
+          <%= image_tag 'water.jpg' %>
+        <% end %>
+
+        <% if  b.object.id == 15 %>
+          <%= image_tag 'cook.jpg' %>
+        <% end %>
+
+        <% if  b.object.id == 16 %>
+          <%= image_tag 'clean.jpg' %>
+        <%end %>
+
+        <% if  b.object.id == 17 %>
+          <%= image_tag 'rest.jpg' %>
+        <% end %>
+
+        <%= b.label { b.check_box + b.text } %> <!--if文で選ばれたのをこの１行で表示 -->
+      <% end %>
+    </div>
+
+    <div class="grid-item mt-2">
+      <%= f.collection_check_boxes :tag_id, @surrounding_tags, :id, :name do |b| %>
+        <% if  b.object.id == 10 %>
+          <%= image_tag 'train.jpg' %>
+        <% end %>
+
+        <% if  b.object.id == 11 %>
+          <%= image_tag 'shop.jpg' %>
+        <% end %>
+
+        <% if  b.object.id == 12 %>
+          <%= image_tag 'residential.jpg' %>
+        <%end %>
+
+        <% if  b.object.id == 13 %>
+          <%= image_tag 'bill.jpg' %>
+        <% end %>
+
+        <%= b.label { b.check_box + b.text } %> <!--if文で選ばれたのをこの１行で表示 -->
+      <% end %>
+    </div>
+
+     <div class="grid-item mt-2">
+      <%= f.collection_check_boxes :tag_id, @other_tags, :id, :name do |b| %>
+        <% if  b.object.id == 18 %>
+          <%= image_tag 'bike.jpg' %>
+        <% end %>
+
+        <% if  b.object.id == 19 %>
+          <%= image_tag 'key.jpg' %>
+        <% end %>
+
+        <% if  b.object.id == 20 %>
+          <%= image_tag 'event.jpg' %>
+        <%end %>
+
+        <% if  b.object.id == 21%>
+          <%= image_tag 'event.jpg' %>
+        <% end %>
+
+        <%= b.label { b.check_box + b.text } %> <!--if文で選ばれたのをこの１行で表示 -->
+      <% end %>
+    </div>
+  </div>
