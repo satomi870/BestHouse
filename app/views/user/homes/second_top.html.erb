@@ -127,3 +127,41 @@
       <% end %>
     </div>
   </div>
+
+<h3>特徴から探す</h3>
+        <section>
+          <div class="accordion">
+            <p class="menu menu1">入居者の特性</p>
+            <div class="contents">
+              <% @basic_tags.each do |basic_tag| %>
+                <div><%= link_to basic_tag.name,search_path(tag_id: basic_tag.id, from_top: true) %>&nbsp;&nbsp;&nbsp;</div>
+              <% end %>
+            </div>
+
+            <p class="menu menu2">部屋</p>
+            <div class="contents">
+              <% @room_tags.each do |room_tag| %>
+                <div><%= link_to room_tag.name,search_path(tag_id: room_tag.id, from_top: true) %>&nbsp;&nbsp;&nbsp;</div>
+              <% end %>
+            </div>
+
+            <p class="menu menu3">周辺環境</p>
+            <div class="contents">
+              <% @surrounding_tags.each do |surrounding_tag| %>
+                <div><%= link_to surrounding_tag.name,search_path(tag_id: surrounding_tag.id, from_top: true) %>&nbsp;&nbsp;&nbsp;</div>
+              <% end %>
+            </div>
+
+            <p class="menu menu4">共有設備</p>
+            <div class="contents">
+              <% @shared_facility_tags.each do |shared_facility_tag| %>
+                <div><%= link_to shared_facility_tag.name,search_path(tag_id: shared_facility_tag.id, from_top: true) %>&nbsp;&nbsp;&nbsp;</div>
+              <% end %>
+            </div>
+
+            <p class="menu menu5">その他</p>
+            <div class="contents">
+              <% @other_tags.each do |other_tag| %>
+                <div><%= link_to other_tag.name,search_path(tag_id: other_tag.id, from_top: true) %>&nbsp;&nbsp;&nbsp;</div>
+              <% end %>
+            </div>
