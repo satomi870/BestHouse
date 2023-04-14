@@ -145,6 +145,16 @@
               <% end %>
             </div>
 
+        <div class="col-xl-5">
+        <div class="mb-5">
+          <h3>フリーワードで探す</h3>
+          <%= form_with url: search_path, method: :get do |f| %>
+            <%= f.label :keyword, 'キーワード検索' %>
+            <%= f.text_field :keyword %>
+            <%= f.submit '検索' ,class: "btn" %>
+          <% end %>
+        </div>
+
             <p class="menu menu3">周辺環境</p>
             <div class="contents">
               <% @surrounding_tags.each do |surrounding_tag| %>
